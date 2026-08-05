@@ -1,0 +1,6 @@
+{
+  "name": "CodeLingo - Aprende Código",
+  "description": "Aplicación interactiva para aprender a programar estilo Duolingo con racha, gemas, vidas, rutas de aprendizaje e IA con Gemini.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
