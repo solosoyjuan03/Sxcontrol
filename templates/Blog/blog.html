@@ -1,4 +1,27 @@
 <!DOCTYPE html>
-    <html>
-        <h5>Hola, esta parte aun esta en desarrollo</h5>
-    </html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog - SXcontrol</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">SX<span>control</span></div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Inicio</a></li>
+                <li><a href="{{ url_for('comunidad') }}">Comunidad</a></li>
+                <li><a href="{{ url_for('proyectos') }}">Proyectos</a></li>
+                <li><a href="{{ url_for('consultoria') }}">Consultoría</a></li>
+                <li><a href="{{ url_for('tienda') }}">Tienda</a></li>
+                <li><a href="{{ url_for('blog') }}" class="active">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="hero">
+        <h1>Blog y <span>Noticias</span></h1>
+        <p>Artículos sobre desarrollo de software, ciberseguridad y cultura libre.</p>
+    </main>
+</body>
+</html>

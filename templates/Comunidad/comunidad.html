@@ -1,4 +1,27 @@
 <!DOCTYPE html>
-    <html>
-        <h5>Hola, esta parte aun esta en desarrollo</h5>
-    </html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Comunidad - SXcontrol</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">SX<span>control</span></div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Inicio</a></li>
+                <li><a href="{{ url_for('comunidad') }}" class="active">Comunidad</a></li>
+                <li><a href="{{ url_for('proyectos') }}">Proyectos</a></li>
+                <li><a href="{{ url_for('consultoria') }}">Consultoría</a></li>
+                <li><a href="{{ url_for('tienda') }}">Tienda</a></li>
+                <li><a href="{{ url_for('blog') }}">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="hero">
+        <h1>Nuestra <span>Comunidad</span></h1>
+        <p>Únete a desarrolladores y colaboradores comprometidos con el software libre.</p>
+    </main>
+</body>
+</html>
