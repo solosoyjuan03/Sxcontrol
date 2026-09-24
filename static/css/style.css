@@ -14,19 +14,39 @@ body {
     color: var(--sx-white);
 }
 
+
 header {
-    padding: 20px 40px;
+    padding: 15px 5%;
     background: var(--sx-black-soft);
     border-bottom: 2px solid var(--sx-orange);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
 }
 
 .logo {
     color: var(--sx-white);
-    font-size: 28px;
+    font-size: 26px;
     font-weight: bold;
+    line-height: 1;
+    display: flex;
+    align-items: center;
 }
 
 .logo span {
@@ -127,4 +147,10 @@ nav a.active {
     font-size: 15px;
     line-height: 1.5;
     margin-bottom: 20px;
+}
+
+.proyecto-card .btn {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
 }
