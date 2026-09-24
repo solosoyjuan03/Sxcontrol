@@ -7,15 +7,25 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <header>
-        <div class="logo">SX<span>control</span></div>
-    </header>
+<header>
+    <div class="logo">SX<span>control</span></div>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('home') }}" class="active">Inicio</a></li>
+            <li><a href="{{ url_for('comunidad') }}">Comunidad</a></li>
+            <li><a href="{{ url_for('proyectos') }}">Proyectos</a></li>
+            <li><a href="{{ url_for('consultoria') }}">Consultoría</a></li>
+            <li><a href="{{ url_for('tienda') }}">Tienda</a></li>
+            <li><a href="{{ url_for('blog') }}">Blog</a></li>
+        </ul>
+    </nav>
+</header>
 
     <main>
         <section class="hero">
-            <h1>Contruimos <sapn>software libre</sapn></h1>
-            <p>comunidad, tecnologia y proyectos con proposito.</p>
-            <a href="#">Conocer SXcontrol</a>
+            <h1>Contruimos <span>software libre</span></h1> 
+            <p>Comunidad, tecnologia y proyectos con proposito.</p>
+            <a href="{{ url_for('comunidad')}}" class="btn">Conocer SXcontrol</a>
         </section>
     </main>
 
