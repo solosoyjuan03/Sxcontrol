@@ -127,7 +127,7 @@ nav a.active {
     border-radius: 10px;
     padding: 30px;
     max-width: 350px;
-    text-align: left;
+    text-align: center;
     transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
@@ -153,4 +153,93 @@ nav a.active {
     display: block;
     width: fit-content;
     margin: 0 auto;
+}
+
+/* Estado no disponible / Próximamente */
+.proyecto-card .disponibilidad {
+    display: inline-block;
+    color: var(--sx-text-gray);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px dashed #444;
+    border-radius: 6px;
+    margin-top: auto;
+}
+
+/* Sección Comunidad e Información */
+.comunidad-info {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.comunidad-info h2 {
+    font-size: 28px;
+    color: var(--sx-white);
+    margin-bottom: 20px;
+}
+
+.comunidad-info p {
+    color: var(--sx-text-gray);
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Caja de Donaciones */
+.donaciones-section {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    padding: 0 20px;
+}
+
+.donacion-card {
+    background: var(--sx-black-soft);
+    border: 1px solid #333;
+    border-top: 3px solid var(--sx-orange);
+    border-radius: 10px;
+    padding: 35px;
+    max-width: 650px;
+    text-align: center;
+}
+
+.donacion-card h3 {
+    color: var(--sx-white);
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.donacion-card p {
+    color: var(--sx-text-gray);
+    font-size: 15px;
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+/* Botones de Donación */
+.donaciones-botones {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn-donar {
+    background: var(--sx-orange);
+    color: white;
+}
+
+.btn-secundario {
+    background: transparent;
+    color: var(--sx-white);
+    border: 1px solid var(--sx-orange);
+}
+
+.btn-secundario:hover {
+    background: var(--sx-orange);
+    color: white;
 }
