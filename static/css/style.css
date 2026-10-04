@@ -1,3 +1,4 @@
+/* Variables de color compartidas por las páginas */
 :root {
     --sx-orange: #ff6B1A;
     --sx-orange-dark: #E05500;
@@ -7,6 +8,7 @@
     --sx-text-gray: #A0A0A0;
 }
 
+/* Estilos base del sitio */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -14,7 +16,7 @@ body {
     color: var(--sx-white);
 }
 
-
+/* Encabezado principal */
 header {
     padding: 15px 5%;
     background: var(--sx-black-soft);
@@ -26,6 +28,7 @@ header {
     width: 100%;
 }
 
+/* Ajustes del encabezado y la navegación para pantallas pequeñas */
 @media (max-width: 768px) {
     header {
         flex-direction: column;
@@ -40,6 +43,7 @@ header {
     }
 }
 
+/* Marca y logotipo */
 .logo {
     color: var(--sx-white);
     font-size: 26px;
@@ -75,7 +79,7 @@ nav a.active {
     color: var(--sx-orange);
 }
 
-/* Sección Hero */
+/* Presentación principal de la página de inicio */
 .hero {
     text-align: center;
     padding: 80px 20px;
@@ -95,6 +99,7 @@ nav a.active {
     margin-bottom: 25px;
 }
 
+/* Botón principal reutilizable */
 .btn {
     display: inline-block;
     padding: 12px 22px;
@@ -110,7 +115,7 @@ nav a.active {
 }
 
 
-/* Grilla y Tarjetas de Proyectos */
+/* Grilla y tarjetas de proyectos */
 .proyectos-grid {
     display: flex;
     justify-content: center;
@@ -189,7 +194,46 @@ nav a.active {
     margin-bottom: 15px;
 }
 
-/* Caja de Donaciones */
+/* Cronología de noticias y estado de los avances */
+.noticias-timeline {
+    max-width: 850px;
+    margin: 35px auto 0;
+    padding: 0 20px;
+    text-align: left;
+}
+
+.noticias-timeline > h2 {
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--sx-orange);
+}
+
+.noticia-avance {
+    margin: 24px 0;
+    padding: 0 0 4px 20px;
+    border-left: 3px solid var(--sx-orange);
+}
+
+.noticia-avance h3,
+.noticias-estado h3 {
+    margin-top: 0;
+}
+
+.noticia-avance p,
+.noticias-estado p {
+    color: var(--sx-text-gray);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.noticias-estado {
+    margin-top: 32px;
+    padding: 18px 20px;
+    border: 1px solid #333;
+    border-radius: 8px;
+    background: var(--sx-black-soft);
+}
+
+/* Sección y tarjeta de donaciones */
 .donaciones-section {
     display: flex;
     justify-content: center;
@@ -220,7 +264,7 @@ nav a.active {
     margin-bottom: 25px;
 }
 
-/* Botones de Donación */
+/* Variantes de botones de donación */
 .donaciones-botones {
     display: flex;
     justify-content: center;
@@ -244,7 +288,7 @@ nav a.active {
     color: white;
 }
 
-/* Estilos generales para la vista de Nutria */
+/* Estructura general de la página de Nutria */
 .nutria-container {
     max-width: 800px;
     margin: 40px auto;
@@ -268,14 +312,14 @@ nav a.active {
     margin-bottom: 30px;
 }
 
-/* Contenedor de acordeones */
+/* Lista vertical de acordeones */
 .accordion-group {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-/* Tarjeta desplegable */
+/* Tarjeta de cada elemento desplegable */
 .accordion-item {
     background: #ffffff;
     border: 1px solid #ddd;
@@ -285,7 +329,7 @@ nav a.active {
     transition: all 0.3s ease;
 }
 
-/* Botón desplegable (Summary) */
+/* Encabezado interactivo de cada acordeón */
 .btn-accordion {
     background-color: #f9f9f9;
     color: #222;
@@ -308,7 +352,7 @@ nav a.active {
     color: #ff7f00;
 }
 
-/* Contenido interno del desplegable */
+/* Contenido mostrado dentro del acordeón */
 .accordion-content {
     padding: 20px;
     border-top: 1px solid #eee;
@@ -316,7 +360,7 @@ nav a.active {
     line-height: 1.6;
 }
 
-/* Estilos para el formulario de la calculadora */
+/* Formulario y campos de la calculadora nutricional */
 .nutricion-form {
     display: flex;
     flex-direction: column;
