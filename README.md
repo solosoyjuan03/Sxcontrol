@@ -1,0 +1,102 @@
+# SXcontrol
+
+SXcontrol es una aplicación web desarrollada con Flask. Reúne páginas informativas y proyectos interactivos; entre ellos, **SX Nutria**, una guía educativa de alimentación para personas adultas.
+
+## Funcionalidades actuales
+
+- Páginas de inicio, comunidad, proyectos, consultoría, tienda y blog.
+- SX Nutria incluye secciones desplegables de introducción, documentación, guía alimentaria, recomendaciones generales de salud y calculadora.
+- La calculadora estima el gasto energético diario, el IMC y una distribución general de macronutrientes a partir de los datos ingresados.
+- Los resultados incluyen recomendaciones educativas orientativas según el rango de IMC, ejemplos de alimentos y una guía flexible de porciones.
+- La página está diseñada para mantener abierta la calculadora al entrar y después de enviar el formulario.
+
+> **Aviso:** SX Nutria es una herramienta educativa, no un servicio médico. Sus cálculos y recomendaciones no son diagnósticos ni sustituyen la atención de profesionales de salud. El IMC es una medida orientativa y no permite diagnosticar por sí solo una condición.
+
+## Requisitos
+
+- Python 3.10 o posterior.
+- Las dependencias listadas en [`requirements.txt`](requirements.txt).
+
+## Instalación y ejecución local
+
+En Windows PowerShell:
+
+```powershell
+git clone https://github.com/solosoyjuan03/Sxcontrol.git
+cd Sxcontrol
+py -m venv venv
+.\venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+python app.py
+```
+
+Luego abre <http://127.0.0.1:5000> en el navegador. Para salir del entorno virtual:
+
+```powershell
+deactivate
+```
+
+La aplicación también define un `Procfile` para ejecutarse con Gunicorn en plataformas compatibles:
+
+```text
+web: gunicorn app:app
+```
+
+## Estructura principal
+
+```text
+app.py                         Rutas y lógica de la aplicación Flask
+templates/                     Plantillas HTML
+  Proyectos/SX_Nutria/          Página y calculadora SX Nutria
+static/css/style.css            Estilos
+requirements.txt                Dependencias de Python
+Procfile                        Comando de inicio para despliegue
+```
+
+## Avances del proyecto
+
+### Implementado
+
+- Aplicación Flask con rutas para las páginas principales del sitio.
+- SX Nutria con cinco secciones desplegables y calculadora como primera sección.
+- Estimaciones de gasto energético, distribución general de macronutrientes e IMC para adultos.
+- Recomendaciones educativas según el rango de IMC, incluyendo bajo peso, rango de referencia, sobrepeso y categorías de obesidad.
+- Orientación general sobre alimentación, porciones y condiciones de salud, con avisos para consultar a profesionales cuando sea necesario.
+- Validación de entradas de la calculadora y exclusión del entorno virtual y archivos temporales mediante `.gitignore`.
+
+### Cómo registrar próximos avances
+
+Al completar una mejora, actualiza esta sección con:
+
+1. La función terminada y el área del proyecto que afecta.
+2. Cambios importantes para quien usa o instala la aplicación.
+3. Pruebas o verificaciones ejecutadas.
+
+Procura describir lo que efectivamente está implementado y probado. Si una función sigue en desarrollo, indícala como pendiente y no como terminada.
+
+## Flujo recomendado para contribuir
+
+Antes de empezar, actualiza tu copia local:
+
+```powershell
+git pull origin main
+```
+
+Después de implementar y revisar una mejora:
+
+```powershell
+git status
+git add .
+git commit -m "Describe el cambio"
+git push origin main
+```
+
+Usa mensajes de commit breves y descriptivos. No agregues al repositorio el entorno virtual (`venv`), secretos, contraseñas ni archivos `.env`.
+
+## Fuentes de referencia de SX Nutria
+
+- [Guía Alimentaria de Canadá — Health Canada](https://www.canada.ca/en/health-canada/services/food-nutrition/canada-food-guide.html)
+- [Alimentación saludable — Organización Mundial de la Salud](https://www.who.int/news-room/fact-sheets/detail/healthy-diet)
+- [Hypertension Canada](https://hypertension.ca/)
+- [Diabetes Canada](https://www.diabetes.ca/)
+- [Heart & Stroke — Alimentación saludable](https://www.heartandstroke.ca/healthy-living/healthy-eating)

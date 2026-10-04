@@ -25,112 +25,142 @@
 
         <!-- Menú de 5 botones desplegables / Acordeones -->
         <div class="accordion-group">
-            
-            <!-- Botón 1: Introducción / Inicio -->
+
+            <!-- Botón 1: Calculadora Alimentaria -->
             <details class="accordion-item" open>
-                <summary class="btn-accordion">1. Introducción y Enfoque (+18)</summary>
-                <div class="accordion-content">
-                    <p>Bienvenido a SX Nutria. Esta plataforma adapta los principios de la Guía Alimentaria de Canadá para adultos mayores de 18 años, priorizando el consumo consciente, la proporción adecuada de vegetales, granos integrales y proteínas saludables, así como una hidratación óptima basada en agua.</p>
-                </div>
-            </details>
-
-            <!-- Botón 2: Documentación -->
-            <details class="accordion-item">
-                <summary class="btn-accordion">2. Documentación</summary>
-                <div class="accordion-content">
-                    <p>Aquí encontrarás las bases metodológicas, referencias bibliográficas de Health Canada y los criterios técnicos aplicados para el desarrollo de las porciones y recomendaciones energéticas en adultos.</p>
-                    <ul>
-                        <li>Fundamentos científicos de las porciones por plato.</li>
-                        <li>Equivalencias nutricionales internacionales.</li>
-                    </ul>
-                </div>
-            </details>
-
-            <!-- Botón 3: Guía Alimentaria -->
-            <details class="accordion-item">
-                <summary class="btn-accordion">3. Guía Alimentaria</summary>
-                <div class="accordion-content">
-                    <p>El plato saludable de referencia se divide visualmente en tres componentes clave:</p>
-                    <ul>
-                        <li><strong>1/2 Plato:</strong> Verduras y frutas frescas de variados colores.</li>
-                        <li><strong>1/4 Plato:</strong> Alimentos ricos en proteínas (legumbres, frutos secos, pescado, carnes magras, huevos).</li>
-                        <li><strong>1/4 Plato:</strong> Alimentos integrales (quinoa, avena, arroz integral, pan integral).</li>
-                    </ul>
-                </div>
-            </details>
-
-            <!-- Botón 4: Recomendaciones para personas con patologías -->
-            <details class="accordion-item">
-                <summary class="btn-accordion">4. Recomendaciones para Personas con Patologías</summary>
-                <div class="accordion-content">
-                    <p><strong>Nota importante:</strong> Las pautas generales deben ajustarse bajo supervisión médica en caso de condiciones específicas:</p>
-                    <ul>
-                        <li><strong>Hipertensión:</strong> Reducción estricta del sodio añadido, priorizando especias naturales y alimentos frescos.</li>
-                        <li><strong>Diabetes (Tipo 1 y 2):</strong> Control estricto de carbohidratos refinados, prefiriendo siempre carbohidratos complejos de bajo índice glucémico y alto contenido de fibra.</li>
-                        <li><strong>Dislipidemias:</strong> Control de grasas saturadas, sustituyéndolas por grasas saludables como aguacate, aceite de oliva y frutos secos.</li>
-                    </ul>
-                </div>
-            </details>
-
-            <!-- Botón 5: Calculadora Alimentaria -->
-            <details class="accordion-item">
-                <summary class="btn-accordion">5. Calculadora Alimentaria</summary>
+                <summary class="btn-accordion">1. Calculadora Alimentaria</summary>
                 <div class="accordion-content">
                     <p>Herramienta interactiva para estimar tus requerimientos calóricos base y distribución de macronutrientes según tu nivel de actividad física:</p>
-                    
-<form class="nutricion-form" method="POST" action="{{ url_for('nutria') }}">
-    <div class="form-group">
-        <label>Género:</label>
-        <select name="genero" required>
-            <option value="hombre">Hombre</option>
-            <option value="mujer">Mujer</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label>Peso (kg):</label>
-        <input type="number" name="peso" placeholder="Ej. 70" step="0.1" min="30" max="300" required>
-    </div>
-    <div class="form-group">
-        <label>Altura (cm):</label>
-        <input type="number" name="altura" placeholder="Ej. 175" min="100" max="250" required>
-    </div>
-    <div class="form-group">
-        <label>Edad (Años):</label>
-        <input type="number" name="edad" placeholder="Mayor de 18" min="18" max="120" required>
-    </div>
-    <div class="form-group">
-        <label>Nivel de Actividad Física:</label>
-        <select name="actividad" required>
-            <option value="1.2">Sedentario (poco o ningún ejercicio)</option>
-            <option value="1.375">Ligero (ejercicio ligero 1-3 días/sem)</option>
-            <option value="1.55">Moderado (ejercicio moderado 3-5 días/sem)</option>
-            <option value="1.725">Intenso (ejercicio fuerte 6-7 días/sem)</option>
-        </select>
-         </div>
-    <button type="submit" class="btn">Calcular en el Servidor</button>
-            </form>
 
-            <!-- Mostrar resultados si Python los envió -->
-            {% if resultado %}
-            <div class="resultado-box" style="margin-top: 20px;">
-                {% if resultado.error %}
-                    <p style="color: red;">{{ resultado.error }}</p>
-                {% else %}
-                    <h4>Tus Resultados Estimados:</h4>
-                    <p><strong>Calorías diarias recomendadas (TDEE):</strong> {{ resultado.calorias }} kcal</p>
-                    <div class="plate-guide">
-                        <p><strong>Distribución sugerida según Guía Alimentaria:</strong></p>
-                        <ul>
-                            <li>🌿 <strong>1/2 Plato:</strong> Verduras y frutas frescas variadas.</li>
-                            <li>🍗 <strong>1/4 Plato:</strong> Alimentos proteicos (magros, legumbres, etc.).</li>
-                            <li>🌾 <strong>1/4 Plato:</strong> Alimentos integrales (avena, quinoa, arroz integral).</li>
-                        </ul>
+                    <form class="nutricion-form" method="POST" action="{{ url_for('nutria') }}">
+                        <div class="form-group">
+                            <label>Género:</label>
+                            <select name="genero" required>
+                                <option value="hombre">Hombre</option>
+                                <option value="mujer">Mujer</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Peso (kg):</label>
+                            <input type="number" name="peso" placeholder="Ej. 70" step="0.1" min="30" max="300" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Altura (cm):</label>
+                            <input type="number" name="altura" placeholder="Ej. 175" min="100" max="250" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Edad (Años):</label>
+                            <input type="number" name="edad" placeholder="Mayor de 18" min="18" max="120" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Nivel de Actividad Física:</label>
+                            <select name="actividad" required>
+                                <option value="1.2">Sedentario (poco o ningún ejercicio)</option>
+                                <option value="1.375">Ligero (ejercicio ligero 1-3 días/sem)</option>
+                                <option value="1.55">Moderado (ejercicio moderado 3-5 días/sem)</option>
+                                <option value="1.725">Intenso (ejercicio fuerte 6-7 días/sem)</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn">Calcular en el Servidor</button>
+                    </form>
+
+                    {% if resultado %}
+                    <div class="resultado-box" style="margin-top: 20px;">
+                        {% if resultado.error %}
+                            <p style="color: red;">{{ resultado.error }}</p>
+                        {% else %}
+                            <h4>Tus Resultados Estimados:</h4>
+                            <p><strong>Gasto energético diario estimado (mantenimiento):</strong> {{ resultado.calorias }} kcal</p>
+                            <div class="imc-result">
+                                <h4>Evaluación orientativa del IMC</h4>
+                                <p><strong>IMC:</strong> {{ resultado.imc }} — <strong>{{ resultado.categoria_imc }}</strong></p>
+                                <p>{{ resultado.recomendacion_imc }}</p>
+                                <p><small>En adultos, las categorías de referencia consideran bajo peso por debajo de 18,5, sobrepeso desde 25 y obesidad desde 30. El IMC es una herramienta de detección: no mide directamente la grasa corporal ni confirma por sí solo desnutrición u obesidad.</small></p>
+                            </div>
+                            <p><strong>Enfoque para {{ resultado.categoria_imc|lower }}:</strong> {{ resultado.enfoque_alimentario }}</p>
+                            <p>La distribución de macronutrientes siguiente es solo una estimación matemática general (50 % carbohidratos, 20 % proteína y 30 % grasas); no se ajusta a enfermedades, composición corporal ni objetivos individuales:</p>
+                            <ul>
+                                <li><strong>Carbohidratos:</strong> aproximadamente {{ resultado.carbohidratos }} g al día. Opciones: {{ resultado.fuentes_carbohidratos }}</li>
+                                <li><strong>Proteína:</strong> aproximadamente {{ resultado.proteina }} g al día. Opciones: {{ resultado.fuentes_proteina }}</li>
+                                <li><strong>Grasas:</strong> aproximadamente {{ resultado.grasas }} g al día. Opciones: {{ resultado.fuentes_grasas }}</li>
+                            </ul>
+                            <div class="plate-guide">
+                                <p><strong>Cómo organizar tus porciones:</strong> {{ resultado.guia_porciones }}</p>
+                                <ul>
+                                    <li>{{ resultado.rutina_comidas }}</li>
+                                    <li>Escoge frutas y verduras frescas, congeladas o enlatadas con poco o nada de azúcar añadida y sodio.</li>
+                                </ul>
+                            </div>
+                            <p><small>Estas sugerencias se basan únicamente en un IMC orientativo, no en un diagnóstico ni en enfermedades que la calculadora no evalúa. Las cantidades, la distribución de comidas y los alimentos adecuados varían según cada persona. Si tienes una condición de salud, embarazo, pérdida de peso involuntaria o necesidades especiales, consulta con un profesional de nutrición o salud.</small></p>
+                        {% endif %}
                     </div>
-                {% endif %}
-            </div>
-            {% endif %}
+                    {% endif %}
+                </div>
+            </details>
+            <!-- Botón 2: Introducción / Inicio -->
+            <details class="accordion-item">
+                <summary class="btn-accordion">2. Introducción y Enfoque (+18)</summary>
+                <div class="accordion-content">
+                    <p><strong>SX Nutria es una guía educativa para personas adultas (18 años o más).</strong> Toma como referencia la Guía Alimentaria de Canadá: variedad de alimentos, más verduras y frutas, alimentos integrales, fuentes de proteína y agua como bebida habitual.</p>
+                    <p>Las recomendaciones son generales y no sustituyen una consulta, un diagnóstico ni un plan de tratamiento. Las necesidades cambian según la salud, medicamentos, cultura, preferencias, presupuesto y actividad física. La calculadora ofrece estimaciones y no determina por sí sola qué peso o alimentación son adecuados para ti.</p>
+                    <p>Si estás embarazada o en lactancia, tienes una condición de salud, tomas medicamentos que afectan la alimentación o has tenido cambios de peso involuntarios, consulta con un profesional antes de hacer cambios importantes.</p>
+                </div>
+            </details>
 
+            <!-- Botón 3: Documentación -->
+            <details class="accordion-item">
+                <summary class="btn-accordion">3. Documentación</summary>
+                <div class="accordion-content">
+                    <p><strong>¿Cómo se generan las estimaciones?</strong> La calculadora usa los datos que ingresas y aplica la ecuación de Mifflin–St Jeor como aproximación de la tasa metabólica en reposo; luego multiplica ese valor por un factor de actividad seleccionado para estimar el gasto energético diario.</p>
+                    <ul>
+                        <li>La energía estimada se presenta como referencia de mantenimiento, no como una meta obligatoria para subir o bajar de peso.</li>
+                        <li>La distribución de 50 % carbohidratos, 20 % proteína y 30 % grasas es un ejemplo matemático general de la aplicación. No es una prescripción individual.</li>
+                        <li>El IMC se calcula como peso en kg dividido por la estatura en metros al cuadrado. En adultos, los puntos de corte usados como referencia son: bajo peso &lt; 18,5; rango de referencia 18,5–24,9; sobrepeso 25–29,9 y obesidad ≥ 30.</li>
+                        <li>El IMC es una herramienta de detección y no mide directamente la grasa corporal ni permite diagnosticar por sí solo desnutrición, obesidad u otras condiciones.</li>
+                    </ul>
+                    <p>La guía visual del plato se basa en las recomendaciones de Health Canada. Los principios de variedad, equilibrio y moderación también están descritos por la OMS.</p>
+                    <ul>
+                        <li><a href="https://www.canada.ca/en/health-canada/services/food-nutrition/canada-food-guide.html" target="_blank" rel="noopener noreferrer">Guía Alimentaria de Canadá — Health Canada</a></li>
+                        <li><a href="https://www.who.int/news-room/fact-sheets/detail/healthy-diet" target="_blank" rel="noopener noreferrer">Alimentación saludable — Organización Mundial de la Salud</a></li>
+                    </ul>
+                </div>
+            </details>
 
+            <!-- Botón 4: Guía Alimentaria -->
+            <details class="accordion-item">
+                <summary class="btn-accordion">4. Guía Alimentaria</summary>
+                <div class="accordion-content">
+                    <p>Usa el plato como una guía visual flexible para comidas principales, no como una regla rígida ni como una medición exacta de calorías:</p>
+                    <ul>
+                        <li><strong>Aproximadamente 1/2 del plato:</strong> verduras y frutas variadas, frescas, congeladas o enlatadas. Elige las que sean accesibles y, cuando sea posible, versiones con poco sodio y sin azúcar añadida.</li>
+                        <li><strong>Aproximadamente 1/4:</strong> alimentos proteicos, como frijoles, lentejas, garbanzos, tofu, huevos, pescado, yogur natural, pollo o frutos secos.</li>
+                        <li><strong>Aproximadamente 1/4:</strong> granos integrales o alimentos con almidón, como avena, arroz integral, pan integral, maíz o papa.</li>
+                    </ul>
+                    <p><strong>Hábitos que ayudan:</strong> toma agua con frecuencia y como bebida habitual; compara las etiquetas para elegir productos con menos sodio, azúcares añadidos y grasas saturadas; limita bebidas azucaradas y alimentos muy procesados sin buscar perfección. Come con atención a tus señales de hambre y saciedad, cuando te sea posible.</p>
+                    <p>Las legumbres pueden aportar proteína y fibra; puedes combinarlas con cereales, verduras o ambos. No es necesario eliminar grupos completos de alimentos salvo que un profesional te lo indique por una razón de salud.</p>
+                </div>
+            </details>
+
+            <!-- Botón 5: Recomendaciones sobre salud y peso -->
+            <details class="accordion-item">
+                <summary class="btn-accordion">5. Recomendaciones para la Salud y el Peso</summary>
+                <div class="accordion-content">
+                    <p><strong>Esta sección ofrece orientación general, no tratamiento.</strong> Si tienes un diagnóstico, acuerda los cambios con tu equipo de salud; no suspendas ni ajustes medicamentos por recomendaciones de esta página.</p>
+                    <ul>
+                        <li><strong>Presión arterial alta:</strong> puede ser útil revisar el sodio en las etiquetas y reducir alimentos muy salados o procesados. Da sabor con hierbas, especias, ajo o limón. No uses sustitutos de sal con potasio sin consultar, especialmente si tienes enfermedad renal o tomas ciertos medicamentos.</li>
+                        <li><strong>Diabetes:</strong> las necesidades de carbohidratos varían entre personas y tratamientos. Prioriza, según tu plan, verduras, legumbres, frutas enteras y granos integrales; limita bebidas azucaradas y coordina cambios en horarios o cantidades de carbohidratos con tu equipo de diabetes, sobre todo si usas insulina o medicamentos que pueden causar hipoglucemia.</li>
+                        <li><strong>Colesterol o triglicéridos elevados:</strong> considera sustituir parte de las grasas saturadas (por ejemplo, mantequilla y carnes grasas) por grasas insaturadas (aceites vegetales, nueces y semillas). Avena, frijoles, lentejas, frutas y verduras aportan fibra. El tratamiento y los objetivos deben individualizarse.</li>
+                        <li><strong>Enfermedad renal, alergias u otras condiciones:</strong> algunos alimentos recomendados de forma general pueden requerir ajustes. Pide orientación individual antes de restringir potasio, fósforo, proteína, líquidos u otros nutrientes.</li>
+                    </ul>
+                    <h4>Orientación general sobre cambios de peso</h4>
+                    <ul>
+                        <li><strong>Bajo peso o pérdida involuntaria:</strong> no intentes resolverlo solo aumentando porciones con esta calculadora. Una valoración profesional puede revisar posibles causas y ayudarte a planear comidas suficientes y nutritivas. Busca atención pronto si la pérdida fue rápida o se acompaña de debilidad u otros síntomas.</li>
+                        <li><strong>Sobrepeso u obesidad según el IMC:</strong> son categorías de detección, no un juicio sobre la persona ni un diagnóstico completo. Si deseas trabajar en tu salud o peso, consulta para definir objetivos realistas y sostenibles considerando presión arterial, glucosa, descanso, movilidad, medicamentos y antecedentes.</li>
+                        <li><strong>Evita extremos:</strong> no hagas ayunos prolongados, dietas muy restrictivas, productos para adelgazar ni ejercicio excesivo como compensación. Prioriza cambios graduales en hábitos que puedas mantener.</li>
+                        <li><strong>Porciones:</strong> como referencia flexible, puedes llenar medio plato con verduras y frutas, un cuarto con proteína y un cuarto con granos integrales o tubérculos. No es una regla de cantidad ni es adecuada para todas las condiciones; un profesional puede adaptarla.</li>
+                    </ul>
+                    <p>Si presentas síntomas nuevos o preocupantes, busca atención de un profesional de salud. Una calculadora de alimentos no puede evaluar síntomas ni reemplazar una valoración clínica.</p>
+                    <p>Más información: <a href="https://hypertension.ca/" target="_blank" rel="noopener noreferrer">Hypertension Canada</a>, <a href="https://www.diabetes.ca/" target="_blank" rel="noopener noreferrer">Diabetes Canada</a> y <a href="https://www.heartandstroke.ca/healthy-living/healthy-eating" target="_blank" rel="noopener noreferrer">Heart &amp; Stroke: alimentación saludable</a>.</p>
                 </div>
             </details>
 

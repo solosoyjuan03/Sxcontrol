@@ -340,3 +340,15 @@ nav a.active {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
+
+.imc-result {
+    margin: 18px 0;
+    padding: 16px;
+    border-left: 4px solid #ff7f00;
+    border-radius: 6px;
+    background-color: #fff8ef;
+}
+
+.imc-result h4 {
+    margin-top: 0;
+}
