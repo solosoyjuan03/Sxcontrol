@@ -5,6 +5,8 @@ SXcontrol es una aplicación web desarrollada con Flask. Reúne páginas informa
 ## Funcionalidades actuales
 
 - Páginas de inicio, comunidad, proyectos, consultoría, tienda y blog.
+- El Blog está dedicado a noticias y avances del proyecto organizados por fecha.
+- Comunidad incluye páginas separadas para consultar repositorios y conocer cómo colaborar.
 - SX Nutria incluye secciones desplegables de introducción, documentación, guía alimentaria, recomendaciones generales de salud y calculadora.
 - La calculadora estima el gasto energético diario, el IMC y una distribución general de macronutrientes a partir de los datos ingresados.
 - Los resultados incluyen recomendaciones educativas orientativas según el rango de IMC, ejemplos de alimentos y una guía flexible de porciones.
@@ -47,6 +49,8 @@ web: gunicorn app:app
 ```text
 app.py                         Rutas y lógica de la aplicación Flask
 templates/                     Plantillas HTML
+  Blog/blog.html                Noticias y avances del proyecto
+  Comunidad/                    Portada, repositorios y colaboradores
   Proyectos/SX_Nutria/          Página y calculadora SX Nutria
 static/css/style.css            Estilos
 requirements.txt                Dependencias de Python

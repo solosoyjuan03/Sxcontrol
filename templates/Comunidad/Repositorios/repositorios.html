@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Repositorios - SXcontrol</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">SX<span>control</span></div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('comunidad') }}">Comunidad</a></li>
+                <li><a href="{{ url_for('proyectos') }}">Proyectos</a></li>
+                <li><a href="{{ url_for('consultoria') }}">Consultoría</a></li>
+                <li><a href="{{ url_for('tienda') }}">Tienda</a></li>
+                <li><a href="{{ url_for('blog') }}">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="hero">
+        <h1><span>Repositorios</span> de código</h1>
+        <p>Repositorios públicos de SXcontrol disponibles en GitHub.</p>
+
+        <section class="proyectos-grid" aria-label="Repositorios públicos">
+            <article class="proyecto-card">
+                <h2>SXcontrol</h2>
+                <p>Sitio web Flask con páginas informativas, estilos y el proyecto SX Nutria.</p>
+                <a href="https://github.com/solosoyjuan03/Sxcontrol" target="_blank" rel="noopener noreferrer" class="btn">Ver en GitHub</a>
+            </article>
+
+            <article class="proyecto-card">
+                <h2>SXcontrol Edu</h2>
+                <p>Repositorio público de la plataforma SX Edu.</p>
+                <a href="https://github.com/solosoyjuan03/SxcontrolEdu" target="_blank" rel="noopener noreferrer" class="btn">Ver en GitHub</a>
+            </article>
+        </section>
+
+        <p><a href="{{ url_for('comunidad') }}" class="btn">Volver a Comunidad</a></p>
+    </main>
+</body>
+</html>

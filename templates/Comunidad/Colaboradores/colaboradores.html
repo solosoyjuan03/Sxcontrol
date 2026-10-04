@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Colaboradores - SXcontrol</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">SX<span>control</span></div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('comunidad') }}">Comunidad</a></li>
+                <li><a href="{{ url_for('proyectos') }}">Proyectos</a></li>
+                <li><a href="{{ url_for('consultoria') }}">Consultoría</a></li>
+                <li><a href="{{ url_for('tienda') }}">Tienda</a></li>
+                <li><a href="{{ url_for('comunidad') }}" class="active">Comunidad</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="hero">
+        <h1><span>Colaboradores</span></h1>
+        <p>Los proyectos de SXcontrol pueden crecer con ideas, revisiones y contribuciones de la comunidad.</p>
+
+        <section class="comunidad-info" aria-labelledby="participar-title">
+            <h2 id="participar-title">¿Cómo participar?</h2>
+            <p>Por ahora, esta página no publica una lista de colaboradores. Para evitar atribuir contribuciones incorrectamente, aquí compartimos formas de participar en los repositorios públicos:</p>
+            <div class="proyectos-grid">
+                <article class="proyecto-card">
+                    <h2>1. Explora el código</h2>
+                    <p>Revisa los repositorios y sus instrucciones para conocer el estado del proyecto antes de proponer un cambio.</p>
+                    <a href="{{ url_for('comunidad_repositorios') }}" class="btn">Ver repositorios</a>
+                </article>
+                <article class="proyecto-card">
+                    <h2>2. Propón una mejora</h2>
+                    <p>Usa la sección de Issues del repositorio correspondiente para describir errores, ideas o documentación que haga falta.</p>
+                    <a href="https://github.com/solosoyjuan03/Sxcontrol/issues" target="_blank" rel="noopener noreferrer" class="btn">Issues de SXcontrol</a>
+                </article>
+                <article class="proyecto-card">
+                    <h2>3. Envía una contribución</h2>
+                    <p>Cuando haya cambios listos, puedes proponerlos mediante un Pull Request para que sean revisados.</p>
+                    <a href="https://github.com/solosoyjuan03/Sxcontrol/pulls" target="_blank" rel="noopener noreferrer" class="btn">Pull Requests</a>
+                </article>
+            </div>
+        </section>
+
+        <p><a href="{{ url_for('comunidad') }}" class="btn">Volver a Comunidad</a></p>
+    </main>
+</body>
+</html>

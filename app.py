@@ -14,6 +14,16 @@ def comunidad():
     return render_template("Comunidad/comunidad.html")
 
 
+@app.route("/comunidad/repositorios")
+def comunidad_repositorios():
+    return render_template("Comunidad/Repositorios/repositorios.html")
+
+
+@app.route("/comunidad/colaboradores")
+def comunidad_colaboradores():
+    return render_template("Comunidad/Colaboradores/colaboradores.html")
+
+
 @app.route("/proyectos")
 def proyectos():
     return render_template("Proyectos/proyectos.html")
@@ -230,9 +240,9 @@ def tienda():
 
 
 @app.route("/blog")
+@app.route("/blog/noticias")
 def blog():
     return render_template("Blog/blog.html")
-
 
 if __name__ == "__main__":
     app.run(debug=True)
