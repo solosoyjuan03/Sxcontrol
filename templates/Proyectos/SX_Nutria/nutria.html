@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>SX Nutria - Guía Alimentaria (+18)</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">SX<span>control</span></div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('comunidad') }}">Comunidad</a></li>
+                <li><a href="{{ url_for('proyectos') }}" class="active">Proyectos</a></li>
+                <li><a href="{{ url_for('consultoria') }}">Consultoría</a></li>
+                <li><a href="{{ url_for('tienda') }}">Tienda</a></li>
+                <li><a href="{{ url_for('blog') }}">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="nutria-container">
+        <h1>SX <span>Nutria</span></h1>
+        <p class="subtitle">Guía alimentaria y nutricional para mayores de 18 años basada en estándares internacionales (Canadá).</p>
+
+        <!-- Menú de 5 botones desplegables / Acordeones -->
+        <div class="accordion-group">
+            
+            <!-- Botón 1: Introducción / Inicio -->
+            <details class="accordion-item" open>
+                <summary class="btn-accordion">1. Introducción y Enfoque (+18)</summary>
+                <div class="accordion-content">
+                    <p>Bienvenido a SX Nutria. Esta plataforma adapta los principios de la Guía Alimentaria de Canadá para adultos mayores de 18 años, priorizando el consumo consciente, la proporción adecuada de vegetales, granos integrales y proteínas saludables, así como una hidratación óptima basada en agua.</p>
+                </div>
+            </details>
+
+            <!-- Botón 2: Documentación -->
+            <details class="accordion-item">
+                <summary class="btn-accordion">2. Documentación</summary>
+                <div class="accordion-content">
+                    <p>Aquí encontrarás las bases metodológicas, referencias bibliográficas de Health Canada y los criterios técnicos aplicados para el desarrollo de las porciones y recomendaciones energéticas en adultos.</p>
+                    <ul>
+                        <li>Fundamentos científicos de las porciones por plato.</li>
+                        <li>Equivalencias nutricionales internacionales.</li>
+                    </ul>
+                </div>
+            </details>
+
+            <!-- Botón 3: Guía Alimentaria -->
+            <details class="accordion-item">
+                <summary class="btn-accordion">3. Guía Alimentaria</summary>
+                <div class="accordion-content">
+                    <p>El plato saludable de referencia se divide visualmente en tres componentes clave:</p>
+                    <ul>
+                        <li><strong>1/2 Plato:</strong> Verduras y frutas frescas de variados colores.</li>
+                        <li><strong>1/4 Plato:</strong> Alimentos ricos en proteínas (legumbres, frutos secos, pescado, carnes magras, huevos).</li>
+                        <li><strong>1/4 Plato:</strong> Alimentos integrales (quinoa, avena, arroz integral, pan integral).</li>
+                    </ul>
+                </div>
+            </details>
+
+            <!-- Botón 4: Recomendaciones para personas con patologías -->
+            <details class="accordion-item">
+                <summary class="btn-accordion">4. Recomendaciones para Personas con Patologías</summary>
+                <div class="accordion-content">
+                    <p><strong>Nota importante:</strong> Las pautas generales deben ajustarse bajo supervisión médica en caso de condiciones específicas:</p>
+                    <ul>
+                        <li><strong>Hipertensión:</strong> Reducción estricta del sodio añadido, priorizando especias naturales y alimentos frescos.</li>
+                        <li><strong>Diabetes (Tipo 1 y 2):</strong> Control estricto de carbohidratos refinados, prefiriendo siempre carbohidratos complejos de bajo índice glucémico y alto contenido de fibra.</li>
+                        <li><strong>Dislipidemias:</strong> Control de grasas saturadas, sustituyéndolas por grasas saludables como aguacate, aceite de oliva y frutos secos.</li>
+                    </ul>
+                </div>
+            </details>
+
+            <!-- Botón 5: Calculadora Alimentaria -->
+            <details class="accordion-item">
+                <summary class="btn-accordion">5. Calculadora Alimentaria</summary>
+                <div class="accordion-content">
+                    <p>Herramienta interactiva para estimar tus requerimientos calóricos base y distribución de macronutrientes según tu nivel de actividad física:</p>
+                    
+<form class="nutricion-form" method="POST" action="{{ url_for('nutria') }}">
+    <div class="form-group">
+        <label>Género:</label>
+        <select name="genero" required>
+            <option value="hombre">Hombre</option>
+            <option value="mujer">Mujer</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Peso (kg):</label>
+        <input type="number" name="peso" placeholder="Ej. 70" step="0.1" min="30" max="300" required>
+    </div>
+    <div class="form-group">
+        <label>Altura (cm):</label>
+        <input type="number" name="altura" placeholder="Ej. 175" min="100" max="250" required>
+    </div>
+    <div class="form-group">
+        <label>Edad (Años):</label>
+        <input type="number" name="edad" placeholder="Mayor de 18" min="18" max="120" required>
+    </div>
+    <div class="form-group">
+        <label>Nivel de Actividad Física:</label>
+        <select name="actividad" required>
+            <option value="1.2">Sedentario (poco o ningún ejercicio)</option>
+            <option value="1.375">Ligero (ejercicio ligero 1-3 días/sem)</option>
+            <option value="1.55">Moderado (ejercicio moderado 3-5 días/sem)</option>
+            <option value="1.725">Intenso (ejercicio fuerte 6-7 días/sem)</option>
+        </select>
+         </div>
+    <button type="submit" class="btn">Calcular en el Servidor</button>
+            </form>
+
+            <!-- Mostrar resultados si Python los envió -->
+            {% if resultado %}
+            <div class="resultado-box" style="margin-top: 20px;">
+                {% if resultado.error %}
+                    <p style="color: red;">{{ resultado.error }}</p>
+                {% else %}
+                    <h4>Tus Resultados Estimados:</h4>
+                    <p><strong>Calorías diarias recomendadas (TDEE):</strong> {{ resultado.calorias }} kcal</p>
+                    <div class="plate-guide">
+                        <p><strong>Distribución sugerida según Guía Alimentaria:</strong></p>
+                        <ul>
+                            <li>🌿 <strong>1/2 Plato:</strong> Verduras y frutas frescas variadas.</li>
+                            <li>🍗 <strong>1/4 Plato:</strong> Alimentos proteicos (magros, legumbres, etc.).</li>
+                            <li>🌾 <strong>1/4 Plato:</strong> Alimentos integrales (avena, quinoa, arroz integral).</li>
+                        </ul>
+                    </div>
+                {% endif %}
+            </div>
+            {% endif %}
+
+
+                </div>
+            </details>
+
+        </div>
+    </main>
+</body>
+</html>

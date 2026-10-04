@@ -243,3 +243,100 @@ nav a.active {
     background: var(--sx-orange);
     color: white;
 }
+
+/* Estilos generales para la vista de Nutria */
+.nutria-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.nutria-container h1 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.nutria-container h1 span {
+    color: #ff7f00; /* O el color naranja característico de tu marca */
+}
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* Contenedor de acordeones */
+.accordion-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Tarjeta desplegable */
+.accordion-item {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+/* Botón desplegable (Summary) */
+.btn-accordion {
+    background-color: #f9f9f9;
+    color: #222;
+    padding: 15px 20px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    list-style: none; /* Quita la flecha por defecto en algunos navegadores */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-accordion::-webkit-details-marker {
+    display: none; /* Oculta flecha en Safari/Chrome antiguos */
+}
+
+.btn-accordion:hover {
+    background-color: #f1f1f1;
+    color: #ff7f00;
+}
+
+/* Contenido interno del desplegable */
+.accordion-content {
+    padding: 20px;
+    border-top: 1px solid #eee;
+    background-color: #fff;
+    line-height: 1.6;
+}
+
+/* Estilos para el formulario de la calculadora */
+.nutricion-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
