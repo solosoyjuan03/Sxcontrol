@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Principios comunitarios, información de cumplimiento y pruebas de calidad del software SXcontrol.">
+    <title>Cumplimiento y principios - SXcontrol</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <a class="logo" href="{{ url_for('home') }}" aria-label="SXcontrol, inicio">SX<span>control</span></a>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Inicio</a></li>
+                <li><a href="{{ url_for('comunidad') }}" class="active" aria-current="page">Comunidad</a></li>
+                <li><a href="{{ url_for('proyectos') }}">Proyectos</a></li>
+                <li><a href="{{ url_for('servicios') }}">Servicios</a></li>
+                <li><a href="{{ url_for('blog') }}">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="hero">
+        <h1><span>Cumplimiento</span> y principios</h1>
+        <p>Transparencia sobre cómo colaboramos, cuidamos a las personas y verificamos nuestros cambios.</p>
+
+        <section class="comunidad-info" aria-labelledby="alcance-title">
+            <h2 id="alcance-title">Un marco en construcción</h2>
+            <p>Esta página reúne las pautas actuales de SXcontrol. Es información del proyecto y no constituye asesoría legal ni una garantía de certificación o cumplimiento normativo.</p>
+            <p><strong>Estado documental:</strong> este repositorio aún no incluye un archivo de licencia ni políticas formales publicadas de privacidad o conducta. No asumas que el código puede reutilizarse libremente; esos documentos deben revisarse y aprobarse antes de anunciar condiciones legales definitivas.</p>
+        </section>
+
+        <section class="proyectos-grid" aria-label="Principios y políticas">
+            <article class="proyecto-card">
+                <h2>Licencias y derechos</h2>
+                <p>La publicación de un repositorio no concede por sí sola permisos de reutilización. Antes de copiar, distribuir o adaptar código o materiales, revisa la licencia y los avisos de cada proyecto. Si no hay una licencia explícita, solicita autorización a quienes tengan los derechos.</p>
+                <p>En SX Library se incorporarán únicamente materiales propios, autorizados o distribuidos con licencias compatibles, mostrando su fuente y condiciones.</p>
+            </article>
+            <article class="proyecto-card">
+                <h2>Privacidad y datos</h2>
+                <p>Evita compartir contraseñas, datos personales o información sensible en Issues y Pull Requests. La calculadora SX Nutria envía los valores introducidos al servidor para calcular resultados; no ingreses información que te identifique.</p>
+                <p>Antes de recopilar datos personales o abrir nuevas funciones que los almacenen, se debe definir y publicar una política de privacidad y revisar las obligaciones aplicables.</p>
+            </article>
+            <article class="proyecto-card">
+                <h2>Seguridad responsable</h2>
+                <p>No publiques en Issues información que facilite explotar una vulnerabilidad ni datos de otras personas. El canal privado de reporte de seguridad debe confirmarse antes de anunciarse como disponible.</p>
+                <p>Para iniciar un contacto, escribe a <a href="mailto:contacto@sxcontrol.org">contacto@sxcontrol.org</a> sin adjuntar secretos o datos personales innecesarios.</p>
+            </article>
+            <article class="proyecto-card">
+                <h2>Principios de comunidad</h2>
+                <ul>
+                    <li>Trata a las personas con respeto y sin discriminación.</li>
+                    <li>Explica las propuestas con claridad y recibe las revisiones de buena fe.</li>
+                    <li>Reconoce autorías, respeta licencias y no presentes trabajo ajeno como propio.</li>
+                    <li>Prioriza accesibilidad, privacidad, seguridad y documentación comprensible.</li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="comunidad-info" aria-labelledby="pruebas-title">
+            <h2 id="pruebas-title">Pruebas de calidad</h2>
+            <p>Las comprobaciones automatizadas del sitio se guardan en <code>tests/Comunidad/Cumplimiento/</code>. Cubren respuestas de las páginas, navegación, redirecciones, formularios y límites básicos de la calculadora.</p>
+            <p>Desde la raíz del proyecto, ejecútalas con:</p>
+            <pre><code>python -m unittest discover -s tests -v</code></pre>
+            <p>Estas pruebas ayudan a detectar regresiones; no son una auditoría de seguridad, una revisión legal ni una certificación.</p>
+        </section>
+
+        <p><a href="{{ url_for('comunidad') }}" class="btn">Volver a Comunidad</a></p>
+    </main>
+</body>
+</html>

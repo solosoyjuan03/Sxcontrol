@@ -16,6 +16,14 @@ body {
     color: var(--sx-white);
 }
 
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 /* Encabezado principal */
 header {
     padding: 15px 5%;
@@ -28,21 +36,6 @@ header {
     width: 100%;
 }
 
-/* Ajustes del encabezado y la navegación para pantallas pequeñas */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        gap: 15px;
-        padding: 15px 20px;
-    }
-
-    nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 12px;
-    }
-}
-
 /* Marca y logotipo */
 .logo {
     color: var(--sx-white);
@@ -51,6 +44,7 @@ header {
     line-height: 1;
     display: flex;
     align-items: center;
+    text-decoration: none;
 }
 
 .logo span {
@@ -71,12 +65,27 @@ nav a {
     text-decoration: none;
     font-size: 16px;
     font-weight: 500;
+    padding: 9px 10px;
+    border-radius: 6px;
     transition: color 0.3s ease;
 }
 
 nav a:hover,
 nav a.active {
     color: var(--sx-orange);
+}
+
+nav a:hover {
+    background: rgba(255, 107, 26, 0.08);
+}
+
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 3px solid var(--sx-orange);
+    outline-offset: 3px;
 }
 
 /* Presentación principal de la página de inicio */
@@ -86,7 +95,7 @@ nav a.active {
 }
 
 .hero h1 {
-    font-size: 42px;
+    font-size: clamp(34px, 6vw, 54px);
 }
 
 .hero h1 span {
@@ -107,19 +116,22 @@ nav a.active {
     color: white;
     text-decoration: none;
     border-radius: 8px;
-    transition: background 0.3s ease;
+    font: inherit;
+    font-weight: 600;
+    text-align: center;
+    transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .btn:hover {
     background: var(--sx-orange-dark);
+    transform: translateY(-1px);
 }
 
 
 /* Grilla y tarjetas de proyectos */
 .proyectos-grid {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
     gap: 25px;
     margin-top: 40px;
     padding: 0 20px;
@@ -131,7 +143,8 @@ nav a.active {
     border-top: 3px solid var(--sx-orange);
     border-radius: 10px;
     padding: 30px;
-    max-width: 350px;
+    display: flex;
+    flex-direction: column;
     text-align: center;
     transition: transform 0.3s ease, border-color 0.3s ease;
 }
@@ -147,6 +160,11 @@ nav a.active {
     margin-bottom: 12px;
 }
 
+.proyecto-card h2 {
+    margin: 0 0 12px;
+    font-size: 22px;
+}
+
 .proyecto-card p {
     color: var(--sx-text-gray);
     font-size: 15px;
@@ -158,6 +176,7 @@ nav a.active {
     display: block;
     width: fit-content;
     margin: 0 auto;
+    margin-top: auto;
 }
 
 /* Estado no disponible / Próximamente */
@@ -170,7 +189,7 @@ nav a.active {
     background: rgba(255, 255, 255, 0.05);
     border: 1px dashed #444;
     border-radius: 6px;
-    margin-top: auto;
+    margin: auto auto 0;
 }
 
 /* Sección Comunidad e Información */
@@ -251,6 +270,7 @@ nav a.active {
     text-align: center;
 }
 
+.donacion-card h2,
 .donacion-card h3 {
     color: var(--sx-white);
     font-size: 24px;
@@ -293,8 +313,7 @@ nav a.active {
     max-width: 800px;
     margin: 40px auto;
     padding: 0 20px;
-    font-family: Arial, sans-serif;
-    color: #333;
+    color: var(--sx-white);
 }
 
 .nutria-container h1 {
@@ -303,13 +322,14 @@ nav a.active {
 }
 
 .nutria-container h1 span {
-    color: #ff7f00; /* O el color naranja característico de tu marca */
+    color: var(--sx-orange);
 }
 
 .subtitle {
     text-align: center;
-    color: #666;
+    color: var(--sx-text-gray);
     margin-bottom: 30px;
+    line-height: 1.6;
 }
 
 /* Lista vertical de acordeones */
@@ -327,6 +347,7 @@ nav a.active {
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     overflow: hidden;
     transition: all 0.3s ease;
+    color: #222;
 }
 
 /* Encabezado interactivo de cada acordeón */
@@ -357,6 +378,7 @@ nav a.active {
     padding: 20px;
     border-top: 1px solid #eee;
     background-color: #fff;
+    color: #333;
     line-height: 1.6;
 }
 
@@ -383,6 +405,91 @@ nav a.active {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    font: inherit;
+}
+
+.form-group select {
+    min-height: 42px;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: white;
+    color: #222;
+    font: inherit;
+}
+
+.resultado-box {
+    padding: 18px;
+    border: 1px solid #e6e6e6;
+    border-radius: 8px;
+    background: #fff;
+    color: #333;
+}
+
+.plate-guide {
+    padding: 14px 16px;
+    border-left: 4px solid var(--sx-orange);
+    background: #f7f7f7;
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 14px;
+        padding: 15px 20px;
+    }
+
+    nav {
+        width: 100%;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 4px 8px;
+    }
+
+    nav a {
+        display: inline-block;
+        padding: 8px;
+        font-size: 15px;
+    }
+
+    .hero {
+        padding: 52px 16px;
+    }
+
+    .proyectos-grid {
+        gap: 16px;
+        padding: 0;
+    }
+
+    .proyecto-card {
+        padding: 24px;
+    }
+
+    .nutria-container {
+        margin: 28px auto;
+        padding: 0 16px;
+    }
+
+    .btn-accordion {
+        gap: 12px;
+        padding: 14px 16px;
+        font-size: 1rem;
+        text-align: left;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
 }
 
 .imc-result {
@@ -395,4 +502,200 @@ nav a.active {
 
 .imc-result h4 {
     margin-top: 0;
+}
+
+/* Página de descubrimiento de la biblioteca digital SX Library */
+.library-page {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 48px 24px 72px;
+}
+
+.library-hero {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(220px, 0.6fr);
+    align-items: center;
+    gap: 48px;
+    overflow: hidden;
+    padding: 56px;
+    border: 1px solid #34302d;
+    border-radius: 20px;
+    background:
+        radial-gradient(ellipse at 85% 20%, rgba(255, 107, 26, 0.16), transparent 42%),
+        linear-gradient(135deg, #211b18, var(--sx-black-soft) 65%);
+    text-align: left;
+}
+
+.library-eyebrow {
+    margin: 0 0 14px;
+    color: var(--sx-orange);
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.library-hero h1 {
+    margin: 0;
+    font-size: clamp(38px, 6vw, 64px);
+    line-height: 1.05;
+}
+
+.library-hero h1 span {
+    color: var(--sx-orange);
+}
+
+.library-intro {
+    max-width: 580px;
+    margin: 20px 0 28px;
+    color: #d0cbc7;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.library-hero .btn {
+    font-weight: bold;
+}
+
+.library-books-art {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 230px;
+}
+
+.library-book {
+    display: flex;
+    width: 112px;
+    height: 174px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px 10px 10px 5px;
+    box-shadow: 10px 14px 24px rgba(0, 0, 0, 0.35);
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 0.08em;
+    text-align: center;
+    text-transform: uppercase;
+    writing-mode: vertical-rl;
+}
+
+.library-book + .library-book {
+    margin-left: -26px;
+}
+
+.library-book:nth-child(1) {
+    background: linear-gradient(90deg, #3b251c, #89502f);
+    transform: rotate(-13deg) translateY(13px);
+}
+
+.library-book:nth-child(2) {
+    background: linear-gradient(90deg, #182e35, #28606b);
+    transform: rotate(-2deg) translateY(-5px);
+}
+
+.library-book:nth-child(3) {
+    background: linear-gradient(90deg, #5a291e, #bc552b);
+    transform: rotate(12deg) translateY(12px);
+}
+
+.library-section-heading {
+    margin: 58px 0 10px;
+    font-size: 30px;
+}
+
+.library-section-description {
+    margin: 0;
+    color: var(--sx-text-gray);
+    line-height: 1.6;
+}
+
+.library-collections {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 18px;
+    margin-top: 28px;
+}
+
+.library-collection {
+    min-height: 190px;
+    padding: 24px;
+    border: 1px solid #343434;
+    border-radius: 12px;
+    background: var(--sx-black-soft);
+}
+
+.library-collection-icon {
+    display: inline-flex;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 107, 26, 0.35);
+    border-radius: 10px;
+    background: rgba(255, 107, 26, 0.1);
+    color: var(--sx-orange);
+    font-size: 20px;
+}
+
+.library-collection h3 {
+    margin: 18px 0 8px;
+    font-size: 19px;
+}
+
+.library-collection p {
+    margin: 0;
+    color: var(--sx-text-gray);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.library-status {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-top: 36px;
+    padding: 22px 24px;
+    border: 1px solid rgba(255, 107, 26, 0.35);
+    border-radius: 12px;
+    background: rgba(255, 107, 26, 0.07);
+    text-align: left;
+}
+
+.library-status strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.library-status p {
+    margin: 0;
+    color: #d0cbc7;
+    line-height: 1.6;
+}
+
+.library-status a {
+    color: var(--sx-orange);
+}
+
+@media (max-width: 768px) {
+    .library-page {
+        padding: 28px 18px 48px;
+    }
+
+    .library-hero {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 34px 26px;
+    }
+
+    .library-books-art {
+        min-height: 190px;
+    }
+
+    .library-section-heading {
+        margin-top: 42px;
+    }
 }

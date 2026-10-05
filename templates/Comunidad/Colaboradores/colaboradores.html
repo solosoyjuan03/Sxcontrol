@@ -2,19 +2,21 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aprende cómo proponer mejoras, reportar problemas y contribuir a los proyectos SXcontrol.">
     <title>Colaboradores - SXcontrol</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
     <header>
-        <div class="logo">SX<span>control</span></div>
+        <a class="logo" href="{{ url_for('home') }}" aria-label="SXcontrol, inicio">SX<span>control</span></a>
         <nav>
             <ul>
+                <li><a href="{{ url_for('home') }}">Inicio</a></li>
                 <li><a href="{{ url_for('comunidad') }}">Comunidad</a></li>
                 <li><a href="{{ url_for('proyectos') }}">Proyectos</a></li>
-                <li><a href="{{ url_for('consultoria') }}">Consultoría</a></li>
-                <li><a href="{{ url_for('tienda') }}">Tienda</a></li>
-                <li><a href="{{ url_for('comunidad') }}" class="active">Comunidad</a></li>
+                <li><a href="{{ url_for('servicios') }}">Servicios</a></li>
+                <li><a href="{{ url_for('blog') }}">Blog</a></li>
             </ul>
         </nav>
     </header>

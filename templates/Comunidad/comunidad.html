@@ -2,18 +2,20 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Conoce la comunidad SXcontrol, consulta repositorios y descubre cómo colaborar en proyectos de software libre.">
     <title>Comunidad - SXcontrol</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
     <header>
-        <div class="logo">SX<span>control</span></div>
+        <a class="logo" href="{{ url_for('home') }}" aria-label="SXcontrol, inicio">SX<span>control</span></a>
         <nav>
             <ul>
+                <li><a href="{{ url_for('home') }}">Inicio</a></li>
                 <li><a href="{{ url_for('comunidad') }}" class="active">Comunidad</a></li>
                 <li><a href="{{ url_for('proyectos') }}">Proyectos</a></li>
-                <li><a href="{{ url_for('consultoria') }}">Consultoría</a></li>
-                <li><a href="{{ url_for('tienda') }}">Tienda</a></li>
+                <li><a href="{{ url_for('servicios') }}">Servicios</a></li>
                 <li><a href="{{ url_for('blog') }}">Blog</a></li>
             </ul>
         </nav>
@@ -23,9 +25,8 @@
         <h1>Nuestra <span>Comunidad</span></h1>
         <p>Únete a desarrolladores y colaboradores comprometidos con el software libre.</p>
 
-        <!-- Sección Explicativa sobre los Proyectos -->
-        <section class="comunidad-info">
-            <h2>Construyendo Tecnología Abierta y Accesible</h2>
+        <section class="comunidad-info" aria-labelledby="comunidad-title">
+            <h2 id="comunidad-title">Construyendo tecnología abierta y accesible</h2>
             <p>
                 En <strong>SXcontrol</strong> creemos en el conocimiento libre y colaborativo. Desarrollamos herramientas de código abierto, plataformas de aprendizaje y sistemas orientados a la educación y desarrollo digital para la región.
             </p>
@@ -45,18 +46,22 @@
                 <p>Conoce cómo proponer mejoras, reportar problemas y contribuir a los proyectos.</p>
                 <a href="{{ url_for('comunidad_colaboradores') }}" class="btn">Cómo colaborar</a>
             </article>
+            <article class="proyecto-card">
+                <h2>Cumplimiento y principios</h2>
+                <p>Consulta nuestras pautas de colaboración, transparencia legal y pruebas de calidad.</p>
+                <a href="{{ url_for('comunidad_cumplimiento') }}" class="btn">Ver cumplimiento</a>
+            </article>
         </section>
 
-        <!-- Sección de Apoyo y Donaciones -->
         <section class="donaciones-section">
             <div class="donacion-card">
-                <h3>Apoya el desarrollo independiente</h3>
+                <h3>Crece con la comunidad</h3>
                 <p>
-                    Tus contribuciones nos permiten mantener la infraestructura activa, cubrir costos de servidores y continuar desarrollando herramientas de libre acceso para todos.
+                    ¿Te interesa apoyar SXcontrol? Explora nuestros proyectos o descubre cómo aportar ideas, reportes y código. Los canales de donación estarán disponibles cuando se configuren.
                 </p>
                 <div class="donaciones-botones">
-                    <a href="#" target="_blank" rel="noopener" class="btn btn-donar">Donar con PayPal</a>
-                    <a href="#" target="_blank" rel="noopener" class="btn btn-secundario">Apoyar en GitHub Sponsors</a>
+                    <a href="{{ url_for('comunidad_colaboradores') }}" class="btn">Cómo colaborar</a>
+                    <a href="{{ url_for('proyectos') }}" class="btn btn-secundario">Ver proyectos</a>
                 </div>
             </div>
         </section>

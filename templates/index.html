@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SXcontrol</title>
+    <meta name="description" content="SXcontrol desarrolla proyectos de software libre, tecnología y aprendizaje para comunidades de Latinoamérica.">
+    <title>SXcontrol - Software libre y tecnología abierta</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
 <header>
-    <div class="logo">SX<span>control</span></div>
+    <a class="logo" href="{{ url_for('home') }}" aria-label="SXcontrol, inicio">SX<span>control</span></a>
     <nav>
         <ul>
+            <li><a href="{{ url_for('home') }}" class="active">Inicio</a></li>
             <li><a href="{{ url_for('comunidad') }}">Comunidad</a></li>
             <li><a href="{{ url_for('proyectos') }}">Proyectos</a></li>
-            <li><a href="{{ url_for('consultoria') }}">Consultoría</a></li>
-            <li><a href="{{ url_for('tienda') }}">Tienda</a></li>
+            <li><a href="{{ url_for('servicios') }}">Servicios</a></li>
             <li><a href="{{ url_for('blog') }}">Blog</a></li>
         </ul>
     </nav>
@@ -22,9 +23,10 @@
 
     <main>
         <section class="hero">
-            <h1>Contruimos <span>software libre</span></h1> 
-            <p>Comunidad, tecnologia y proyectos con proposito.</p>
-            <a href="{{ url_for('comunidad')}}" class="btn">Conocer SXcontrol</a>
+            <h1>Construimos <span>software libre</span></h1>
+            <p>Comunidad, tecnología y proyectos con propósito para aprender, crear y compartir.</p>
+            <a href="{{ url_for('proyectos') }}" class="btn">Explorar proyectos</a>
+            <a href="{{ url_for('comunidad') }}" class="btn btn-secundario">Conocer la comunidad</a>
         </section>
     </main>
 

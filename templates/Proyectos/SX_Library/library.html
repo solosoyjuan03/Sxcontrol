@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SX Library: un espacio digital en preparación para descubrir libros de distintas temáticas.">
+    <title>SX Library - Biblioteca digital</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <a class="logo" href="{{ url_for('home') }}" aria-label="SXcontrol, inicio">SX<span>control</span></a>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Inicio</a></li>
+                <li><a href="{{ url_for('comunidad') }}">Comunidad</a></li>
+                <li><a href="{{ url_for('proyectos') }}" class="active">Proyectos</a></li>
+                <li><a href="{{ url_for('servicios') }}">Servicios</a></li>
+                <li><a href="{{ url_for('blog') }}">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="library-page">
+        <section class="library-hero" aria-labelledby="library-title">
+            <div>
+                <p class="library-eyebrow">Leer · aprender · compartir</p>
+                <h1 id="library-title">SX <span>Library</span></h1>
+                <p class="library-intro">Un espacio digital para acercar libros y conocimiento a más personas. Estamos preparando una biblioteca organizada por temas, pensada para apoyar el aprendizaje y los procesos de digitalización.</p>
+                <a href="#colecciones" class="btn">Descubrir temáticas</a>
+            </div>
+            <div class="library-books-art" aria-hidden="true">
+                <div class="library-book">Ideas</div>
+                <div class="library-book">Conocimiento</div>
+                <div class="library-book">Lecturas</div>
+            </div>
+        </section>
+
+        <section id="colecciones" aria-labelledby="collections-title">
+            <h2 id="collections-title" class="library-section-heading">Un lugar para muchos temas</h2>
+            <p class="library-section-description">Estas son algunas de las colecciones que queremos construir para explorar, aprender y compartir.</p>
+
+            <div class="library-collections">
+                <article class="library-collection">
+                    <span class="library-collection-icon" aria-hidden="true">⌘</span>
+                    <h3>Tecnología</h3>
+                    <p>Software, programación, cultura digital y herramientas libres.</p>
+                </article>
+                <article class="library-collection">
+                    <span class="library-collection-icon" aria-hidden="true">✎</span>
+                    <h3>Educación</h3>
+                    <p>Recursos para enseñar, aprender y compartir conocimientos.</p>
+                </article>
+                <article class="library-collection">
+                    <span class="library-collection-icon" aria-hidden="true">◉</span>
+                    <h3>Ciencia</h3>
+                    <p>Ideas, descubrimientos y lecturas para comprender el mundo.</p>
+                </article>
+                <article class="library-collection">
+                    <span class="library-collection-icon" aria-hidden="true">⌛</span>
+                    <h3>Historia y sociedad</h3>
+                    <p>Libros para conocer nuestras historias, culturas y comunidades.</p>
+                </article>
+                <article class="library-collection">
+                    <span class="library-collection-icon" aria-hidden="true">❝</span>
+                    <h3>Literatura</h3>
+                    <p>Narrativa, poesía y otras formas de imaginar nuevos mundos.</p>
+                </article>
+            </div>
+        </section>
+
+        <aside class="library-status" aria-label="Estado de SX Library">
+            <span class="library-collection-icon" aria-hidden="true">i</span>
+            <div>
+                <strong>La biblioteca está en preparación</strong>
+                <p>Las colecciones todavía no contienen libros disponibles. Queremos incorporar materiales con permiso de distribución o licencias abiertas y mostrar claramente su fuente y condiciones de uso. <a href="{{ url_for('comunidad_colaboradores') }}">Conoce cómo colaborar.</a></p>
+            </div>
+        </aside>
+    </main>
+</body>
+</html>

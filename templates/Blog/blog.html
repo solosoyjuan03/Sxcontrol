@@ -2,25 +2,27 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Noticias y avances de los proyectos SXcontrol, organizados por fecha.">
     <title>Blog - SXcontrol</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
     <header>
-        <div class="logo">SX<span>control</span></div>
+        <a class="logo" href="{{ url_for('home') }}" aria-label="SXcontrol, inicio">SX<span>control</span></a>
         <nav>
             <ul>
+                <li><a href="{{ url_for('home') }}">Inicio</a></li>
                 <li><a href="{{ url_for('comunidad') }}">Comunidad</a></li>
                 <li><a href="{{ url_for('proyectos') }}">Proyectos</a></li>
-                <li><a href="{{ url_for('consultoria') }}">Consultoría</a></li>
-                <li><a href="{{ url_for('tienda') }}">Tienda</a></li>
+                <li><a href="{{ url_for('servicios') }}">Servicios</a></li>
                 <li><a href="{{ url_for('blog') }}" class="active">Blog</a></li>
             </ul>
         </nav>
     </header>
     <main class="hero">
         <h1><span>Noticias</span> SXcontrol</h1>
-        <p>Avances de los proyectos organizados por fecha.</p>
+        <p>Avances, novedades y próximos pasos de los proyectos SXcontrol.</p>
 
         <section class="noticias-timeline" aria-label="Avances por fecha">
             <h2><time datetime="2026-10-04">4 de octubre de 2026</time></h2>
@@ -34,7 +36,12 @@
             <article class="noticia-avance">
                 <h3>Blog de SXcontrol</h3>
                 <p>Se reorganizó la navegación: el Blog queda dedicado a noticias y avances fechados, mientras que los repositorios y la información para colaboradores pasan a la sección Comunidad.</p>
-                <p><strong>Evaluación:</strong> se comprobarán las rutas y navegación después de integrar esta reorganización.</p>
+                <p><strong>Evaluación:</strong> las páginas y rutas se integraron; la navegación ahora mantiene un acceso común a Inicio y Servicios.</p>
+            </article>
+
+            <article class="noticia-avance">
+                <h3>SX Library</h3>
+                <p>Se diseñó la página inicial de la biblioteca digital con colecciones temáticas para tecnología, educación, ciencia, historia y literatura. Los libros se incorporarán cuando estén disponibles con permisos o licencias adecuadas.</p>
             </article>
 
             <article class="noticia-avance">
@@ -51,6 +58,16 @@
                 <h3>Evaluación general de la jornada</h3>
                 <p>Los cambios de SX Nutria se implementaron y probaron localmente. La reorganización de Blog y Comunidad está en curso. No hay un cronograma publicado para evaluar retrasos o adelantos; el estado indicado se limita a los cambios implementados y verificables.</p>
             </aside>
+        </section>
+
+        <section class="noticias-timeline" aria-label="Pruebas y avances del 5 de octubre">
+            <h2><time datetime="2026-10-05">5 de octubre de 2026</time></h2>
+
+            <article class="noticia-avance">
+                <h3>Pruebas de calidad y cumplimiento</h3>
+                <p>Se ejecutaron seis pruebas automatizadas con <code>python -m unittest discover -s tests -v</code>; todas pasaron. Las pruebas verifican que diez páginas respondan y compartan navegación accesible, que las rutas antiguas de Consultoría y Tienda redirijan a Servicios, que Comunidad enlace a Cumplimiento sin enlaces vacíos, que la página de Cumplimiento muestre el estado de la licencia y las pruebas, y que SX Nutria acepte una entrada válida y rechace valores fuera de rango.</p>
+                <p><strong>Alcance:</strong> son comprobaciones funcionales de rutas, contenido y validación básica. No constituyen una auditoría de seguridad, una revisión legal ni una certificación de cumplimiento.</p>
+            </article>
         </section>
     </main>
 </body>

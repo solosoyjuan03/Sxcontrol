@@ -1,6 +1,6 @@
 import math
 
-from flask import Flask, render_template, request
+from flask import Flask, redirect, render_template, request, url_for
 
 app = Flask(__name__)
 
@@ -24,9 +24,19 @@ def comunidad_colaboradores():
     return render_template("Comunidad/Colaboradores/colaboradores.html")
 
 
+@app.route("/comunidad/cumplimiento")
+def comunidad_cumplimiento():
+    return render_template("Comunidad/Cumplimiento/cumplimiento.html")
+
+
 @app.route("/proyectos")
 def proyectos():
     return render_template("Proyectos/proyectos.html")
+
+
+@app.route("/sx-library")
+def sx_library():
+    return render_template("Proyectos/SX_Library/library.html")
 
 
 @app.route("/nutria", methods=["GET", "POST"])
@@ -229,14 +239,15 @@ def nutria():
     )
 
 
+@app.route("/servicios")
+def servicios():
+    return render_template("Servicios/servicios.html")
+
+
 @app.route("/consultoria")
-def consultoria():
-    return render_template("Consultoria/consultoria.html")
-
-
 @app.route("/tienda")
-def tienda():
-    return render_template("Tienda/tienda.html")
+def servicios_anterior():
+    return redirect(url_for("servicios"), code=301)
 
 
 @app.route("/blog")

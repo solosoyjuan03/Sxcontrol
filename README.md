@@ -4,9 +4,10 @@ SXcontrol es una aplicación web desarrollada con Flask. Reúne páginas informa
 
 ## Funcionalidades actuales
 
-- Páginas de inicio, comunidad, proyectos, consultoría, tienda y blog.
+- Páginas de inicio, comunidad, proyectos, servicios (consultoría y tienda) y blog.
 - El Blog está dedicado a noticias y avances del proyecto organizados por fecha.
-- Comunidad incluye páginas separadas para consultar repositorios y conocer cómo colaborar.
+- Comunidad incluye páginas para consultar repositorios, conocer cómo colaborar y revisar cumplimiento, principios comunitarios y pruebas.
+- SX Library presenta una biblioteca digital en preparación con colecciones temáticas de libros.
 - SX Nutria incluye secciones desplegables de introducción, documentación, guía alimentaria, recomendaciones generales de salud y calculadora.
 - La calculadora estima el gasto energético diario, el IMC y una distribución general de macronutrientes a partir de los datos ingresados.
 - Los resultados incluyen recomendaciones educativas orientativas según el rango de IMC, ejemplos de alimentos y una guía flexible de porciones.
@@ -50,9 +51,12 @@ web: gunicorn app:app
 app.py                         Rutas y lógica de la aplicación Flask
 templates/                     Plantillas HTML
   Blog/blog.html                Noticias y avances del proyecto
-  Comunidad/                    Portada, repositorios y colaboradores
+  Comunidad/                    Portada, repositorios, colaboradores y cumplimiento
   Proyectos/SX_Nutria/          Página y calculadora SX Nutria
+  Proyectos/SX_Library/         Biblioteca digital SX Library
+  Servicios/                    Consultoría y productos
 static/css/style.css            Estilos
+tests/Comunidad/Cumplimiento/   Pruebas automatizadas del sitio
 requirements.txt                Dependencias de Python
 Procfile                        Comando de inicio para despliegue
 ```
@@ -77,6 +81,16 @@ Al completar una mejora, actualiza esta sección con:
 3. Pruebas o verificaciones ejecutadas.
 
 Procura describir lo que efectivamente está implementado y probado. Si una función sigue en desarrollo, indícala como pendiente y no como terminada.
+
+### Pruebas automatizadas
+
+Las pruebas funcionales del sitio están en `tests/Comunidad/Cumplimiento/` y se ejecutan desde la raíz del proyecto con:
+
+```powershell
+python -m unittest discover -s tests -v
+```
+
+Estas pruebas cubren rutas y navegación, redirecciones de servicios, acceso a la página de cumplimiento y validación básica de la calculadora. No sustituyen una auditoría de seguridad ni una revisión legal.
 
 ## Flujo recomendado para contribuir
 
