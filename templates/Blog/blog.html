@@ -25,74 +25,89 @@
     <main class="hero">
         <!-- Cada cronología agrupa noticias y verificaciones por fecha. -->
         <h1><span>Noticias</span> SXcontrol</h1>
-        <p>Avances, novedades y próximos pasos de los proyectos SXcontrol.</p>
+        <p>Selecciona una fecha para desplegar las novedades y avances registrados ese día.</p>
 
+        {% macro novedades_4_octubre() %}
         <section class="noticias-timeline" aria-label="Avances por fecha">
-            <h2><time datetime="2026-10-04">4 de octubre de 2026</time></h2>
+            <details class="noticias-fecha">
+                <summary><time datetime="2026-10-04">4 de octubre de 2026</time></summary>
+                <div class="noticias-fecha-contenido">
 
-            <article class="noticia-avance">
-                <h3>SX Nutria</h3>
-                <p>Se amplió la calculadora para mostrar estimaciones de energía, macronutrientes e IMC con recomendaciones educativas según el rango calculado. También se mejoraron las guías de alimentos, porciones y advertencias de salud, y se puso la calculadora al inicio de la página.</p>
-                <p><strong>Evaluación:</strong> los cambios principales quedaron implementados y se probaron las categorías del IMC, el cálculo y la visualización del resultado. Las recomendaciones se identifican como orientativas, no como diagnóstico.</p>
-            </article>
+                    <article class="noticia-avance">
+                        <h3>SX Nutria</h3>
+                        <p>Se amplió la calculadora para mostrar estimaciones de energía, macronutrientes e IMC con recomendaciones educativas según el rango calculado. También se mejoraron las guías de alimentos, porciones y advertencias de salud, y se puso la calculadora al inicio de la página.</p>
+                        <p><strong>Evaluación:</strong> los cambios principales quedaron implementados y se probaron las categorías del IMC, el cálculo y la visualización del resultado. Las recomendaciones se identifican como orientativas, no como diagnóstico.</p>
+                    </article>
 
-            <article class="noticia-avance">
-                <h3>Blog de SXcontrol</h3>
-                <p>Se reorganizó la navegación: el Blog queda dedicado a noticias y avances fechados, mientras que los repositorios y la información para colaboradores pasan a la sección Comunidad.</p>
-                <p><strong>Evaluación:</strong> las páginas y rutas se integraron; la navegación ahora mantiene un acceso común a Inicio y Servicios.</p>
-            </article>
+                    <article class="noticia-avance">
+                        <h3>Blog de SXcontrol</h3>
+                        <p>Se reorganizó la navegación: el Blog queda dedicado a noticias y avances fechados, mientras que los repositorios y la información para colaboradores pasan a la sección Comunidad.</p>
+                        <p><strong>Evaluación:</strong> las páginas y rutas se integraron; la navegación ahora mantiene un acceso común a Inicio y Servicios.</p>
+                    </article>
 
-            <article class="noticia-avance">
-                <h3>SX Library</h3>
-                <p>Se diseñó la página inicial de la biblioteca digital con colecciones temáticas para tecnología, educación, ciencia, historia y literatura. Los libros se incorporarán cuando estén disponibles con permisos o licencias adecuadas.</p>
-            </article>
+                    <article class="noticia-avance">
+                        <h3>SX Library</h3>
+                        <p>Se diseñó la página inicial de la biblioteca digital con colecciones temáticas para tecnología, educación, ciencia, historia y literatura. Los libros se incorporarán cuando estén disponibles con permisos o licencias adecuadas.</p>
+                    </article>
 
-            <article class="noticia-avance">
-                <h3>SX Edu</h3>
-                <p>La Beta 1 continúa publicada. No se registraron cambios de desarrollo de SX Edu en esta actualización.</p>
-            </article>
+                    <article class="noticia-avance">
+                        <h3>SX Edu</h3>
+                        <p>La Beta 1 continúa publicada. No se registraron cambios de desarrollo de SX Edu en esta actualización.</p>
+                    </article>
 
-            <article class="noticia-avance">
-                <h3>SX Woodpecker OS, SX Orange Page, SX Library, SX Recruiter y SX Registros</h3>
-                <p>Estos proyectos siguen anunciados como próximos en la página de Proyectos. No hay nuevos avances de implementación registrados para esta fecha.</p>
-            </article>
+                    <article class="noticia-avance">
+                        <h3>SX Woodpecker OS, SX Orange Page, SX Library, SX Recruiter y SX Registros</h3>
+                        <p>Estos proyectos siguen anunciados como próximos en la página de Proyectos. No hay nuevos avances de implementación registrados para esta fecha.</p>
+                    </article>
 
-            <aside class="noticias-estado">
-                <h3>Evaluación general de la jornada</h3>
-                <p>Los cambios de SX Nutria se implementaron y probaron localmente. La reorganización de Blog y Comunidad está en curso. No hay un cronograma publicado para evaluar retrasos o adelantos; el estado indicado se limita a los cambios implementados y verificables.</p>
-            </aside>
+                    <aside class="noticias-estado">
+                        <h3>Evaluación general de la jornada</h3>
+                        <p>Los cambios de SX Nutria se implementaron y probaron localmente. La reorganización de Blog y Comunidad está en curso. No hay un cronograma publicado para evaluar retrasos o adelantos; el estado indicado se limita a los cambios implementados y verificables.</p>
+                    </aside>
+                </div>
+            </details>
         </section>
+        {% endmacro %}
 
+        {% macro novedades_5_octubre() %}
         <section class="noticias-timeline" aria-label="Pruebas y avances del 5 de octubre">
-            <h2><time datetime="2026-10-05">5 de octubre de 2026</time></h2>
+            <details class="noticias-fecha">
+                <summary><time datetime="2026-10-05">5 de octubre de 2026</time></summary>
+                <div class="noticias-fecha-contenido">
 
-            <article class="noticia-avance">
-                <h3>Pruebas de calidad y cumplimiento</h3>
-                <p>La suite automatizada usa <strong>unittest</strong> de Python y el cliente <strong>Flask test_client</strong>. Comprueba respuestas de páginas y navegación, catálogo y fichas de borrador, el contenido de Comunidad y el Blog, redirecciones, contacto, donaciones y entradas válidas e inválidas de SX Nutria.</p>
-                <p>También se hizo una revisión manual exploratoria con el navegador integrado y Playwright: se recorrieron páginas y enlaces, se inspeccionaron el catálogo y sus fichas, SX Nutria y los bloques de contacto y Nequi; a 390 px se verificó visualmente la adaptación móvil y la ausencia de desbordamiento horizontal en las páginas revisadas. No se hicieron transferencias ni se enviaron correos.</p>
-                <p><strong>Resultado local de la actualización:</strong> pasaron catorce pruebas automatizadas. Estas comprobaciones funcionales y manuales no son una auditoría de seguridad, revisión legal ni certificación de cumplimiento.</p>
-            </article>
+                    <article class="noticia-avance">
+                        <h3>Pruebas de calidad y cumplimiento</h3>
+                        <p>La suite automatizada usa <strong>unittest</strong> de Python y el cliente <strong>Flask test_client</strong>. Comprueba respuestas de páginas y navegación, catálogo y fichas de borrador, el contenido de Comunidad y el Blog, redirecciones, contacto, donaciones y entradas válidas e inválidas de SX Nutria.</p>
+                        <p>También se hizo una revisión manual exploratoria con el navegador integrado y Playwright: se recorrieron páginas y enlaces, se inspeccionaron el catálogo y sus fichas, SX Nutria y los bloques de contacto y Nequi; a 390 px se verificó visualmente la adaptación móvil y la ausencia de desbordamiento horizontal en las páginas revisadas. No se hicieron transferencias ni se enviaron correos.</p>
+                        <p><strong>Resultado local de la actualización:</strong> pasaron catorce pruebas automatizadas. Estas comprobaciones funcionales y manuales no son una auditoría de seguridad, revisión legal ni certificación de cumplimiento.</p>
+                    </article>
 
-            <article class="noticia-avance">
-                <h3>Nuevas propuestas en el catálogo de proyectos</h3>
-                <p>Se añadieron fichas de borrador para tres ideas: <strong>SX Documento</strong>, una herramienta con campos guiados para organizar documentos con estilos como APA 7; <strong>SX Help</strong>, una propuesta de orientación jurídica accesible para personas de escasos recursos; y <strong>SX Místico</strong>, una página sobre esoterismo y tradiciones relacionadas.</p>
-                <p>El nombre SX Documento es provisional y la compatibilidad con APA 7 requiere definir y verificar sus reglas. SX Help propone como eslogan «Orientación jurídica accesible para personas de escasos recursos», pero no ofrece asesoría legal activa. Los tres proyectos siguen en preparación; las fichas explican sus propósitos y aspectos todavía por definir, no funciones ya disponibles.</p>
-            </article>
+                    <article class="noticia-avance">
+                        <h3>Nuevas propuestas en el catálogo de proyectos</h3>
+                        <p>Se añadieron fichas de borrador para tres ideas: <strong>SX Documento</strong>, una herramienta con campos guiados para organizar documentos con estilos como APA 7; <strong>SX Help</strong>, una propuesta de orientación jurídica accesible para personas de escasos recursos; y <strong>SX Místico</strong>, una página sobre esoterismo y tradiciones relacionadas.</p>
+                        <p>El nombre SX Documento es provisional y la compatibilidad con APA 7 requiere definir y verificar sus reglas. SX Help propone como eslogan «Orientación jurídica accesible para personas de escasos recursos», pero no ofrece asesoría legal activa. Los tres proyectos siguen en preparación; las fichas explican sus propósitos y aspectos todavía por definir, no funciones ya disponibles.</p>
+                    </article>
 
-            <article class="noticia-avance">
-                <h3>Contacto y documentación del sitio</h3>
-                <p>Se unificó el contacto directo de SXcontrol en <strong>solosoyjuan03@gmail.com</strong>, visible en Servicios, Proyectos, Colaboradores y Cumplimiento. Los botones abren la ventana de redacción de Gmail con un asunto sugerido; la persona revisa y envía el correo desde su cuenta. El sitio no transmite mensajes automáticamente. GitHub queda como espacio para consultar repositorios y colaborar con código, no como canal de contacto directo.</p>
-                <p>También se añadieron comentarios breves en el código para explicar las rutas, plantillas, estilos y pruebas principales. La hoja CSS se reorganizó por componentes y se ajustó para que el menú no aplique sus estilos a otros enlaces; además, se ordenaron las tarjetas y el diseño adaptable.</p>
-                <p>La sección Comunidad ahora informa que el número Nequi <strong>318 004 2374</strong> puede recibir transferencias desde Nequi o desde otros bancos que permitan enviar dinero a Nequi. SXcontrol no procesa el pago: antes de confirmar, verifica en tu banco el destinatario y el monto.</p>
-                <p>En la verificación local de esta actualización, las catorce pruebas automatizadas pasaron; estas comprueban el funcionamiento del sitio, pero no sustituyen una auditoría.</p>
-            </article>
+                    <article class="noticia-avance">
+                        <h3>Contacto y documentación del sitio</h3>
+                        <p>Se unificó el contacto directo de SXcontrol en <strong>solosoyjuan03@gmail.com</strong>, visible en Servicios, Proyectos, Colaboradores y Cumplimiento. Los botones abren la ventana de redacción de Gmail con un asunto sugerido; la persona revisa y envía el correo desde su cuenta. El sitio no transmite mensajes automáticamente. GitHub queda como espacio para consultar repositorios y colaborar con código, no como canal de contacto directo.</p>
+                        <p>También se añadieron comentarios breves en el código para explicar las rutas, plantillas, estilos y pruebas principales. La hoja CSS se reorganizó por componentes y se ajustó para que el menú no aplique sus estilos a otros enlaces; además, se ordenaron las tarjetas y el diseño adaptable.</p>
+                        <p>La sección Comunidad ahora informa que el número Nequi <strong>318 004 2374</strong> puede recibir transferencias desde Nequi o desde otros bancos que permitan enviar dinero a Nequi. SXcontrol no procesa el pago: antes de confirmar, verifica en tu banco el destinatario y el monto.</p>
+                        <p>En la verificación local de esta actualización, las catorce pruebas automatizadas pasaron; estas comprueban el funcionamiento del sitio, pero no sustituyen una auditoría.</p>
+                    </article>
 
-            <article class="noticia-avance">
-                <h3>Autoría, seudónimos y filosofía de SXcontrol</h3>
-                <p>La sección Comunidad reconoce a <strong>Juan David Henao</strong>, de Roldanillo, Valle del Cauca, Colombia, como autor de la idea de SXcontrol como comunidad y de la elaboración de sus programas de software. También indica que lleva más de dos años trabajando en estos proyectos desde su etapa en el SENA, refinando la idea con docentes y colegas; que asumió temporalmente el papel de CIO y que actualmente es CEO del proyecto comunitario.</p>
-                <p>Se incluyen los seudónimos <strong>Juan D. Henao</strong> y <strong>solosoyjuan</strong>, y su filosofía: «El acto más dignificante es pensar en algo más que en nosotros mismos».</p>
-            </article>
+                    <article class="noticia-avance">
+                        <h3>Autoría, seudónimos y filosofía de SXcontrol</h3>
+                        <p>La sección Comunidad reconoce a <strong>Juan David Henao</strong>, de Roldanillo, Valle del Cauca, Colombia, como autor de la idea de SXcontrol como comunidad y de la elaboración de sus programas de software. También indica que lleva más de dos años trabajando en estos proyectos desde su etapa en el SENA, refinando la idea con docentes y colegas; que asumió temporalmente el papel de CIO y que actualmente es CEO del proyecto comunitario.</p>
+                        <p>Se incluyen los seudónimos <strong>Juan D. Henao</strong> y <strong>solosoyjuan</strong>, y su filosofía: «El acto más dignificante es pensar en algo más que en nosotros mismos».</p>
+                    </article>
+                </div>
+            </details>
         </section>
+        {% endmacro %}
+
+        {{ novedades_5_octubre() }}
+        {{ novedades_4_octubre() }}
     </main>
 </body>
 </html>
