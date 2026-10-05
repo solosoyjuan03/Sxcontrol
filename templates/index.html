@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- Metadatos y hoja de estilos común del sitio. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="SXcontrol desarrolla proyectos de software libre, tecnología y aprendizaje para comunidades de Latinoamérica.">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
+<!-- Encabezado global: marca y enlaces hacia las secciones principales. -->
 <header>
     <a class="logo" href="{{ url_for('home') }}" aria-label="SXcontrol, inicio">SX<span>control</span></a>
     <nav>
@@ -22,6 +24,7 @@
 </header>
 
     <main>
+        <!-- Presentación breve y accesos directos a proyectos y comunidad. -->
         <section class="hero">
             <h1>Construimos <span>software libre</span></h1>
             <p>Comunidad, tecnología y proyectos con propósito para aprender, crear y compartir.</p>

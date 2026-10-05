@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- Metadatos y hoja de estilos de la página de transparencia. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Principios comunitarios, información de cumplimiento y pruebas de calidad del software SXcontrol.">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
+    <!-- Navegación común; Comunidad identifica la sección actual. -->
     <header>
         <a class="logo" href="{{ url_for('home') }}" aria-label="SXcontrol, inicio">SX<span>control</span></a>
         <nav>
@@ -22,6 +24,7 @@
     </header>
 
     <main class="hero">
+        <!-- Delimita qué políticas y afirmaciones están disponibles actualmente. -->
         <h1><span>Cumplimiento</span> y principios</h1>
         <p>Transparencia sobre cómo colaboramos, cuidamos a las personas y verificamos nuestros cambios.</p>
 
@@ -31,6 +34,7 @@
             <p><strong>Estado documental:</strong> este repositorio aún no incluye un archivo de licencia ni políticas formales publicadas de privacidad o conducta. No asumas que el código puede reutilizarse libremente; esos documentos deben revisarse y aprobarse antes de anunciar condiciones legales definitivas.</p>
         </section>
 
+        <!-- Resume pautas de uso, privacidad, reportes y convivencia. -->
         <section class="proyectos-grid" aria-label="Principios y políticas">
             <article class="proyecto-card">
                 <h2>Licencias y derechos</h2>
@@ -42,10 +46,11 @@
                 <p>Evita compartir contraseñas, datos personales o información sensible en Issues y Pull Requests. La calculadora SX Nutria envía los valores introducidos al servidor para calcular resultados; no ingreses información que te identifique.</p>
                 <p>Antes de recopilar datos personales o abrir nuevas funciones que los almacenen, se debe definir y publicar una política de privacidad y revisar las obligaciones aplicables.</p>
             </article>
+            <!-- El enlace de correo inicia un mensaje sin transmitir datos desde el sitio. -->
             <article class="proyecto-card">
                 <h2>Seguridad responsable</h2>
-                <p>No publiques en Issues información que facilite explotar una vulnerabilidad ni datos de otras personas. El canal privado de reporte de seguridad debe confirmarse antes de anunciarse como disponible.</p>
-                <p>Para iniciar un contacto, escribe a <a href="mailto:contacto@sxcontrol.org">contacto@sxcontrol.org</a> sin adjuntar secretos o datos personales innecesarios.</p>
+                <p>No publiques información que facilite explotar una vulnerabilidad ni datos de otras personas. El correo es el único medio de contacto directo; no se ha habilitado un canal privado especializado de reporte de seguridad.</p>
+                <p>Para iniciar un contacto, <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=solosoyjuan03%40gmail.com&amp;su=Consulta%20de%20seguridad" target="_blank" rel="noopener noreferrer">abre un correo dirigido a solosoyjuan03@gmail.com</a> sin adjuntar secretos o datos personales innecesarios.</p>
             </article>
             <article class="proyecto-card">
                 <h2>Principios de comunidad</h2>
@@ -58,6 +63,7 @@
             </article>
         </section>
 
+        <!-- Indica cómo ejecutar las pruebas y qué aspectos no certifican. -->
         <section class="comunidad-info" aria-labelledby="pruebas-title">
             <h2 id="pruebas-title">Pruebas de calidad</h2>
             <p>Las comprobaciones automatizadas del sitio se guardan en <code>tests/Comunidad/Cumplimiento/</code>. Cubren respuestas de las páginas, navegación, redirecciones, formularios y límites básicos de la calculadora.</p>

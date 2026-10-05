@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- Metadatos y estilos comunes de la ficha de SX Library. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="SX Library: un espacio digital en preparación para descubrir libros de distintas temáticas.">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
+    <!-- Navegación compartida con el catálogo de proyectos activo. -->
     <header>
         <a class="logo" href="{{ url_for('home') }}" aria-label="SXcontrol, inicio">SX<span>control</span></a>
         <nav>
@@ -22,6 +24,7 @@
     </header>
 
     <main class="library-page">
+        <!-- Resume el propósito de la biblioteca y enlaza con las colecciones. -->
         <section class="library-hero" aria-labelledby="library-title">
             <div>
                 <p class="library-eyebrow">Leer · aprender · compartir</p>
@@ -36,6 +39,7 @@
             </div>
         </section>
 
+        <!-- Las colecciones son categorías previstas, todavía sin libros publicados. -->
         <section id="colecciones" aria-labelledby="collections-title">
             <h2 id="collections-title" class="library-section-heading">Un lugar para muchos temas</h2>
             <p class="library-section-description">Estas son algunas de las colecciones que queremos construir para explorar, aprender y compartir.</p>
@@ -69,6 +73,7 @@
             </div>
         </section>
 
+        <!-- Aclara el estado de disponibilidad y los requisitos para publicar obras. -->
         <aside class="library-status" aria-label="Estado de SX Library">
             <span class="library-collection-icon" aria-hidden="true">i</span>
             <div>

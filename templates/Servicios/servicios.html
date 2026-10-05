@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- Metadatos y estilos comunes para la oferta de servicios. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Conoce la consultoría tecnológica de SXcontrol y el estado de su tienda de productos.">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
+    <!-- Navegación compartida del sitio. -->
     <header>
         <a class="logo" href="{{ url_for('home') }}" aria-label="SXcontrol, inicio">SX<span>control</span></a>
         <nav>
@@ -22,6 +24,7 @@
     </header>
 
     <main class="hero">
+        <!-- Agrupa la descripción de la consultoría y sus áreas de servicio. -->
         <h1><span>Servicios</span> SXcontrol</h1>
         <p>Asesoría tecnológica y noticias sobre los productos de SXcontrol, en un solo lugar.</p>
 
@@ -46,16 +49,18 @@
             </article>
         </section>
 
+        <!-- El enlace abre Gmail con el asunto preparado; el usuario envía el mensaje. -->
         <section class="donaciones-section">
             <div class="donacion-card">
                 <h2>¿Tienes un proyecto o consulta en mente?</h2>
                 <p>Analizamos tus necesidades tecnológicas y te ayudamos a diseñar la mejor ruta de implementación para tu negocio o institución.</p>
                 <div class="donaciones-botones">
-                    <a href="mailto:contacto@sxcontrol.org" class="btn">Consultar por asesoría</a>
+                    <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=solosoyjuan03%40gmail.com&amp;su=Consulta%20de%20asesor%C3%ADa" target="_blank" rel="noopener noreferrer" class="btn">Consultar por asesoría</a>
                 </div>
             </div>
         </section>
 
+        <!-- Explica que la tienda aún no está operativa y evita enlaces ficticios. -->
         <section id="tienda" class="comunidad-info" aria-labelledby="tienda-title">
             <h2 id="tienda-title">Tienda y productos</h2>
             <p>Estamos preparando esta sección. Cuando haya productos disponibles, podrás encontrarlos aquí; por ahora puedes conocer los servicios de consultoría o apoyar el desarrollo desde Comunidad.</p>

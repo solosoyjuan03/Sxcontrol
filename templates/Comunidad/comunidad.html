@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- Metadatos de idioma, accesibilidad móvil y descripción de Comunidad. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Conoce la comunidad SXcontrol, consulta repositorios y descubre cómo colaborar en proyectos de software libre.">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
+    <!-- Navegación compartida para recorrer el sitio desde cualquier sección. -->
     <header>
         <a class="logo" href="{{ url_for('home') }}" aria-label="SXcontrol, inicio">SX<span>control</span></a>
         <nav>
@@ -22,6 +24,7 @@
     </header>
 
     <main class="hero">
+        <!-- Presenta el propósito de la comunidad y sus recursos principales. -->
         <h1>Nuestra <span>Comunidad</span></h1>
         <p>Únete a desarrolladores y colaboradores comprometidos con el software libre.</p>
 
@@ -35,6 +38,7 @@
             </p>
         </section>
 
+        <!-- Tarjetas para consultar repositorios, colaboración y cumplimiento. -->
         <section class="proyectos-grid" aria-label="Recursos de la comunidad">
             <article class="proyecto-card">
                 <h2>Repositorios</h2>
@@ -53,6 +57,7 @@
             </article>
         </section>
 
+        <!-- Cierra con formas actuales de participar; no ofrece donaciones activas. -->
         <section class="donaciones-section">
             <div class="donacion-card">
                 <h3>Crece con la comunidad</h3>

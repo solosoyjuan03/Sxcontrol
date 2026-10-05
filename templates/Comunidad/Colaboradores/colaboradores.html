@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- Metadatos y estilos compartidos para la guía de colaboración. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Aprende cómo proponer mejoras, reportar problemas y contribuir a los proyectos SXcontrol.">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
+    <!-- Navegación común del sitio. -->
     <header>
         <a class="logo" href="{{ url_for('home') }}" aria-label="SXcontrol, inicio">SX<span>control</span></a>
         <nav>
@@ -21,6 +23,7 @@
         </nav>
     </header>
     <main class="hero">
+        <!-- Explica cómo participar sin atribuir contribuciones no verificadas. -->
         <h1><span>Colaboradores</span></h1>
         <p>Los proyectos de SXcontrol pueden crecer con ideas, revisiones y contribuciones de la comunidad.</p>
 
@@ -33,15 +36,16 @@
                     <p>Revisa los repositorios y sus instrucciones para conocer el estado del proyecto antes de proponer un cambio.</p>
                     <a href="{{ url_for('comunidad_repositorios') }}" class="btn">Ver repositorios</a>
                 </article>
+                <!-- El correo es contacto directo; los repositorios quedan para el código. -->
                 <article class="proyecto-card">
-                    <h2>2. Propón una mejora</h2>
-                    <p>Usa la sección de Issues del repositorio correspondiente para describir errores, ideas o documentación que haga falta.</p>
-                    <a href="https://github.com/solosoyjuan03/Sxcontrol/issues" target="_blank" rel="noopener noreferrer" class="btn">Issues de SXcontrol</a>
+                    <h2>2. Contacta por correo</h2>
+                    <p>El correo es el único medio de contacto directo para consultas, ideas o propuestas de colaboración.</p>
+                    <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=solosoyjuan03%40gmail.com&amp;su=Colaboraci%C3%B3n%20con%20SXcontrol" target="_blank" rel="noopener noreferrer" class="btn">Escribir por correo</a>
                 </article>
                 <article class="proyecto-card">
-                    <h2>3. Envía una contribución</h2>
-                    <p>Cuando haya cambios listos, puedes proponerlos mediante un Pull Request para que sean revisados.</p>
-                    <a href="https://github.com/solosoyjuan03/Sxcontrol/pulls" target="_blank" rel="noopener noreferrer" class="btn">Pull Requests</a>
+                    <h2>3. Colabora con código</h2>
+                    <p>Consulta los repositorios públicos para revisar el código y las instrucciones de contribución de cada proyecto.</p>
+                    <a href="{{ url_for('comunidad_repositorios') }}" class="btn">Ver repositorios</a>
                 </article>
             </div>
         </section>

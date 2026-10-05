@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Metadatos básicos de la ficha informativa del proyecto. -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Borrador informativo de {{ project_name }}; el proyecto sigue en preparación.">
+    <title>{{ project_name }} - En preparación | SXcontrol</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- La barra común conserva la navegación del sitio desde cada borrador. -->
+    <header>
+        <a class="logo" href="{{ url_for('home') }}" aria-label="SXcontrol, inicio">SX<span>control</span></a>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Inicio</a></li>
+                <li><a href="{{ url_for('comunidad') }}">Comunidad</a></li>
+                <li><a href="{{ url_for('proyectos') }}" class="active" aria-current="page">Proyectos</a></li>
+                <li><a href="{{ url_for('servicios') }}">Servicios</a></li>
+                <li><a href="{{ url_for('blog') }}">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- La ficha comunica la idea conocida y separa lo pendiente de lo disponible. -->
+    <main class="project-draft-page">
+        <section class="project-draft-hero" aria-labelledby="project-title">
+            <p class="project-draft-eyebrow">Borrador del proyecto</p>
+            <h1 id="project-title">{{ project_name }}</h1>
+            {% if tagline %}
+            <p class="project-draft-tagline"><strong>Eslogan propuesto:</strong> {{ tagline }}</p>
+            {% endif %}
+            <p class="project-draft-summary">{{ summary }}</p>
+            <p class="project-draft-status" role="status">Página informativa disponible; el proyecto todavía está en preparación.</p>
+        </section>
+
+        <section class="project-draft-details" aria-labelledby="pending-title">
+            <h2 id="pending-title">Aspectos por definir</h2>
+            <p>Estos puntos son tareas de planificación, no funciones ya implementadas ni fechas de lanzamiento.</p>
+            <ul>
+                {% for detail in pending_details %}
+                <li>{{ detail }}</li>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <!-- Las acciones conducen a canales existentes, sin simular registro ni lanzamiento. -->
+        <nav class="project-draft-actions" aria-label="Acciones del proyecto">
+            <a href="{{ url_for('proyectos') }}" class="btn">Volver a Proyectos</a>
+            <a href="{{ url_for('comunidad_colaboradores') }}" class="btn btn-secundario">Cómo colaborar</a>
+        </nav>
+    </main>
+</body>
+</html>

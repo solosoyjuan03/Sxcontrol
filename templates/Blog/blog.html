@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- Metadatos y estilos compartidos para el registro de avances. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Noticias y avances de los proyectos SXcontrol, organizados por fecha.">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
+    <!-- Navegación principal del sitio. -->
     <header>
         <a class="logo" href="{{ url_for('home') }}" aria-label="SXcontrol, inicio">SX<span>control</span></a>
         <nav>
@@ -21,6 +23,7 @@
         </nav>
     </header>
     <main class="hero">
+        <!-- Cada cronología agrupa noticias y verificaciones por fecha. -->
         <h1><span>Noticias</span> SXcontrol</h1>
         <p>Avances, novedades y próximos pasos de los proyectos SXcontrol.</p>
 
@@ -65,8 +68,20 @@
 
             <article class="noticia-avance">
                 <h3>Pruebas de calidad y cumplimiento</h3>
-                <p>Se ejecutaron seis pruebas automatizadas con <code>python -m unittest discover -s tests -v</code>; todas pasaron. Las pruebas verifican que diez páginas respondan y compartan navegación accesible, que las rutas antiguas de Consultoría y Tienda redirijan a Servicios, que Comunidad enlace a Cumplimiento sin enlaces vacíos, que la página de Cumplimiento muestre el estado de la licencia y las pruebas, y que SX Nutria acepte una entrada válida y rechace valores fuera de rango.</p>
+                <p>Se ejecutaron nueve pruebas automatizadas con <code>python -m unittest discover -s tests -v</code>; todas pasaron. Las pruebas verifican que las páginas principales respondan y compartan navegación accesible, que el catálogo y las fichas de borrador de los proyectos estén conectados, que el Blog registre estas novedades, que las rutas antiguas de Consultoría y Tienda redirijan a Servicios, que Comunidad enlace a Cumplimiento sin enlaces vacíos, que la página de Cumplimiento muestre el estado de la licencia y las pruebas, y que SX Nutria acepte una entrada válida y rechace valores fuera de rango.</p>
                 <p><strong>Alcance:</strong> son comprobaciones funcionales de rutas, contenido y validación básica. No constituyen una auditoría de seguridad, una revisión legal ni una certificación de cumplimiento.</p>
+            </article>
+
+            <article class="noticia-avance">
+                <h3>Nuevas propuestas en el catálogo de proyectos</h3>
+                <p>Se añadieron fichas de borrador para tres ideas: <strong>SX Documento</strong>, una herramienta con campos guiados para organizar documentos con estilos como APA 7; <strong>SX Help</strong>, una propuesta de orientación jurídica accesible para personas de escasos recursos; y <strong>SX Místico</strong>, una página sobre esoterismo y tradiciones relacionadas.</p>
+                <p>El nombre SX Documento es provisional y la compatibilidad con APA 7 requiere definir y verificar sus reglas. SX Help propone como eslogan «Orientación jurídica accesible para personas de escasos recursos», pero no ofrece asesoría legal activa. Los tres proyectos siguen en preparación; las fichas explican sus propósitos y aspectos todavía por definir, no funciones ya disponibles.</p>
+            </article>
+
+            <article class="noticia-avance">
+                <h3>Contacto y documentación del sitio</h3>
+                <p>Se unificó el contacto directo de SXcontrol en <strong>solosoyjuan03@gmail.com</strong>, visible en Servicios, Proyectos, Colaboradores y Cumplimiento. Los botones abren la ventana de redacción de Gmail con un asunto sugerido; la persona revisa y envía el correo desde su cuenta. El sitio no transmite mensajes automáticamente. GitHub queda como espacio para consultar repositorios y colaborar con código, no como canal de contacto directo.</p>
+                <p>También se añadieron comentarios breves en el código para explicar las rutas, plantillas, estilos y pruebas principales. En la verificación local de esta actualización, las once pruebas automatizadas pasaron; estas comprueban el funcionamiento del sitio, pero no sustituyen una auditoría.</p>
             </article>
         </section>
     </main>

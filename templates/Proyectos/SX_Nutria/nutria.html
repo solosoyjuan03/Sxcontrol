@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- Metadatos y hoja de estilos para la calculadora y las guías. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Guía educativa de alimentación para personas adultas con una calculadora de estimaciones nutricionales.">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
+    <!-- Navegación común que permite volver al resto de proyectos. -->
     <header>
         <a class="logo" href="{{ url_for('home') }}" aria-label="SXcontrol, inicio">SX<span>control</span></a>
         <nav>
@@ -25,7 +27,7 @@
         <h1>SX <span>Nutria</span></h1>
         <p class="subtitle">Guía alimentaria y nutricional para mayores de 18 años basada en estándares internacionales (Canadá).</p>
 
-        <!-- Menú de 5 botones desplegables / Acordeones -->
+        <!-- Acordeones agrupan la calculadora y el contenido educativo por tema. -->
         <div class="accordion-group">
 
             <!-- Botón 1: Calculadora Alimentaria -->
@@ -34,6 +36,7 @@
                 <div class="accordion-content">
                     <p>Herramienta interactiva para estimar tus requerimientos calóricos base y distribución de macronutrientes según tu nivel de actividad física:</p>
 
+                    <!-- Los campos coinciden con los nombres validados por la ruta Flask. -->
                     <form class="nutricion-form" method="POST" action="{{ url_for('nutria') }}">
                         <div class="form-group">
                             <label for="genero">Género:</label>
@@ -66,6 +69,7 @@
                         <button type="submit" class="btn">Calcular en el Servidor</button>
                     </form>
 
+                    <!-- El servidor envía resultado tras el POST; muestra error o estimaciones. -->
                     {% if resultado %}
                     <div class="resultado-box" style="margin-top: 20px;" aria-live="polite">
                         {% if resultado.error %}
@@ -99,7 +103,7 @@
                     {% endif %}
                 </div>
             </details>
-            <!-- Botón 2: Introducción / Inicio -->
+            <!-- Define el público adulto y los límites educativos de la herramienta. -->
             <details class="accordion-item">
                 <summary class="btn-accordion">2. Introducción y Enfoque (+18)</summary>
                 <div class="accordion-content">
@@ -109,7 +113,7 @@
                 </div>
             </details>
 
-            <!-- Botón 3: Documentación -->
+            <!-- Describe fórmulas y fuentes que sustentan las estimaciones. -->
             <details class="accordion-item">
                 <summary class="btn-accordion">3. Documentación</summary>
                 <div class="accordion-content">
@@ -128,7 +132,7 @@
                 </div>
             </details>
 
-            <!-- Botón 4: Guía Alimentaria -->
+            <!-- Ofrece una guía visual flexible para organizar las comidas. -->
             <details class="accordion-item">
                 <summary class="btn-accordion">4. Guía Alimentaria</summary>
                 <div class="accordion-content">
@@ -143,7 +147,7 @@
                 </div>
             </details>
 
-            <!-- Botón 5: Recomendaciones sobre salud y peso -->
+            <!-- Incluye precauciones generales y recomienda atención profesional. -->
             <details class="accordion-item">
                 <summary class="btn-accordion">5. Recomendaciones para la Salud y el Peso</summary>
                 <div class="accordion-content">

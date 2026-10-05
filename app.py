@@ -2,8 +2,11 @@ import math
 
 from flask import Flask, redirect, render_template, request, url_for
 
+# La aplicación concentra las rutas públicas y los cálculos usados por las páginas.
 app = Flask(__name__)
 
+
+# Páginas generales del sitio y recursos de la comunidad.
 @app.route("/")
 def home():
     return render_template("index.html")
@@ -34,17 +37,143 @@ def proyectos():
     return render_template("Proyectos/proyectos.html")
 
 
+# Las fichas informativas comparten una plantilla; cada ruta aporta los datos de
+# un borrador y las decisiones que siguen pendientes para ese proyecto.
 @app.route("/sx-library")
 def sx_library():
     return render_template("Proyectos/SX_Library/library.html")
 
 
+@app.route("/sx-woodpecker-os")
+def sx_woodpecker_os():
+    return render_template(
+        "Proyectos/borrador.html",
+        project_name="SX Woodpecker OS",
+        summary=(
+            "Una propuesta de sistema operativo basado en Debian, orientado al "
+            "aseguramiento de calidad y seguridad en infraestructuras digitales."
+        ),
+        pending_details=[
+            "Definir los componentes y herramientas que formarán parte del sistema.",
+            "Establecer el alcance de las pruebas y los perfiles de infraestructura compatibles.",
+            "Documentar requisitos, instalación, mantenimiento y ciclo de actualizaciones.",
+        ],
+    )
+
+
+@app.route("/sx-orange-page")
+def sx_orange_page():
+    return render_template(
+        "Proyectos/borrador.html",
+        project_name="SX Orange Page",
+        summary=(
+            "Una propuesta de directorio local para consultar información general "
+            "y datos de ubicación de comercios."
+        ),
+        pending_details=[
+            "Definir las zonas y categorías incluidas en el directorio.",
+            "Acordar cómo se verificará y actualizará la información publicada.",
+            "Establecer criterios de privacidad y autorización para los datos.",
+        ],
+    )
+
+
+@app.route("/sx-recruiter")
+def sx_recruiter():
+    return render_template(
+        "Proyectos/borrador.html",
+        project_name="SX Recruiter",
+        summary=(
+            "Una propuesta para reunir oportunidades laborales de distintos tipos "
+            "dirigidas a personas de Latinoamérica."
+        ),
+        pending_details=[
+            "Definir las fuentes y el proceso de revisión de cada oportunidad.",
+            "Precisar las categorías, regiones y condiciones que se mostrarán.",
+            "Establecer cómo se reportarán ofertas vencidas o información incorrecta.",
+        ],
+    )
+
+
+@app.route("/sx-registros")
+def sx_registros():
+    return render_template(
+        "Proyectos/borrador.html",
+        project_name="SX Registros",
+        summary=(
+            "Una propuesta de canal oficial para registrar el interés en participar "
+            "en los proyectos de SXcontrol."
+        ),
+        pending_details=[
+            "Definir qué información sería necesaria y con qué propósito.",
+            "Publicar las condiciones de privacidad y el tiempo de conservación de datos.",
+            "Diseñar el proceso de revisión y respuesta antes de aceptar registros.",
+        ],
+    )
+
+
+@app.route("/sx-documento")
+def sx_documento():
+    return render_template(
+        "Proyectos/borrador.html",
+        project_name="SX Documento",
+        summary=(
+            "Una propuesta de herramienta con campos guiados para organizar y "
+            "dar formato a documentos según el estilo que necesite cada persona, "
+            "por ejemplo APA 7."
+        ),
+        pending_details=[
+            "Definir los tipos de documento y estilos de formato que se admitirán.",
+            "Precisar los campos guiados, las reglas de formato y las opciones de exportación.",
+            "Verificar las reglas editoriales vigentes antes de anunciar compatibilidad con APA 7.",
+        ],
+    )
+
+
+@app.route("/sx-help")
+def sx_help():
+    return render_template(
+        "Proyectos/borrador.html",
+        project_name="SX Help",
+        tagline="Orientación jurídica accesible para personas de escasos recursos.",
+        summary=(
+            "Una propuesta de espacio online para acercar información jurídica "
+            "general y recursos de consulta a personas que enfrentan barreras "
+            "para acceder a orientación legal."
+        ),
+        pending_details=[
+            "Definir los países, jurisdicciones y temas que cubriría el servicio.",
+            "Determinar si ofrecerá información general, atención gratuita, contacto con profesionales o una combinación de opciones.",
+            "Establecer revisión por profesionales, privacidad y límites claros; la herramienta no debe presentarse como sustituto de asesoría legal individual.",
+        ],
+    )
+
+
+@app.route("/sx-mistico")
+def sx_mistico():
+    return render_template(
+        "Proyectos/borrador.html",
+        project_name="SX Místico",
+        summary=(
+            "Una propuesta de página dedicada al esoterismo, sus tradiciones, "
+            "prácticas y contenidos relacionados."
+        ),
+        pending_details=[
+            "Definir las temáticas, tradiciones y formatos de contenido que incluirá.",
+            "Establecer criterios editoriales para distinguir información cultural de afirmaciones no verificadas.",
+            "Diseñar la estructura de navegación y las secciones de la página.",
+        ],
+    )
+
+
+# SX Nutria procesa el formulario en el servidor y presenta estimaciones educativas.
 @app.route("/nutria", methods=["GET", "POST"])
 def nutria():
     resultado = None
 
     if request.method == 'POST':
         try:
+            # Convierte las entradas y valida rangos antes de realizar operaciones.
             genero = request.form.get('genero')
             peso = float(request.form.get('peso'))
             altura = float(request.form.get('altura'))
@@ -61,6 +190,7 @@ def nutria():
             ):
                 raise ValueError
 
+            # Estima energía diaria e IMC con los datos proporcionados.
             tmb = (10 * peso) + (6.25 * altura) - (5 * edad)
 
             if genero == 'hombre':
@@ -71,6 +201,7 @@ def nutria():
             calorias_totales = round(tmb * actividad)
             imc = peso / (altura / 100) ** 2
 
+            # Clasifica el IMC adulto para seleccionar un mensaje orientativo.
             if imc < 16:
                 categoria_imc = 'Bajo peso marcado'
                 recomendacion_imc = (
@@ -120,6 +251,7 @@ def nutria():
                     'la salud y acordar opciones de cuidado individualizadas.'
                 )
 
+            # Asigna ejemplos y guías generales según el rango, no una dieta clínica.
             if imc < 18.5:
                 enfoque_alimentario = (
                     'Prioriza comidas completas y alimentos nutritivos con buena '
@@ -215,6 +347,7 @@ def nutria():
                     'y frecuencia adecuadas varían entre personas.'
                 )
 
+            # Reúne las estimaciones y textos que consume la plantilla de resultados.
             resultado = {
                 'calorias': calorias_totales,
                 'carbohidratos': round(calorias_totales * 0.50 / 4),
@@ -230,15 +363,18 @@ def nutria():
                 'guia_porciones': guia_porciones,
                 'rutina_comidas': rutina_comidas,
             }
+        # Informa entradas ausentes o no numéricas sin ocultar otros errores de código.
         except (ValueError, TypeError):
             resultado = {'error': 'Por favor, introduce valores numéricos válidos.'}
 
+    # Conserva el formulario disponible en GET y vuelve a mostrar resultados en POST.
     return render_template(
         "Proyectos/SX_Nutria/nutria.html",
         resultado=resultado,
     )
 
 
+# Servicios unifica las páginas de consultoría y tienda anteriores.
 @app.route("/servicios")
 def servicios():
     return render_template("Servicios/servicios.html")
@@ -255,5 +391,7 @@ def servicios_anterior():
 def blog():
     return render_template("Blog/blog.html")
 
+
+# Permite ejecutar el servidor de desarrollo al iniciar este archivo directamente.
 if __name__ == "__main__":
     app.run(debug=True)

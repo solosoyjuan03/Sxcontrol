@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- Metadatos y estilos compartidos de la página de repositorios. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Consulta los repositorios públicos de los proyectos SXcontrol en GitHub.">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
+    <!-- Navegación principal del sitio. -->
     <header>
         <a class="logo" href="{{ url_for('home') }}" aria-label="SXcontrol, inicio">SX<span>control</span></a>
         <nav>
@@ -21,6 +23,7 @@
         </nav>
     </header>
     <main class="hero">
+        <!-- Enlaces externos a repositorios que se han confirmado como públicos. -->
         <h1><span>Repositorios</span> de código</h1>
         <p>Repositorios públicos de SXcontrol disponibles en GitHub.</p>
 

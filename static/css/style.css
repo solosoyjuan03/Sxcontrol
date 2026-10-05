@@ -680,6 +680,74 @@ select:focus-visible {
     color: var(--sx-orange);
 }
 
+/* Fichas informativas de proyectos cuyo producto aún está en preparación. */
+.project-draft-page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 48px 24px 72px;
+}
+
+.project-draft-hero,
+.project-draft-details {
+    padding: 32px;
+    border: 1px solid #343434;
+    border-radius: 14px;
+    background: var(--sx-black-soft);
+}
+
+.project-draft-hero h1 {
+    margin: 0;
+    font-size: clamp(34px, 6vw, 52px);
+}
+
+.project-draft-eyebrow {
+    margin: 0 0 12px;
+    color: var(--sx-orange);
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.project-draft-summary,
+.project-draft-tagline,
+.project-draft-details p,
+.project-draft-details li {
+    color: #d0cbc7;
+    line-height: 1.7;
+}
+
+.project-draft-tagline {
+    color: var(--sx-orange);
+}
+
+.project-draft-status {
+    margin: 22px 0 0;
+    padding: 12px 16px;
+    border-left: 4px solid var(--sx-orange);
+    background: rgba(255, 107, 26, 0.08);
+}
+
+.project-draft-details {
+    margin-top: 22px;
+}
+
+.project-draft-details h2 {
+    margin-top: 0;
+}
+
+.project-draft-details li + li {
+    margin-top: 8px;
+}
+
+.project-draft-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 26px;
+}
+
 @media (max-width: 768px) {
     .library-page {
         padding: 28px 18px 48px;
@@ -697,5 +765,14 @@ select:focus-visible {
 
     .library-section-heading {
         margin-top: 42px;
+    }
+
+    .project-draft-page {
+        padding: 28px 18px 48px;
+    }
+
+    .project-draft-hero,
+    .project-draft-details {
+        padding: 24px;
     }
 }
