@@ -243,6 +243,30 @@ header nav a:hover {
     line-height: 1.7;
 }
 
+.comunidad-filosofia {
+    max-width: 680px;
+    margin: 28px auto 0;
+    padding: 20px 24px;
+    border-left: 4px solid var(--sx-orange);
+    border-radius: 0 8px 8px 0;
+    background: var(--sx-black-soft);
+    text-align: left;
+}
+
+.comunidad-filosofia p {
+    margin: 0 0 10px;
+    color: var(--sx-white);
+    font-size: clamp(18px, 3vw, 22px);
+    font-style: italic;
+    font-weight: 600;
+}
+
+.comunidad-filosofia cite {
+    color: var(--sx-text-gray);
+    font-size: 14px;
+    font-style: normal;
+}
+
 .donaciones-section {
     display: flex;
     justify-content: center;

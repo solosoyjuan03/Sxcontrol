@@ -66,10 +66,13 @@
         <!-- Indica cómo ejecutar las pruebas y qué aspectos no certifican. -->
         <section class="comunidad-info" aria-labelledby="pruebas-title">
             <h2 id="pruebas-title">Pruebas de calidad</h2>
-            <p>Las comprobaciones automatizadas del sitio se guardan en <code>tests/Comunidad/Cumplimiento/</code>. Cubren respuestas de las páginas, navegación, redirecciones, formularios y límites básicos de la calculadora.</p>
+            <h3>Pruebas automatizadas</h3>
+            <p>La suite usa el módulo estándar <strong>unittest</strong> de Python junto con el cliente de pruebas de Flask (<code>Flask test_client</code>), que permite solicitar rutas sin iniciar un servidor público. Los casos están en <code>tests/Comunidad/Cumplimiento/</code> y cubren respuestas de páginas, navegación, borradores de proyectos, contenido de contacto y donaciones, redirecciones y validación de SX Nutria.</p>
             <p>Desde la raíz del proyecto, ejecútalas con:</p>
             <pre><code>python -m unittest discover -s tests -v</code></pre>
-            <p>Estas pruebas ayudan a detectar regresiones; no son una auditoría de seguridad, una revisión legal ni una certificación.</p>
+            <h3>Comprobaciones manuales</h3>
+            <p>Además de la suite, se hizo una revisión exploratoria en el navegador integrado, usando Playwright para navegar y emular un ancho móvil de 390 px. Se revisaron el catálogo y una ficha de proyecto, la calculadora SX Nutria, la sección de aportes Nequi y los enlaces de contacto de Gmail; se comprobó visualmente la disposición móvil y que no hubiera desbordamiento horizontal en las páginas revisadas.</p>
+            <p>No se realizaron transferencias reales ni se envió un correo durante estas comprobaciones. La revisión manual no sustituye pruebas en todos los dispositivos, una auditoría de seguridad, una revisión legal ni una certificación.</p>
         </section>
 
         <p><a href="{{ url_for('comunidad') }}" class="btn">Volver a Comunidad</a></p>

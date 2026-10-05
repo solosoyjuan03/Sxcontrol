@@ -97,8 +97,22 @@ class PruebasCalidadSitio(unittest.TestCase):
         self.assertIn("SX Help", page)
         self.assertIn("SX Místico", page)
         self.assertIn("nombre SX Documento es provisional", page)
-        self.assertIn("las doce pruebas automatizadas pasaron", page)
+        self.assertIn("las catorce pruebas automatizadas pasaron", page)
         self.assertIn("otros bancos que permitan enviar dinero a Nequi", page)
+        self.assertIn("Autoría, seudónimos y filosofía de SXcontrol", page)
+        self.assertIn("solosoyjuan", page)
+
+    def test_pagina_de_calidad_documenta_pruebas_automatizadas_y_manuales(self):
+        response = self.client.get("/comunidad/cumplimiento")
+        page = response.get_data(as_text=True)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertIn("Pruebas automatizadas", page)
+        self.assertIn("unittest", page)
+        self.assertIn("Flask test_client", page)
+        self.assertIn("Comprobaciones manuales", page)
+        self.assertIn("Playwright", page)
+        self.assertIn("No se realizaron transferencias reales", page)
 
     def test_blog_documenta_el_contacto_unificado_y_el_envio_manual(self):
         response = self.client.get("/blog")
@@ -123,6 +137,26 @@ class PruebasCalidadSitio(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn('href="/comunidad/cumplimiento"', page)
         self.assertNotIn('href="#"', page)
+
+    def test_comunidad_reconoce_la_autoria_del_proyecto_y_su_software(self):
+        response = self.client.get("/comunidad")
+        page = response.get_data(as_text=True)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertIn("Origen y autoría", page)
+        self.assertIn("Juan David Henao", page)
+        self.assertIn("Juan D. Henao", page)
+        self.assertIn("solosoyjuan", page)
+        self.assertIn("Roldanillo, Valle del Cauca, Colombia", page)
+        self.assertIn("La idea de crear SXcontrol como comunidad", page)
+        self.assertIn("elaboración de sus programas de software", page)
+        self.assertIn("durante más de dos años", page)
+        self.assertIn("SENA", page)
+        self.assertIn("docentes y colegas", page)
+        self.assertIn("temporalmente el papel de CIO", page)
+        self.assertIn("actualmente es CEO", page)
+        self.assertIn("El acto más dignificante es pensar en algo más que en nosotros mismos", page)
+        self.assertIn("Filosofía de Juan D. Henao (solosoyjuan)", page)
 
     def test_comunidad_muestra_el_numero_nequi_y_aclara_que_no_procesa_pagos(self):
         response = self.client.get("/comunidad")

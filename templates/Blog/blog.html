@@ -68,8 +68,9 @@
 
             <article class="noticia-avance">
                 <h3>Pruebas de calidad y cumplimiento</h3>
-                <p>Se ejecutaron nueve pruebas automatizadas con <code>python -m unittest discover -s tests -v</code>; todas pasaron. Las pruebas verifican que las páginas principales respondan y compartan navegación accesible, que el catálogo y las fichas de borrador de los proyectos estén conectados, que el Blog registre estas novedades, que las rutas antiguas de Consultoría y Tienda redirijan a Servicios, que Comunidad enlace a Cumplimiento sin enlaces vacíos, que la página de Cumplimiento muestre el estado de la licencia y las pruebas, y que SX Nutria acepte una entrada válida y rechace valores fuera de rango.</p>
-                <p><strong>Alcance:</strong> son comprobaciones funcionales de rutas, contenido y validación básica. No constituyen una auditoría de seguridad, una revisión legal ni una certificación de cumplimiento.</p>
+                <p>La suite automatizada usa <strong>unittest</strong> de Python y el cliente <strong>Flask test_client</strong>. Comprueba respuestas de páginas y navegación, catálogo y fichas de borrador, el contenido de Comunidad y el Blog, redirecciones, contacto, donaciones y entradas válidas e inválidas de SX Nutria.</p>
+                <p>También se hizo una revisión manual exploratoria con el navegador integrado y Playwright: se recorrieron páginas y enlaces, se inspeccionaron el catálogo y sus fichas, SX Nutria y los bloques de contacto y Nequi; a 390 px se verificó visualmente la adaptación móvil y la ausencia de desbordamiento horizontal en las páginas revisadas. No se hicieron transferencias ni se enviaron correos.</p>
+                <p><strong>Resultado local de la actualización:</strong> pasaron catorce pruebas automatizadas. Estas comprobaciones funcionales y manuales no son una auditoría de seguridad, revisión legal ni certificación de cumplimiento.</p>
             </article>
 
             <article class="noticia-avance">
@@ -83,7 +84,13 @@
                 <p>Se unificó el contacto directo de SXcontrol en <strong>solosoyjuan03@gmail.com</strong>, visible en Servicios, Proyectos, Colaboradores y Cumplimiento. Los botones abren la ventana de redacción de Gmail con un asunto sugerido; la persona revisa y envía el correo desde su cuenta. El sitio no transmite mensajes automáticamente. GitHub queda como espacio para consultar repositorios y colaborar con código, no como canal de contacto directo.</p>
                 <p>También se añadieron comentarios breves en el código para explicar las rutas, plantillas, estilos y pruebas principales. La hoja CSS se reorganizó por componentes y se ajustó para que el menú no aplique sus estilos a otros enlaces; además, se ordenaron las tarjetas y el diseño adaptable.</p>
                 <p>La sección Comunidad ahora informa que el número Nequi <strong>318 004 2374</strong> puede recibir transferencias desde Nequi o desde otros bancos que permitan enviar dinero a Nequi. SXcontrol no procesa el pago: antes de confirmar, verifica en tu banco el destinatario y el monto.</p>
-                <p>En la verificación local de esta actualización, las doce pruebas automatizadas pasaron; estas comprueban el funcionamiento del sitio, pero no sustituyen una auditoría.</p>
+                <p>En la verificación local de esta actualización, las catorce pruebas automatizadas pasaron; estas comprueban el funcionamiento del sitio, pero no sustituyen una auditoría.</p>
+            </article>
+
+            <article class="noticia-avance">
+                <h3>Autoría, seudónimos y filosofía de SXcontrol</h3>
+                <p>La sección Comunidad reconoce a <strong>Juan David Henao</strong>, de Roldanillo, Valle del Cauca, Colombia, como autor de la idea de SXcontrol como comunidad y de la elaboración de sus programas de software. También indica que lleva más de dos años trabajando en estos proyectos desde su etapa en el SENA, refinando la idea con docentes y colegas; que asumió temporalmente el papel de CIO y que actualmente es CEO del proyecto comunitario.</p>
+                <p>Se incluyen los seudónimos <strong>Juan D. Henao</strong> y <strong>solosoyjuan</strong>, y su filosofía: «El acto más dignificante es pensar en algo más que en nosotros mismos».</p>
             </article>
         </section>
     </main>

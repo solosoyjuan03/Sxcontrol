@@ -2,6 +2,8 @@
 
 SXcontrol es una aplicación web desarrollada con Flask. Reúne páginas informativas y proyectos interactivos; entre ellos, **SX Nutria**, una guía educativa de alimentación para personas adultas.
 
+La idea de SXcontrol como comunidad y la elaboración de sus programas de software se atribuyen a **Juan David Henao**, conocido también como **Juan D. Henao** y **solosoyjuan**, de Roldanillo, Valle del Cauca, Colombia. Lleva más de dos años trabajando en estos proyectos desde su etapa en el SENA, refinando la idea con docentes y colegas. Durante el proceso asumió temporalmente el papel de CIO y actualmente es CEO del proyecto comunitario SXcontrol. Su filosofía es: «El acto más dignificante es pensar en algo más que en nosotros mismos».
+
 El correo **solosoyjuan03@gmail.com** es el único medio de contacto directo publicado en el sitio. Los botones abren una ventana de redacción de Gmail con destinatario y asunto preparados; la persona revisa y envía el mensaje desde su cuenta. Los enlaces a repositorios se mantienen para consultar código y colaborar técnicamente, no como canales de contacto.
 
 Las contribuciones económicas voluntarias pueden transferirse al número Nequi **318 004 2374** desde Nequi o desde otro banco que permita enviar dinero a Nequi. El sitio solo muestra el dato; no procesa pagos ni solicita información financiera. Antes de confirmar una transferencia, verifica el destinatario y el monto.
