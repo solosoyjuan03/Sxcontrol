@@ -97,6 +97,8 @@ class PruebasCalidadSitio(unittest.TestCase):
         self.assertIn("SX Help", page)
         self.assertIn("SX Místico", page)
         self.assertIn("nombre SX Documento es provisional", page)
+        self.assertIn("las doce pruebas automatizadas pasaron", page)
+        self.assertIn("otros bancos que permitan enviar dinero a Nequi", page)
 
     def test_blog_documenta_el_contacto_unificado_y_el_envio_manual(self):
         response = self.client.get("/blog")
@@ -121,6 +123,17 @@ class PruebasCalidadSitio(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn('href="/comunidad/cumplimiento"', page)
         self.assertNotIn('href="#"', page)
+
+    def test_comunidad_muestra_el_numero_nequi_y_aclara_que_no_procesa_pagos(self):
+        response = self.client.get("/comunidad")
+        page = response.get_data(as_text=True)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertIn("Apoya económicamente a SXcontrol", page)
+        self.assertIn("Nequi: 318 004 2374", page)
+        self.assertIn("desde la aplicación Nequi o desde otro banco", page)
+        self.assertIn("verifica el destinatario y el monto antes de confirmar", page)
+        self.assertIn("Este sitio no procesa pagos", page)
 
     def test_pagina_cumplimiento_expone_el_estado_de_licencia_y_pruebas(self):
         response = self.client.get("/comunidad/cumplimiento")

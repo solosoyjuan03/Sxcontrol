@@ -4,6 +4,8 @@ SXcontrol es una aplicación web desarrollada con Flask. Reúne páginas informa
 
 El correo **solosoyjuan03@gmail.com** es el único medio de contacto directo publicado en el sitio. Los botones abren una ventana de redacción de Gmail con destinatario y asunto preparados; la persona revisa y envía el mensaje desde su cuenta. Los enlaces a repositorios se mantienen para consultar código y colaborar técnicamente, no como canales de contacto.
 
+Las contribuciones económicas voluntarias pueden transferirse al número Nequi **318 004 2374** desde Nequi o desde otro banco que permita enviar dinero a Nequi. El sitio solo muestra el dato; no procesa pagos ni solicita información financiera. Antes de confirmar una transferencia, verifica el destinatario y el monto.
+
 ## Funcionalidades actuales
 
 - Páginas de inicio, comunidad, proyectos, servicios (consultoría y tienda) y blog.

@@ -71,9 +71,9 @@
 
                     <!-- El servidor envía resultado tras el POST; muestra error o estimaciones. -->
                     {% if resultado %}
-                    <div class="resultado-box" style="margin-top: 20px;" aria-live="polite">
+                    <div class="resultado-box" aria-live="polite">
                         {% if resultado.error %}
-                            <p role="alert" style="color: #b42318;">{{ resultado.error }}</p>
+                            <p class="resultado-error" role="alert">{{ resultado.error }}</p>
                         {% else %}
                             <h4>Tus Resultados Estimados:</h4>
                             <p><strong>Gasto energético diario estimado (mantenimiento):</strong> {{ resultado.calorias }} kcal</p>

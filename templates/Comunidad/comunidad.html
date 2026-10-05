@@ -57,13 +57,14 @@
             </article>
         </section>
 
-        <!-- Cierra con formas actuales de participar; no ofrece donaciones activas. -->
-        <section class="donaciones-section">
+        <!-- Publica el destino Nequi para transferencias iniciadas en Nequi u otros bancos;
+             el sitio no recoge datos ni procesa el pago. -->
+        <section class="donaciones-section" aria-labelledby="apoyar-title">
             <div class="donacion-card">
-                <h3>Crece con la comunidad</h3>
-                <p>
-                    ¿Te interesa apoyar SXcontrol? Explora nuestros proyectos o descubre cómo aportar ideas, reportes y código. Los canales de donación estarán disponibles cuando se configuren.
-                </p>
+                <h2 id="apoyar-title">Apoya económicamente a SXcontrol</h2>
+                <p>Si deseas hacer una contribución voluntaria, puedes transferir al número Nequi desde la aplicación Nequi o desde otro banco que permita enviar dinero a Nequi:</p>
+                <p class="donacion-dato"><strong>Nequi: 318 004 2374</strong></p>
+                <p>Al hacer la transferencia, selecciona Nequi como destino cuando tu banco lo solicite y verifica el destinatario y el monto antes de confirmar. Este sitio no procesa pagos ni solicita datos financieros.</p>
                 <div class="donaciones-botones">
                     <a href="{{ url_for('comunidad_colaboradores') }}" class="btn">Cómo colaborar</a>
                     <a href="{{ url_for('proyectos') }}" class="btn btn-secundario">Ver proyectos</a>

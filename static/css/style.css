@@ -1,82 +1,36 @@
-/* Variables de color compartidas por las páginas */
+/* 1. Design tokens */
 :root {
-    --sx-orange: #ff6B1A;
-    --sx-orange-dark: #E05500;
-    --sx-black: #0D0D0D;
-    --sx-black-soft: #1A1A1A;
-    --sx-white: #FFFFFF;
-    --sx-text-gray: #A0A0A0;
+    color-scheme: dark;
+    --sx-orange: #ff6b1a;
+    --sx-orange-dark: #e05500;
+    --sx-black: #0d0d0d;
+    --sx-black-soft: #1a1a1a;
+    --sx-white: #fff;
+    --sx-text-gray: #a0a0a0;
+    --sx-border: #343434;
+    --sx-content-width: 1120px;
+    --sx-radius: 10px;
 }
 
-/* Estilos base del sitio */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: var(--sx-black); /* Se corrige el nombre de la variable de fondo */
-    color: var(--sx-white);
-}
-
-* {
+/* 2. Reset and shared page defaults */
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
 html {
+    min-width: 320px;
     scroll-behavior: smooth;
 }
 
-/* Encabezado principal */
-header {
-    padding: 15px 5%;
-    background: var(--sx-black-soft);
-    border-bottom: 2px solid var(--sx-orange);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-sizing: border-box;
-    width: 100%;
-}
-
-/* Marca y logotipo */
-.logo {
-    color: var(--sx-white);
-    font-size: 26px;
-    font-weight: bold;
-    line-height: 1;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-}
-
-.logo span {
-    color: var(--sx-orange);
-}
-
-/* Estilos para el menú de navegación */
-nav ul {
-    display: flex;
-    list-style: none;
+body {
+    min-width: 320px;
     margin: 0;
-    padding: 0;
-    gap: 20px;
-}
-
-nav a {
+    background: var(--sx-black);
     color: var(--sx-white);
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 500;
-    padding: 9px 10px;
-    border-radius: 6px;
-    transition: color 0.3s ease;
-}
-
-nav a:hover,
-nav a.active {
-    color: var(--sx-orange);
-}
-
-nav a:hover {
-    background: rgba(255, 107, 26, 0.08);
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
 }
 
 a:focus-visible,
@@ -88,38 +42,104 @@ select:focus-visible {
     outline-offset: 3px;
 }
 
-/* Presentación principal de la página de inicio */
-.hero {
-    text-align: center;
-    padding: 80px 20px;
+/* 3. Shared header and primary navigation */
+header {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 15px 5%;
+    border-bottom: 2px solid var(--sx-orange);
+    background: var(--sx-black-soft);
 }
 
-.hero h1 {
-    font-size: clamp(34px, 6vw, 54px);
+.logo {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    color: var(--sx-white);
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1;
+    text-decoration: none;
 }
 
+.logo span,
+.library-hero h1 span,
+.nutria-container h1 span,
 .hero h1 span {
     color: var(--sx-orange);
 }
 
-.hero p {
-    color: var(--sx-text-gray);
-    font-size: 18px;
-    margin-bottom: 25px;
+header nav {
+    min-width: 0;
 }
 
-/* Botón principal reutilizable */
+header nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 4px 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+header nav a {
+    display: inline-block;
+    padding: 9px 10px;
+    border-radius: 6px;
+    color: var(--sx-white);
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+header nav a:hover,
+header nav a.active {
+    color: var(--sx-orange);
+}
+
+header nav a:hover {
+    background: rgba(255, 107, 26, 0.08);
+}
+
+/* 4. Shared page hero, buttons and project cards */
+.hero {
+    padding: 72px 20px;
+    text-align: center;
+}
+
+.hero > h1 {
+    margin: 0 0 12px;
+    font-size: clamp(34px, 6vw, 54px);
+    line-height: 1.15;
+}
+
+.hero > p {
+    max-width: 760px;
+    margin: 0 auto 25px;
+    color: var(--sx-text-gray);
+    font-size: 18px;
+}
+
 .btn {
     display: inline-block;
+    max-width: 100%;
     padding: 12px 22px;
-    background: var(--sx-orange);
-    color: white;
-    text-decoration: none;
+    border: 1px solid transparent;
     border-radius: 8px;
+    background: var(--sx-orange);
+    color: var(--sx-white);
     font: inherit;
     font-weight: 600;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
     text-align: center;
-    transition: background 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .btn:hover {
@@ -127,103 +147,162 @@ select:focus-visible {
     transform: translateY(-1px);
 }
 
+.btn-secundario {
+    border-color: var(--sx-orange);
+    background: transparent;
+    color: var(--sx-white);
+}
 
-/* Grilla y tarjetas de proyectos */
+.btn-secundario:hover {
+    background: var(--sx-orange);
+    color: var(--sx-white);
+}
+
+.btn-donar {
+    background: var(--sx-orange);
+    color: var(--sx-white);
+}
+
 .proyectos-grid {
     display: grid;
+    width: min(100%, var(--sx-content-width));
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
-    gap: 25px;
-    margin-top: 40px;
-    padding: 0 20px;
+    gap: 24px;
+    margin: 40px auto 0;
 }
 
 .proyecto-card {
-    background: var(--sx-black-soft);
-    border: 1px solid #333;
-    border-top: 3px solid var(--sx-orange);
-    border-radius: 10px;
-    padding: 30px;
     display: flex;
+    min-width: 0;
     flex-direction: column;
+    padding: 26px;
+    border: 1px solid var(--sx-border);
+    border-top: 3px solid var(--sx-orange);
+    border-radius: var(--sx-radius);
+    background: var(--sx-black-soft);
     text-align: center;
-    transition: transform 0.3s ease, border-color 0.3s ease;
+    transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
-.proyecto-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--sx-orange);
-}
-
+.proyecto-card h2,
 .proyecto-card h3 {
-    color: var(--sx-white);
-    font-size: 22px;
-    margin-bottom: 12px;
-}
-
-.proyecto-card h2 {
     margin: 0 0 12px;
-    font-size: 22px;
+    color: var(--sx-white);
+    font-size: 21px;
+    line-height: 1.3;
+    overflow-wrap: anywhere;
 }
 
 .proyecto-card p {
+    margin: 0 0 18px;
     color: var(--sx-text-gray);
     font-size: 15px;
-    line-height: 1.5;
-    margin-bottom: 20px;
+    line-height: 1.6;
 }
 
-.proyecto-card .btn {
-    display: block;
-    width: fit-content;
-    margin: 0 auto;
-    margin-top: auto;
+.proyecto-card > .btn {
+    align-self: center;
+    margin: auto 0 0;
 }
 
-/* Estado no disponible / Próximamente */
-.proyecto-card .disponibilidad {
-    display: inline-block;
+.proyecto-card > .disponibilidad {
+    align-self: center;
+    margin: auto 0 16px;
+    padding: 7px 14px;
+    border: 1px dashed #555;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.05);
     color: var(--sx-text-gray);
     font-size: 14px;
     font-weight: 500;
-    padding: 8px 16px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px dashed #444;
-    border-radius: 6px;
-    margin: auto auto 0;
 }
 
-/* Sección Comunidad e Información */
+.proyecto-card > .disponibilidad + .btn {
+    margin-top: 0;
+}
+
+/* 5. Community information and contact callouts */
 .comunidad-info {
-    max-width: 800px;
+    width: min(100%, 800px);
     margin: 40px auto;
     padding: 0 20px;
     text-align: center;
 }
 
 .comunidad-info h2 {
-    font-size: 28px;
+    margin: 0 0 20px;
     color: var(--sx-white);
-    margin-bottom: 20px;
+    font-size: 28px;
+    line-height: 1.25;
 }
 
 .comunidad-info p {
+    margin: 0 0 15px;
     color: var(--sx-text-gray);
     font-size: 16px;
-    line-height: 1.6;
-    margin-bottom: 15px;
+    line-height: 1.7;
 }
 
-/* Cronología de noticias y estado de los avances */
+.donaciones-section {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    padding: 0 20px;
+}
+
+.donacion-card {
+    width: min(100%, 650px);
+    padding: 32px;
+    border: 1px solid var(--sx-border);
+    border-top: 3px solid var(--sx-orange);
+    border-radius: var(--sx-radius);
+    background: var(--sx-black-soft);
+    text-align: center;
+}
+
+.donacion-card h2,
+.donacion-card h3 {
+    margin: 0 0 15px;
+    color: var(--sx-white);
+    font-size: 24px;
+    line-height: 1.3;
+}
+
+.donacion-card p {
+    margin: 0 0 24px;
+    color: var(--sx-text-gray);
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.donacion-card .donacion-dato {
+    margin: 0 0 18px;
+    color: var(--sx-white);
+    font-size: clamp(20px, 4vw, 26px);
+    letter-spacing: 0.04em;
+    font-variant-numeric: tabular-nums;
+}
+
+.donaciones-botones {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+/* 6. Blog timeline */
 .noticias-timeline {
-    max-width: 850px;
+    width: min(100%, 850px);
     margin: 35px auto 0;
     padding: 0 20px;
     text-align: left;
 }
 
 .noticias-timeline > h2 {
+    margin: 0;
     padding-bottom: 12px;
     border-bottom: 2px solid var(--sx-orange);
+    line-height: 1.3;
 }
 
 .noticia-avance {
@@ -234,155 +313,90 @@ select:focus-visible {
 
 .noticia-avance h3,
 .noticias-estado h3 {
-    margin-top: 0;
+    margin: 0 0 12px;
 }
 
 .noticia-avance p,
 .noticias-estado p {
     color: var(--sx-text-gray);
     font-size: 16px;
-    line-height: 1.6;
+    line-height: 1.7;
 }
 
 .noticias-estado {
     margin-top: 32px;
     padding: 18px 20px;
-    border: 1px solid #333;
+    border: 1px solid var(--sx-border);
     border-radius: 8px;
     background: var(--sx-black-soft);
 }
 
-/* Sección y tarjeta de donaciones */
-.donaciones-section {
-    display: flex;
-    justify-content: center;
-    margin-top: 40px;
-    padding: 0 20px;
-}
-
-.donacion-card {
-    background: var(--sx-black-soft);
-    border: 1px solid #333;
-    border-top: 3px solid var(--sx-orange);
-    border-radius: 10px;
-    padding: 35px;
-    max-width: 650px;
-    text-align: center;
-}
-
-.donacion-card h2,
-.donacion-card h3 {
-    color: var(--sx-white);
-    font-size: 24px;
-    margin-bottom: 15px;
-}
-
-.donacion-card p {
-    color: var(--sx-text-gray);
-    font-size: 15px;
-    line-height: 1.5;
-    margin-bottom: 25px;
-}
-
-/* Variantes de botones de donación */
-.donaciones-botones {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-.btn-donar {
-    background: var(--sx-orange);
-    color: white;
-}
-
-.btn-secundario {
-    background: transparent;
-    color: var(--sx-white);
-    border: 1px solid var(--sx-orange);
-}
-
-.btn-secundario:hover {
-    background: var(--sx-orange);
-    color: white;
-}
-
-/* Estructura general de la página de Nutria */
+/* 7. SX Nutria layout, accordion and calculator */
 .nutria-container {
-    max-width: 800px;
+    width: min(100%, 800px);
     margin: 40px auto;
     padding: 0 20px;
     color: var(--sx-white);
 }
 
 .nutria-container h1 {
+    margin: 0 0 10px;
     text-align: center;
-    margin-bottom: 10px;
-}
-
-.nutria-container h1 span {
-    color: var(--sx-orange);
 }
 
 .subtitle {
-    text-align: center;
+    margin: 0 0 30px;
     color: var(--sx-text-gray);
-    margin-bottom: 30px;
-    line-height: 1.6;
+    line-height: 1.7;
+    text-align: center;
 }
 
-/* Lista vertical de acordeones */
 .accordion-group {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-/* Tarjeta de cada elemento desplegable */
 .accordion-item {
-    background: #ffffff;
+    overflow: hidden;
     border: 1px solid #ddd;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    overflow: hidden;
-    transition: all 0.3s ease;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     color: #222;
 }
 
-/* Encabezado interactivo de cada acordeón */
 .btn-accordion {
-    background-color: #f9f9f9;
-    color: #222;
-    padding: 15px 20px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
-    list-style: none; /* Quita la flecha por defecto en algunos navegadores */
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 15px 20px;
+    background: #f9f9f9;
+    color: #222;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 700;
+    list-style: none;
 }
 
 .btn-accordion::-webkit-details-marker {
-    display: none; /* Oculta flecha en Safari/Chrome antiguos */
+    display: none;
 }
 
 .btn-accordion:hover {
-    background-color: #f1f1f1;
-    color: #ff7f00;
+    background: #f1f1f1;
+    color: var(--sx-orange-dark);
 }
 
-/* Contenido mostrado dentro del acordeón */
 .accordion-content {
     padding: 20px;
     border-top: 1px solid #eee;
-    background-color: #fff;
+    background: #fff;
     color: #333;
-    line-height: 1.6;
+    line-height: 1.65;
 }
 
-/* Formulario y campos de la calculadora nutricional */
 .nutricion-form {
     display: flex;
     flex-direction: column;
@@ -392,38 +406,56 @@ select:focus-visible {
 
 .form-group {
     display: flex;
+    min-width: 0;
     flex-direction: column;
 }
 
 .form-group label {
-    font-size: 0.9rem;
     margin-bottom: 5px;
-    font-weight: bold;
+    font-size: 0.9rem;
+    font-weight: 700;
 }
 
-.form-group input {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font: inherit;
-}
-
+.form-group input,
 .form-group select {
+    width: 100%;
     min-height: 42px;
     padding: 8px 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background: white;
+    background: #fff;
     color: #222;
     font: inherit;
 }
 
+.nutricion-form button {
+    align-self: flex-start;
+    cursor: pointer;
+}
+
 .resultado-box {
+    margin-top: 20px;
     padding: 18px;
     border: 1px solid #e6e6e6;
     border-radius: 8px;
     background: #fff;
     color: #333;
+}
+
+.resultado-error {
+    color: #b42318;
+}
+
+.imc-result {
+    margin: 18px 0;
+    padding: 16px;
+    border-left: 4px solid #ff7f00;
+    border-radius: 6px;
+    background: #fff8ef;
+}
+
+.imc-result h4 {
+    margin-top: 0;
 }
 
 .plate-guide {
@@ -432,93 +464,21 @@ select:focus-visible {
     background: #f7f7f7;
 }
 
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        gap: 14px;
-        padding: 15px 20px;
-    }
-
-    nav {
-        width: 100%;
-    }
-
-    nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 4px 8px;
-    }
-
-    nav a {
-        display: inline-block;
-        padding: 8px;
-        font-size: 15px;
-    }
-
-    .hero {
-        padding: 52px 16px;
-    }
-
-    .proyectos-grid {
-        gap: 16px;
-        padding: 0;
-    }
-
-    .proyecto-card {
-        padding: 24px;
-    }
-
-    .nutria-container {
-        margin: 28px auto;
-        padding: 0 16px;
-    }
-
-    .btn-accordion {
-        gap: 12px;
-        padding: 14px 16px;
-        font-size: 1rem;
-        text-align: left;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        scroll-behavior: auto !important;
-        transition-duration: 0.01ms !important;
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-    }
-}
-
-.imc-result {
-    margin: 18px 0;
-    padding: 16px;
-    border-left: 4px solid #ff7f00;
-    border-radius: 6px;
-    background-color: #fff8ef;
-}
-
-.imc-result h4 {
-    margin-top: 0;
-}
-
-/* Página de descubrimiento de la biblioteca digital SX Library */
+/* 8. SX Library */
 .library-page {
-    max-width: 1120px;
+    width: min(100%, var(--sx-content-width));
     margin: 0 auto;
     padding: 48px 24px 72px;
 }
 
 .library-hero {
-    position: relative;
     display: grid;
+    min-width: 0;
     grid-template-columns: minmax(0, 1.4fr) minmax(220px, 0.6fr);
     align-items: center;
-    gap: 48px;
+    gap: 40px;
     overflow: hidden;
-    padding: 56px;
+    padding: 48px;
     border: 1px solid #34302d;
     border-radius: 20px;
     background:
@@ -531,7 +491,7 @@ select:focus-visible {
     margin: 0 0 14px;
     color: var(--sx-orange);
     font-size: 13px;
-    font-weight: bold;
+    font-weight: 700;
     letter-spacing: 0.14em;
     text-transform: uppercase;
 }
@@ -540,10 +500,6 @@ select:focus-visible {
     margin: 0;
     font-size: clamp(38px, 6vw, 64px);
     line-height: 1.05;
-}
-
-.library-hero h1 span {
-    color: var(--sx-orange);
 }
 
 .library-intro {
@@ -555,28 +511,30 @@ select:focus-visible {
 }
 
 .library-hero .btn {
-    font-weight: bold;
+    font-weight: 700;
 }
 
 .library-books-art {
     display: flex;
+    min-width: 0;
+    min-height: 230px;
     align-items: center;
     justify-content: center;
-    min-height: 230px;
 }
 
 .library-book {
     display: flex;
     width: 112px;
     height: 174px;
+    flex: 0 1 112px;
     align-items: center;
     justify-content: center;
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 5px 10px 10px 5px;
     box-shadow: 10px 14px 24px rgba(0, 0, 0, 0.35);
-    color: white;
+    color: var(--sx-white);
     font-size: 13px;
-    font-weight: bold;
+    font-weight: 700;
     letter-spacing: 0.08em;
     text-align: center;
     text-transform: uppercase;
@@ -588,23 +546,24 @@ select:focus-visible {
 }
 
 .library-book:nth-child(1) {
-    background: linear-gradient(90deg, #3b251c, #89502f);
     transform: rotate(-13deg) translateY(13px);
+    background: linear-gradient(90deg, #3b251c, #89502f);
 }
 
 .library-book:nth-child(2) {
-    background: linear-gradient(90deg, #182e35, #28606b);
     transform: rotate(-2deg) translateY(-5px);
+    background: linear-gradient(90deg, #182e35, #28606b);
 }
 
 .library-book:nth-child(3) {
-    background: linear-gradient(90deg, #5a291e, #bc552b);
     transform: rotate(12deg) translateY(12px);
+    background: linear-gradient(90deg, #5a291e, #bc552b);
 }
 
 .library-section-heading {
-    margin: 58px 0 10px;
+    margin: 52px 0 10px;
     font-size: 30px;
+    line-height: 1.25;
 }
 
 .library-section-description {
@@ -615,15 +574,16 @@ select:focus-visible {
 
 .library-collections {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr));
     gap: 18px;
     margin-top: 28px;
 }
 
 .library-collection {
+    min-width: 0;
     min-height: 190px;
     padding: 24px;
-    border: 1px solid #343434;
+    border: 1px solid var(--sx-border);
     border-radius: 12px;
     background: var(--sx-black-soft);
 }
@@ -665,6 +625,10 @@ select:focus-visible {
     text-align: left;
 }
 
+.library-status > div {
+    min-width: 0;
+}
+
 .library-status strong {
     display: block;
     margin-bottom: 5px;
@@ -674,15 +638,16 @@ select:focus-visible {
     margin: 0;
     color: #d0cbc7;
     line-height: 1.6;
+    overflow-wrap: anywhere;
 }
 
 .library-status a {
     color: var(--sx-orange);
 }
 
-/* Fichas informativas de proyectos cuyo producto aún está en preparación. */
+/* 9. Reusable project draft pages */
 .project-draft-page {
-    max-width: 900px;
+    width: min(100%, 900px);
     margin: 0 auto;
     padding: 48px 24px 72px;
 }
@@ -690,7 +655,7 @@ select:focus-visible {
 .project-draft-hero,
 .project-draft-details {
     padding: 32px;
-    border: 1px solid #343434;
+    border: 1px solid var(--sx-border);
     border-radius: 14px;
     background: var(--sx-black-soft);
 }
@@ -698,13 +663,15 @@ select:focus-visible {
 .project-draft-hero h1 {
     margin: 0;
     font-size: clamp(34px, 6vw, 52px);
+    line-height: 1.15;
+    overflow-wrap: anywhere;
 }
 
 .project-draft-eyebrow {
     margin: 0 0 12px;
     color: var(--sx-orange);
     font-size: 13px;
-    font-weight: bold;
+    font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
 }
@@ -748,13 +715,57 @@ select:focus-visible {
     margin-top: 26px;
 }
 
+/* 10. Responsive adjustments */
 @media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 14px;
+        padding: 15px 20px;
+    }
+
+    header nav {
+        width: 100%;
+    }
+
+    header nav ul {
+        justify-content: center;
+        gap: 4px 8px;
+    }
+
+    header nav a {
+        padding: 8px;
+        font-size: 15px;
+    }
+
+    .hero {
+        padding: 52px 16px;
+    }
+
+    .proyectos-grid {
+        gap: 16px;
+    }
+
+    .proyecto-card {
+        padding: 24px;
+    }
+
+    .nutria-container {
+        margin: 28px auto;
+        padding: 0 16px;
+    }
+
+    .btn-accordion {
+        padding: 14px 16px;
+        font-size: 1rem;
+        text-align: left;
+    }
+
     .library-page {
         padding: 28px 18px 48px;
     }
 
     .library-hero {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         gap: 12px;
         padding: 34px 26px;
     }
@@ -774,5 +785,47 @@ select:focus-visible {
     .project-draft-hero,
     .project-draft-details {
         padding: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .library-hero {
+        padding: 28px 20px;
+    }
+
+    .library-book {
+        width: 88px;
+        height: 150px;
+        flex-basis: 88px;
+        font-size: 11px;
+    }
+
+    .library-status {
+        gap: 12px;
+        padding: 18px;
+    }
+
+    .donacion-card {
+        padding: 26px 20px;
+    }
+
+    .project-draft-hero,
+    .project-draft-details {
+        padding: 20px;
+    }
+}
+
+/* Respect the visitor's system setting for reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
     }
 }
