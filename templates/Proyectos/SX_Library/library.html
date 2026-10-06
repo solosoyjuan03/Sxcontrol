@@ -29,8 +29,8 @@
             <div>
                 <p class="library-eyebrow">Leer · aprender · compartir</p>
                 <h1 id="library-title">SX <span>Library</span></h1>
-                <p class="library-intro">Un espacio digital para acercar libros y conocimiento a más personas. Estamos preparando una biblioteca organizada por temas, pensada para apoyar el aprendizaje y los procesos de digitalización.</p>
-                <a href="#colecciones" class="btn">Descubrir temáticas</a>
+                <p class="library-intro">Un espacio digital para acercar libros y conocimiento a más personas. La biblioteca reúne lecturas por temas y contenidos propios que pueden actualizarse para seguir siendo útiles.</p>
+                <a href="#areas" class="btn">Explorar por área</a>
             </div>
             <div class="library-books-art" aria-hidden="true">
                 <div class="library-book">Ideas</div>
@@ -39,7 +39,72 @@
             </div>
         </section>
 
-        <!-- Las colecciones son categorías previstas, todavía sin libros publicados. -->
+        <section id="areas" aria-labelledby="areas-title">
+            <h2 id="areas-title" class="library-section-heading">Explora por área</h2>
+            <p class="library-section-description">Organizamos los libros en ramas temáticas para que encuentres los contenidos relacionados. Estas son las áreas de SX Library; se incorporarán libros a medida que estén preparados.</p>
+            <div class="library-collections">
+                <article class="library-collection">
+                    <span class="library-collection-icon" aria-hidden="true">§</span>
+                    <h3>Derecho</h3>
+                    <p>Lecturas sobre derechos, convivencia y resolución pacífica de conflictos.</p>
+                    <a href="{{ url_for('sx_library_derecho') }}" class="btn">Entrar al área</a>
+                </article>
+                <article class="library-collection">
+                    <span class="library-collection-icon" aria-hidden="true">&lt;/&gt;</span>
+                    <h3>Software</h3>
+                    <p>Libros y materiales sobre programación, ingeniería de software y herramientas digitales.</p>
+                    <a href="{{ url_for('sx_library_software') }}" class="btn">Entrar al área</a>
+                </article>
+                <article class="library-collection">
+                    <span class="library-collection-icon" aria-hidden="true">↗</span>
+                    <h3>Marketing</h3>
+                    <p>Marketing, comunicación, marcas y estrategias para conectar con distintos públicos.</p>
+                    <a href="{{ url_for('sx_library_area', area_slug='marketing') }}" class="btn">Entrar al área</a>
+                </article>
+                <article class="library-collection">
+                    <span class="library-collection-icon" aria-hidden="true">✎</span>
+                    <h3>Educación</h3>
+                    <p>Enseñanza, aprendizaje, pedagogía y recursos educativos.</p>
+                    <a href="{{ url_for('sx_library_area', area_slug='educacion') }}" class="btn">Entrar al área</a>
+                </article>
+                <article class="library-collection">
+                    <span class="library-collection-icon" aria-hidden="true">+</span>
+                    <h3>Salud</h3>
+                    <p>Información general sobre salud, bienestar y hábitos saludables.</p>
+                    <a href="{{ url_for('sx_library_area', area_slug='salud') }}" class="btn">Entrar al área</a>
+                </article>
+                <article class="library-collection">
+                    <span class="library-collection-icon" aria-hidden="true">⌂</span>
+                    <h3>Agro</h3>
+                    <p>Agricultura, cultivos, suelos y producción sostenible.</p>
+                    <a href="{{ url_for('sx_library_area', area_slug='agro') }}" class="btn">Entrar al área</a>
+                </article>
+                <article class="library-collection">
+                    <span class="library-collection-icon" aria-hidden="true">✦</span>
+                    <h3>Fantasía</h3>
+                    <p>Relatos, aventuras y mundos imaginarios.</p>
+                    <a href="{{ url_for('sx_library_area', area_slug='fantasia') }}" class="btn">Entrar al área</a>
+                </article>
+                <article class="library-collection">
+                    <span class="library-collection-icon" aria-hidden="true">❝</span>
+                    <h3>Literatura</h3>
+                    <p>Narrativa, poesía, ensayo, filosofía y otras expresiones literarias y de pensamiento.</p>
+                    <a href="{{ url_for('sx_library_area', area_slug='literatura') }}" class="btn">Entrar al área</a>
+                </article>
+            </div>
+        </section>
+
+        <section class="library-featured" aria-labelledby="featured-title">
+            <div>
+                <p class="library-eyebrow">Derecho · Primera obra digital</p>
+                <h2 id="featured-title">Paz y conflicto</h2>
+                <p>Una introducción a las ideas de paz, los niveles de conflicto y las condiciones sociales que influyen en su desarrollo.</p>
+                <p class="library-book-byline">Por Juan D. Henao · Contenido en construcción y actualización continua</p>
+            </div>
+            <a href="{{ url_for('sx_library_paz_y_conflicto') }}" class="btn">Leer el libro</a>
+        </section>
+
+        <!-- Las colecciones agrupan los temas que se incorporarán a la biblioteca. -->
         <section id="colecciones" aria-labelledby="collections-title">
             <h2 id="collections-title" class="library-section-heading">Un lugar para muchos temas</h2>
             <p class="library-section-description">Estas son algunas de las colecciones que queremos construir para explorar, aprender y compartir.</p>
@@ -73,12 +138,12 @@
             </div>
         </section>
 
-        <!-- Aclara el estado de disponibilidad y los requisitos para publicar obras. -->
+        <!-- Aclara que las obras digitales pueden revisarse y actualizarse. -->
         <aside class="library-status" aria-label="Estado de SX Library">
             <span class="library-collection-icon" aria-hidden="true">i</span>
             <div>
-                <strong>La biblioteca está en preparación</strong>
-                <p>Las colecciones todavía no contienen libros disponibles. Queremos incorporar materiales con permiso de distribución o licencias abiertas y mostrar claramente su fuente y condiciones de uso. <a href="{{ url_for('comunidad_colaboradores') }}">Conoce cómo colaborar.</a></p>
+                <strong>Una biblioteca digital en crecimiento</strong>
+                <p>La primera obra ya cuenta con una página de lectura en desarrollo. Sus contenidos se pueden revisar y actualizar; las fuentes y atribuciones se indicarán para facilitar la consulta. <a href="{{ url_for('comunidad_colaboradores') }}">Conoce cómo colaborar.</a></p>
             </div>
         </aside>
     </main>

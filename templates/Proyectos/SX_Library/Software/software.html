@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Libros y materiales del área de Software en SX Library.">
+    <title>Software - SX Library</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <a class="logo" href="{{ url_for('home') }}" aria-label="SXcontrol, inicio">SX<span>control</span></a>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Inicio</a></li>
+                <li><a href="{{ url_for('comunidad') }}">Comunidad</a></li>
+                <li><a href="{{ url_for('proyectos') }}" class="active" aria-current="page">Proyectos</a></li>
+                <li><a href="{{ url_for('servicios') }}">Servicios</a></li>
+                <li><a href="{{ url_for('blog') }}">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="library-page">
+        <nav class="book-breadcrumb" aria-label="Ruta de navegación">
+            <a href="{{ url_for('sx_library') }}">SX Library</a>
+            <span aria-hidden="true">/</span>
+            <span aria-current="page">Software</span>
+        </nav>
+
+        <section class="library-hero" aria-labelledby="area-title">
+            <div>
+                <p class="library-eyebrow">Área de lectura</p>
+                <h1 id="area-title"><span>Software</span></h1>
+                <p class="library-intro">Libros y materiales para aprender sobre programación, desarrollo de software, sistemas y herramientas digitales.</p>
+                <a href="{{ url_for('sx_library') }}#areas" class="btn">Volver a las áreas</a>
+            </div>
+            <div class="library-books-art" aria-hidden="true">
+                <div class="library-book">Código</div>
+                <div class="library-book">Diseño</div>
+                <div class="library-book">Sistemas</div>
+            </div>
+        </section>
+
+        <aside class="library-status" aria-label="Estado del área de Software">
+            <span class="library-collection-icon" aria-hidden="true">i</span>
+            <div>
+                <strong>Área en preparación</strong>
+                <p>Estamos organizando esta rama de la biblioteca. Los libros y materiales aparecerán aquí cuando estén listos para consulta.</p>
+            </div>
+        </aside>
+    </main>
+</body>
+</html>

@@ -1,9 +1,36 @@
 import math
 
-from flask import Flask, redirect, render_template, request, url_for
+from flask import Flask, abort, redirect, render_template, request, url_for
 
 # La aplicación concentra las rutas públicas y los cálculos usados por las páginas.
 app = Flask(__name__)
+
+SX_LIBRARY_AREAS = {
+    "marketing": {
+        "area_name": "Marketing",
+        "area_description": "Libros y materiales sobre marketing, comunicación, marcas, mercados y estrategias para conectar proyectos con sus públicos.",
+    },
+    "educacion": {
+        "area_name": "Educación",
+        "area_description": "Libros y materiales sobre enseñanza, aprendizaje, pedagogía y recursos educativos.",
+    },
+    "salud": {
+        "area_name": "Salud",
+        "area_description": "Libros y materiales informativos sobre salud, bienestar y promoción de hábitos saludables.",
+    },
+    "agro": {
+        "area_name": "Agro",
+        "area_description": "Libros y materiales sobre agricultura, producción sostenible, suelos, cultivos y vida rural.",
+    },
+    "fantasia": {
+        "area_name": "Fantasía",
+        "area_description": "Relatos y lecturas de mundos imaginarios, criaturas, aventuras y otras expresiones del género fantástico.",
+    },
+    "literatura": {
+        "area_name": "Literatura",
+        "area_description": "Obras y materiales para explorar la narrativa, la poesía, el ensayo, la filosofía y otras formas de expresión y pensamiento.",
+    },
+}
 
 
 # Páginas generales del sitio y recursos de la comunidad.
@@ -42,6 +69,31 @@ def proyectos():
 @app.route("/sx-library")
 def sx_library():
     return render_template("Proyectos/SX_Library/library.html")
+
+
+@app.route("/sx-library/derecho")
+def sx_library_derecho():
+    return render_template("Proyectos/SX_Library/Derecho/derecho.html")
+
+
+@app.route("/sx-library/software")
+def sx_library_software():
+    return render_template("Proyectos/SX_Library/Software/software.html")
+
+
+@app.route("/sx-library/<area_slug>")
+def sx_library_area(area_slug):
+    area = SX_LIBRARY_AREAS.get(area_slug)
+    if area is None:
+        abort(404)
+    return render_template("Proyectos/SX_Library/area.html", **area)
+
+
+@app.route("/sx-library/paz-y-conflicto")
+def sx_library_paz_y_conflicto():
+    return render_template(
+        "Proyectos/SX_Library/Derecho/Paz_y_conflicto/paz_y_conflicto.html"
+    )
 
 
 @app.route("/sx-woodpecker-os")
@@ -138,13 +190,15 @@ def sx_help():
         tagline="Orientación jurídica accesible para personas de escasos recursos.",
         summary=(
             "Una propuesta de espacio online para acercar información jurídica "
-            "general y recursos de consulta a personas que enfrentan barreras "
-            "para acceder a orientación legal."
+            "general y recursos de consulta, y servir como canal de orientación "
+            "para denuncias ciudadanas de personas que enfrentan barreras para "
+            "acceder a apoyo."
         ),
         pending_details=[
             "Definir los países, jurisdicciones y temas que cubriría el servicio.",
+            "Definir el alcance del canal de denuncias, las entidades o mecanismos oficiales a los que podría orientar y cómo evitar prometer recepción o seguimiento de casos.",
             "Determinar si ofrecerá información general, atención gratuita, contacto con profesionales o una combinación de opciones.",
-            "Establecer revisión por profesionales, privacidad y límites claros; la herramienta no debe presentarse como sustituto de asesoría legal individual.",
+            "Establecer revisión por profesionales, privacidad, manejo seguro de datos sensibles y límites claros; la herramienta no debe presentarse como sustituto de asesoría legal individual ni de los canales oficiales de denuncia.",
         ],
     )
 
@@ -162,6 +216,26 @@ def sx_mistico():
             "Definir las temáticas, tradiciones y formatos de contenido que incluirá.",
             "Establecer criterios editoriales para distinguir información cultural de afirmaciones no verificadas.",
             "Diseñar la estructura de navegación y las secciones de la página.",
+        ],
+    )
+
+
+@app.route("/sx-gestion-agil")
+def sx_gestion_agil():
+    return render_template(
+        "Proyectos/borrador.html",
+        project_name="SX Gestión Ágil",
+        tagline="Organización empresarial con prácticas ágiles adaptables.",
+        summary=(
+            "Una propuesta de herramienta para ayudar a pequeñas empresas y "
+            "negocios a organizar proyectos, tareas, prioridades y colaboración "
+            "de equipo mediante prácticas ágiles ajustables a su operación."
+        ),
+        pending_details=[
+            "Definir los tipos de negocio, tamaños de equipo y sectores a los que se dirigirá.",
+            "Elegir qué prácticas ágiles ofrecerá y cómo adaptarlas a distintos flujos de trabajo sin imponer una metodología única.",
+            "Determinar si incluirá seguimiento de tareas, proyectos, objetivos e indicadores, y qué información será necesaria.",
+            "Establecer requisitos de privacidad, permisos por rol, respaldo de datos y posibles integraciones antes de desarrollar funciones.",
         ],
     )
 

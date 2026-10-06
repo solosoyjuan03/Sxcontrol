@@ -22,6 +22,15 @@ class PruebasCalidadSitio(unittest.TestCase):
             "/proyectos",
             "/nutria",
             "/sx-library",
+            "/sx-library/derecho",
+            "/sx-library/software",
+            "/sx-library/marketing",
+            "/sx-library/educacion",
+            "/sx-library/salud",
+            "/sx-library/agro",
+            "/sx-library/fantasia",
+            "/sx-library/literatura",
+            "/sx-library/paz-y-conflicto",
             "/sx-woodpecker-os",
             "/sx-orange-page",
             "/sx-recruiter",
@@ -29,6 +38,7 @@ class PruebasCalidadSitio(unittest.TestCase):
             "/sx-documento",
             "/sx-help",
             "/sx-mistico",
+            "/sx-gestion-agil",
             "/servicios",
             "/blog",
         )
@@ -55,6 +65,7 @@ class PruebasCalidadSitio(unittest.TestCase):
             "/sx-documento",
             "/sx-help",
             "/sx-mistico",
+            "/sx-gestion-agil",
         ):
             with self.subTest(path=path):
                 self.assertIn(f'href="{path}"', page)
@@ -67,6 +78,7 @@ class PruebasCalidadSitio(unittest.TestCase):
             "/sx-documento",
             "/sx-help",
             "/sx-mistico",
+            "/sx-gestion-agil",
         ):
             with self.subTest(path=path):
                 draft = self.client.get(path).get_data(as_text=True)
@@ -84,8 +96,103 @@ class PruebasCalidadSitio(unittest.TestCase):
         self.assertIn("SX Help", help_page)
         self.assertIn("Eslogan propuesto", help_page)
         self.assertIn("Orientación jurídica accesible para personas de escasos recursos", help_page)
+        self.assertIn("denuncias ciudadanas", help_page)
+        self.assertIn("canales oficiales de denuncia", help_page)
         self.assertIn("no debe presentarse como sustituto de asesoría legal individual", help_page)
+        self.assertIn("orientación sobre denuncias ciudadanas", self.client.get("/proyectos").get_data(as_text=True))
         self.assertIn("esoterismo", mistico.lower())
+
+    def test_comunidad_documenta_los_sistemas_operativos_de_desarrollo(self):
+        page = self.client.get("/comunidad").get_data(as_text=True)
+
+        self.assertIn("Sistemas operativos oficiales de desarrollo", page)
+        self.assertIn("Windows IoT", page)
+        self.assertIn("Linux Mint", page)
+        self.assertIn("no constituye una clasificación universal", page)
+
+    def test_sx_gestion_agil_presenta_su_proposito_y_estado_de_propuesta(self):
+        catalog = self.client.get("/proyectos").get_data(as_text=True)
+        draft = self.client.get("/sx-gestion-agil").get_data(as_text=True)
+
+        self.assertIn("SX Gestión Ágil", catalog)
+        self.assertIn("prácticas ágiles adaptables", catalog)
+        self.assertIn("Borrador del proyecto", draft)
+        self.assertIn("pequeñas empresas y negocios", draft)
+        self.assertIn("sin imponer una metodología única", draft)
+        self.assertIn("privacidad", draft)
+        self.assertIn("todavía está en preparación", draft)
+
+    def test_sx_library_enlaza_y_muestra_el_libro_paz_y_conflicto(self):
+        library = self.client.get("/sx-library").get_data(as_text=True)
+        law_area = self.client.get("/sx-library/derecho").get_data(as_text=True)
+        response = self.client.get("/sx-library/paz-y-conflicto")
+        book = response.get_data(as_text=True)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertIn('href="/sx-library/derecho"', library)
+        self.assertIn("Explora por área", library)
+        self.assertIn("Derecho", law_area)
+        self.assertIn("Paz y conflicto", law_area)
+        self.assertIn('href="/sx-library/paz-y-conflicto"', law_area)
+        software_area = self.client.get("/sx-library/software").get_data(as_text=True)
+        self.assertIn('href="/sx-library/software"', library)
+        self.assertIn("Software", software_area)
+        self.assertIn("Área en preparación", software_area)
+        self.assertIn("programación, desarrollo de software", software_area)
+        for area_name in ("Derecho", "Software", "Marketing", "Educación", "Salud", "Agro", "Fantasía", "Literatura"):
+            self.assertIn(area_name, library)
+        for area_slug, area_name in (
+            ("marketing", "Marketing"),
+            ("educacion", "Educación"),
+            ("salud", "Salud"),
+            ("agro", "Agro"),
+            ("fantasia", "Fantasía"),
+            ("literatura", "Literatura"),
+        ):
+            with self.subTest(area=area_name):
+                area_page = self.client.get(f"/sx-library/{area_slug}").get_data(as_text=True)
+                self.assertIn(f'href="/sx-library/{area_slug}"', library)
+                self.assertIn(f"<title>{area_name} - SX Library</title>", area_page)
+                self.assertIn("Área en preparación", area_page)
+                if area_slug == "literatura":
+                    self.assertIn("filosofía", area_page.lower())
+                    self.assertIn("filosofía", library.lower())
+        self.assertIn('href="/sx-library/paz-y-conflicto"', library)
+        self.assertIn("Derecho · Primera obra digital", library)
+        self.assertIn("Paz y conflicto", library)
+        self.assertIn("Leer el libro", library)
+        self.assertIn("Paz y", book)
+        self.assertIn("Capítulo 1", book)
+        self.assertIn("Capítulos", book)
+        self.assertNotIn("Unidad 1", book)
+        self.assertIn("Juan D. Henao", book)
+        self.assertIn("Paz negativa", book)
+        self.assertIn("Paz positiva", book)
+        self.assertIn("Cultura de paz", book)
+        self.assertIn("Intrapersonal", book)
+        self.assertIn("Factores y relaciones de poder", book)
+        self.assertIn("Referencias para profundizar", book)
+        self.assertIn("Capítulo 2. Teorías y enfoques para la resolución pacífica de conflictos", book)
+        self.assertIn("Perspectivas para comprender el conflicto", book)
+        self.assertIn("Negociación: construir acuerdos directamente", book)
+        self.assertIn("Mediación: diálogo con apoyo de una tercera persona", book)
+        self.assertIn("Arbitraje: decisión de una tercera persona", book)
+        self.assertIn("Comunicación asertiva", book)
+        self.assertIn("Escucha activa", book)
+        self.assertIn("Colaboración", book)
+        self.assertIn('href="#capitulo-2"', book)
+        self.assertIn("La participación obligatoria, el carácter vinculante", book)
+        self.assertIn("Capítulo 3. Educación para la paz y los derechos humanos", book)
+        self.assertIn("Educar para la paz", book)
+        self.assertIn("Derechos humanos y respeto por la diversidad", book)
+        self.assertIn("Diálogo inclusivo", book)
+        self.assertIn("Justicia restaurativa", book)
+        self.assertIn("Foros comunitarios", book)
+        self.assertIn("Declaración Universal de Derechos Humanos", book)
+        self.assertIn('href="#capitulo-3"', book)
+        self.assertEqual(book.count('id="capitulo-1"'), 1)
+        self.assertEqual(book.count('id="capitulo-2"'), 1)
+        self.assertEqual(book.count('id="capitulo-3"'), 1)
 
     def test_blog_registra_las_nuevas_propuestas_el_5_de_octubre(self):
         response = self.client.get("/blog")
@@ -112,6 +219,18 @@ class PruebasCalidadSitio(unittest.TestCase):
         self.assertIn("main", page)
         self.assertIn("origin/main", page)
         self.assertIn("La subida no ocurre automáticamente con cada edición", page)
+        self.assertIn("Sistemas operativos oficiales de desarrollo", page)
+        self.assertIn("Windows IoT", page)
+        self.assertIn("Linux Mint", page)
+        self.assertIn("no una clasificación universal", page)
+        self.assertIn("SX Library organiza sus libros por áreas", page)
+        self.assertIn("Paz y conflicto", page)
+        self.assertIn("tres capítulos", page)
+        self.assertIn("ocho áreas", page)
+        self.assertIn("Fantasía y Literatura", page)
+        self.assertIn("SX Gestión Ágil", page)
+        self.assertIn("SX Help", page)
+        self.assertIn("diecinueve pruebas automatizadas", page)
 
     def test_blog_agrupa_las_novedades_en_fechas_desplegables(self):
         response = self.client.get("/blog")

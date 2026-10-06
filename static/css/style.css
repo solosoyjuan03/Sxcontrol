@@ -706,6 +706,240 @@ header nav a:hover {
     color: var(--sx-orange);
 }
 
+.library-featured {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-top: 28px;
+    padding: 28px 32px;
+    border: 1px solid rgba(255, 107, 26, 0.35);
+    border-radius: 16px;
+    background: linear-gradient(120deg, rgba(255, 107, 26, 0.12), var(--sx-black-soft) 68%);
+}
+
+.library-featured h2 {
+    margin: 0;
+    font-size: clamp(25px, 4vw, 34px);
+}
+
+.library-featured > div > p:not(.library-eyebrow) {
+    max-width: 680px;
+    color: #d0cbc7;
+    line-height: 1.6;
+}
+
+.library-featured .library-book-byline {
+    margin-bottom: 0;
+    color: var(--sx-orange);
+    font-size: 14px;
+}
+
+.book-page {
+    width: min(100%, 1120px);
+    margin: 0 auto;
+    padding: 30px 24px 72px;
+}
+
+.book-breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 24px;
+    color: var(--sx-text-gray);
+    font-size: 14px;
+}
+
+.book-breadcrumb a {
+    color: var(--sx-orange);
+}
+
+.book-hero {
+    padding: clamp(28px, 6vw, 60px);
+    border: 1px solid #34302d;
+    border-radius: 20px;
+    background:
+        radial-gradient(ellipse at 90% 10%, rgba(255, 107, 26, 0.18), transparent 44%),
+        linear-gradient(135deg, #211b18, var(--sx-black-soft) 70%);
+}
+
+.book-hero h1 {
+    margin: 0;
+    font-size: clamp(42px, 8vw, 76px);
+    line-height: 1.05;
+}
+
+.book-hero h1 span {
+    color: var(--sx-orange);
+}
+
+.book-author {
+    margin: 14px 0;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.book-lead {
+    max-width: 760px;
+    margin: 20px 0;
+    color: #e1dcd8;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.book-status {
+    display: inline-block;
+    margin: 0;
+    padding: 8px 12px;
+    border: 1px solid rgba(255, 107, 26, 0.35);
+    border-radius: 999px;
+    color: var(--sx-orange);
+    font-size: 13px;
+}
+
+.book-layout {
+    display: grid;
+    grid-template-columns: minmax(200px, 0.32fr) minmax(0, 1fr);
+    align-items: start;
+    gap: 36px;
+    margin-top: 36px;
+}
+
+.book-toc {
+    position: sticky;
+    top: 20px;
+    padding: 22px;
+    border: 1px solid var(--sx-border);
+    border-radius: 14px;
+    background: var(--sx-black-soft);
+}
+
+.book-toc h2 {
+    margin: 0 0 14px;
+    font-size: 18px;
+}
+
+.book-toc ol {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.book-toc li {
+    padding: 6px 0;
+    color: var(--sx-text-gray);
+    line-height: 1.45;
+}
+
+.book-toc a {
+    color: #e1dcd8;
+    text-decoration-color: transparent;
+    text-underline-offset: 3px;
+}
+
+.book-toc a:hover,
+.book-toc a:focus-visible {
+    color: var(--sx-orange);
+    text-decoration-color: currentColor;
+}
+
+.book-content {
+    min-width: 0;
+    color: #e1dcd8;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.book-content section {
+    scroll-margin-top: 24px;
+}
+
+.book-content section + section {
+    margin-top: 42px;
+    padding-top: 30px;
+    border-top: 1px solid var(--sx-border);
+}
+
+.book-content h2 {
+    margin: 0 0 16px;
+    color: var(--sx-white);
+    font-size: clamp(24px, 4vw, 32px);
+    line-height: 1.25;
+}
+
+.book-content h3 {
+    margin: 0 0 8px;
+    color: var(--sx-orange);
+    font-size: 19px;
+}
+
+.book-content p {
+    margin: 0 0 16px;
+}
+
+.book-content ul,
+.book-content ol {
+    padding-left: 24px;
+}
+
+.book-content li + li {
+    margin-top: 8px;
+}
+
+.book-concept-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin: 24px 0;
+}
+
+.book-concept {
+    padding: 22px;
+    border: 1px solid var(--sx-border);
+    border-radius: 12px;
+    background: var(--sx-black-soft);
+}
+
+.book-concept p {
+    margin: 0;
+}
+
+.book-practice-list {
+    padding: 20px 24px 20px 44px;
+    border-left: 3px solid var(--sx-orange);
+    border-radius: 0 10px 10px 0;
+    background: rgba(255, 255, 255, 0.035);
+}
+
+.book-level-list {
+    display: grid;
+    gap: 12px;
+    margin: 22px 0;
+}
+
+.book-level-list > div {
+    padding: 18px 20px;
+    border: 1px solid var(--sx-border);
+    border-radius: 10px;
+    background: var(--sx-black-soft);
+}
+
+.book-level-list dt {
+    margin-bottom: 4px;
+    color: var(--sx-orange);
+    font-weight: 700;
+}
+
+.book-level-list dd {
+    margin: 0;
+}
+
+.book-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 44px;
+}
+
 /* 9. Reusable project draft pages */
 .project-draft-page {
     width: min(100%, 900px);
@@ -831,6 +1065,26 @@ header nav a:hover {
         padding: 34px 26px;
     }
 
+    .library-featured {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 24px;
+    }
+
+    .book-page {
+        padding: 24px 18px 48px;
+    }
+
+    .book-layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 24px;
+        margin-top: 24px;
+    }
+
+    .book-toc {
+        position: static;
+    }
+
     .library-books-art {
         min-height: 190px;
     }
@@ -864,6 +1118,14 @@ header nav a:hover {
     .library-status {
         gap: 12px;
         padding: 18px;
+    }
+
+    .book-concept-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .book-content {
+        font-size: 16px;
     }
 
     .donacion-card {
