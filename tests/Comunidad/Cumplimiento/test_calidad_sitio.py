@@ -102,16 +102,29 @@ class PruebasCalidadSitio(unittest.TestCase):
         self.assertIn("Autoría, seudónimos y filosofía de SXcontrol", page)
         self.assertIn("solosoyjuan", page)
 
+    def test_blog_registra_la_conexion_de_git_local_y_remoto_el_6_de_octubre(self):
+        response = self.client.get("/blog")
+        page = response.get_data(as_text=True)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertIn('<time datetime="2026-10-06">6 de octubre de 2026</time>', page)
+        self.assertIn("Automatización del repositorio local y remoto", page)
+        self.assertIn("main", page)
+        self.assertIn("origin/main", page)
+        self.assertIn("La subida no ocurre automáticamente con cada edición", page)
+
     def test_blog_agrupa_las_novedades_en_fechas_desplegables(self):
         response = self.client.get("/blog")
         page = response.get_data(as_text=True)
 
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(page.count('<details class="noticias-fecha">'), 2)
+        self.assertEqual(page.count('<details class="noticias-fecha">'), 3)
+        self.assertIn('<summary><time datetime="2026-10-06">6 de octubre de 2026</time></summary>', page)
         self.assertIn('<summary><time datetime="2026-10-04">4 de octubre de 2026</time></summary>', page)
         self.assertIn('<summary><time datetime="2026-10-05">5 de octubre de 2026</time></summary>', page)
-        self.assertEqual(page.count('class="noticias-fecha-contenido"'), 2)
+        self.assertEqual(page.count('class="noticias-fecha-contenido"'), 3)
         self.assertNotIn('<details class="noticias-fecha" open>', page)
+        self.assertLess(page.index('datetime="2026-10-06"'), page.index('datetime="2026-10-05"'))
         self.assertLess(page.index('datetime="2026-10-05"'), page.index('datetime="2026-10-04"'))
 
     def test_pagina_de_calidad_documenta_pruebas_automatizadas_y_manuales(self):

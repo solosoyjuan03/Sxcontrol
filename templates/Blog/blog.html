@@ -27,6 +27,22 @@
         <h1><span>Noticias</span> SXcontrol</h1>
         <p>Selecciona una fecha para desplegar las novedades y avances registrados ese día.</p>
 
+        {% macro novedades_6_octubre() %}
+        <section class="noticias-timeline" aria-label="Automatización del repositorio local y remoto">
+            <details class="noticias-fecha">
+                <summary><time datetime="2026-10-06">6 de octubre de 2026</time></summary>
+                <div class="noticias-fecha-contenido">
+
+                    <article class="noticia-avance">
+                        <h3>Automatización del repositorio local y remoto</h3>
+                        <p>Se conectó el repositorio Git local del proyecto con el repositorio remoto de SXcontrol en GitHub. La rama local <strong>main</strong> quedó siguiendo a <strong>origin/main</strong> y se verificó que los archivos del proyecto coincidieran con la versión publicada.</p>
+                        <p>Los cambios pueden guardarse localmente en commits y publicarse en GitHub cuando se solicite. La subida no ocurre automáticamente con cada edición: así se pueden revisar y probar los cambios antes de compartirlos.</p>
+                    </article>
+                </div>
+            </details>
+        </section>
+        {% endmacro %}
+
         {% macro novedades_4_octubre() %}
         <section class="noticias-timeline" aria-label="Avances por fecha">
             <details class="noticias-fecha">
@@ -106,6 +122,7 @@
         </section>
         {% endmacro %}
 
+        {{ novedades_6_octubre() }}
         {{ novedades_5_octubre() }}
         {{ novedades_4_octubre() }}
     </main>
