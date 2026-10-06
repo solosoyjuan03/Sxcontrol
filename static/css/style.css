@@ -899,6 +899,12 @@ header nav a:hover {
     background: var(--sx-black-soft);
 }
 
+.book-concept h4 {
+    margin: 0 0 8px;
+    color: var(--sx-orange);
+    font-size: 17px;
+}
+
 .book-concept p {
     margin: 0;
 }

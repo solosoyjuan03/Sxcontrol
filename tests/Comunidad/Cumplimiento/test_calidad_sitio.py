@@ -66,13 +66,14 @@ class PruebasCalidadSitio(unittest.TestCase):
             "/sx-library/software",
             "/sx-library/software/pensamiento-algoritmico",
             "/sx-library/marketing",
+            "/sx-library/marketing/investigacion-de-mercados",
+            "/sx-library/marketing/plan-de-marketing",
+            "/sx-library/marketing/plan-de-ventas",
+            "/sx-library/marketing/plan-de-mejora",
             "/sx-library/educacion",
-            "/sx-library/educacion/idiomas",
             "/sx-library/educacion/educacion-digital",
-            "/sx-library/salud",
-            "/sx-library/agro",
-            "/sx-library/fantasia",
-            "/sx-library/literatura",
+            "/sx-library/educacion/educacion-inclusiva",
+            "/sx-library/educacion/inclusividad-legal",
             "/sx-library/paz-y-conflicto",
             "/sx-woodpecker-os",
             "/sx-orange-page",
@@ -177,6 +178,7 @@ class PruebasCalidadSitio(unittest.TestCase):
         self.assertIn("Derecho", law_area)
         self.assertIn("Paz y conflicto", law_area)
         self.assertIn('href="/sx-library/paz-y-conflicto"', law_area)
+
         legal_basics = self.client.get(
             "/sx-library/derecho/fundamentos-juridicos-colombia"
         ).get_data(as_text=True)
@@ -286,20 +288,24 @@ class PruebasCalidadSitio(unittest.TestCase):
         ):
             self.assertEqual(peace_parser.section_parents[section_id], chapter_id)
         education_area = self.client.get("/sx-library/educacion").get_data(as_text=True)
-        languages_area = self.client.get("/sx-library/educacion/idiomas").get_data(as_text=True)
         digital_education = self.client.get(
             "/sx-library/educacion/educacion-digital"
         ).get_data(as_text=True)
-        self.assertIn('href="/sx-library/educacion/idiomas"', education_area)
-        self.assertIn("Idiomas", education_area)
-        self.assertIn("para aprender y enseñar idiomas", languages_area)
-        self.assertIn('href="/sx-library/educacion"', languages_area)
-        self.assertIn("Área en preparación", languages_area)
-        self.assertIn('href="/sx-library/educacion/educacion-digital"', education_area)
-        self.assertIn("<title>Educación digital - SX Library</title>", digital_education)
+        self.assertIn("Libros de Educación", education_area)
+        self.assertIn("Educación digital", education_area)
+        self.assertIn("Educación inclusiva", education_area)
+        self.assertIn("Inclusividad legal en educación", education_area)
+        self.assertIn(
+            'href="/sx-library/educacion/educacion-digital"',
+            education_area,
+        )
+        self.assertNotIn("Subáreas de Educación", education_area)
+        self.assertNotIn("Pedagogía", education_area)
+        self.assertNotIn("Idiomas", education_area)
+        self.assertIn('<title>Educación digital - SX Library</title>', digital_education)
+        self.assertNotIn("Pedagogía", digital_education)
         self.assertIn("Autor: Juan D. Henao", digital_education)
         self.assertIn("Versión de trabajo", digital_education)
-        self.assertIn("Versión de trabajo en tres capítulos", education_area)
         self.assertIn('href="/sx-library/educacion"', digital_education)
         for chapter_title in (
             "Capítulo 1. Aprender y organizarse en entornos virtuales",
@@ -313,15 +319,77 @@ class PruebasCalidadSitio(unittest.TestCase):
         self.assertEqual(digital_education.count('id="capitulo-3"'), 1)
         self.assertIn("Nota editorial", digital_education)
         self.assertIn("no se presentan aquí como citas verificadas", digital_education)
-        for area_name in ("Derecho", "Software", "Marketing", "Educación", "Salud", "Agro", "Fantasía", "Literatura"):
+        inclusive_education = self.client.get(
+            "/sx-library/educacion/educacion-inclusiva"
+        ).get_data(as_text=True)
+        self.assertIn("<title>Educación inclusiva - SX Library</title>", inclusive_education)
+        self.assertIn("Autor: Juan D. Henao", inclusive_education)
+        self.assertIn('href="/sx-library/educacion"', inclusive_education)
+        for chapter_title in (
+            "Capítulo 1. Inclusión y barreras",
+            "Capítulo 2. Enseñanza accesible y apoyos",
+            "Capítulo 3. Participación y mejora",
+        ):
+            with self.subTest(chapter=chapter_title):
+                self.assertIn(chapter_title, inclusive_education)
+        for topic in (
+            "barreras",
+            "Diseño Universal para el Aprendizaje",
+            "ajustes y apoyos",
+            "escuchando a cada estudiante",
+        ):
+            with self.subTest(topic=topic):
+                self.assertIn(topic, inclusive_education)
+        inclusive_parser = AnalizadorEstructuraHTML()
+        inclusive_parser.feed(inclusive_education)
+        self.assertEqual(inclusive_parser.duplicate_ids, set())
+        self.assertEqual(set(inclusive_parser.fragments) - inclusive_parser.ids, set())
+        legal_inclusion = self.client.get(
+            "/sx-library/educacion/inclusividad-legal"
+        ).get_data(as_text=True)
+        self.assertIn(
+            "<title>Inclusividad legal en educación - SX Library</title>",
+            legal_inclusion,
+        )
+        self.assertIn("Autor: Juan D. Henao", legal_inclusion)
+        self.assertIn('href="/sx-library/educacion"', legal_inclusion)
+        for chapter_title in (
+            "Capítulo 1. Derecho a la educación inclusiva",
+            "Capítulo 2. Deberes y fechas de aplicación",
+            "Capítulo 3. Rutas y consecuencias",
+        ):
+            with self.subTest(chapter=chapter_title):
+                self.assertIn(chapter_title, legal_inclusion)
+        for citation in (
+            "4 de julio de 1991",
+            "Ley 115 de 1994",
+            "Ley 1346 de 2009",
+            "27 de febrero de 2013",
+            "29 de agosto de 2017",
+            "11 de noviembre de 2013",
+            "art. 2.3.3.5.2.3.3",
+            "PIAR",
+            "28 de febrero de 2018",
+            "12 a 36 meses",
+            "10 a 15 salarios mínimos",
+            "régimen controlado",
+            "cancelación de licencia",
+            "falta disciplinaria",
+            "no existe una única sanción",
+            "Fuentes oficiales",
+        ):
+            with self.subTest(citation=citation):
+                self.assertIn(citation, legal_inclusion)
+        self.assertGreaterEqual(legal_inclusion.count("https://"), 10)
+        legal_parser = AnalizadorEstructuraHTML()
+        legal_parser.feed(legal_inclusion)
+        self.assertEqual(legal_parser.duplicate_ids, set())
+        self.assertEqual(set(legal_parser.fragments) - legal_parser.ids, set())
+        for area_name in ("Derecho", "Software", "Marketing", "Educación"):
             self.assertIn(area_name, library)
         for area_slug, area_name in (
             ("marketing", "Marketing"),
             ("educacion", "Educación"),
-            ("salud", "Salud"),
-            ("agro", "Agro"),
-            ("fantasia", "Fantasía"),
-            ("literatura", "Literatura"),
         ):
             with self.subTest(area=area_name):
                 area_page = self.client.get(f"/sx-library/{area_slug}").get_data(as_text=True)
@@ -329,12 +397,43 @@ class PruebasCalidadSitio(unittest.TestCase):
                 self.assertIn(f"<title>{area_name} - SX Library</title>", area_page)
                 if area_slug == "educacion":
                     self.assertIn("Colección en crecimiento", area_page)
-                    self.assertIn("versión de trabajo de tres capítulos", area_page)
-                else:
-                    self.assertIn("Área en preparación", area_page)
-                if area_slug == "literatura":
-                    self.assertIn("filosofía", area_page.lower())
-                    self.assertIn("filosofía", library.lower())
+                    self.assertIn("Libros de Educación", area_page)
+                    self.assertIn("Educación digital", area_page)
+                    self.assertNotIn("Subáreas de Educación", area_page)
+        self.assertNotIn('href="/sx-library/salud"', library)
+        self.assertNotIn('href="/sx-library/agro"', library)
+        self.assertNotIn('href="/sx-library/fantasia"', library)
+        self.assertNotIn('href="/sx-library/literatura"', library)
+        for legacy_slug in (
+            "idiomas",
+            "salud",
+            "agro",
+            "fantasia",
+            "literatura",
+            "pedagogia",
+        ):
+            response = self.client.get(f"/sx-library/{legacy_slug}")
+            self.assertEqual(response.status_code, 301)
+            self.assertEqual(
+                response.headers["Location"],
+                "/sx-library/educacion",
+            )
+            former_category_response = self.client.get(
+                f"/sx-library/educacion/{legacy_slug}"
+            )
+            self.assertEqual(former_category_response.status_code, 301)
+            self.assertEqual(
+                former_category_response.headers["Location"],
+                "/sx-library/educacion",
+            )
+        previous_book_route = self.client.get(
+            "/sx-library/educacion/pedagogia/educacion-digital"
+        )
+        self.assertEqual(previous_book_route.status_code, 301)
+        self.assertEqual(
+            previous_book_route.headers["Location"],
+            "/sx-library/educacion/educacion-digital",
+        )
         self.assertIn('href="/sx-library/paz-y-conflicto"', library)
         self.assertIn("Derecho · Libro destacado", library)
         self.assertIn("Autor: Juan D. Henao", library)
@@ -374,6 +473,197 @@ class PruebasCalidadSitio(unittest.TestCase):
         self.assertEqual(book.count('id="capitulo-2"'), 1)
         self.assertEqual(book.count('id="capitulo-3"'), 1)
 
+    def test_sx_library_marketing_enlaza_al_libro_de_investigacion_de_mercados(self):
+        area_response = self.client.get("/sx-library/marketing")
+        area = area_response.get_data(as_text=True)
+        book_response = self.client.get(
+            "/sx-library/marketing/investigacion-de-mercados"
+        )
+        book = book_response.get_data(as_text=True)
+
+        self.assertEqual(area_response.status_code, 200)
+        self.assertIn("<title>Marketing - SX Library</title>", area)
+        self.assertIn("Investigación de mercados", area)
+        self.assertIn("Autor: Juan D. Henao", area)
+        self.assertIn(
+            'href="/sx-library/marketing/investigacion-de-mercados"',
+            area,
+        )
+        self.assertIn("Colección en crecimiento", area)
+
+        self.assertEqual(book_response.status_code, 200)
+        self.assertIn(
+            "<title>Investigación de mercados - SX Library</title>",
+            book,
+        )
+        self.assertIn("Autor: Juan D. Henao", book)
+        self.assertIn('href="/sx-library/marketing"', book)
+        for chapter_title in (
+            "Capítulo 1. Definir y diseñar el estudio",
+            "Capítulo 2. Recopilar información",
+            "Capítulo 3. Analizar y decidir",
+        ):
+            with self.subTest(chapter=chapter_title):
+                self.assertIn(chapter_title, book)
+        for topic in (
+            "problema de investigación",
+            "prueba piloto",
+            "privacidad",
+            "muestra de conveniencia",
+            "Tipos de investigación de mercados",
+            "Investigación exploratoria",
+            "Investigación descriptiva",
+            "Investigación causal",
+            "mixtos",
+            "explicaciones alternativas",
+            "Estructura del informe de investigación",
+            "Protocolo previo e informe final",
+            "Resumen ejecutivo",
+            "Referencias:",
+            "Anexos:",
+            "no se deben inventar datos",
+            "Fuentes para profundizar",
+        ):
+            with self.subTest(topic=topic):
+                self.assertIn(topic, book)
+        for chapter_anchor in ("capitulo-1", "capitulo-2", "capitulo-3"):
+            self.assertEqual(book.count(f'id="{chapter_anchor}"'), 1)
+            self.assertIn(f'href="#{chapter_anchor}"', book)
+
+        parser = AnalizadorEstructuraHTML()
+        parser.feed(book)
+        self.assertEqual(parser.duplicate_ids, set())
+        self.assertEqual(set(parser.fragments) - parser.ids, set())
+
+    def test_sx_library_marketing_muestra_plan_de_marketing_en_tres_capitulos(self):
+        area_response = self.client.get("/sx-library/marketing")
+        area = area_response.get_data(as_text=True)
+        book_response = self.client.get("/sx-library/marketing/plan-de-marketing")
+        book = book_response.get_data(as_text=True)
+
+        self.assertEqual(area_response.status_code, 200)
+        self.assertIn("Plan de marketing", area)
+        self.assertIn("Autor: Juan D. Henao", area)
+        self.assertIn(
+            'href="/sx-library/marketing/plan-de-marketing"',
+            area,
+        )
+        self.assertEqual(book_response.status_code, 200)
+        self.assertIn("<title>Plan de marketing - SX Library</title>", book)
+        self.assertIn("Autor: Juan D. Henao", book)
+        self.assertIn('href="/sx-library/marketing"', book)
+        for chapter_title in (
+            "Capítulo 1. El historial de la empresa como punto de partida",
+            "Capítulo 2. Adaptar la mezcla de marketing a cada etapa",
+            "Capítulo 3. Implementar, medir y ajustar",
+        ):
+            with self.subTest(chapter=chapter_title):
+                self.assertIn(chapter_title, book)
+        for topic in (
+            "historial de la empresa",
+            "4P",
+            "8P",
+            "matriz ampliada de 16 dimensiones",
+            "ciclo de vida",
+            "indicadores",
+            "No hay una lista universal única",
+            "no inventes cifras",
+        ):
+            with self.subTest(topic=topic):
+                self.assertIn(topic, book)
+        self.assertEqual(book.count('id="capitulo-1"'), 1)
+        self.assertEqual(book.count('id="capitulo-2"'), 1)
+        self.assertEqual(book.count('id="capitulo-3"'), 1)
+
+        parser = AnalizadorEstructuraHTML()
+        parser.feed(book)
+        self.assertEqual(parser.duplicate_ids, set())
+        self.assertEqual(set(parser.fragments) - parser.ids, set())
+
+    def test_sx_library_marketing_muestra_plan_de_ventas_integrado(self):
+        area_response = self.client.get("/sx-library/marketing")
+        area = area_response.get_data(as_text=True)
+        book_response = self.client.get("/sx-library/marketing/plan-de-ventas")
+        book = book_response.get_data(as_text=True)
+
+        self.assertEqual(area_response.status_code, 200)
+        self.assertIn("Plan de ventas", area)
+        self.assertIn("Autor: Juan D. Henao", area)
+        self.assertIn('href="/sx-library/marketing/plan-de-ventas"', area)
+        self.assertEqual(book_response.status_code, 200)
+        self.assertIn("<title>Plan de ventas - SX Library</title>", book)
+        self.assertIn("Autor: Juan D. Henao", book)
+        self.assertIn('href="/sx-library/marketing"', book)
+        for chapter_title in (
+            "Capítulo 1. Integrar investigación de mercados y marketing",
+            "Capítulo 2. Diseñar objetivos y proceso comercial",
+            "Capítulo 3. Implementar, acompañar y mejorar",
+        ):
+            with self.subTest(chapter=chapter_title):
+                self.assertIn(chapter_title, book)
+        for topic in (
+            "hallazgos relevantes",
+            "no es lo mismo que la meta",
+            "Etapas del proceso de ventas",
+            "Conversión por etapa",
+            "Relación responsable con clientes",
+            "no suponerse",
+        ):
+            with self.subTest(topic=topic):
+                self.assertIn(topic, book)
+        for chapter_anchor in ("capitulo-1", "capitulo-2", "capitulo-3"):
+            self.assertEqual(book.count(f'id="{chapter_anchor}"'), 1)
+            self.assertIn(f'href="#{chapter_anchor}"', book)
+
+        parser = AnalizadorEstructuraHTML()
+        parser.feed(book)
+        self.assertEqual(parser.duplicate_ids, set())
+        self.assertEqual(set(parser.fragments) - parser.ids, set())
+
+    def test_sx_library_marketing_muestra_plan_de_mejora_y_balanced_scorecard(self):
+        area_response = self.client.get("/sx-library/marketing")
+        area = area_response.get_data(as_text=True)
+        book_response = self.client.get("/sx-library/marketing/plan-de-mejora")
+        book = book_response.get_data(as_text=True)
+
+        self.assertEqual(area_response.status_code, 200)
+        self.assertIn("Plan de mejora", area)
+        self.assertIn("Autor: Juan D. Henao", area)
+        self.assertIn('href="/sx-library/marketing/plan-de-mejora"', area)
+        self.assertEqual(book_response.status_code, 200)
+        self.assertIn("<title>Plan de mejora - SX Library</title>", book)
+        self.assertIn("Autor: Juan D. Henao", book)
+        self.assertIn('href="/sx-library/marketing"', book)
+        for chapter_title in (
+            "Capítulo 1. Integrar los tres planes y establecer el diagnóstico",
+            "Capítulo 2. Diseñar y ejecutar la mejora",
+            "Capítulo 3. Cuadro de Mando Integral",
+        ):
+            with self.subTest(chapter=chapter_title):
+                self.assertIn(chapter_title, book)
+        for topic in (
+            "Investigación de mercados",
+            "Plan de marketing",
+            "Plan de ventas",
+            "ciclo Planear-Hacer-Verificar-Actuar",
+            "Balanced Scorecard",
+            "Financiera o de sostenibilidad",
+            "Clientes y grupos de interés",
+            "Procesos internos",
+            "Aprendizaje y crecimiento",
+            "no contiene metas ni resultados reales",
+        ):
+            with self.subTest(topic=topic):
+                self.assertIn(topic, book)
+        for chapter_anchor in ("capitulo-1", "capitulo-2", "capitulo-3"):
+            self.assertEqual(book.count(f'id="{chapter_anchor}"'), 1)
+            self.assertIn(f'href="#{chapter_anchor}"', book)
+
+        parser = AnalizadorEstructuraHTML()
+        parser.feed(book)
+        self.assertEqual(parser.duplicate_ids, set())
+        self.assertEqual(set(parser.fragments) - parser.ids, set())
+
     def test_blog_registra_las_nuevas_propuestas_el_5_de_octubre(self):
         response = self.client.get("/blog")
         page = response.get_data(as_text=True)
@@ -404,6 +694,8 @@ class PruebasCalidadSitio(unittest.TestCase):
         self.assertIn("Linux Mint", page)
         self.assertIn("no una clasificación universal", page)
         self.assertIn("SX Library organiza sus libros por áreas", page)
+        self.assertIn("SX Library simplifica sus áreas", page)
+        self.assertIn("directamente dentro de su área principal", page)
         self.assertIn("Paz y conflicto", page)
         self.assertIn("tres capítulos", page)
         self.assertIn("ocho áreas", page)
@@ -411,20 +703,32 @@ class PruebasCalidadSitio(unittest.TestCase):
         self.assertIn("SX Gestión Ágil", page)
         self.assertIn("SX Help", page)
         self.assertIn("diecinueve pruebas automatizadas", page)
+        self.assertIn("Educación reúne nuevas subáreas de SX Library", page)
+        self.assertIn("Derecho, Software, Marketing y Educación como áreas principales", page)
+        self.assertIn("Nuevo libro de investigación de mercados", page)
+        self.assertIn("analizar los resultados para tomar decisiones", page)
 
     def test_blog_agrupa_las_novedades_en_fechas_desplegables(self):
         response = self.client.get("/blog")
         page = response.get_data(as_text=True)
 
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(page.count('<details class="noticias-fecha">'), 3)
+        self.assertEqual(page.count('<details class="noticias-fecha">'), 6)
         self.assertIn('<summary><time datetime="2026-10-06">6 de octubre de 2026</time></summary>', page)
         self.assertIn('<summary><time datetime="2026-10-04">4 de octubre de 2026</time></summary>', page)
         self.assertIn('<summary><time datetime="2026-10-05">5 de octubre de 2026</time></summary>', page)
-        self.assertEqual(page.count('class="noticias-fecha-contenido"'), 3)
+        self.assertIn('<summary><time datetime="2026-09-25">25 de septiembre de 2026</time></summary>', page)
+        self.assertIn('<summary><time datetime="2026-09-24">24 de septiembre de 2026</time></summary>', page)
+        self.assertIn('<summary><time datetime="2026-09-23">23 de septiembre de 2026</time></summary>', page)
+        self.assertIn("Nuevos libros digitales en SX Library", page)
+        self.assertIn("Inicio del historial de SXcontrol", page)
+        self.assertEqual(page.count('class="noticias-fecha-contenido"'), 6)
         self.assertNotIn('<details class="noticias-fecha" open>', page)
         self.assertLess(page.index('datetime="2026-10-06"'), page.index('datetime="2026-10-05"'))
         self.assertLess(page.index('datetime="2026-10-05"'), page.index('datetime="2026-10-04"'))
+        self.assertLess(page.index('datetime="2026-10-04"'), page.index('datetime="2026-09-25"'))
+        self.assertLess(page.index('datetime="2026-09-25"'), page.index('datetime="2026-09-24"'))
+        self.assertLess(page.index('datetime="2026-09-24"'), page.index('datetime="2026-09-23"'))
 
     def test_pagina_de_calidad_documenta_pruebas_automatizadas_y_manuales(self):
         response = self.client.get("/comunidad/cumplimiento")

@@ -14,23 +14,16 @@ SX_LIBRARY_AREAS = {
         "area_name": "Educación",
         "area_description": "Libros y materiales sobre enseñanza, aprendizaje, pedagogía y recursos educativos.",
     },
-    "salud": {
-        "area_name": "Salud",
-        "area_description": "Libros y materiales informativos sobre salud, bienestar y promoción de hábitos saludables.",
-    },
-    "agro": {
-        "area_name": "Agro",
-        "area_description": "Libros y materiales sobre agricultura, producción sostenible, suelos, cultivos y vida rural.",
-    },
-    "fantasia": {
-        "area_name": "Fantasía",
-        "area_description": "Relatos y lecturas de mundos imaginarios, criaturas, aventuras y otras expresiones del género fantástico.",
-    },
-    "literatura": {
-        "area_name": "Literatura",
-        "area_description": "Obras y materiales para explorar la narrativa, la poesía, el ensayo, la filosofía y otras formas de expresión y pensamiento.",
-    },
 }
+
+SX_LIBRARY_REMOVED_EDUCATION_CATEGORIES = (
+    "idiomas",
+    "salud",
+    "agro",
+    "fantasia",
+    "literatura",
+    "pedagogia",
+)
 
 
 # Páginas generales del sitio y recursos de la comunidad.
@@ -95,18 +88,36 @@ def sx_library_pensamiento_algoritmico():
     )
 
 
-@app.route("/sx-library/educacion/idiomas")
-def sx_library_idiomas():
+@app.route("/sx-library/marketing")
+def sx_library_marketing():
+    return render_template("Proyectos/SX_Library/Marketing/marketing.html")
+
+
+@app.route("/sx-library/marketing/investigacion-de-mercados")
+def sx_library_investigacion_mercados():
     return render_template(
-        "Proyectos/SX_Library/area.html",
-        area_name="Idiomas",
-        area_description=(
-            "Libros y materiales para aprender y enseñar idiomas, desarrollar "
-            "competencias comunicativas y explorar recursos para el aprendizaje "
-            "de lenguas."
-        ),
-        parent_area_name="Educación",
-        parent_area_url=url_for("sx_library_area", area_slug="educacion"),
+        "Proyectos/SX_Library/Marketing/Investigacion_mercados/investigacion_mercados.html"
+    )
+
+
+@app.route("/sx-library/marketing/plan-de-marketing")
+def sx_library_plan_marketing():
+    return render_template(
+        "Proyectos/SX_Library/Marketing/Plan_marketing/plan_marketing.html"
+    )
+
+
+@app.route("/sx-library/marketing/plan-de-ventas")
+def sx_library_plan_ventas():
+    return render_template(
+        "Proyectos/SX_Library/Marketing/Plan_ventas/plan_ventas.html"
+    )
+
+
+@app.route("/sx-library/marketing/plan-de-mejora")
+def sx_library_plan_mejora():
+    return render_template(
+        "Proyectos/SX_Library/Marketing/Plan_mejora/plan_mejora.html"
     )
 
 
@@ -117,8 +128,36 @@ def sx_library_educacion_digital():
     )
 
 
+@app.route("/sx-library/educacion/educacion-inclusiva")
+def sx_library_educacion_inclusiva():
+    return render_template(
+        "Proyectos/SX_Library/Educacion/Educacion_inclusiva/educacion_inclusiva.html"
+    )
+
+
+@app.route("/sx-library/educacion/inclusividad-legal")
+def sx_library_inclusividad_legal():
+    return render_template(
+        "Proyectos/SX_Library/Educacion/Inclusividad_legal/inclusividad_legal.html"
+    )
+
+
+@app.route("/sx-library/educacion/pedagogia/educacion-digital")
+def sx_library_educacion_digital_legacy():
+    return redirect(url_for("sx_library_educacion_digital"), code=301)
+
+
+@app.route("/sx-library/educacion/<subarea_slug>")
+def sx_library_removed_education_category(subarea_slug):
+    if subarea_slug not in SX_LIBRARY_REMOVED_EDUCATION_CATEGORIES:
+        abort(404)
+    return redirect(url_for("sx_library_area", area_slug="educacion"), code=301)
+
+
 @app.route("/sx-library/<area_slug>")
 def sx_library_area(area_slug):
+    if area_slug in SX_LIBRARY_REMOVED_EDUCATION_CATEGORIES:
+        return redirect(url_for("sx_library_area", area_slug="educacion"), code=301)
     area = SX_LIBRARY_AREAS.get(area_slug)
     if area is None:
         abort(404)

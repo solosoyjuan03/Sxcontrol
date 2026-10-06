@@ -13,8 +13,8 @@ Las contribuciones económicas voluntarias pueden transferirse al número Nequi 
 - Páginas de inicio, comunidad, proyectos, servicios (consultoría y tienda) y blog.
 - El Blog está dedicado a noticias y avances del proyecto organizados por fecha.
 - Comunidad incluye información sobre los sistemas operativos oficiales de desarrollo de SXcontrol (Windows IoT y Linux Mint), páginas para consultar repositorios, conocer cómo colaborar y revisar cumplimiento, principios comunitarios y pruebas.
-- SX Library presenta colecciones temáticas, los tres capítulos digitales de *Paz y conflicto*, de Juan D. Henao, y versiones de trabajo de *Educación digital*, *Fundamentos jurídicos de Colombia* y *Pensamiento algorítmico*.
-- Las áreas disponibles para explorar en SX Library son Derecho, Software, Marketing, Educación, Salud, Agro, Fantasía y Literatura. Educación incluye Idiomas como subárea; las ramas sin libros indican que están en preparación.
+- SX Library presenta colecciones temáticas, los tres capítulos digitales de *Paz y conflicto*, de Juan D. Henao, y versiones de trabajo de *Educación digital*, *Educación inclusiva*, *Inclusividad legal en educación*, *Fundamentos jurídicos de Colombia*, *Pensamiento algorítmico*, *Investigación de mercados*, *Plan de marketing*, *Plan de ventas* y *Plan de mejora*.
+- Las áreas principales de SX Library son Derecho, Software, Marketing y Educación. Los libros se muestran directamente dentro de cada área; Educación digital está disponible como versión de trabajo en Educación, sin niveles de subáreas.
 - SX Woodpecker OS, SX Orange Page, SX Recruiter y SX Registros tienen fichas informativas locales con su estado y aspectos de planificación pendientes; esas páginas no significan que los productos estén publicados ni habilitan registros o servicios.
 - SX Documento (nombre provisional), SX Help, SX Místico y SX Gestión Ágil tienen fichas de borrador para documentar sus propósitos y decisiones pendientes. SX Help propone orientación jurídica accesible y orientación sobre denuncias ciudadanas, pero no está disponible como asesoría legal ni canal operativo de denuncias. SX Gestión Ágil propone organizar proyectos, tareas y equipos de negocios mediante prácticas ágiles adaptables; no es una herramienta disponible.
 - SX Nutria incluye secciones desplegables de introducción, documentación, guía alimentaria, recomendaciones generales de salud y calculadora.
@@ -75,16 +75,24 @@ templates/                     Plantillas HTML
       software.html              Catálogo del área de Software
       Pensamiento_algoritmico/   Archivos propios del libro Pensamiento algorítmico
         pensamiento_algoritmico.html Tres unidades sobre fundamentos, Revolución 4.0 y diseño algorítmico
-    Educacion/                   Libros del área de Educación
-      Educacion_digital/         Archivos propios del libro Educación digital
+    Educacion/                   Área y libros de Educación
+      Educacion_digital/          Archivos del libro Educación digital
         educacion_digital.html   Libro digital organizado en tres capítulos
-      Idiomas/                    Materiales de la subárea de Idiomas
-    Marketing/                   Libros y materiales del área de Marketing
-    Salud/                       Libros y materiales del área de Salud
-    Agro/                        Libros y materiales del área Agro
-    Fantasia/                    Libros y materiales del área de Fantasía
-    Literatura/                  Libros y materiales de Literatura y Filosofía
-    area.html                    Página compartida para las áreas en preparación y sus subáreas
+      Educacion_inclusiva/        Archivos del libro Educación inclusiva
+        educacion_inclusiva.html Guía pedagógica breve en tres capítulos
+      Inclusividad_legal/         Archivos del libro Inclusividad legal en educación
+        inclusividad_legal.html  Tres capítulos breves con normas y fuentes oficiales
+    Marketing/                   Área y libros de Marketing
+      marketing.html              Catálogo del área de Marketing
+      Investigacion_mercados/     Archivos del libro Investigación de mercados
+        investigacion_mercados.html Tipos, fases y estructura del informe final
+      Plan_marketing/             Archivos del libro Plan de marketing
+        plan_marketing.html       Tres capítulos sobre historial, mezcla e implementación
+      Plan_ventas/                 Archivos del libro Plan de ventas
+        plan_ventas.html           Tres capítulos sobre integración, proceso y seguimiento comercial
+      Plan_mejora/                 Archivos del libro Plan de mejora
+        plan_mejora.html           Integración de planes, ejecución de mejoras y Cuadro de Mando Integral
+    area.html                    Página del área de Educación y las áreas en preparación
   Proyectos/borrador.html       Ficha compartida para proyectos en preparación
   Servicios/                    Consultoría y productos
 static/css/style.css            Estilos

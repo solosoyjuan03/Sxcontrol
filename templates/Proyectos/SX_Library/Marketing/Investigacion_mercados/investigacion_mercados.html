@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Guía introductoria de investigación de mercados organizada en tres fases: diseño, recolección y análisis.">
+    <title>Investigación de mercados - SX Library</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <a class="logo" href="{{ url_for('home') }}" aria-label="SXcontrol, inicio">SX<span>control</span></a>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Inicio</a></li>
+                <li><a href="{{ url_for('comunidad') }}">Comunidad</a></li>
+                <li><a href="{{ url_for('proyectos') }}" class="active" aria-current="page">Proyectos</a></li>
+                <li><a href="{{ url_for('servicios') }}">Servicios</a></li>
+                <li><a href="{{ url_for('blog') }}">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="book-page">
+        <nav class="book-breadcrumb" aria-label="Ruta de navegación">
+            <a href="{{ url_for('sx_library') }}">SX Library</a>
+            <span aria-hidden="true">/</span>
+            <a href="{{ url_for('sx_library_marketing') }}">Marketing</a>
+            <span aria-hidden="true">/</span>
+            <span aria-current="page">Investigación de mercados</span>
+        </nav>
+
+        <header class="book-hero">
+            <p class="library-eyebrow">SX Library · Libro digital · Marketing</p>
+            <h1>Investigación <span>de mercados</span></h1>
+            <p class="book-author">Autor: Juan D. Henao</p>
+            <p class="book-lead">Una guía introductoria para convertir preguntas sobre clientes y mercados en información útil, recopilarla con responsabilidad y usarla para fundamentar decisiones.</p>
+            <p class="book-status">Versión de trabajo · Tres capítulos · Contenido revisable</p>
+        </header>
+
+        <div class="book-layout">
+            <aside class="book-toc" aria-label="Contenido del libro">
+                <h2>Capítulos</h2>
+                <ol>
+                    <li>
+                        <a href="#capitulo-1">Capítulo 1. Definir y diseñar el estudio</a>
+                        <ol>
+                            <li><a href="#problema-investigacion">Del problema a la pregunta</a></li>
+                            <li><a href="#diseno-investigacion">Elegir el diseño y las fuentes</a></li>
+                            <li><a href="#tipos-investigacion">Tipos de investigación de mercados</a></li>
+                            <li><a href="#actividad-capitulo-1">Actividad de aplicación</a></li>
+                            <li><a href="#sintesis-capitulo-1">Síntesis</a></li>
+                        </ol>
+                    </li>
+                    <li>
+                        <a href="#capitulo-2">Capítulo 2. Recopilar información</a>
+                        <ol>
+                            <li><a href="#fuentes-datos">Fuentes y métodos</a></li>
+                            <li><a href="#calidad-etica">Calidad, ética y privacidad</a></li>
+                            <li><a href="#actividad-capitulo-2">Actividad de aplicación</a></li>
+                            <li><a href="#sintesis-capitulo-2">Síntesis</a></li>
+                        </ol>
+                    </li>
+                    <li>
+                        <a href="#capitulo-3">Capítulo 3. Analizar y decidir</a>
+                        <ol>
+                            <li><a href="#preparar-datos">Preparar y analizar los datos</a></li>
+                            <li><a href="#interpretar-resultados">Interpretar y comunicar resultados</a></li>
+                            <li><a href="#actividad-capitulo-3">Actividad integradora</a></li>
+                            <li><a href="#sintesis-capitulo-3">Síntesis</a></li>
+                        </ol>
+                    </li>
+                    <li><a href="#estructura-informe">Estructura del informe de investigación</a></li>
+                    <li><a href="#fuentes-consulta">Fuentes para profundizar</a></li>
+                </ol>
+            </aside>
+
+            <article class="book-content">
+                <section id="introduccion">
+                    <h2>Introducción</h2>
+                    <p>Una organización puede necesitar comprender por qué las personas eligen una oferta, qué barreras encuentran o cómo valoran un producto. La investigación de mercados ayuda a responder preguntas de ese tipo mediante la definición de un problema, la obtención sistemática de información y su análisis. No elimina la incertidumbre ni reemplaza el conocimiento del contexto: aporta evidencia para decidir con mayor claridad.</p>
+                    <p>Este libro organiza el proceso en tres fases didácticas: diseñar el estudio, recopilar la información y analizar los resultados. En la práctica, las fases pueden repetirse o ajustarse, y cada proyecto requiere métodos acordes con sus objetivos, recursos, población y riesgos.</p>
+                    <p>Como ejemplo transversal, se usará una panadería de barrio que considera ofrecer pedidos a domicilio y quiere conocer las necesidades de sus clientes antes de cambiar su servicio.</p>
+                </section>
+
+                <section id="capitulo-1">
+                    <h2>Capítulo 1. Definir y diseñar el estudio</h2>
+                    <section id="problema-investigacion">
+                        <h3>Del problema a la pregunta</h3>
+                        <p>La investigación comienza con una decisión pendiente, no con una encuesta. La panadería debe decidir si conviene ofrecer domicilios, pero aún no sabe qué productos interesan, en qué horarios se solicitarían ni qué dificultades tienen sus clientes. Precisar esa necesidad evita recopilar datos que no ayuden a actuar.</p>
+                        <p>Conviene distinguir el problema de gestión —qué decisión debe tomar la organización— del problema de investigación —qué información hace falta para fundamentar esa decisión—. A partir de este último se formulan un objetivo general y preguntas concretas, como identificar las ocasiones de compra y los canales que prefieren las personas encuestadas.</p>
+                    </section>
+
+                    <section id="diseno-investigacion">
+                        <h3>Elegir el diseño y las fuentes</h3>
+                        <p>El diseño describe cómo se responderán las preguntas: a quién se consultará, qué información se necesita, con qué método, en qué plazo y con qué recursos. Una exploración cualitativa, como entrevistas breves, puede ayudar a comprender motivos y lenguaje; un cuestionario estructurado puede estimar la frecuencia de preferencias dentro de una muestra definida. Se pueden combinar métodos cuando cada uno aporta información pertinente.</p>
+                        <p>Antes de iniciar el trabajo de campo, se revisan datos secundarios disponibles —por ejemplo, registros propios pertinentes o estadísticas públicas— y se determina si están actualizados y si realmente responden a la pregunta. Si se requiere información primaria, se especifican la población, el método de selección, las preguntas y el plan de análisis. El tamaño o tipo de muestra debe corresponder al propósito; una muestra de conveniencia no representa automáticamente a todo el mercado.</p>
+                        <p>Un plan sencillo puede incluir objetivo, preguntas, fuentes, participantes, instrumentos, calendario, presupuesto, riesgos, medidas de privacidad y criterios para considerar útil la información.</p>
+                    </section>
+
+                    <section id="tipos-investigacion">
+                        <h3>Tipos de investigación de mercados</h3>
+                        <p>Los tipos pueden clasificarse según el propósito del estudio o según la naturaleza de los datos. Estas clasificaciones describen aspectos distintos: un estudio puede ser, por ejemplo, exploratorio en su propósito y cualitativo en sus métodos, o descriptivo y cuantitativo. La pregunta y la decisión que se busca apoyar orientan la elección.</p>
+                        <div class="book-concept-grid">
+                            <section class="book-concept">
+                                <h4>Investigación exploratoria</h4>
+                                <p>Se utiliza cuando el problema todavía no está bien definido o se necesita conocer mejor un tema, generar ideas e identificar preguntas relevantes. Puede apoyarse en revisión de fuentes, entrevistas abiertas u observación. Sus hallazgos ayudan a orientar estudios posteriores, pero normalmente no permiten estimar por sí solos la frecuencia de una opinión en todo el mercado.</p>
+                            </section>
+                            <section class="book-concept">
+                                <h4>Investigación descriptiva</h4>
+                                <p>Busca describir características, comportamientos, preferencias o percepciones de una población o grupo definido. Encuestas estructuradas, observación y análisis de registros pueden contribuir. Para generalizar proporciones se requiere un diseño y una muestra adecuados; describir asociaciones no demuestra que una variable cause otra.</p>
+                            </section>
+                            <section class="book-concept">
+                                <h4>Investigación causal</h4>
+                                <p>Examina si un cambio en una variable produce un efecto en otra, por ejemplo, si una promoción modifica las compras. Para sostener una conclusión causal se necesita un diseño que permita comparar condiciones y descartar explicaciones alternativas, como un experimento correctamente planificado. Observar que dos hechos ocurren juntos no basta para probar causalidad.</p>
+                            </section>
+                        </div>
+                        <p>También se habla de enfoques <strong>cualitativos</strong>, que exploran significados y experiencias mediante entrevistas, grupos de conversación u observación, y <strong>cuantitativos</strong>, que miden variables y resumen datos numéricos. Los métodos <strong>mixtos</strong> combinan ambos cuando ello ayuda a responder las preguntas. No son etapas obligatorias ni categorías incompatibles con los propósitos exploratorio, descriptivo o causal.</p>
+                        <p>En el ejemplo de la panadería, conversar primero con algunos clientes podría ser exploratorio; medir después las preferencias con un cuestionario diseñado para una población definida podría ser descriptivo. Si la panadería prueba una promoción y compara sus resultados con una condición adecuada, podría plantear un estudio causal, siempre que el diseño controle explicaciones alternativas. La elección dependerá del objetivo, los recursos y el alcance que se pueda sostener.</p>
+                    </section>
+
+                    <section id="actividad-capitulo-1">
+                        <h3>Actividad de aplicación</h3>
+                        <p>Para el caso de la panadería, escribe la decisión que debe tomar, una pregunta de investigación y dos objetivos específicos. Luego indica qué información existente revisarías y qué método usarías para conocer las preferencias de clientes actuales. Decide si el propósito es exploratorio, descriptivo o causal, explica por qué y menciona qué personas quedarían fuera de tu alcance.</p>
+                    </section>
+
+                    <section id="sintesis-capitulo-1">
+                        <h3>Síntesis</h3>
+                        <p>Un buen diseño conecta la decisión con preguntas investigables y métodos adecuados. Definir el alcance desde el principio ayuda a emplear los recursos con criterio y a reconocer, antes de recopilar datos, qué conclusiones podrá sostener el estudio.</p>
+                    </section>
+                </section>
+
+                <section id="capitulo-2">
+                    <h2>Capítulo 2. Recopilar información</h2>
+                    <section id="fuentes-datos">
+                        <h3>Fuentes y métodos</h3>
+                        <p>La información secundaria ya existe y puede provenir de registros internos, informes, publicaciones o estadísticas públicas. La información primaria se obtiene para responder las preguntas del estudio, mediante entrevistas, observación, encuestas u otras técnicas. Cada fuente tiene límites: los registros de ventas, por ejemplo, muestran compras realizadas, pero no necesariamente explican por qué alguien no compró.</p>
+                        <p>Las entrevistas y conversaciones grupales permiten explorar experiencias e ideas con detalle, pero sus resultados no deben presentarse como porcentajes representativos de toda una población. Las encuestas estructuradas facilitan comparar respuestas; para ello, las preguntas deben ser claras, neutrales y comprensibles para quienes responderán. Una prueba piloto pequeña puede detectar ambigüedades, problemas de orden o dificultades técnicas antes de aplicar el instrumento.</p>
+                        <p>En el ejemplo, la panadería podría revisar pedidos y consultas previas, conversar con clientes diversos y probar un cuestionario breve sobre productos, horarios y canales preferidos. Cada método respondería una parte distinta de la pregunta.</p>
+                    </section>
+
+                    <section id="calidad-etica">
+                        <h3>Calidad, ética y privacidad</h3>
+                        <p>La calidad depende de que la información sea pertinente, suficientemente completa y recopilada de manera consistente. Quien coordina el trabajo debe explicar las instrucciones, registrar las respuestas sin alterarlas y dejar constancia de incidencias, como preguntas omitidas o periodos en que el servicio no estuvo disponible. La selección de participantes y la forma de preguntar pueden sesgar los resultados.</p>
+                        <p>Se debe explicar el propósito de la consulta, permitir que la participación sea voluntaria, recoger solo los datos necesarios y protegerlos contra el acceso o uso no autorizado. No se deben solicitar datos sensibles que no hagan falta. Antes de recolectar o compartir información personal, hay que cumplir las normas aplicables y contar con las autorizaciones correspondientes.</p>
+                        <p>Si se recopilan respuestas de una muestra limitada o durante un periodo particular, esas condiciones deben registrarse para no atribuir los resultados a personas o momentos que no fueron estudiados.</p>
+                    </section>
+
+                    <section id="actividad-capitulo-2">
+                        <h3>Actividad de aplicación</h3>
+                        <p>Redacta tres preguntas neutrales para consultar sobre el posible servicio a domicilio y detecta una pregunta que podría inducir una respuesta. Diseña una prueba piloto: define a quiénes invitarías, cómo explicarías la participación y qué revisarías antes de aplicar el cuestionario completo.</p>
+                    </section>
+
+                    <section id="sintesis-capitulo-2">
+                        <h3>Síntesis</h3>
+                        <p>Recopilar datos no es solo distribuir un formulario. Requiere métodos adecuados, instrumentos comprensibles, procedimientos consistentes y respeto por la privacidad. Registrar los límites del trabajo de campo es parte de la calidad del estudio.</p>
+                    </section>
+                </section>
+
+                <section id="capitulo-3">
+                    <h2>Capítulo 3. Analizar y decidir</h2>
+                    <section id="preparar-datos">
+                        <h3>Preparar y analizar los datos</h3>
+                        <p>Antes del análisis, se revisa que los datos puedan utilizarse: se identifican duplicados, respuestas incompletas, valores inesperados y errores de registro. Las decisiones de limpieza deben documentarse; eliminar o cambiar respuestas sin un criterio transparente puede distorsionar lo observado.</p>
+                        <p>En datos cuantitativos, se pueden resumir frecuencias, proporciones y tendencias, y comparar grupos cuando el diseño lo permita. En datos cualitativos, se organizan respuestas por temas, buscando tanto coincidencias como diferencias. Un resultado descriptivo indica qué apareció en los datos; por sí solo no demuestra que una variable haya causado otra.</p>
+                        <p>Para la panadería, se podría resumir qué horarios y productos fueron mencionados con mayor frecuencia y agrupar los motivos expresados en las entrevistas. Las respuestas reflejan únicamente a las personas participantes y el contexto en que se obtuvieron.</p>
+                    </section>
+
+                    <section id="interpretar-resultados">
+                        <h3>Interpretar y comunicar resultados</h3>
+                        <p>Interpretar es relacionar los hallazgos con las preguntas y objetivos iniciales, considerar explicaciones alternativas y contrastar los resultados con las limitaciones del estudio. La conclusión debe distinguir entre evidencia, interpretación y recomendación. También debe decir qué no se sabe todavía.</p>
+                        <p>Un informe útil presenta el propósito, el método, las características de la muestra, los resultados principales, las limitaciones y recomendaciones proporcionales a la evidencia. Las tablas y gráficos deben tener títulos claros, indicar a quiénes y a qué periodo corresponden y evitar escalas que exageren diferencias. Una recomendación puede ser probar el servicio en horarios limitados antes de ampliarlo, si los hallazgos y los recursos disponibles lo justifican.</p>
+                        <p>La decisión final también considera factores que una investigación breve no resuelve, como costos, capacidad operativa, seguridad del reparto y cambios posteriores en la demanda. Tras implementar una acción, observar sus resultados puede abrir nuevas preguntas y dar inicio a otro ciclo de investigación.</p>
+                    </section>
+
+                    <section id="actividad-capitulo-3">
+                        <h3>Actividad integradora</h3>
+                        <p>Retoma el diseño y las preguntas de las actividades anteriores. Imagina que las personas consultadas prefieren pedidos por mensajería, pero que la mayoría de respuestas provino de clientes que visitaron la panadería en la mañana. Escribe un hallazgo, una recomendación prudente y una limitación que comunicarías. Explica qué dato adicional necesitarías antes de ofrecer el servicio a toda la clientela.</p>
+                    </section>
+
+                    <section id="sintesis-capitulo-3">
+                        <h3>Síntesis</h3>
+                        <p>El análisis convierte datos organizados en hallazgos relevantes, y la interpretación los conecta con decisiones sin exceder lo que la evidencia permite afirmar. Un informe transparente, con métodos y limitaciones explícitos, ayuda a decidir y a identificar el siguiente paso de aprendizaje.</p>
+                    </section>
+                </section>
+
+                <section id="estructura-informe">
+                    <h2>Estructura del informe de investigación</h2>
+                    <p>Las tres fases describen cómo se realiza el estudio; el informe es el documento que comunica qué se investigó, cómo se hizo, qué se encontró y qué decisiones pueden considerarse. No existe una plantilla única para todos los proyectos: la organización, la extensión y el nivel de detalle se ajustan al propósito, al público lector y a los requisitos académicos o institucionales.</p>
+
+                    <section id="protocolo-informe-final">
+                        <h3>Protocolo previo e informe final</h3>
+                        <p>Antes de recopilar datos se prepara un <strong>protocolo o propuesta de investigación</strong>. Este documento plantea el problema, los objetivos, el alcance, los métodos previstos, los recursos, el calendario y las consideraciones éticas. Sirve para planear y revisar la viabilidad; presenta procedimientos futuros y no debe redactarse como si ya se hubieran obtenido resultados.</p>
+                        <p>El <strong>informe final</strong> se completa después del trabajo de campo y el análisis. Documenta lo que efectivamente se hizo —incluidos los cambios frente al protocolo—, presenta los hallazgos y sus limitaciones y formula conclusiones y recomendaciones que correspondan a la evidencia.</p>
+                    </section>
+
+                    <section id="partes-informe">
+                        <h3>Partes habituales del informe final</h3>
+                        <ol>
+                            <li><strong>Portada:</strong> título del estudio, organización o institución, autoría o equipo responsable, lugar y fecha.</li>
+                            <li><strong>Resumen ejecutivo:</strong> síntesis breve del propósito, método, hallazgos principales, conclusiones y recomendaciones. Se redacta al final y permite comprender lo esencial sin reemplazar el informe.</li>
+                            <li><strong>Tabla de contenido:</strong> capítulos, apartados y páginas; se pueden añadir listas de tablas y figuras si facilitan la consulta.</li>
+                            <li><strong>Introducción y antecedentes:</strong> contexto del mercado, situación que origina el estudio, alcance y organización del documento.</li>
+                            <li><strong>Problema, justificación y objetivos:</strong> decisión que se necesita fundamentar, pregunta de investigación, razón del estudio y objetivos general y específicos.</li>
+                            <li><strong>Marco de referencia:</strong> conceptos necesarios y revisión de información secundaria pertinente, indicando sus fuentes y límites.</li>
+                            <li><strong>Metodología:</strong> enfoque y diseño; población y muestra o participantes; fuentes; instrumentos; procedimiento y periodo de recolección; plan de análisis; y medidas éticas y de privacidad. Se informa lo que realmente se realizó.</li>
+                            <li><strong>Resultados:</strong> hallazgos organizados según los objetivos, con tablas, gráficos o temas cualitativos claramente titulados y explicados. Se diferencia lo observado de su interpretación.</li>
+                            <li><strong>Discusión:</strong> significado de los resultados en relación con las preguntas y antecedentes, explicaciones posibles y límites para generalizar.</li>
+                            <li><strong>Conclusiones:</strong> respuestas directas a los objetivos, sin introducir resultados nuevos ni afirmar más de lo que muestran los datos.</li>
+                            <li><strong>Recomendaciones:</strong> acciones posibles vinculadas con los hallazgos, priorizadas y ajustadas a los recursos y al alcance del estudio.</li>
+                            <li><strong>Referencias:</strong> datos completos de las fuentes citadas, presentados de manera consistente según el estilo solicitado.</li>
+                            <li><strong>Anexos:</strong> instrumentos, guías, información complementaria, definiciones o tablas extensas que respaldan el informe. Se omiten datos personales que no deban divulgarse.</li>
+                        </ol>
+                        <p>En estudios breves algunas partes pueden combinarse —por ejemplo, introducción y antecedentes—, siempre que el documento permita localizar el propósito, el método, los resultados y las conclusiones. Si quien solicita el estudio exige un formato específico, ese formato tiene prioridad.</p>
+                    </section>
+
+                    <section id="ejemplo-estructura-informe">
+                        <h3>Ejemplo de esquema para la panadería</h3>
+                        <ol>
+                            <li><strong>Título:</strong> Preferencias de clientes sobre un posible servicio a domicilio de la panadería.</li>
+                            <li><strong>Resumen ejecutivo:</strong> motivo del estudio, a quiénes se consultó, hallazgos principales y decisión sugerida, una vez finalizado el análisis.</li>
+                            <li><strong>Problema y objetivos:</strong> determinar qué información necesita la panadería para decidir si prueba el servicio, y conocer productos, horarios y canales preferidos por las personas participantes.</li>
+                            <li><strong>Metodología:</strong> explicar el periodo y lugar de consulta, cómo se invitó a participar, qué preguntas se formularon y cómo se analizaron las respuestas.</li>
+                            <li><strong>Resultados y discusión:</strong> mostrar las preferencias observadas, describir quiénes respondieron y señalar que los clientes consultados no necesariamente representan a toda la clientela.</li>
+                            <li><strong>Conclusiones y recomendaciones:</strong> responder a los objetivos y proponer, si los resultados y la capacidad operativa lo respaldan, una prueba limitada antes de ampliar el servicio.</li>
+                            <li><strong>Referencias y anexos:</strong> identificar las fuentes consultadas y adjuntar el cuestionario utilizado, sin publicar información personal de quienes respondieron.</li>
+                        </ol>
+                        <p>Este es un esquema didáctico, no un resultado real. Sus apartados de hallazgos, conclusiones y recomendaciones solo pueden completarse después de recopilar y analizar información; no se deben inventar datos para llenar el documento.</p>
+                    </section>
+                </section>
+
+                <section id="fuentes-consulta">
+                    <h2>Fuentes para profundizar</h2>
+                    <ul>
+                        <li>Malhotra, N. K. (2019). <em>Marketing Research: An Applied Orientation</em> (7.ª ed.). Pearson.</li>
+                        <li>Kotler, P., y Keller, K. L. (2016). <em>Marketing Management</em> (15.ª ed.). Pearson.</li>
+                    </ul>
+                    <p>Estas referencias se ofrecen para ampliar el estudio de la investigación y la gestión de marketing. La selección del método y las obligaciones sobre datos personales deben verificarse de acuerdo con el contexto y las normas vigentes.</p>
+                </section>
+            </article>
+        </div>
+    </main>
+</body>
+</html>

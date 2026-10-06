@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Guía para elaborar un plan de ventas conectado con la investigación de mercados y el plan de marketing.">
+    <title>Plan de ventas - SX Library</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <a class="logo" href="{{ url_for('home') }}" aria-label="SXcontrol, inicio">SX<span>control</span></a>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Inicio</a></li>
+                <li><a href="{{ url_for('comunidad') }}">Comunidad</a></li>
+                <li><a href="{{ url_for('proyectos') }}" class="active" aria-current="page">Proyectos</a></li>
+                <li><a href="{{ url_for('servicios') }}">Servicios</a></li>
+                <li><a href="{{ url_for('blog') }}">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="book-page">
+        <nav class="book-breadcrumb" aria-label="Ruta de navegación">
+            <a href="{{ url_for('sx_library') }}">SX Library</a>
+            <span aria-hidden="true">/</span>
+            <a href="{{ url_for('sx_library_marketing') }}">Marketing</a>
+            <span aria-hidden="true">/</span>
+            <span aria-current="page">Plan de ventas</span>
+        </nav>
+
+        <header class="book-hero">
+            <p class="library-eyebrow">SX Library · Libro digital · Marketing</p>
+            <h1>Plan de <span>ventas</span></h1>
+            <p class="book-author">Autor: Juan D. Henao</p>
+            <p class="book-lead">Una guía para conectar lo que la empresa aprende sobre su mercado con las decisiones de marketing y el trabajo cotidiano de ventas.</p>
+            <p class="book-status">Versión de trabajo · Tres capítulos · Contenido revisable</p>
+        </header>
+
+        <div class="book-layout">
+            <aside class="book-toc" aria-label="Contenido del libro">
+                <h2>Capítulos</h2>
+                <ol>
+                    <li>
+                        <a href="#capitulo-1">Capítulo 1. Integrar investigación de mercados y marketing</a>
+                        <ol>
+                            <li><a href="#insumos-investigacion">Insumos de la investigación de mercados</a></li>
+                            <li><a href="#traducir-marketing-ventas">Traducir el plan de marketing a ventas</a></li>
+                            <li><a href="#actividad-capitulo-1">Actividad de aplicación</a></li>
+                        </ol>
+                    </li>
+                    <li>
+                        <a href="#capitulo-2">Capítulo 2. Diseñar objetivos y proceso comercial</a>
+                        <ol>
+                            <li><a href="#objetivos-pronostico">Objetivos y pronósticos realistas</a></li>
+                            <li><a href="#proceso-ventas">Etapas del proceso de ventas</a></li>
+                            <li><a href="#canales-equipo">Canales, roles y capacidad</a></li>
+                            <li><a href="#actividad-capitulo-2">Actividad de aplicación</a></li>
+                        </ol>
+                    </li>
+                    <li>
+                        <a href="#capitulo-3">Capítulo 3. Implementar, acompañar y mejorar</a>
+                        <ol>
+                            <li><a href="#plan-accion-ventas">Plan de acción comercial</a></li>
+                            <li><a href="#indicadores-ventas">Indicadores y revisión</a></li>
+                            <li><a href="#relacion-clientes">Relación responsable con clientes</a></li>
+                            <li><a href="#actividad-capitulo-3">Actividad integradora</a></li>
+                        </ol>
+                    </li>
+                    <li><a href="#fuentes-consulta">Fuentes para profundizar</a></li>
+                </ol>
+            </aside>
+
+            <article class="book-content">
+                <section id="introduccion">
+                    <h2>Introducción</h2>
+                    <p>Un plan de ventas define cómo una organización buscará y atenderá oportunidades comerciales para contribuir a objetivos del negocio. Debe ser coherente con la investigación de mercados, el plan de marketing, la oferta disponible y la capacidad operativa. No es una promesa de ventas ni una cuota aislada: organiza supuestos, acciones, responsables y formas de aprender de los resultados.</p>
+                    <p>Esta guía conecta tres documentos y momentos. Primero convierte evidencia sobre clientes y mercado y decisiones de marketing en prioridades comerciales. Luego define objetivos, canales y un proceso de ventas. Por último, organiza la ejecución, seguimiento y mejora. Se mantiene como ejemplo la panadería que evalúa ofrecer pedidos a domicilio; sus cifras y resultados deben obtenerse en el negocio, no suponerse.</p>
+                </section>
+
+                <section id="capitulo-1">
+                    <h2>Capítulo 1. Integrar investigación de mercados y marketing</h2>
+                    <p>La investigación de mercados ayuda a entender a quién se puede atender, qué necesidades existen, cómo compra el público y qué alternativas tiene. El plan de marketing decide a qué segmentos priorizar, qué propuesta ofrecer, cómo posicionarla y qué mezcla de producto, precio, plaza y promoción utilizar. El plan de ventas toma esas decisiones y especifica cómo iniciar conversaciones, facilitar la compra y atender al cliente mediante canales y procesos viables.</p>
+
+                    <section id="insumos-investigacion">
+                        <h3>Insumos de la investigación de mercados</h3>
+                        <p>Antes de fijar metas comerciales, conviene resumir hallazgos relevantes y sus límites:</p>
+                        <ul>
+                            <li><strong>Público y segmentos:</strong> quiénes participaron o fueron observados, qué grupos se distinguen y a quiénes no representa la información.</li>
+                            <li><strong>Necesidades y comportamiento:</strong> problemas que el producto puede resolver, ocasiones de compra, criterios de elección, objeciones y hábitos observados.</li>
+                            <li><strong>Demanda y contexto:</strong> señales disponibles sobre interés, tamaño o frecuencia de compra, estacionalidad, competencia y alternativas. Una muestra pequeña no debe extrapolarse automáticamente a todo el mercado.</li>
+                            <li><strong>Canales y experiencia:</strong> cómo el público conoce, evalúa, compra y recibe la oferta, y qué barreras aparecen en ese recorrido.</li>
+                            <li><strong>Calidad y vacíos:</strong> fecha, fuente, método, limitaciones e información todavía necesaria para decidir.</li>
+                        </ul>
+                        <p>Se separan datos observados, interpretaciones e hipótesis. Si la evidencia es limitada, se pueden formular metas de aprendizaje o iniciar una prueba controlada en vez de presentar una proyección incierta como una garantía.</p>
+                    </section>
+
+                    <section id="traducir-marketing-ventas">
+                        <h3>Traducir el plan de marketing a ventas</h3>
+                        <p>El plan de marketing aporta el objetivo, el público prioritario, el posicionamiento, la propuesta de valor, la oferta, las decisiones de precio y los canales y mensajes previstos. El plan de ventas los transforma en reglas prácticas: qué prospectos atender primero, qué información presentar, cómo responder consultas, dónde cerrar la compra, quién confirma disponibilidad y cómo se dará seguimiento.</p>
+                        <p>La coherencia importa. Si la promoción promete entrega en el día, ventas y operaciones deben confirmar que existe capacidad para cumplirlo. Si el precio incluye condiciones específicas, quienes venden deben comunicarlas sin cargos sorpresa. Marketing puede atraer consultas, pero la conversión depende también de disponibilidad, atención, confianza y experiencia posterior.</p>
+                        <p>Para la panadería, la investigación podría mostrar interés en pedidos por mensajería entre algunos clientes; el plan de marketing podría proponer una prueba local con menú, precio y comunicación definidos. El plan de ventas describiría cómo recibir el pedido, verificar cobertura e inventario, informar el total, confirmar el pago y coordinar la entrega, siempre tras comprobar la capacidad operativa.</p>
+                    </section>
+
+                    <section id="actividad-capitulo-1">
+                        <h3>Actividad de aplicación</h3>
+                        <p>Elige un hallazgo de investigación y una decisión del plan de marketing. Completa la cadena: <em>evidencia → público priorizado → propuesta y canal → acción de ventas → necesidad operativa → resultado que se medirá</em>. Anota qué parte está respaldada por datos y qué parte sigue siendo una hipótesis.</p>
+                    </section>
+                </section>
+
+                <section id="capitulo-2">
+                    <h2>Capítulo 2. Diseñar objetivos y proceso comercial</h2>
+                    <section id="objetivos-pronostico">
+                        <h3>Objetivos y pronósticos realistas</h3>
+                        <p>Un objetivo comercial señala el resultado buscado, el segmento, el periodo y la medida con la que se revisará. Según el negocio, puede referirse a ingresos, unidades, margen, clientes nuevos, recompra, retención o aprendizaje de una prueba. No conviene usar ingresos brutos como única señal: ventas con descuentos, devoluciones o costos altos pueden no ser sostenibles.</p>
+                        <p>El pronóstico estima un resultado probable a partir de datos y supuestos explícitos; no es lo mismo que la meta. Puede construirse desde ventas históricas comparables o desde un embudo comercial: oportunidades esperadas por etapa multiplicadas por tasas de avance observadas y valor medio pertinente. Si faltan datos, se presentan escenarios prudentes, base y favorable como hipótesis, indicando su fundamento y el grado de incertidumbre.</p>
+                        <p>Las metas deben considerar estacionalidad, disponibilidad, capacidad de producción o servicio, tiempo de atención, presupuesto, ciclo de compra y cobertura del equipo. No se fijan únicamente por deseo de crecer ni se asignan cuotas que incentiven promesas engañosas o ventas inadecuadas.</p>
+                    </section>
+
+                    <section id="proceso-ventas">
+                        <h3>Etapas del proceso de ventas</h3>
+                        <p>Un proceso documentado ayuda a dar una experiencia consistente y detectar dónde se detienen las oportunidades. Las etapas se adaptan al tipo de venta; una compra cotidiana puede tener pocos pasos y una venta entre empresas, un ciclo más largo.</p>
+                        <ol>
+                            <li><strong>Generar o recibir una oportunidad:</strong> registrar de dónde proviene la consulta y obtener solo los datos necesarios.</li>
+                            <li><strong>Calificar y priorizar:</strong> confirmar si la necesidad, el público, el alcance y el momento son compatibles con la oferta; permitir que la persona decida sin presión.</li>
+                            <li><strong>Comprender la necesidad:</strong> escuchar y preguntar para identificar el problema, los criterios de elección y las restricciones.</li>
+                            <li><strong>Presentar una propuesta:</strong> explicar beneficios, alcance, precio, condiciones y límites de manera precisa, vinculándolos con la necesidad real.</li>
+                            <li><strong>Resolver dudas y acordar el siguiente paso:</strong> responder con información comprobable, registrar compromisos y respetar la decisión de no comprar.</li>
+                            <li><strong>Cerrar y entregar:</strong> confirmar el pedido o contrato, informar plazos y coordinar la entrega con las áreas responsables.</li>
+                            <li><strong>Dar seguimiento:</strong> verificar satisfacción, atender problemas y registrar oportunidades de mejora o recompra pertinente.</li>
+                        </ol>
+                        <p>Para cada etapa se definen criterios observables de entrada y salida, la información mínima que se registra y la persona responsable. Esto permite que varias personas atiendan una oportunidad sin perder contexto ni recopilar datos innecesarios.</p>
+                    </section>
+
+                    <section id="canales-equipo">
+                        <h3>Canales, roles y capacidad</h3>
+                        <p>Los canales de venta se eligen según el comportamiento del público, la complejidad de la oferta, el costo de atender cada canal y la capacidad de cumplir lo prometido. Venta presencial, teléfono, comercio electrónico, mensajería o distribuidores no son intercambiables por defecto; pueden combinarse si la información, el inventario, el precio y la atención se mantienen coordinados.</p>
+                        <p>El plan identifica quién genera oportunidades, asesora, confirma pagos, prepara pedidos, entrega y atiende reclamos. En equipos pequeños una persona puede asumir varios roles, pero las responsabilidades deben quedar claras. Antes de ampliar un canal se revisan herramientas, formación, horarios, inventario y acuerdos con terceros.</p>
+                    </section>
+
+                    <section id="actividad-capitulo-2">
+                        <h3>Actividad de aplicación</h3>
+                        <p>Dibuja el proceso de ventas para el producto elegido y define cada etapa con un criterio para avanzar. Propón un objetivo con medida y periodo; separa meta y pronóstico, y enumera los datos que necesitarías para estimarlo. Si no hay registros, especifica cómo comenzarás a recolectarlos y qué límites tendrá la primera estimación.</p>
+                    </section>
+                </section>
+
+                <section id="capitulo-3">
+                    <h2>Capítulo 3. Implementar, acompañar y mejorar</h2>
+                    <section id="plan-accion-ventas">
+                        <h3>Plan de acción comercial</h3>
+                        <p>La implementación convierte objetivos y proceso en tareas con calendario y recursos. Para cada acción se registra el segmento, producto, canal, responsable, fecha, costo estimado, dependencia, herramienta y resultado esperado. Se prioriza un conjunto que el equipo pueda ejecutar y se acuerdan reuniones breves para resolver bloqueos.</p>
+                        <p>Una prueba piloto permite revisar el proceso antes de escalar: define el público y periodo, alcance geográfico, oferta, condiciones, capacidad máxima, presupuesto y criterios para continuar, ajustar o detener. Los criterios deben incluir calidad y satisfacción, no solo cantidad de ventas. Una prueba con grupo o periodo limitado tampoco demuestra automáticamente resultados para otros segmentos o temporadas.</p>
+                        <p>Las herramientas de seguimiento —desde una hoja controlada hasta un CRM— deben corresponder al tamaño y necesidades de la operación. Se registra lo que sirve para atender y medir el proceso, se restringe el acceso y se conserva la información según las reglas aplicables; comprar software por sí solo no mejora la venta.</p>
+                    </section>
+
+                    <section id="indicadores-ventas">
+                        <h3>Indicadores y revisión</h3>
+                        <p>El equipo acuerda definiciones y fuentes para evitar que cada persona calcule de manera distinta. Un conjunto pequeño de indicadores puede incluir:</p>
+                        <ul>
+                            <li><strong>Actividad pertinente:</strong> consultas atendidas, oportunidades calificadas o propuestas enviadas, interpretadas junto con la calidad de la interacción.</li>
+                            <li><strong>Conversión por etapa:</strong> proporción de oportunidades que avanzan, con periodo y denominador definidos; permite localizar fricciones, no culpar automáticamente a quien vende.</li>
+                            <li><strong>Resultado económico:</strong> ingresos netos, unidades, margen, descuentos, devoluciones o costo de servir, según el modelo del negocio.</li>
+                            <li><strong>Experiencia y continuidad:</strong> cumplimiento de entrega, reclamos, satisfacción, recompra o retención, con métodos de medición claros.</li>
+                            <li><strong>Previsión:</strong> comparación periódica entre pronóstico y resultado, documentando supuestos y cambios en la demanda o capacidad.</li>
+                        </ul>
+                        <p>En la revisión se pregunta qué cambió, qué evidencia lo muestra, qué parte del proceso pudo influir y qué acción pequeña puede probarse. Si el problema está en disponibilidad, precio o promesa de marketing, modificar el guion de ventas no lo resolverá. Las decisiones se coordinan con marketing y operaciones, se registra el aprendizaje y se revisa el efecto en el siguiente periodo.</p>
+                    </section>
+
+                    <section id="relacion-clientes">
+                        <h3>Relación responsable con clientes</h3>
+                        <p>Una venta sostenible busca compatibilidad entre la necesidad del cliente y la oferta. El equipo debe informar condiciones, costos, disponibilidad, riesgos y límites de manera comprensible; no inventar escasez, ocultar cargos ni insistir después de una negativa. Las quejas se atienden con un procedimiento claro y sus causas se comparten para mejorar el producto y el servicio.</p>
+                        <p>El seguimiento posterior debe tener un propósito legítimo y respetar preferencias de contacto, privacidad y normas aplicables. Las recomendaciones o ventas adicionales solo son apropiadas cuando aportan valor y se presentan sin presión. Una relación de confianza puede contribuir a la continuidad, pero no garantiza recompra.</p>
+                    </section>
+
+                    <section id="actividad-capitulo-3">
+                        <h3>Actividad integradora</h3>
+                        <p>Combina los resultados de las actividades previas en un plan de una página: diagnóstico y fuente, objetivo, pronóstico con supuestos, etapas del proceso, acciones, responsables, recursos, calendario, cinco indicadores como máximo y criterios para continuar o ajustar una prueba. Incluye cómo se protegerán los datos y cómo se resolverán reclamos. Marca cualquier dato todavía desconocido.</p>
+                    </section>
+
+                    <section id="sintesis-capitulo-3">
+                        <h3>Síntesis</h3>
+                        <p>Un plan de ventas útil conecta evidencia y estrategia con un proceso que la organización puede cumplir. La ejecución mejora cuando las metas son transparentes, la experiencia del cliente importa, los indicadores tienen definiciones claras y el equipo usa los resultados para coordinar cambios, no para sustituir el diagnóstico.</p>
+                    </section>
+                </section>
+
+                <section id="fuentes-consulta">
+                    <h2>Fuentes para profundizar</h2>
+                    <ul>
+                        <li>Kotler, P., y Keller, K. L. (2016). <em>Marketing Management</em> (15.ª ed.). Pearson.</li>
+                        <li>Johnston, M. W., y Marshall, G. W. (2016). <em>Sales Force Management: Leadership, Innovation, Technology</em> (12.ª ed.). Routledge.</li>
+                        <li>Rackham, N. (1988). <em>SPIN Selling</em>. McGraw-Hill.</li>
+                    </ul>
+                    <p>Las referencias se ofrecen para ampliar el estudio. Los procesos, metas, indicadores y prácticas de datos deben adaptarse al sector, al público, a los recursos disponibles y a las obligaciones vigentes.</p>
+                </section>
+            </article>
+        </div>
+    </main>
+</body>
+</html>

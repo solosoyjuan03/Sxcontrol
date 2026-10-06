@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Guía breve sobre normas colombianas de educación inclusiva, obligaciones, fechas y consecuencias jurídicas.">
+    <title>Inclusividad legal en educación - SX Library</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <a class="logo" href="{{ url_for('home') }}" aria-label="SXcontrol, inicio">SX<span>control</span></a>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Inicio</a></li>
+                <li><a href="{{ url_for('comunidad') }}">Comunidad</a></li>
+                <li><a href="{{ url_for('proyectos') }}" class="active" aria-current="page">Proyectos</a></li>
+                <li><a href="{{ url_for('servicios') }}">Servicios</a></li>
+                <li><a href="{{ url_for('blog') }}">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="book-page">
+        <nav class="book-breadcrumb" aria-label="Ruta de navegación">
+            <a href="{{ url_for('sx_library') }}">SX Library</a>
+            <span aria-hidden="true">/</span>
+            <a href="{{ url_for('sx_library_area', area_slug='educacion') }}">Educación</a>
+            <span aria-hidden="true">/</span>
+            <span aria-current="page">Inclusividad legal en educación</span>
+        </nav>
+
+        <header class="book-hero">
+            <p class="library-eyebrow">SX Library · Libro digital · Educación</p>
+            <h1>Inclusividad <span>legal</span> en educación</h1>
+            <p class="book-author">Autor: Juan D. Henao</p>
+            <p class="book-lead">Guía introductoria de obligaciones colombianas de inclusión educativa, su aplicación y las consecuencias que pueden proceder según cada caso.</p>
+            <p class="book-status">Versión de trabajo · Tres capítulos breves · Consulta fuentes oficiales</p>
+        </header>
+
+        <div class="book-layout">
+            <aside class="book-toc" aria-label="Contenido del libro">
+                <h2>Capítulos</h2>
+                <ol>
+                    <li><a href="#capitulo-1">1. Derecho a la educación inclusiva</a></li>
+                    <li><a href="#capitulo-2">2. Deberes y fechas de aplicación</a></li>
+                    <li><a href="#capitulo-3">3. Rutas y consecuencias</a></li>
+                    <li><a href="#fuentes">Fuentes oficiales</a></li>
+                </ol>
+            </aside>
+
+            <article class="book-content">
+                <section id="introduccion">
+                    <h2>Introducción</h2>
+                    <p>Esta guía resume normas colombianas relacionadas con educación inclusiva, especialmente los derechos de estudiantes con discapacidad y las obligaciones de los establecimientos y autoridades educativas. No reemplaza asesoría jurídica: el alcance depende de los hechos, del nivel educativo, del carácter público o privado de la institución y del régimen aplicable.</p>
+                    <p>La obligación de respetar derechos no comienza al vencer un plan de transición. Las fechas de este texto distinguen la entrada en vigor de una norma de los plazos específicos que fijó para implementar ciertas medidas.</p>
+                </section>
+
+                <section id="capitulo-1">
+                    <h2>Capítulo 1. Derecho a la educación inclusiva</h2>
+                    <p>La <a href="https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=4125">Constitución Política de 1991</a>, vigente desde el 4 de julio de 1991, reconoce igualdad y protección especial (arts. 13 y 47), el derecho prevalente de niñas, niños y adolescentes (art. 44) y la educación como derecho y servicio público (arts. 67–68).</p>
+                    <p>La <a href="https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=292">Ley 115 de 1994</a>, expedida el 8 de febrero de 1994, establece que la educación de personas con discapacidad forma parte del servicio público educativo (arts. 46–47). Debe leerse junto con las normas posteriores que desarrollan la inclusión, no como permiso para excluir.</p>
+                    <p>La Convención sobre los Derechos de las Personas con Discapacidad fue aprobada en Colombia mediante la <a href="https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=37150">Ley 1346 de 2009</a>, promulgada el 31 de julio de 2009. Su artículo 24 exige un sistema educativo inclusivo, prohíbe excluir del sistema general por motivo de discapacidad y contempla ajustes razonables y apoyos.</p>
+                    <p>La <a href="https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=52081">Ley Estatutaria 1618 de 2013</a>, promulgada el 27 de febrero de 2013, ordena garantizar los derechos de las personas con discapacidad; su artículo 11 establece responsabilidades específicas para el sector educativo.</p>
+                </section>
+
+                <section id="capitulo-2">
+                    <h2>Capítulo 2. Deberes y fechas de aplicación</h2>
+                    <p>El <a href="https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=87040">Decreto 1421 de 2017</a> rige desde el 29 de agosto de 2017 e incorporó reglas de atención educativa inclusiva en el Decreto 1075 de 2015 (sección 2.3.3.5.2). Su ruta detallada cubre preescolar, básica, media y educación de adultos, en instituciones públicas y privadas.</p>
+                    <ul>
+                        <li><strong>Acceso:</strong> no negar matrícula o continuidad por discapacidad. La falta de diagnóstico no impide matricular; activa coordinación para obtenerlo (Decreto 1075, art. 2.3.3.5.2.3.3).</li>
+                        <li><strong>Apoyos pedagógicos:</strong> elaborar y revisar el Plan Individual de Ajustes Razonables (PIAR), vinculado con la planeación de aula. Participan docentes, estudiante y familia; se prevé elaboración durante el primer trimestre, actualización anual y, para ingreso tardío, un plazo de hasta 30 días (arts. 2.3.3.5.2.3.5–.9).</li>
+                        <li><strong>Instituciones privadas:</strong> garantizar accesibilidad, recursos y ajustes razonables conforme a sus deberes legales (art. 2.3.3.5.2.2.3). Docentes y directivos colaboran en la inclusión y en la implementación de los apoyos.</li>
+                        <li><strong>Autoridades:</strong> el Ministerio de Educación Nacional y las entidades territoriales certificadas tienen responsabilidades de reglamentación, gestión, recursos y seguimiento; no recaen todas únicamente en cada docente (Ley 1618, art. 11).</li>
+                    </ul>
+                    <p>El Decreto fijó a las entidades territoriales planes progresivos de implementación con horizontes de uno, tres y cinco años y remisión al Ministerio dentro de seis meses (art. 2.3.3.5.2.3.13). El plazo de remisión vencía el 28 de febrero de 2018 y el horizonte de cinco años llegaba a 2022. Esos plazos de planeación territorial no suspendieron el derecho a matrícula ni los deberes individuales de no discriminación y ajuste.</p>
+                    <p>La <a href="https://www.secretariasenado.gov.co/senado/basedoc/ley_2216_2022.html">Ley 2216 de 2022</a>, del 23 de junio de 2022, aborda educación inclusiva para niñas, niños, adolescentes y jóvenes con trastornos específicos del aprendizaje. Su categoría y atención no deben confundirse automáticamente con la ruta de discapacidad del Decreto 1421; la institución debe revisar el texto vigente y el caso concreto.</p>
+                </section>
+
+                <section id="capitulo-3">
+                    <h2>Capítulo 3. Rutas y consecuencias</h2>
+                    <p>Ante una barrera o posible vulneración, conviene documentar los hechos y solicitudes, pedir respuesta accesible a la institución y acudir a la Secretaría de Educación competente o a las rutas de protección aplicables. La acción de tutela puede solicitar protección judicial ante una vulneración concreta; no es una sanción automática.</p>
+                    <p>Las consecuencias dependen de la conducta y del procedimiento correspondiente:</p>
+                    <ul>
+                        <li><strong>Instituciones educativas privadas y convivencia escolar:</strong> la Ley 1620 de 2013 (arts. 36–37) faculta a la entidad territorial certificada para adelantar procedimiento por omitir la Ruta de Atención Integral, no ajustar el PEI o el manual, o mantener inoperante el comité. Las medidas enumeradas son amonestación pública, amonestación pública con publicación de motivos, clasificación en régimen controlado el año siguiente o cancelación de licencia. La autoridad gradúa la medida según los criterios legales, el daño y el debido proceso; no hay cancelación automática.</li>
+                        <li><strong>Docentes y directivos docentes oficiales:</strong> el artículo 38 de la Ley 1620 califica como falta disciplinaria el incumplimiento de las funciones allí señaladas. La autoridad disciplinaria competente determina responsabilidad y medida según el régimen vigente, la conducta y el debido proceso.</li>
+                        <li><strong>Discriminación por discapacidad:</strong> la Ley 1752 de 2015, vigente desde su publicación el 3 de junio de 2015, incorporó los artículos 134A–134B al Código Penal. Impedir u obstruir arbitrariamente derechos o promover hostigamiento por los motivos descritos puede constituir delito para la persona responsable; el tipo básico contempla prisión de 12 a 36 meses y multa de 10 a 15 salarios mínimos mensuales legales vigentes. Solo la investigación y autoridad penal pueden determinar si se configura; no equivale a sanción automática para toda institución por cualquier falla.</li>
+                        <li><strong>Acoso escolar:</strong> la Ley 1620 (arts. 17–19 y 29–31) asigna responsabilidades a establecimientos, rectores y docentes y establece la Ruta de Atención Integral y protocolos. Su aplicación depende de las circunstancias y no sustituye las medidas de protección inmediatas que correspondan.</li>
+                    </ul>
+                    <p>La Ley 1620 fue expedida el 15 de marzo de 2013 y, según su artículo 40, rige desde su publicación, salvo el capítulo sancionatorio: este empezó a regir dos meses después de la reglamentación nacional expedida mediante el Decreto 1965 del 11 de septiembre de 2013, es decir, desde el 11 de noviembre de 2013. En síntesis, proteger el derecho, corregir una práctica institucional, establecer responsabilidad disciplinaria y determinar un delito son vías distintas; no existe una única sanción para cualquier incumplimiento.</p>
+                </section>
+
+                <section id="fuentes">
+                    <h2>Fuentes oficiales</h2>
+                    <ul>
+                        <li><a href="https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=4125">Constitución Política de Colombia</a>.</li>
+                        <li><a href="https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=292">Ley 115 de 1994</a> y <a href="https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=37150">Ley 1346 de 2009</a>.</li>
+                        <li><a href="https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=52081">Ley 1618 de 2013</a> y <a href="https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=87040">Decreto 1421 de 2017</a>.</li>
+                        <li><a href="https://www.secretariasenado.gov.co/senado/basedoc/ley_2216_2022.html">Ley 2216 de 2022</a>, <a href="https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=52287">Ley 1620 de 2013</a>, <a href="https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=54537">Decreto 1965 de 2013</a>, <a href="https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=44932">Ley 1482 de 2011</a> y <a href="https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=61858">Ley 1752 de 2015</a>.</li>
+                    </ul>
+                    <p>Guía educativa general; no constituye asesoría jurídica. Las normas pueden modificarse y su aplicación depende de los hechos. Verifica el texto oficial vigente y consulta orientación jurídica para un caso concreto.</p>
+                </section>
+            </article>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Guía para elaborar e implementar un plan de marketing a partir del historial de la empresa y la etapa del producto o proyecto.">
+    <title>Plan de marketing - SX Library</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <a class="logo" href="{{ url_for('home') }}" aria-label="SXcontrol, inicio">SX<span>control</span></a>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Inicio</a></li>
+                <li><a href="{{ url_for('comunidad') }}">Comunidad</a></li>
+                <li><a href="{{ url_for('proyectos') }}" class="active" aria-current="page">Proyectos</a></li>
+                <li><a href="{{ url_for('servicios') }}">Servicios</a></li>
+                <li><a href="{{ url_for('blog') }}">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="book-page">
+        <nav class="book-breadcrumb" aria-label="Ruta de navegación">
+            <a href="{{ url_for('sx_library') }}">SX Library</a>
+            <span aria-hidden="true">/</span>
+            <a href="{{ url_for('sx_library_marketing') }}">Marketing</a>
+            <span aria-hidden="true">/</span>
+            <span aria-current="page">Plan de marketing</span>
+        </nav>
+
+        <header class="book-hero">
+            <p class="library-eyebrow">SX Library · Libro digital · Marketing</p>
+            <h1>Plan de <span>marketing</span></h1>
+            <p class="book-author">Autor: Juan D. Henao</p>
+            <p class="book-lead">Una guía para convertir el aprendizaje de la empresa en objetivos, decisiones de marketing y acciones coordinadas, según la etapa del proyecto o producto.</p>
+            <p class="book-status">Versión de trabajo · Tres capítulos · Contenido revisable</p>
+        </header>
+
+        <div class="book-layout">
+            <aside class="book-toc" aria-label="Contenido del libro">
+                <h2>Capítulos</h2>
+                <ol>
+                    <li>
+                        <a href="#capitulo-1">Capítulo 1. El historial de la empresa como punto de partida</a>
+                        <ol>
+                            <li><a href="#recopilar-historial">Recopilar y ordenar antecedentes</a></li>
+                            <li><a href="#analizar-historial">Interpretar resultados y cambios</a></li>
+                            <li><a href="#actividad-capitulo-1">Actividad de aplicación</a></li>
+                        </ol>
+                    </li>
+                    <li>
+                        <a href="#capitulo-2">Capítulo 2. Adaptar la mezcla de marketing a cada etapa</a>
+                        <ol>
+                            <li><a href="#ciclo-vida">Etapas del proyecto o producto</a></li>
+                            <li><a href="#marcos-mezcla">4P, 8P y una matriz ampliada de 16 dimensiones</a></li>
+                            <li><a href="#actividad-capitulo-2">Actividad de aplicación</a></li>
+                        </ol>
+                    </li>
+                    <li>
+                        <a href="#capitulo-3">Capítulo 3. Implementar, medir y ajustar</a>
+                        <ol>
+                            <li><a href="#construir-plan">Construir el plan de acción</a></li>
+                            <li><a href="#seguimiento">Seguimiento y aprendizaje</a></li>
+                            <li><a href="#actividad-capitulo-3">Actividad integradora</a></li>
+                        </ol>
+                    </li>
+                    <li><a href="#fuentes-consulta">Fuentes para profundizar</a></li>
+                </ol>
+            </aside>
+
+            <article class="book-content">
+                <section id="introduccion">
+                    <h2>Introducción</h2>
+                    <p>Un plan de marketing organiza decisiones para crear, comunicar y entregar valor a un público definido. No es solo un calendario de publicaciones o una lista de promociones: conecta el conocimiento de la empresa y su mercado con objetivos, estrategias, recursos, responsables e indicadores.</p>
+                    <p>Esta guía propone tres pasos: comprender el historial de la empresa; elegir y adaptar la mezcla de marketing a la etapa del producto o proyecto; e implementar acciones con seguimiento. Se utilizará como ejemplo una pequeña panadería que lleva varios años atendiendo en su barrio y evalúa lanzar pedidos a domicilio. Las cifras del ejemplo deben obtenerse del negocio: no se presuponen ventas, preferencias ni resultados.</p>
+                </section>
+
+                <section id="capitulo-1">
+                    <h2>Capítulo 1. El historial de la empresa como punto de partida</h2>
+                    <p>El historial muestra qué ha intentado la empresa, qué resultados observó y en qué condiciones. Sirve para formular un diagnóstico fundamentado, no para asumir que el pasado se repetirá. Conviene registrar tanto logros como dificultades, decisiones que no se implementaron y vacíos de información.</p>
+
+                    <section id="recopilar-historial">
+                        <h3>Recopilar y ordenar antecedentes</h3>
+                        <p>Se puede construir una línea de tiempo con el origen de la empresa, hitos, cambios de oferta, apertura o cierre de canales, variaciones de precio, campañas, promociones, alianzas, cambios operativos y momentos de crecimiento o dificultad. Para cada evento se anota la fecha o periodo, la decisión, el público al que se dirigía, el resultado observado y la fuente del dato.</p>
+                        <p>Las fuentes pueden incluir registros de ventas, costos, inventarios, consultas y reclamos, informes de campañas, analítica digital, entrevistas con el equipo y retroalimentación de clientes. Antes de comparar periodos, se revisa si cambiaron la forma de registrar, los precios, el horario, la disponibilidad o las condiciones del mercado. Cuando falten datos, se identifica ese vacío en vez de completarlo con suposiciones.</p>
+                        <div class="book-concept-grid">
+                            <section class="book-concept">
+                                <h3>Información interna</h3>
+                                <p>Productos vendidos, ingresos y márgenes, costos, capacidad de producción, clientes recurrentes, canales usados, campañas realizadas y problemas de servicio.</p>
+                            </section>
+                            <section class="book-concept">
+                                <h3>Contexto y mercado</h3>
+                                <p>Cambios en hábitos y necesidades de clientes, competidores, proveedores, tecnología, economía local y reglas que puedan afectar la actividad.</p>
+                            </section>
+                        </div>
+                    </section>
+
+                    <section id="analizar-historial">
+                        <h3>Interpretar resultados y cambios</h3>
+                        <p>Comparar periodos ayuda a detectar tendencias y estacionalidad, pero una coincidencia temporal no prueba que una campaña haya causado un cambio. Se consideran factores alternativos, como precios, clima, disponibilidad, eventos locales o una modificación en el registro. Si es posible, se contrastan varias fuentes y se distingue entre datos comprobados, interpretaciones e hipótesis por validar.</p>
+                        <p>El diagnóstico puede resumirse en fortalezas y limitaciones internas, oportunidades y riesgos externos, junto con las evidencias que respaldan cada punto. En la panadería, antes de proponer domicilios se revisarían los pedidos previos, los horarios de mayor demanda, la capacidad de cocina, los reclamos y los costos de entrega. Si esos registros no existen, el primer paso puede ser empezar a medirlos.</p>
+                        <p>El resultado de esta fase es una situación de partida: qué problema de marketing se quiere resolver, para quién, qué se conoce, qué falta por saber y qué recursos o restricciones deben considerarse.</p>
+                    </section>
+
+                    <section id="actividad-capitulo-1">
+                        <h3>Actividad de aplicación</h3>
+                        <p>Elige una empresa o proyecto. Elabora una línea de tiempo con al menos tres hitos verificables, identifica las fuentes que usarías y separa un hecho, una interpretación y una pregunta aún sin respuesta. Si no tienes acceso a datos reales, diseña la plantilla y marca los campos pendientes; no inventes cifras.</p>
+                    </section>
+                </section>
+
+                <section id="capitulo-2">
+                    <h2>Capítulo 2. Adaptar la mezcla de marketing a cada etapa</h2>
+                    <section id="ciclo-vida">
+                        <h3>Etapas del proyecto o producto</h3>
+                        <p>Las etapas del ciclo de vida son una herramienta para pensar qué necesita aprender o resolver un proyecto; no son una ley ni una secuencia idéntica para todos. Una idea puede volver a validación, un producto puede entrar en declive y renovarse, y distintas ofertas de una misma empresa pueden estar en etapas diferentes. Se clasifican con evidencia disponible —por ejemplo, ventas, adopción, repetición de compra, costos y retroalimentación— y no solo por el tiempo transcurrido.</p>
+                        <ul>
+                            <li><strong>Idea y validación:</strong> comprobar que existe una necesidad, definir a quién se quiere servir y probar una propuesta pequeña antes de comprometer recursos mayores.</li>
+                            <li><strong>Introducción o lanzamiento:</strong> explicar la oferta, facilitar que el público la pruebe, habilitar los canales y observar objeciones y barreras iniciales.</li>
+                            <li><strong>Crecimiento:</strong> responder a una demanda creciente, fortalecer la distribución y la capacidad de servicio, diferenciar la oferta y evaluar la economía de adquisición y retención.</li>
+                            <li><strong>Madurez:</strong> conservar relevancia y clientes, mejorar eficiencia y experiencia, y buscar usos o segmentos complementarios sin perder foco.</li>
+                            <li><strong>Declive, renovación o retiro:</strong> identificar si cambió la necesidad, si la oferta perdió ajuste o si conviene actualizarla, reorientarla o retirarla de manera responsable.</li>
+                        </ul>
+                    </section>
+
+                    <section id="marcos-mezcla">
+                        <h3>4P, 8P y una matriz ampliada de 16 dimensiones</h3>
+                        <p>La mezcla de marketing ayuda a convertir la estrategia en decisiones coordinadas. Las <strong>4P</strong> suelen referirse a producto, precio, plaza (distribución) y promoción. Para servicios se utilizan modelos de <strong>8P</strong> que suelen sumar personas, procesos, evidencia física y productividad/calidad. Los nombres y el alcance de las 8P varían entre autores y sectores, por lo que el plan debe declarar la versión elegida.</p>
+                        <p>No hay una lista universal única de <strong>16P</strong> aceptada en todos los textos de marketing. Para evitar presentarla como estándar, esta guía propone una matriz práctica de 16 dimensiones: las 8P anteriores más posicionamiento, público prioritario, personalización, participación del cliente, alianzas, presentación o empaque, plataformas y medición del desempeño. El equipo puede adaptar sus definiciones, pero debe documentarlas y evitar duplicar acciones bajo nombres distintos.</p>
+                        <ol>
+                            <li><strong>Producto:</strong> oferta, atributos, calidad, variedad y servicios asociados.</li>
+                            <li><strong>Precio:</strong> precio y condiciones, costos, margen y valor percibido.</li>
+                            <li><strong>Plaza:</strong> canales, cobertura, disponibilidad y entrega.</li>
+                            <li><strong>Promoción:</strong> comunicación, contenido, publicidad y ofertas.</li>
+                            <li><strong>Personas:</strong> equipo y atención que influyen en la experiencia.</li>
+                            <li><strong>Procesos:</strong> pasos para comprar, producir, entregar y atender.</li>
+                            <li><strong>Presencia física:</strong> elementos tangibles que ayudan a evaluar el servicio, como local, señalización o presentación.</li>
+                            <li><strong>Productividad y calidad:</strong> uso de recursos y consistencia del servicio o producto.</li>
+                            <li><strong>Posicionamiento:</strong> lugar y diferencia que se busca ocupar en la mente del público.</li>
+                            <li><strong>Público prioritario:</strong> segmento al que se dirige la propuesta y sus necesidades.</li>
+                            <li><strong>Personalización:</strong> ajustes pertinentes a preferencias o contextos del cliente, cuidando el uso de sus datos.</li>
+                            <li><strong>Participación:</strong> formas en que los clientes aportan opiniones o colaboran en la mejora.</li>
+                            <li><strong>Partners o alianzas:</strong> organizaciones y proveedores que complementan capacidades o acceso.</li>
+                            <li><strong>Presentación:</strong> empaque, etiquetado y forma de entregar o exhibir la oferta.</li>
+                            <li><strong>Plataformas:</strong> herramientas digitales elegidas para informar, vender, coordinar o dar servicio.</li>
+                            <li><strong>Performance:</strong> indicadores y resultados utilizados para evaluar el desempeño frente a los objetivos.</li>
+                        </ol>
+                        <p>El número de P no determina la calidad del plan. Se elige un marco manejable según la complejidad: una idea en validación puede empezar con público, propuesta, precio tentativo y prueba de canal; un servicio en crecimiento quizá requiera además planear personas, procesos y calidad. Las dimensiones adicionales solo se desarrollan cuando ayudan a decidir y pueden ejecutarse.</p>
+                    </section>
+
+                    <section id="aplicacion-mezcla">
+                        <h3>Relacionar las decisiones con la etapa</h3>
+                        <p>Para un posible servicio a domicilio en etapa de validación o introducción, la panadería puede probar un menú acotado (producto), calcular un precio que incluya costos y comunicar claramente cualquier tarifa (precio y promoción), limitar la cobertura a una zona atendible (plaza), acordar quién confirma y prepara los pedidos (personas y procesos), usar empaques adecuados (presentación) y registrar tiempos, errores y satisfacción (calidad y medición). No necesita activar las 16 dimensiones con la misma intensidad desde el primer día.</p>
+                        <p>Si el servicio muestra demanda sostenible, en crecimiento podrían ampliarse cobertura o turnos con capacidad suficiente; en madurez, la atención puede enfocarse en repetición, consistencia y eficiencia. Si los pedidos no cubren costos o generan fallas recurrentes, se revisa la oferta antes de escalar. Cada ajuste debe apoyarse en datos y en las capacidades reales de la empresa.</p>
+                    </section>
+
+                    <section id="actividad-capitulo-2">
+                        <h3>Actividad de aplicación</h3>
+                        <p>Ubica el proyecto elegido en una etapa provisional y escribe qué evidencia respalda esa decisión. Diseña una tabla con las 4P y propone una acción, responsable e indicador por cada P. Después añade únicamente las dimensiones de las 8P o de la matriz de 16 que sean pertinentes y anota por qué las otras no son prioritarias todavía.</p>
+                    </section>
+                </section>
+
+                <section id="capitulo-3">
+                    <h2>Capítulo 3. Implementar, medir y ajustar</h2>
+                    <section id="construir-plan">
+                        <h3>Construir el plan de acción</h3>
+                        <p>Un plan ejecutable enlaza diagnóstico, objetivos y acciones. Antes de comenzar, se establece una línea base, se define un público prioritario y se redactan objetivos específicos, medibles, alcanzables, pertinentes y limitados en el tiempo. Las metas se fijan con datos del negocio y capacidad disponible, no con cifras arbitrarias.</p>
+                        <p>Para cada acción se documenta la decisión de mezcla a la que responde, el segmento, el canal, la persona responsable, las tareas, fechas, dependencias, presupuesto, recursos necesarios, indicador y criterio de revisión. Se prioriza qué hacer primero y qué se dejará fuera. Los riesgos —por ejemplo, falta de capacidad o dependencia de un proveedor— deben tener una respuesta prevista.</p>
+                        <div class="book-concept-grid">
+                            <section class="book-concept">
+                                <h3>Ejemplo de acción</h3>
+                                <p>Probar pedidos a domicilio en una zona limitada y durante un periodo definido, después de confirmar costos, capacidad, cobertura y procedimiento de atención.</p>
+                            </section>
+                            <section class="book-concept">
+                                <h3>Indicadores posibles</h3>
+                                <p>Pedidos completados, tiempo de entrega, errores, reclamos, recompra y margen por pedido. Cada indicador requiere una definición y una fuente de datos consistente.</p>
+                            </section>
+                        </div>
+                        <p>Un presupuesto distingue costos únicos y recurrentes, estima recursos internos y reserva capacidad para contingencias. La comunicación del plan debe aclarar qué se probará, quién decide cambios y cómo se compartirán resultados con las personas involucradas.</p>
+                    </section>
+
+                    <section id="seguimiento">
+                        <h3>Seguimiento y aprendizaje</h3>
+                        <p>Se revisan indicadores con una frecuencia adecuada al ciclo de la acción. Un panel sencillo puede mostrar objetivo, resultado, periodo, fuente y responsable. Si el resultado se aparta de lo esperado, primero se comprueba que el dato sea fiable y se busca la causa antes de cambiar varias decisiones a la vez.</p>
+                        <p>En una prueba piloto, se establecen de antemano las condiciones para continuar, ajustar o detener: por ejemplo, límites de capacidad, nivel aceptable de errores y cobertura de costos. Una variación de corto plazo no basta para declarar éxito o fracaso; se considera estacionalidad y contexto. Al cerrar el ciclo, se documenta qué ocurrió, qué aprendió el equipo y qué cambios pasan a la siguiente versión del plan.</p>
+                        <p>Los datos de clientes se recopilan y utilizan solo en la medida necesaria, con las autorizaciones y protecciones que correspondan. El seguimiento del marketing no justifica prácticas invasivas ni afirmaciones engañosas.</p>
+                    </section>
+
+                    <section id="actividad-capitulo-3">
+                        <h3>Actividad integradora</h3>
+                        <p>Usa el diagnóstico de la primera actividad y las decisiones de mezcla de la segunda para redactar un plan de una página: objetivo, público, etapa, tres acciones priorizadas, responsable, calendario, recursos, indicadores y criterio de continuar o ajustar. Indica qué dato real necesitas reunir antes de fijar metas numéricas y cómo protegerías la información de clientes.</p>
+                    </section>
+
+                    <section id="sintesis-capitulo-3">
+                        <h3>Síntesis</h3>
+                        <p>Implementar es coordinar personas, recursos, tiempos y medición para convertir una estrategia en acciones. El plan se mantiene útil cuando se revisa frente a evidencia y cambios del contexto, sin confundir una guía de planificación con una garantía de resultados.</p>
+                    </section>
+                </section>
+
+                <section id="fuentes-consulta">
+                    <h2>Fuentes para profundizar</h2>
+                    <ul>
+                        <li>Kotler, P., y Keller, K. L. (2016). <em>Marketing Management</em> (15.ª ed.). Pearson.</li>
+                        <li>Kotler, P., Kartajaya, H., y Setiawan, I. (2017). <em>Marketing 4.0: Moving from Traditional to Digital</em>. Wiley.</li>
+                        <li>McCarthy, E. J. (1960). <em>Basic Marketing: A Managerial Approach</em>. Richard D. Irwin.</li>
+                    </ul>
+                    <p>Las referencias sirven para profundizar en la planificación y la mezcla de marketing. Los modelos ampliados deben consultarse en la fuente elegida y definirse explícitamente; las 16 dimensiones presentadas aquí constituyen una matriz didáctica de trabajo, no una taxonomía universal.</p>
+                </section>
+            </article>
+        </div>
+    </main>
+</body>
+</html>

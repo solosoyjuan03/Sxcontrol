@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Libros y materiales del área de Marketing en SX Library.">
+    <title>Marketing - SX Library</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <a class="logo" href="{{ url_for('home') }}" aria-label="SXcontrol, inicio">SX<span>control</span></a>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Inicio</a></li>
+                <li><a href="{{ url_for('comunidad') }}">Comunidad</a></li>
+                <li><a href="{{ url_for('proyectos') }}" class="active" aria-current="page">Proyectos</a></li>
+                <li><a href="{{ url_for('servicios') }}">Servicios</a></li>
+                <li><a href="{{ url_for('blog') }}">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="library-page">
+        <nav class="book-breadcrumb" aria-label="Ruta de navegación">
+            <a href="{{ url_for('sx_library') }}">SX Library</a>
+            <span aria-hidden="true">/</span>
+            <span aria-current="page">Marketing</span>
+        </nav>
+
+        <section class="library-hero" aria-labelledby="area-title">
+            <div>
+                <p class="library-eyebrow">Área de lectura</p>
+                <h1 id="area-title"><span>Marketing</span></h1>
+                <p class="library-intro">Libros y materiales sobre marketing, comunicación, marcas, mercados y estrategias para conectar proyectos con sus públicos.</p>
+                <a href="{{ url_for('sx_library') }}#areas" class="btn">Volver a las áreas</a>
+            </div>
+            <div class="library-books-art" aria-hidden="true">
+                <div class="library-book">Mercados</div>
+                <div class="library-book">Marcas</div>
+                <div class="library-book">Estrategias</div>
+            </div>
+        </section>
+
+        <section aria-labelledby="marketing-books-title">
+            <h2 id="marketing-books-title" class="library-section-heading">Libros de Marketing</h2>
+            <div class="library-collections">
+                <article class="library-collection">
+                    <span class="library-collection-icon" aria-hidden="true">↗</span>
+                    <h3>Investigación de mercados</h3>
+                    <p>Autor: Juan D. Henao · Versión de trabajo en tres capítulos sobre la definición del estudio, la recolección de información y el análisis para tomar decisiones.</p>
+                    <a href="{{ url_for('sx_library_investigacion_mercados') }}" class="btn">Leer el libro</a>
+                </article>
+                <article class="library-collection">
+                    <span class="library-collection-icon" aria-hidden="true">◎</span>
+                    <h3>Plan de marketing</h3>
+                    <p>Autor: Juan D. Henao · Versión de trabajo en tres capítulos sobre el historial de la empresa, la mezcla de marketing según la etapa del producto y la implementación del plan.</p>
+                    <a href="{{ url_for('sx_library_plan_marketing') }}" class="btn">Leer el libro</a>
+                </article>
+                <article class="library-collection">
+                    <span class="library-collection-icon" aria-hidden="true">↗</span>
+                    <h3>Plan de ventas</h3>
+                    <p>Autor: Juan D. Henao · Versión de trabajo que integra la investigación de mercados y el plan de marketing con objetivos, proceso comercial, implementación e indicadores.</p>
+                    <a href="{{ url_for('sx_library_plan_ventas') }}" class="btn">Leer el libro</a>
+                </article>
+                <article class="library-collection">
+                    <span class="library-collection-icon" aria-hidden="true">✓</span>
+                    <h3>Plan de mejora</h3>
+                    <p>Autor: Juan D. Henao · Guía para integrar investigación de mercados, marketing y ventas en acciones de mejora medibles, con apoyo del Cuadro de Mando Integral.</p>
+                    <a href="{{ url_for('sx_library_plan_mejora') }}" class="btn">Leer el libro</a>
+                </article>
+            </div>
+        </section>
+
+        <aside class="library-status" aria-label="Estado del área de Marketing">
+            <span class="library-collection-icon" aria-hidden="true">i</span>
+            <div>
+                <strong>Colección en crecimiento</strong>
+                <p>Investigación de mercados, Plan de marketing, Plan de ventas y Plan de mejora están disponibles como versiones de trabajo. Sus marcos son guías adaptables al contexto, los objetivos y la etapa de cada proyecto o producto.</p>
+            </div>
+        </aside>
+    </main>
+</body>
+</html>

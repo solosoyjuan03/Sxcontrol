@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Guía breve de educación inclusiva, accesibilidad, apoyos y participación educativa.">
+    <title>Educación inclusiva - SX Library</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <a class="logo" href="{{ url_for('home') }}" aria-label="SXcontrol, inicio">SX<span>control</span></a>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Inicio</a></li>
+                <li><a href="{{ url_for('comunidad') }}">Comunidad</a></li>
+                <li><a href="{{ url_for('proyectos') }}" class="active" aria-current="page">Proyectos</a></li>
+                <li><a href="{{ url_for('servicios') }}">Servicios</a></li>
+                <li><a href="{{ url_for('blog') }}">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="book-page">
+        <nav class="book-breadcrumb" aria-label="Ruta de navegación">
+            <a href="{{ url_for('sx_library') }}">SX Library</a>
+            <span aria-hidden="true">/</span>
+            <a href="{{ url_for('sx_library_area', area_slug='educacion') }}">Educación</a>
+            <span aria-hidden="true">/</span>
+            <span aria-current="page">Educación inclusiva</span>
+        </nav>
+
+        <header class="book-hero">
+            <p class="library-eyebrow">SX Library · Libro digital · Educación</p>
+            <h1>Educación <span>inclusiva</span></h1>
+            <p class="book-author">Autor: Juan D. Henao</p>
+            <p class="book-lead">Ideas prácticas para reducir barreras y apoyar la participación y el aprendizaje de cada estudiante.</p>
+            <p class="book-status">Versión de trabajo · Tres capítulos breves · Contenido revisable</p>
+        </header>
+
+        <div class="book-layout">
+            <aside class="book-toc" aria-label="Contenido del libro">
+                <h2>Capítulos</h2>
+                <ol>
+                    <li><a href="#capitulo-1">1. Inclusión y barreras</a></li>
+                    <li><a href="#capitulo-2">2. Enseñanza accesible y apoyos</a></li>
+                    <li><a href="#capitulo-3">3. Participación y mejora</a></li>
+                    <li><a href="#fuentes">Fuentes</a></li>
+                </ol>
+            </aside>
+
+            <article class="book-content">
+                <section id="introduccion">
+                    <h2>Introducción</h2>
+                    <p>La educación inclusiva busca que todas las personas puedan acceder, participar y aprender con dignidad. No basta con compartir un aula: también hay que reconocer y reducir barreras en los materiales, la enseñanza, la evaluación, los espacios y la convivencia.</p>
+                    <p>La diversidad incluye distintas capacidades, lenguas, culturas, experiencias y condiciones de acceso. Las necesidades no deben suponerse por una etiqueta; se identifican escuchando a cada estudiante y revisando su contexto.</p>
+                </section>
+
+                <section id="capitulo-1">
+                    <h2>Capítulo 1. Inclusión y barreras</h2>
+                    <p>Una barrera es una condición del entorno que dificulta aprender o participar. Puede ser física, comunicativa, tecnológica, curricular, económica o actitudinal. Por ejemplo: instrucciones disponibles en un solo formato, materiales incompatibles con tecnologías de apoyo o burlas que no se atienden.</p>
+                    <p>En vez de atribuir la dificultad únicamente a la persona, se observa la actividad y se pregunta: ¿quién no puede participar?, ¿en qué momento?, ¿qué condición lo impide? Se consulta al estudiante y, cuando corresponde, a su familia y al equipo educativo.</p>
+                    <p><strong>Para aplicar:</strong> describe una barrera concreta, quién la identifica y qué evidencia ayudaría a comprenderla. No registres diagnósticos ni datos privados que no sean necesarios.</p>
+                </section>
+
+                <section id="capitulo-2">
+                    <h2>Capítulo 2. Enseñanza accesible y apoyos</h2>
+                    <p>Planificar para la diversidad desde el inicio beneficia al grupo: presentar información de varias maneras, explicar instrucciones con claridad y ofrecer opciones pertinentes para participar y demostrar el aprendizaje. El Diseño Universal para el Aprendizaje orienta estas alternativas; no reemplaza los apoyos individuales que algunas personas necesitan.</p>
+                    <p>Cuando las opciones generales no bastan, se acuerdan ajustes y apoyos con la persona, respetando su voz y privacidad. Pueden incluir formatos accesibles, tecnología de asistencia, apoyos de comunicación o cambios razonables de tiempo y espacio, según las necesidades y las reglas aplicables.</p>
+                    <p>La evaluación debe medir el objetivo educativo, no una barrera ajena a él. Se pueden variar los formatos de respuesta si se conserva aquello que se busca evaluar.</p>
+                    <p><strong>Para aplicar:</strong> elige una actividad, señala una barrera y propone una alternativa universal y, si hace falta, un apoyo individual. Define cómo comprobarás con el estudiante si funcionó.</p>
+                </section>
+
+                <section id="capitulo-3">
+                    <h2>Capítulo 3. Participación y mejora</h2>
+                    <p>La inclusión es una responsabilidad compartida por docentes, directivos, estudiantes, familias y equipos de apoyo. Los acuerdos útiles indican qué barrera se atenderá, quién hará cada tarea, cuándo se revisará y cómo se cuidará la confidencialidad.</p>
+                    <p>Las instituciones pueden revisar acceso, participación, progreso, solicitudes atendidas y tiempos de respuesta, combinando datos con la experiencia de quienes estudian. Las cifras no deben usarse para etiquetar ni comparar personas sin contexto.</p>
+                    <p>Ante discriminación, acoso o vulneración de derechos, se activan las rutas institucionales y normas aplicables; no se deja sola a la persona afectada ni se sustituye la intervención requerida por una conversación informal.</p>
+                    <p><strong>Para aplicar:</strong> redacta un plan breve con barrera, cambio, responsable, recurso, fecha de revisión e indicador de participación.</p>
+                </section>
+
+                <section id="fuentes">
+                    <h2>Fuentes para profundizar</h2>
+                    <ul>
+                        <li>UNESCO. (2017). <em>A guide for ensuring inclusion and equity in education</em>.</li>
+                        <li>CAST. (2024). <em>Universal Design for Learning Guidelines, version 3.0</em>.</li>
+                    </ul>
+                    <p>Para deberes, fechas y rutas oficiales en Colombia, consulta <a href="{{ url_for('sx_library_inclusividad_legal') }}">Inclusividad legal en educación</a>. Verifica siempre la normativa vigente y las orientaciones oficiales.</p>
+                </section>
+            </article>
+        </div>
+    </main>
+</body>
+</html>

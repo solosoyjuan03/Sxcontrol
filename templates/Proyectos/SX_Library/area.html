@@ -37,7 +37,11 @@
                 <p class="library-eyebrow">Área de lectura</p>
                 <h1 id="area-title"><span>{{ area_name }}</span></h1>
                 <p class="library-intro">{{ area_description }}</p>
+                {% if parent_area_name is defined %}
+                <a href="{{ parent_area_url }}" class="btn">Volver a Educación</a>
+                {% else %}
                 <a href="{{ url_for('sx_library') }}#areas" class="btn">Volver a las áreas</a>
+                {% endif %}
             </div>
             <div class="library-books-art" aria-hidden="true">
                 <div class="library-book">{{ area_name }}</div>
@@ -47,19 +51,28 @@
         </section>
 
         {% if area_slug is defined and area_slug == "educacion" %}
-        <section class="library-collections" aria-labelledby="education-topics-title">
-            <article class="library-collection">
-                <span class="library-collection-icon" aria-hidden="true">文</span>
-                <h2 id="education-topics-title">Idiomas</h2>
-                <p>Materiales para aprender y enseñar lenguas y fortalecer las competencias comunicativas.</p>
-                <a href="{{ url_for('sx_library_idiomas') }}" class="btn">Explorar Idiomas</a>
-            </article>
-            <article class="library-collection">
-                <span class="library-collection-icon" aria-hidden="true">&lt;/&gt;</span>
-                <h2>Educación digital</h2>
-                <p>Autor: Juan D. Henao · Versión de trabajo en tres capítulos sobre aprendizaje virtual, autogestión y uso responsable de herramientas digitales.</p>
-                <a href="{{ url_for('sx_library_educacion_digital') }}" class="btn">Ver el libro</a>
-            </article>
+        <section aria-labelledby="education-books-title">
+            <h2 id="education-books-title" class="library-section-heading">Libros de Educación</h2>
+            <div class="library-collections">
+                <article class="library-collection">
+                    <span class="library-collection-icon" aria-hidden="true">&lt;/&gt;</span>
+                    <h3>Educación digital</h3>
+                    <p>Autor: Juan D. Henao · Versión de trabajo en tres capítulos sobre aprendizaje virtual, autogestión y uso responsable de herramientas digitales.</p>
+                    <a href="{{ url_for('sx_library_educacion_digital') }}" class="btn">Leer el libro</a>
+                </article>
+                <article class="library-collection">
+                    <span class="library-collection-icon" aria-hidden="true">∞</span>
+                    <h3>Educación inclusiva</h3>
+                    <p>Autor: Juan D. Henao · Guía de trabajo sobre barreras para el aprendizaje y la participación, diseño accesible y apoyos que respetan la diversidad.</p>
+                    <a href="{{ url_for('sx_library_educacion_inclusiva') }}" class="btn">Leer el libro</a>
+                </article>
+                <article class="library-collection">
+                    <span class="library-collection-icon" aria-hidden="true">§</span>
+                    <h3>Inclusividad legal en educación</h3>
+                    <p>Autor: Juan D. Henao · Guía de consulta sobre deberes, normas colombianas, fechas de aplicación y rutas de actuación institucional.</p>
+                    <a href="{{ url_for('sx_library_inclusividad_legal') }}" class="btn">Leer el libro</a>
+                </article>
+            </div>
         </section>
         {% endif %}
 
@@ -68,7 +81,7 @@
             <div>
                 {% if area_slug is defined and area_slug == "educacion" %}
                 <strong>Colección en crecimiento</strong>
-                <p>Educación digital ya cuenta con una versión de trabajo de tres capítulos. Idiomas y nuevos materiales se incorporarán a medida que estén listos para consulta.</p>
+                <p>Educación digital, Educación inclusiva e Inclusividad legal en educación están disponibles como versiones de trabajo directamente desde esta área. La colección podrá ampliarse con más libros.</p>
                 {% else %}
                 <strong>Área en preparación</strong>
                 <p>Estamos organizando esta rama de la biblioteca. Los libros y materiales aparecerán aquí cuando estén listos para consulta.</p>

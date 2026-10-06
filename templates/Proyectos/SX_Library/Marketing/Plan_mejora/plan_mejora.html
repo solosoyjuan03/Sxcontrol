@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Guía de mejora integrada con investigación de mercados, planes de marketing y ventas, y Cuadro de Mando Integral.">
+    <title>Plan de mejora - SX Library</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <a class="logo" href="{{ url_for('home') }}" aria-label="SXcontrol, inicio">SX<span>control</span></a>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Inicio</a></li>
+                <li><a href="{{ url_for('comunidad') }}">Comunidad</a></li>
+                <li><a href="{{ url_for('proyectos') }}" class="active" aria-current="page">Proyectos</a></li>
+                <li><a href="{{ url_for('servicios') }}">Servicios</a></li>
+                <li><a href="{{ url_for('blog') }}">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="book-page">
+        <nav class="book-breadcrumb" aria-label="Ruta de navegación">
+            <a href="{{ url_for('sx_library') }}">SX Library</a>
+            <span aria-hidden="true">/</span>
+            <a href="{{ url_for('sx_library_marketing') }}">Marketing</a>
+            <span aria-hidden="true">/</span>
+            <span aria-current="page">Plan de mejora</span>
+        </nav>
+
+        <header class="book-hero">
+            <p class="library-eyebrow">SX Library · Libro digital · Marketing</p>
+            <h1>Plan de <span>mejora</span></h1>
+            <p class="book-author">Autor: Juan D. Henao</p>
+            <p class="book-lead">Una guía para convertir la investigación de mercados, el plan de marketing y el plan de ventas en mejoras priorizadas, ejecutables y evaluables.</p>
+            <p class="book-status">Versión de trabajo · Tres capítulos · Contenido revisable</p>
+        </header>
+
+        <div class="book-layout">
+            <aside class="book-toc" aria-label="Contenido del libro">
+                <h2>Capítulos</h2>
+                <ol>
+                    <li>
+                        <a href="#capitulo-1">Capítulo 1. Integrar los tres planes y establecer el diagnóstico</a>
+                        <ol>
+                            <li><a href="#integrar-evidencia">Integrar evidencia, estrategia y ejecución</a></li>
+                            <li><a href="#priorizar-brechas">Identificar y priorizar brechas</a></li>
+                            <li><a href="#actividad-capitulo-1">Actividad de aplicación</a></li>
+                        </ol>
+                    </li>
+                    <li>
+                        <a href="#capitulo-2">Capítulo 2. Diseñar y ejecutar la mejora</a>
+                        <ol>
+                            <li><a href="#objetivos-mejora">Objetivos y causas del problema</a></li>
+                            <li><a href="#ficha-accion">Plan de acciones y responsables</a></li>
+                            <li><a href="#ciclo-mejora">Probar, revisar y ajustar</a></li>
+                            <li><a href="#actividad-capitulo-2">Actividad de aplicación</a></li>
+                        </ol>
+                    </li>
+                    <li>
+                        <a href="#capitulo-3">Capítulo 3. Cuadro de Mando Integral</a>
+                        <ol>
+                            <li><a href="#que-es-cmi">Qué es y cómo funciona</a></li>
+                            <li><a href="#cuatro-perspectivas">Las cuatro perspectivas</a></li>
+                            <li><a href="#construir-tablero">Construir un tablero útil</a></li>
+                            <li><a href="#ejemplo-tablero">Ejemplo integrado</a></li>
+                            <li><a href="#actividad-capitulo-3">Actividad integradora</a></li>
+                        </ol>
+                    </li>
+                    <li><a href="#fuentes-consulta">Fuentes para profundizar</a></li>
+                </ol>
+            </aside>
+
+            <article class="book-content">
+                <section id="introduccion">
+                    <h2>Introducción</h2>
+                    <p>Un plan de mejora organiza cambios concretos para cerrar brechas entre la situación actual y los resultados que una organización busca. En esta guía se construye sobre tres trabajos relacionados: la investigación de mercados aporta evidencia sobre clientes y contexto; el plan de marketing define público, propuesta y decisiones de mercado; el plan de ventas organiza cómo atender oportunidades y cumplir la promesa comercial.</p>
+                    <p>El plan de mejora enlaza esos insumos con prioridades, objetivos, acciones, responsables, recursos y mediciones. El Cuadro de Mando Integral (CMI, conocido en inglés como <em>Balanced Scorecard</em>) ayuda a observar la estrategia desde varias perspectivas, no solo desde los ingresos. Ningún tablero garantiza resultados: su utilidad depende de datos confiables, decisiones coherentes y revisión activa.</p>
+                    <p>Se conservará el ejemplo de la panadería que estudia ofrecer pedidos a domicilio. No se inventan cifras ni se asume que el servicio sea conveniente: las decisiones deben apoyarse en información real y en la capacidad de la empresa.</p>
+                </section>
+
+                <section id="capitulo-1">
+                    <h2>Capítulo 1. Integrar los tres planes y establecer el diagnóstico</h2>
+                    <section id="integrar-evidencia">
+                        <h3>Integrar evidencia, estrategia y ejecución</h3>
+                        <p>Antes de proponer cambios, se reúnen las conclusiones pertinentes de los tres planes previos y se verifica su conexión:</p>
+                        <ul>
+                            <li><strong>Investigación de mercados:</strong> pregunta que se estudió, método, fechas, participantes o muestra, hallazgos, límites y datos que aún faltan.</li>
+                            <li><strong>Plan de marketing:</strong> historial y situación de partida, público priorizado, propuesta de valor, etapa del producto, decisiones de mezcla, objetivos y supuestos.</li>
+                            <li><strong>Plan de ventas:</strong> metas y pronósticos, proceso y canales comerciales, responsabilidades, capacidad, experiencia del cliente e indicadores actuales.</li>
+                        </ul>
+                        <p>Se comprueba que la oferta, el mensaje, el precio, el canal de venta y la entrega estén alineados. Una campaña puede generar interés sin resolver una demora de entrega; una cuota de ventas puede ser inviable si el inventario no está disponible. La mejora debe atender la causa y no limitarse a aumentar la promoción o presionar al equipo.</p>
+                        <p>El diagnóstico separa <strong>hechos documentados</strong>, <strong>interpretaciones</strong> e <strong>hipótesis</strong>. Para cada dato se conserva fuente, fecha y definición; los cambios en métodos o periodos de registro se anotan antes de hacer comparaciones. Los hallazgos de muestras limitadas se describen con su alcance y no se presentan como representativos de toda la clientela sin sustento.</p>
+                    </section>
+
+                    <section id="priorizar-brechas">
+                        <h3>Identificar y priorizar brechas</h3>
+                        <p>Una brecha es una diferencia relevante entre el desempeño actual y un resultado deseado, o un riesgo que impide cumplir la propuesta. Puede referirse a conocimiento del público, conversión, disponibilidad, margen, puntualidad, errores, quejas o coordinación interna. Se formula de forma específica y con evidencia disponible; “vender más” no identifica por sí solo qué se debe mejorar.</p>
+                        <p>Para priorizar, se puede valorar cada brecha según su importancia para el cliente y la estrategia, su impacto operativo o económico, la urgencia, el nivel de evidencia, el esfuerzo y los riesgos. No es necesario asignar puntuaciones aparentemente exactas: un equipo pequeño puede justificar la prioridad en una matriz cualitativa y escoger pocas mejoras ejecutables.</p>
+                        <p>En la panadería, una brecha posible sería no saber si hay capacidad para preparar pedidos adicionales en las horas de mayor demanda. Antes de promocionar el domicilio, podría ser más útil medir capacidad y probar el flujo de pedidos que lanzar una campaña amplia. Esta es una hipótesis de trabajo; debe verificarse en el negocio.</p>
+                    </section>
+
+                    <section id="actividad-capitulo-1">
+                        <h3>Actividad de aplicación</h3>
+                        <p>Resume un hallazgo de investigación de mercados, una decisión del plan de marketing y un dato del proceso de ventas. Escribe una brecha que conecte los tres, cita la fuente y fecha de cada evidencia, señala qué no se sabe y propone cómo validarlo antes de decidir. Si todavía no existen datos, registra el vacío en vez de inventar resultados.</p>
+                    </section>
+                </section>
+
+                <section id="capitulo-2">
+                    <h2>Capítulo 2. Diseñar y ejecutar la mejora</h2>
+                    <section id="objetivos-mejora">
+                        <h3>Objetivos y causas del problema</h3>
+                        <p>Un objetivo de mejora describe qué cambiar, para quién, en qué proceso y dentro de qué periodo. Se establece una línea base confiable antes de fijar una meta. La meta considera el historial, la variación, la capacidad y los costos; si la base es débil, primero se mejora la medición o se define una meta de aprendizaje.</p>
+                        <p>Antes de seleccionar una solución, se exploran causas posibles mediante observación del proceso, conversación con el equipo y clientes, análisis de datos y herramientas sencillas como los “cinco porqués” o un diagrama de causa y efecto. Son apoyos para investigar, no pruebas automáticas: una causa debe contrastarse con evidencia y puede haber varias interrelacionadas.</p>
+                        <p>Se distinguen indicadores de resultado —qué cambió— de indicadores de proceso —si la acción se ejecutó como se planeó—. Por ejemplo, pedidos completados a tiempo es un resultado; verificar cobertura y disponibilidad antes de confirmar es una actividad del proceso. Medir ambos ayuda a entender por qué una mejora funciona o no.</p>
+                    </section>
+
+                    <section id="ficha-accion">
+                        <h3>Plan de acciones y responsables</h3>
+                        <p>Cada acción debe responder a una brecha priorizada y definir lo necesario para realizarla. Una ficha práctica incluye:</p>
+                        <ul>
+                            <li>Brecha, evidencia y causa que se busca atender.</li>
+                            <li>Objetivo, línea base y meta, con periodo y fuente de medición.</li>
+                            <li>Acción concreta, responsable y personas que deben participar o aprobar.</li>
+                            <li>Entregables, pasos, fechas, dependencias y recursos o presupuesto.</li>
+                            <li>Riesgos, medidas de mitigación y condiciones para detener, continuar o escalar.</li>
+                            <li>Indicadores de proceso y resultado, frecuencia de revisión y registro de decisiones.</li>
+                        </ul>
+                        <p>La priorización evita abrir demasiadas iniciativas a la vez. Una mejora puede requerir coordinación entre marketing, ventas y operaciones; se definen acuerdos de entrega y se mantiene una persona responsable del resultado, aunque varias contribuyan. El presupuesto y el calendario se ajustan a la capacidad real, no a una expectativa aspiracional.</p>
+                    </section>
+
+                    <section id="ciclo-mejora">
+                        <h3>Probar, revisar y ajustar</h3>
+                        <p>Una forma práctica de aprender es el ciclo Planear-Hacer-Verificar-Actuar (PHVA): planear el cambio y cómo medirlo; probarlo a escala y duración razonables; comparar lo observado con la línea base y las condiciones; y actuar según lo aprendido, estandarizando, adaptando o deteniendo la solución. Se documentan contexto y cambios para no atribuir a la intervención efectos de otros factores.</p>
+                        <p>En la prueba de domicilios, la panadería podría delimitar zona, menú, horarios y capacidad, capacitar a quien recibe pedidos y fijar reglas de confirmación. Revisaría tiempos, errores, reclamos, margen y satisfacción, además de si el proceso se cumplió. Un piloto ayuda a detectar problemas, pero sus resultados no se generalizan automáticamente a otras zonas, temporadas o volúmenes.</p>
+                        <p>Si no se alcanzan los resultados, se investiga si falló la hipótesis, la ejecución, el dato o una condición externa. No se oculta un resultado negativo ni se cambia la meta retrospectivamente para aparentar éxito; se registra la decisión y el siguiente aprendizaje.</p>
+                    </section>
+
+                    <section id="actividad-capitulo-2">
+                        <h3>Actividad de aplicación</h3>
+                        <p>Elige una brecha del capítulo anterior y completa una ficha con línea base, objetivo, posible causa por validar, acción pequeña, responsable, recursos, fechas, indicador de proceso, indicador de resultado y condición de continuación. Describe cómo aplicarías cada paso del ciclo PHVA y qué harías si el resultado no mejora.</p>
+                    </section>
+                </section>
+
+                <section id="capitulo-3">
+                    <h2>Capítulo 3. Cuadro de Mando Integral</h2>
+                    <section id="que-es-cmi">
+                        <h3>Qué es y cómo funciona</h3>
+                        <p>El Cuadro de Mando Integral (CMI) es un sistema de gestión estratégica que traduce objetivos y estrategia en un conjunto relacionado de objetivos, indicadores, metas e iniciativas. Desarrollado por Robert S. Kaplan y David P. Norton, amplía la observación financiera con perspectivas sobre clientes, procesos internos y aprendizaje y crecimiento. No es simplemente una lista de KPI ni un panel de gráficos: debe mostrar cómo las acciones se conectan con la estrategia y cómo se revisarán las hipótesis.</p>
+                        <p>Un mapa estratégico representa relaciones esperadas entre objetivos. Por ejemplo, desarrollar habilidades del equipo podría mejorar el proceso de confirmación de pedidos; un proceso más confiable podría elevar la experiencia del cliente y, si se sostiene y resulta económicamente viable, contribuir a mejores resultados financieros. Esas relaciones son hipótesis a comprobar, no causalidades garantizadas.</p>
+                        <p>El CMI se adapta a organizaciones con fines comerciales, sociales o públicos, pero sus perspectivas, nombres e indicadores deben adecuarse a su estrategia. Una empresa pequeña puede comenzar con pocos objetivos relevantes y ampliar el sistema solo cuando tenga capacidad para mantenerlo.</p>
+                    </section>
+
+                    <section id="cuatro-perspectivas">
+                        <h3>Las cuatro perspectivas</h3>
+                        <div class="book-concept-grid">
+                            <section class="book-concept">
+                                <h4>Financiera o de sostenibilidad</h4>
+                                <p>¿Qué resultados económicos o de uso responsable de recursos permiten sostener la estrategia? En la panadería: margen por pedido, costo de entrega o proporción de pedidos rentables, definidos con datos reales.</p>
+                            </section>
+                            <section class="book-concept">
+                                <h4>Clientes y grupos de interés</h4>
+                                <p>¿Qué valor y experiencia se ofrecerán al público elegido? Se podrían observar cumplimiento de la promesa, reclamos o satisfacción mediante un método definido, sin asumir que una calificación aislada representa a todos los clientes.</p>
+                            </section>
+                            <section class="book-concept">
+                                <h4>Procesos internos</h4>
+                                <p>¿Qué procesos deben funcionar para entregar ese valor? Por ejemplo, exactitud de pedidos, confirmación de disponibilidad, tiempos y manejo de incidencias.</p>
+                            </section>
+                            <section class="book-concept">
+                                <h4>Aprendizaje y crecimiento</h4>
+                                <p>¿Qué capacidades, información, tecnología y cultura hacen posible mejorar? Por ejemplo, formación del equipo, calidad de registros, herramientas adecuadas y revisión de aprendizajes del piloto.</p>
+                            </section>
+                        </div>
+                        <p>Las perspectivas no deben convertirse en cuatro listas independientes. Se seleccionan objetivos que respondan a la estrategia y se dibujan sus vínculos esperados; si una perspectiva no es pertinente o requiere adaptación, se explica el criterio sin forzar indicadores decorativos.</p>
+                    </section>
+
+                    <section id="construir-tablero">
+                        <h3>Construir un tablero útil</h3>
+                        <ol>
+                            <li><strong>Precisar la estrategia:</strong> resumir el público, el valor ofrecido y el resultado sostenible que se busca.</li>
+                            <li><strong>Definir objetivos estratégicos:</strong> pocos objetivos claros, vinculados a las brechas y a los planes previos.</li>
+                            <li><strong>Relacionarlos en un mapa:</strong> declarar cómo se espera que capacidades y procesos influyan en la experiencia y los resultados; marcar esos vínculos como hipótesis.</li>
+                            <li><strong>Elegir indicadores:</strong> para cada objetivo, seleccionar una medida entendible, con fórmula, unidad, fuente, responsable y frecuencia.</li>
+                            <li><strong>Establecer metas e iniciativas:</strong> fijar metas con línea base y horizonte temporal; asignar acciones, presupuesto y responsables.</li>
+                            <li><strong>Revisar y aprender:</strong> acordar reuniones de seguimiento, reglas para investigar desviaciones y cómo actualizar decisiones sin manipular datos ni redefinir metas a conveniencia.</li>
+                        </ol>
+                        <p>Se puede combinar un indicador rezagado —el resultado alcanzado— con uno adelantado —una actividad o condición que puede influir en ese resultado—. Ninguno sustituye el juicio: una cifra tiene sentido solo con contexto, definición estable, fuente confiable y decisión asociada. Evita recolectar datos personales que no se necesitan y restringe el acceso a los registros.</p>
+                    </section>
+
+                    <section id="ejemplo-tablero">
+                        <h3>Ejemplo integrado para la panadería</h3>
+                        <p>La siguiente tabla es una estructura de ejemplo, no contiene metas ni resultados reales. La panadería tendría que definir las medidas, la línea base, los valores meta y la frecuencia con sus propios registros antes de usarla.</p>
+                        <div class="table-responsive">
+                            <table>
+                                <caption>Ejemplo de objetivos e indicadores para evaluar una prueba de domicilios</caption>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Perspectiva</th>
+                                        <th scope="col">Objetivo</th>
+                                        <th scope="col">Indicador posible</th>
+                                        <th scope="col">Iniciativa o decisión</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">Aprendizaje y crecimiento</th>
+                                        <td>Mejorar la capacidad de registrar y gestionar pedidos.</td>
+                                        <td>Proporción del equipo formado y registros completos según una definición acordada.</td>
+                                        <td>Capacitar y probar un formato sencillo de pedidos.</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Procesos internos</th>
+                                        <td>Confirmar y preparar pedidos con un procedimiento consistente.</td>
+                                        <td>Pedidos confirmados con disponibilidad verificada; errores por periodo.</td>
+                                        <td>Definir responsables y una lista de verificación previa a la confirmación.</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Clientes</th>
+                                        <td>Cumplir las condiciones de entrega ofrecidas y atender incidencias.</td>
+                                        <td>Entregas dentro del plazo comunicado; reclamos registrados con método y periodo definidos.</td>
+                                        <td>Limitar inicialmente cobertura y horarios a la capacidad comprobada.</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Financiera o sostenibilidad</th>
+                                        <td>Evaluar si el servicio puede sostenerse económicamente.</td>
+                                        <td>Margen por pedido calculado con costos pertinentes; costos de entrega.</td>
+                                        <td>Revisar precios, costos, volumen y alcance antes de ampliar el servicio.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p>Al revisar el tablero, el equipo busca relaciones y posibles causas sin atribuir automáticamente un resultado a una sola iniciativa. Si la experiencia del cliente empeora aunque aumenten los pedidos, la decisión responsable puede ser ajustar capacidad o cobertura antes de buscar más demanda.</p>
+                    </section>
+
+                    <section id="actividad-capitulo-3">
+                        <h3>Actividad integradora</h3>
+                        <p>Construye un mini CMI para tu organización con uno o dos objetivos pertinentes por perspectiva. Para cada objetivo escribe indicador, fórmula o definición, fuente, línea base, meta justificada, responsable, frecuencia e iniciativa. Dibuja al menos una relación hipotética entre perspectivas y explica qué evidencia revisarías para comprobarla. Señala qué indicadores no puedes calcular todavía y cómo obtendrías datos confiables.</p>
+                    </section>
+
+                    <section id="sintesis-capitulo-3">
+                        <h3>Síntesis</h3>
+                        <p>El plan de mejora une evidencia de mercado, decisiones de marketing y ejecución de ventas en un ciclo de aprendizaje. El CMI ayuda a observar la estrategia desde perspectivas complementarias y a coordinar indicadores e iniciativas. Ambos sirven cuando generan decisiones y mejoras verificables, no cuando se convierten en documentos estáticos o cifras sin contexto.</p>
+                    </section>
+                </section>
+
+                <section id="fuentes-consulta">
+                    <h2>Fuentes para profundizar</h2>
+                    <ul>
+                        <li>Kaplan, R. S., y Norton, D. P. (1992). “The Balanced Scorecard—Measures That Drive Performance”. <em>Harvard Business Review</em>, 70(1), 71–79.</li>
+                        <li>Kaplan, R. S., y Norton, D. P. (1996). <em>The Balanced Scorecard: Translating Strategy into Action</em>. Harvard Business School Press.</li>
+                        <li>Deming, W. E. (1986). <em>Out of the Crisis</em>. MIT Press.</li>
+                    </ul>
+                    <p>Las fuentes se ofrecen para ampliar el estudio. El CMI debe adaptarse a la estrategia y al contexto de cada organización; las relaciones entre objetivos deben tratarse como hipótesis que requieren revisión con datos y experiencia.</p>
+                </section>
+            </article>
+        </div>
+    </main>
+</body>
+</html>
