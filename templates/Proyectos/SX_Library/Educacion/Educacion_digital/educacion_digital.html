@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Educación digital: aprendizaje virtual, autogestión y uso responsable de herramientas digitales.">
+    <title>Educación digital - SX Library</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <a class="logo" href="{{ url_for('home') }}" aria-label="SXcontrol, inicio">SX<span>control</span></a>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Inicio</a></li>
+                <li><a href="{{ url_for('comunidad') }}">Comunidad</a></li>
+                <li><a href="{{ url_for('proyectos') }}" class="active" aria-current="page">Proyectos</a></li>
+                <li><a href="{{ url_for('servicios') }}">Servicios</a></li>
+                <li><a href="{{ url_for('blog') }}">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="book-page">
+        <nav class="book-breadcrumb" aria-label="Ruta de navegación">
+            <a href="{{ url_for('sx_library') }}">SX Library</a>
+            <span aria-hidden="true">/</span>
+            <a href="{{ url_for('sx_library_area', area_slug='educacion') }}">Educación</a>
+            <span aria-hidden="true">/</span>
+            <span aria-current="page">Educación digital</span>
+        </nav>
+
+        <header class="book-hero">
+            <p class="library-eyebrow">SX Library · Libro digital</p>
+            <h1>Educación <span>digital</span></h1>
+            <p class="book-author">Autor: Juan D. Henao</p>
+            <p class="book-lead">Una guía para aprender en entornos virtuales, desarrollar autonomía y aprovechar las herramientas digitales de manera crítica y responsable.</p>
+            <p class="book-status">Versión de trabajo · Tres capítulos · Contenido revisable</p>
+        </header>
+
+        <div class="book-layout">
+            <aside class="book-toc" aria-label="Contenido del libro">
+                <h2>Capítulos</h2>
+                <ol>
+                    <li>
+                        <a href="#capitulo-1">Capítulo 1. Aprender y organizarse en entornos virtuales</a>
+                        <ol>
+                            <li><a href="#aprendizaje-virtual">Qué significa aprender en línea</a></li>
+                            <li><a href="#modalidades-virtuales">Modalidades y participación</a></li>
+                            <li><a href="#organizacion-tiempo">Organizar el tiempo</a></li>
+                            <li><a href="#actividad-capitulo-1">Actividad de aplicación</a></li>
+                            <li><a href="#sintesis-capitulo-1">Síntesis</a></li>
+                        </ol>
+                    </li>
+                    <li>
+                        <a href="#capitulo-2">Capítulo 2. Autoformación y autogestión</a>
+                        <ol>
+                            <li><a href="#aprendizaje-autonomo">Aprendizaje autónomo</a></li>
+                            <li><a href="#planificar-aprendizaje">Planificar y sostener el aprendizaje</a></li>
+                            <li><a href="#autoevaluacion">Autoevaluación y retroalimentación</a></li>
+                            <li><a href="#actividad-capitulo-2">Actividad de aplicación</a></li>
+                            <li><a href="#sintesis-capitulo-2">Síntesis</a></li>
+                        </ol>
+                    </li>
+                    <li>
+                        <a href="#capitulo-3">Capítulo 3. Plataformas digitales y uso responsable</a>
+                        <ol>
+                            <li><a href="#uso-lms">Uso de plataformas LMS</a></li>
+                            <li><a href="#colaboracion-digital">Videoconferencia y colaboración</a></li>
+                            <li><a href="#etica-privacidad">Ética, privacidad y seguridad</a></li>
+                            <li><a href="#actividad-capitulo-3">Actividad de aplicación</a></li>
+                            <li><a href="#sintesis-capitulo-3">Síntesis</a></li>
+                        </ol>
+                    </li>
+                </ol>
+            </aside>
+
+            <article class="book-content">
+                <section id="introduccion">
+                    <h2>Introducción</h2>
+                    <p>Estudiar en línea implica más que conectarse a una plataforma. Requiere saber localizar recursos, comunicarse con otras personas, cuidar el tiempo y tomar decisiones sobre el propio aprendizaje. Las tecnologías pueden ampliar las oportunidades de formación, pero su utilidad depende de cómo se integran a objetivos educativos concretos.</p>
+                    <p>Este libro reúne tres dimensiones complementarias: participar y organizarse en la modalidad virtual, dirigir y evaluar el aprendizaje propio, y utilizar plataformas y herramientas digitales con criterio ético. Las estrategias propuestas son adaptables; cada estudiante puede ajustarlas a sus responsabilidades, recursos y necesidades de acceso.</p>
+                </section>
+
+                <section id="capitulo-1">
+                    <h2>Capítulo 1. Aprender y organizarse en entornos virtuales</h2>
+                    <section id="aprendizaje-virtual">
+                        <h3>Qué significa aprender en línea</h3>
+                        <p>El aprendizaje en línea utiliza redes y recursos digitales para ofrecer contenidos, actividades y espacios de comunicación. Puede facilitar el acceso desde distintos lugares y permitir que parte del estudio se realice en horarios flexibles. Esa flexibilidad, sin embargo, no elimina la necesidad de acompañamiento, orientación ni planificación.</p>
+                        <p>Los cursos virtuales pueden combinar lecturas, videos, ejercicios, conversaciones y evaluaciones. Conviene escoger los recursos según el propósito de cada actividad, en vez de suponer que acumular herramientas produce por sí solo un mejor aprendizaje.</p>
+                        <div class="book-concept-grid">
+                            <section class="book-concept">
+                                <h3>Oportunidades</h3>
+                                <p>Acceder a materiales en distintos momentos, revisar recursos y combinar formatos puede ayudar a acomodar el estudio a diversas circunstancias.</p>
+                            </section>
+                            <section class="book-concept">
+                                <h3>Condiciones y desafíos</h3>
+                                <p>La conexión, los dispositivos, la accesibilidad de los contenidos y la interacción disponible varían. La brecha digital puede limitar la participación y debe reconocerse al planear una experiencia educativa.</p>
+                            </section>
+                        </div>
+                    </section>
+
+                    <section id="modalidades-virtuales">
+                        <h3>Modalidades y participación</h3>
+                        <p>En actividades <strong>asincrónicas</strong>, cada participante consulta materiales y aporta dentro de un plazo acordado, sin coincidir necesariamente en tiempo real. En actividades <strong>sincrónicas</strong>, el grupo participa al mismo tiempo mediante una clase, reunión o conversación en línea. Algunas propuestas combinan ambas modalidades.</p>
+                        <p>La participación puede incluir plantear preguntas, responder en foros, colaborar en documentos compartidos y pedir aclaraciones. Para que esa interacción sea útil, ayuda comunicarse con respeto, explicar las ideas con claridad y tener en cuenta las instrucciones y los tiempos del curso.</p>
+                    </section>
+
+                    <section id="organizacion-tiempo">
+                        <h3>Organizar el tiempo de estudio</h3>
+                        <p>Cuando no existe un horario presencial que ordene cada jornada, hacer visible el trabajo pendiente ayuda a mantener el rumbo. Una planificación sencilla puede combinar metas semanales, tareas pequeñas, fechas de entrega y pausas. Es recomendable reservar cierto margen para imprevistos y revisar el plan cuando cambian las prioridades.</p>
+                        <ul>
+                            <li><strong>Priorizar:</strong> distinguir entre tareas importantes, urgentes y aquellas que pueden programarse o reducirse.</li>
+                            <li><strong>Dividir:</strong> convertir trabajos extensos en pasos concretos y asignarles un bloque de tiempo realista.</li>
+                            <li><strong>Probar intervalos de enfoque:</strong> la técnica Pomodoro propone periodos de trabajo concentrado intercalados con descansos; la duración puede ajustarse a la actividad y a la persona.</li>
+                            <li><strong>Proteger el descanso:</strong> establecer límites entre estudio y tiempo personal ayuda a sostener una rutina equilibrada.</li>
+                        </ul>
+                        <p>Calendarios y listas de tareas pueden servir para recordar compromisos, pero no reemplazan la revisión de las fechas oficiales ni las instrucciones del curso.</p>
+                    </section>
+
+                    <section id="actividad-capitulo-1">
+                        <h3>Actividad de aplicación</h3>
+                        <p>Elige una semana de estudio y registra las entregas, encuentros virtuales y responsabilidades personales que ya conoces. Divide una tarea importante en pasos, asigna momentos posibles para realizarlos e incluye pausas. Al terminar la semana, identifica qué funcionó y qué cambiarías en el siguiente plan.</p>
+                    </section>
+
+                    <section id="sintesis-capitulo-1">
+                        <h3>Síntesis</h3>
+                        <p>La modalidad virtual ofrece flexibilidad y diversidad de recursos, pero exige participación, acceso adecuado y organización. Una planificación revisable permite distribuir tareas y descansos sin perder de vista las condiciones reales de cada estudiante.</p>
+                    </section>
+                </section>
+
+                <section id="capitulo-2">
+                    <h2>Capítulo 2. Autoformación y autogestión</h2>
+                    <section id="aprendizaje-autonomo">
+                        <h3>Aprendizaje autónomo</h3>
+                        <p>Aprender de manera autónoma significa asumir un papel activo: reconocer qué se necesita aprender, elegir estrategias, observar el propio avance y pedir apoyo cuando hace falta. No significa estudiar en aislamiento ni resolver cada dificultad sin orientación.</p>
+                        <p>La lectura con preguntas, la toma de notas, la organización de conceptos y la práctica de recuperación son maneras de trabajar con los contenidos. Elegir una estrategia depende de la tarea: resumir puede servir para ordenar ideas, mientras que explicar un concepto con palabras propias permite comprobar qué se ha comprendido.</p>
+                    </section>
+
+                    <section id="planificar-aprendizaje">
+                        <h3>Planificar y sostener el aprendizaje</h3>
+                        <p>Las metas ayudan a convertir una intención amplia en acciones observables. El enfoque SMART propone que sean específicas, medibles, alcanzables, relevantes y delimitadas en el tiempo. Por ejemplo, en vez de proponerse simplemente «estudiar más», se puede definir qué tema se revisará, qué resultado se espera y en qué momento se comprobará.</p>
+                        <p>Una rutina puede incluir una revisión semanal de prioridades, bloques para tareas similares y una lista breve de próximos pasos. Si aparece la procrastinación, empezar con una acción pequeña, reducir distracciones y buscar apoyo ante una dificultad concreta puede facilitar el avance. Las técnicas son recursos para experimentar, no reglas universales.</p>
+                        <p>El proceso debe permitir cambios: si una estrategia no funciona, se puede ajustar el tiempo asignado, el entorno, el recurso elegido o la meta, en lugar de interpretar cada dificultad como falta de capacidad.</p>
+                    </section>
+
+                    <section id="autoevaluacion">
+                        <h3>Autoevaluación y retroalimentación</h3>
+                        <p>La autoevaluación consiste en contrastar el trabajo y el proceso con los objetivos y criterios conocidos. Puede realizarse mediante una lista de verificación, notas de reflexión o un portafolio que reúna trabajos y muestre cambios a lo largo del tiempo.</p>
+                        <p>Al revisar el avance, pueden ser útiles preguntas como: ¿qué puedo explicar ahora?, ¿qué me resultó difícil?, ¿qué estrategia utilicé?, ¿qué paso concreto daré después? La retroalimentación de docentes o compañeros aporta otra perspectiva; conviene leerla con atención y convertirla en acciones de mejora.</p>
+                    </section>
+
+                    <section id="actividad-capitulo-2">
+                        <h3>Actividad de aplicación</h3>
+                        <p>Formula una meta de aprendizaje para los próximos siete días. Anota dos o tres acciones pequeñas, cuándo las realizarás y qué evidencia mostraría tu avance. Al final, registra qué aprendiste, qué obstáculo encontraste y qué comentario o recurso podría ayudarte a continuar.</p>
+                    </section>
+
+                    <section id="sintesis-capitulo-2">
+                        <h3>Síntesis</h3>
+                        <p>La autogestión reúne planificación, estrategias de estudio, seguimiento y reflexión. Establecer metas posibles y revisar el proceso permite ajustar el aprendizaje; solicitar orientación y recibir retroalimentación también forman parte de una práctica autónoma.</p>
+                    </section>
+                </section>
+
+                <section id="capitulo-3">
+                    <h2>Capítulo 3. Plataformas digitales y uso responsable</h2>
+                    <section id="uso-lms">
+                        <h3>Uso de plataformas LMS</h3>
+                        <p>Un sistema de gestión del aprendizaje, o LMS, reúne funciones de un curso virtual. Según la plataforma, puede ofrecer una página inicial, secciones de cursos, materiales, calendario, avisos, actividades, calificaciones y mensajería. Aprender la estructura básica facilita encontrar instrucciones y entregar trabajos en el espacio correcto.</p>
+                        <p>Antes de enviar una tarea, conviene comprobar sus requisitos, el tipo y tamaño de archivo aceptados, la fecha límite y el mensaje de confirmación de entrega. Revisar periódicamente las calificaciones y comentarios del instructor ayuda a identificar los siguientes pasos. Si algo falla, guardar evidencia del problema y acudir al soporte o al docente por los canales indicados.</p>
+                        <p>Las preferencias de notificación pueden ayudar a seguir anuncios y vencimientos; configurarlas con cuidado evita tanto pasar por alto información necesaria como recibir avisos innecesarios.</p>
+                    </section>
+
+                    <section id="colaboracion-digital">
+                        <h3>Videoconferencia y colaboración</h3>
+                        <p>Antes de una videollamada, verifica el enlace, la hora y la zona horaria, además del funcionamiento del micrófono, el audio y la conexión. Durante la sesión, usar el chat para preguntas, respetar los turnos y compartir solo el contenido necesario favorece una comunicación clara. Las grabaciones deben realizarse y compartirse de acuerdo con las reglas de la institución y el consentimiento aplicable.</p>
+                        <p>Documentos colaborativos, foros y tableros de tareas permiten construir y revisar trabajos en conjunto. Acordar responsabilidades, nombrar los archivos con claridad y revisar el historial de cambios ayuda a coordinar aportes y reconocer el trabajo de cada participante.</p>
+                        <p>Las herramientas para crear documentos, presentaciones, videos o cuestionarios deben escogerse según el propósito, las necesidades de acceso y las condiciones de privacidad del curso. La disponibilidad de una aplicación o función puede variar entre plataformas y planes.</p>
+                    </section>
+
+                    <section id="etica-privacidad">
+                        <h3>Ética, privacidad y seguridad</h3>
+                        <p>Usar información digital de manera responsable implica reconocer la autoría, respetar las licencias, citar las fuentes consultadas y distinguir los datos comprobados de las opiniones. En actividades académicas, también supone entregar trabajo propio y declarar de forma transparente las ayudas utilizadas cuando las normas lo soliciten.</p>
+                        <p>La privacidad requiere pensar antes de publicar o compartir nombres, imágenes, ubicaciones, grabaciones y datos de contacto. En redes sociales y aplicaciones, revisa quién puede ver el contenido, qué permisos tienen las aplicaciones vinculadas y si realmente necesitan acceso a cámara, micrófono, contactos o ubicación.</p>
+                        <ul>
+                            <li>Utiliza contraseñas únicas y activa la autenticación multifactor cuando esté disponible.</li>
+                            <li>Accede a reuniones mediante invitaciones previstas y utiliza controles como sala de espera o contraseña cuando correspondan.</li>
+                            <li>Desconfía de enlaces y archivos inesperados; verifica quién los envía antes de abrirlos o introducir credenciales.</li>
+                            <li>Revisa las opciones de privacidad del navegador y recuerda que la navegación privada no vuelve anónima la actividad ante redes, servicios o sitios web.</li>
+                            <li>Comparte documentos y grabaciones solo con las personas que necesitan acceso y conforme a las reglas aplicables.</li>
+                        </ul>
+                    </section>
+
+                    <section id="actividad-capitulo-3">
+                        <h3>Actividad de aplicación</h3>
+                        <p>Realiza una revisión de un curso virtual: localiza el calendario, una lectura, una tarea, el espacio de comunicación y la retroalimentación. Después, revisa los permisos de una aplicación que uses para estudiar y anota qué información necesita realmente. Cierra citando una fuente digital que hayas consultado con los datos disponibles para identificarla.</p>
+                    </section>
+
+                    <section id="sintesis-capitulo-3">
+                        <h3>Síntesis</h3>
+                        <p>Dominar una plataforma implica saber encontrar recursos, completar actividades y seguir el propio avance. La colaboración digital aporta oportunidades cuando se acompaña de acuerdos claros; el respeto a la autoría, la privacidad y la seguridad protege a quienes participan en el aprendizaje.</p>
+                    </section>
+                </section>
+
+                <section id="nota-editorial">
+                    <h2>Nota editorial</h2>
+                    <p>Este texto es una síntesis original organizada a partir de los temas compartidos para las tres unidades. Se omitieron imágenes y fragmentos incompletos del material recibido. Las referencias bibliográficas mencionadas en ese material no se presentan aquí como citas verificadas; deberán comprobarse antes de preparar una bibliografía definitiva.</p>
+                </section>
+            </article>
+        </div>
+    </main>
+</body>
+</html>

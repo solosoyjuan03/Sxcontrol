@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pensamiento algorítmico: fundamentos, aplicaciones en la Revolución 4.0 y diseño e implementación de algoritmos en Python.">
+    <title>Pensamiento algorítmico - SX Library</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <a class="logo" href="{{ url_for('home') }}" aria-label="SXcontrol, inicio">SX<span>control</span></a>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Inicio</a></li>
+                <li><a href="{{ url_for('comunidad') }}">Comunidad</a></li>
+                <li><a href="{{ url_for('proyectos') }}" class="active" aria-current="page">Proyectos</a></li>
+                <li><a href="{{ url_for('servicios') }}">Servicios</a></li>
+                <li><a href="{{ url_for('blog') }}">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="book-page">
+        <nav class="book-breadcrumb" aria-label="Ruta de navegación">
+            <a href="{{ url_for('sx_library') }}">SX Library</a>
+            <span aria-hidden="true">/</span>
+            <a href="{{ url_for('sx_library_software') }}">Software</a>
+            <span aria-hidden="true">/</span>
+            <span aria-current="page">Pensamiento algorítmico</span>
+        </nav>
+
+        <header class="book-hero">
+            <p class="library-eyebrow">SX Library · Libro digital · Software</p>
+            <h1>Pensamiento <span>algorítmico</span></h1>
+            <p class="book-author">Autor: Juan D. Henao</p>
+            <p class="book-lead">Una introducción al análisis de problemas y al diseño de soluciones paso a paso, desde los fundamentos de la lógica hasta las aplicaciones industriales y la programación con Python.</p>
+            <p class="book-status">Versión de trabajo · Tres unidades · Contenido revisable</p>
+        </header>
+
+        <div class="book-layout">
+            <aside class="book-toc" aria-label="Contenido del libro">
+                <h2>Unidades</h2>
+                <ol>
+                    <li>
+                        <a href="#capitulo-1">Unidad 1. Fundamentos del pensamiento algorítmico</a>
+                        <ol>
+                            <li><a href="#algoritmos">Algoritmos y sus propiedades</a></li>
+                            <li><a href="#sistemas-pensamiento">Sistemas y formas de pensamiento</a></li>
+                            <li><a href="#logica-algoritmica">Datos, expresiones y lógica</a></li>
+                            <li><a href="#metodologia">Metodología para resolver problemas</a></li>
+                            <li><a href="#representacion">Pseudocódigo y diagramas de flujo</a></li>
+                            <li><a href="#sintesis-capitulo-1">Síntesis</a></li>
+                        </ol>
+                    </li>
+                    <li>
+                        <a href="#capitulo-2">Unidad 2. Algoritmos y Revolución 4.0</a>
+                        <ol>
+                            <li><a href="#revolucion-4">Industria 4.0 e IoT</a></li>
+                            <li><a href="#automatizacion">Automatización y mantenimiento predictivo</a></li>
+                            <li><a href="#inteligencia-artificial">Conceptos básicos de inteligencia artificial</a></li>
+                            <li><a href="#big-data">Big Data y procesamiento de datos</a></li>
+                            <li><a href="#sintesis-capitulo-2">Síntesis</a></li>
+                        </ol>
+                    </li>
+                    <li>
+                        <a href="#capitulo-3">Unidad 3. Diseño e implementación de algoritmos</a>
+                        <ol>
+                            <li><a href="#diseno-algoritmos">Principios y paradigmas de diseño</a></li>
+                            <li><a href="#eficiencia">Análisis y optimización de eficiencia</a></li>
+                            <li><a href="#python">Implementación básica en Python</a></li>
+                            <li><a href="#ia-optimizacion">IA como apoyo a la optimización</a></li>
+                            <li><a href="#sintesis-capitulo-3">Síntesis</a></li>
+                        </ol>
+                    </li>
+                    <li><a href="#nota-editorial">Nota editorial y recursos</a></li>
+                </ol>
+            </aside>
+
+            <article class="book-content">
+                <section id="introduccion">
+                    <h2>Introducción</h2>
+                    <p>El pensamiento algorítmico consiste en comprender un problema, identificar la información necesaria y ordenar instrucciones que conduzcan a un resultado. Antes de programar, conviene precisar qué se recibe, qué transformaciones se requieren y qué salida se espera. Este enfoque ayuda a construir soluciones que pueden revisarse, probarse y comunicarse.</p>
+                    <p>Las tres unidades recorren los fundamentos de los algoritmos y sus representaciones; su relación con la automatización, la inteligencia artificial y los datos masivos; y los principios de diseño, eficiencia e implementación básica en Python. Los ejemplos son introductorios y se pueden adaptar a contextos de informática, administración, educación e industria.</p>
+                </section>
+
+                <section id="capitulo-1">
+                    <h2>Unidad 1. Fundamentos del pensamiento algorítmico</h2>
+                    <p>Diseñar una solución antes de iniciar la programación permite analizar el problema con cuidado, ordenar las operaciones y anticipar posibles errores. Un algoritmo debe ser comprensible y adecuado para las entradas y el resultado que se necesitan.</p>
+
+                    <section id="algoritmos">
+                        <h3>Algoritmos y sus propiedades</h3>
+                        <p>Un <strong>algoritmo</strong> es una secuencia finita y ordenada de instrucciones que, al ejecutarse sobre unos datos de entrada, realiza un procesamiento y produce una salida para resolver una tarea. Puede describir acciones cotidianas, cálculos o procedimientos informáticos.</p>
+                        <p>Un procedimiento bien definido tiene un inicio y un final, instrucciones precisas, un orden que permite determinar qué hacer en cada paso y una cantidad finita de operaciones. Un algoritmo determinista produce el mismo resultado cuando se ejecuta con las mismas entradas y bajo las mismas condiciones. Los algoritmos <strong>cualitativos</strong> describen procedimientos sin cálculos numéricos centrales, como solicitar un libro en una biblioteca; los <strong>cuantitativos</strong> utilizan operaciones matemáticas, como calcular un promedio.</p>
+                        <div class="book-concept-grid">
+                            <section class="book-concept">
+                                <h3>Entrada</h3>
+                                <p>Datos que el algoritmo recibe, como números, texto, mediciones de sensores o registros.</p>
+                            </section>
+                            <section class="book-concept">
+                                <h3>Procesamiento</h3>
+                                <p>Operaciones, decisiones y repeticiones que transforman los datos según el objetivo.</p>
+                            </section>
+                            <section class="book-concept">
+                                <h3>Salida</h3>
+                                <p>Resultado, mensaje o acción que se obtiene al completar el procedimiento.</p>
+                            </section>
+                        </div>
+                        <p>Por ejemplo, para calcular el promedio de varias calificaciones se reciben las calificaciones, se suman y se divide la suma por la cantidad de valores. La cantidad debe ser mayor que cero; si no hay datos, el algoritmo necesita definir cómo informar esa situación en lugar de intentar una división inválida.</p>
+                    </section>
+
+                    <section id="sistemas-pensamiento">
+                        <h3>Sistemas y formas de pensamiento</h3>
+                        <p>Un sistema está formado por partes relacionadas que interactúan para cumplir una función. Puede recibir información del entorno, procesarla y producir resultados que luego generen retroalimentación. Los sistemas abiertos intercambian información, energía o recursos con su entorno; los cerrados limitan ese intercambio y suelen operar en condiciones controladas. También se distingue entre sistemas naturales, como un bosque, y sistemas artificiales, creados para propósitos determinados, como un sistema operativo.</p>
+                        <p>El <strong>pensamiento sistémico</strong> considera el conjunto, las relaciones entre sus componentes y el efecto de los cambios en el entorno. El <strong>pensamiento lógico</strong> organiza pasos y reglas para obtener una conclusión. Al diseñar algoritmos, ambos enfoques se complementan: se comprende el problema en su contexto y se define un procedimiento claro para resolverlo.</p>
+                    </section>
+
+                    <section id="logica-algoritmica">
+                        <h3>Datos, expresiones y lógica</h3>
+                        <p>Los datos deben representarse de acuerdo con su uso. Entre los tipos habituales están los <strong>enteros</strong>, los <strong>reales</strong>, los valores <strong>lógicos</strong> (verdadero o falso), los <strong>caracteres</strong> individuales y las <strong>cadenas</strong> de texto. Una variable ocupa un espacio de memoria cuyo valor puede cambiar durante el algoritmo; una constante conserva un valor definido. Un identificador es el nombre que permite referirse a una variable o constante.</p>
+                        <p>Las expresiones combinan datos y operadores. Los operadores aritméticos realizan cálculos; los relacionales comparan valores y producen verdadero o falso; y los lógicos combinan o niegan condiciones. Los paréntesis permiten expresar el orden deseado y hacer más legible una operación.</p>
+                        <ul>
+                            <li><strong>Aritméticos:</strong> suma, resta, multiplicación, división y potencia.</li>
+                            <li><strong>Relacionales:</strong> igual, diferente, menor, mayor, menor o igual y mayor o igual.</li>
+                            <li><strong>Lógicos:</strong> NOT (negación), AND (conjunción) y OR (disyunción).</li>
+                        </ul>
+                        <p>En una conjunción, el resultado es verdadero solo si ambas condiciones lo son; en una disyunción, es suficiente con que al menos una sea verdadera. Por ejemplo, en <code>(5 * 2) &gt; (2 + 3) AND (1 + 4) &lt; (2 ^ 2)</code>, las comparaciones son verdadero y falso, por lo que la expresión completa es falsa.</p>
+                        <p>Al analizar una expresión, se resuelven primero los paréntesis y las operaciones aritméticas, después las comparaciones y finalmente los operadores lógicos, respetando su precedencia o usando paréntesis explícitos para evitar ambigüedades.</p>
+                    </section>
+
+                    <section id="metodologia">
+                        <h3>Metodología para resolver problemas</h3>
+                        <ol>
+                            <li>Comprender el problema e identificar sus restricciones.</li>
+                            <li>Definir entradas, resultados esperados y casos especiales.</li>
+                            <li>Proponer un algoritmo inicial y seleccionar una estrategia.</li>
+                            <li>Representar e implementar la solución.</li>
+                            <li>Probarla con distintos datos, incluidos límites y entradas no válidas.</li>
+                            <li>Documentar las decisiones y optimizar cuando haya evidencia de que es necesario.</li>
+                        </ol>
+                        <p>La lógica algorítmica se apoya en tres estructuras básicas: la <strong>secuencia</strong> ejecuta instrucciones en orden; la <strong>condición</strong> selecciona un camino según el resultado de una expresión lógica; y el <strong>ciclo</strong> repite instrucciones mientras se cumpla una condición o para cada elemento de un conjunto. En un ciclo, la inicialización y actualización de la condición de control son esenciales para evitar repeticiones infinitas.</p>
+                    </section>
+
+                    <section id="representacion">
+                        <h3>Pseudocódigo y diagramas de flujo</h3>
+                        <p>El <strong>pseudocódigo</strong> describe los pasos de un algoritmo con lenguaje claro y estructurado, sin requerir la sintaxis estricta de un lenguaje de programación. Facilita la comunicación, permite concentrarse en la lógica y sirve de puente hacia una implementación.</p>
+                        <pre><code>Inicio
+    Leer numero_1
+    Leer numero_2
+    suma = numero_1 + numero_2
+    Mostrar "El resultado es: ", suma
+Fin</code></pre>
+                        <p>Los <strong>diagramas de flujo</strong> representan gráficamente el procedimiento mediante símbolos convencionales conectados por flechas. El orden del flujo y las ramas de decisión permiten visualizar las operaciones, explicar procesos y detectar pasos omitidos o rutas sin salida.</p>
+                        <p>Una representación debe mostrar claramente el inicio y el fin, las entradas y salidas, las operaciones, las decisiones y, cuando existan, los ciclos. Antes de implementar, se puede seguir cada ruta con valores de prueba para comprobar que la salida coincide con lo esperado.</p>
+                    </section>
+
+                    <section id="actividad-capitulo-1">
+                        <h3>Actividad de aplicación</h3>
+                        <p>Diseña en pseudocódigo un procedimiento que lea dos números e indique cuál es mayor o si son iguales. Después, prueba los tres casos posibles. Añade una versión con un ciclo que muestre la tabla de multiplicar de un número entre 1 y 10, e identifica qué ocurriría si el contador no se inicializara o no aumentara.</p>
+                    </section>
+
+                    <section id="sintesis-capitulo-1">
+                        <h3>Síntesis</h3>
+                        <p>Los algoritmos convierten problemas en procedimientos finitos y ordenados. Definir entradas, procesamiento y salidas, elegir tipos de datos y operadores apropiados, y representar la solución mediante pseudocódigo o diagramas de flujo ayuda a razonar antes de programar. La secuencia, la condición y el ciclo son herramientas esenciales de esa lógica.</p>
+                    </section>
+                </section>
+
+                <section id="capitulo-2">
+                    <h2>Unidad 2. Algoritmos y Revolución 4.0</h2>
+                    <p>La llamada Revolución 4.0 describe una etapa de transformación industrial vinculada con la conectividad, el uso de datos, la automatización y la integración de sistemas digitales con procesos físicos. Los algoritmos permiten procesar señales e información para apoyar tareas de supervisión, predicción y toma de decisiones; su uso no elimina por sí mismo la necesidad de supervisión humana.</p>
+
+                    <section id="revolucion-4">
+                        <h3>Industria 4.0 e Internet de las Cosas</h3>
+                        <p>Las revoluciones industriales se suelen explicar como una secuencia: mecanización impulsada por la máquina de vapor; producción en masa asociada a la electricidad; automatización electrónica e informática; y, en la etapa 4.0, mayor interconexión de dispositivos, sistemas ciberfísicos y análisis de datos.</p>
+                        <p>El <strong>Internet de las Cosas (IoT)</strong> conecta dispositivos y sensores capaces de recopilar e intercambiar datos. Los <strong>sistemas ciberfísicos</strong> vinculan procesos físicos con componentes computacionales que los monitorizan o controlan. La Industria 4.0 también utiliza servicios en la nube, robótica, simulación, integración de sistemas, manufactura aditiva y realidad aumentada.</p>
+                        <p>Entre sus objetivos se encuentran adaptar la producción a necesidades cambiantes, coordinar etapas de las cadenas productivas y mejorar la interacción entre personas y máquinas. La conectividad trae beneficios potenciales, pero también exige atender seguridad, privacidad, confiabilidad, costos y consecuencias de decisiones automatizadas.</p>
+                    </section>
+
+                    <section id="automatizacion">
+                        <h3>Automatización y mantenimiento predictivo</h3>
+                        <p>En una automatización, un algoritmo recibe información del proceso, la compara con reglas o modelos y puede generar una señal de control. Los algoritmos secuenciales, condicionales, iterativos y de búsqueda se usan, por ejemplo, en robótica, control de calidad y gestión de inventarios.</p>
+                        <p>Un controlador <strong>On/Off</strong> ofrece dos estados: encendido y apagado, según una variable cruce un umbral. Es sencillo y económico, pero puede producir oscilaciones y desgaste si conmuta repetidamente; no es apropiado para todos los procesos ni para aquellos que exigen regulación precisa. Los controladores PI y PID utilizan, respectivamente, componentes proporcional, integral y derivativo para regular una variable de manera más gradual, y requieren configuración adecuada para cada sistema.</p>
+                        <p>El <strong>mantenimiento predictivo</strong> utiliza mediciones —por ejemplo, temperatura, vibración, ruido o consumo— para estimar el estado de equipos y planear inspecciones o intervenciones antes de una falla. Los modelos de aprendizaje automático pueden detectar patrones en datos históricos o recientes, pero sus predicciones dependen de la calidad de los datos, la validación y el contexto de uso.</p>
+                        <ul>
+                            <li>La regresión puede estimar tendencias, como el desgaste progresivo, si la relación se ajusta a los datos.</li>
+                            <li>Las redes neuronales pueden aprender patrones complejos, aunque necesitan datos y evaluación apropiados.</li>
+                            <li>El análisis de series temporales estudia cómo cambian las mediciones a lo largo del tiempo.</li>
+                            <li>Los métodos de clasificación, como SVM, pueden distinguir estados definidos, por ejemplo, normal y defectuoso, si se entrenan y validan correctamente.</li>
+                        </ul>
+                        <p>El objetivo es apoyar la planificación, reducir detenciones imprevistas y prolongar la vida útil de los equipos. Una alerta algorítmica debe interpretarse junto con el conocimiento operativo y los procedimientos de seguridad.</p>
+                    </section>
+
+                    <section id="inteligencia-artificial">
+                        <h3>Conceptos básicos de inteligencia artificial</h3>
+                        <p>La <strong>inteligencia artificial (IA)</strong> reúne técnicas y sistemas informáticos que realizan tareas como reconocer voz, procesar lenguaje, clasificar imágenes, recomendar contenidos o apoyar decisiones. Algunos métodos aprenden patrones a partir de datos; no todos los sistemas de IA funcionan de la misma forma ni reproducen el razonamiento humano.</p>
+                        <p>En aprendizaje automático se distinguen, entre otros:</p>
+                        <ul>
+                            <li><strong>Aprendizaje supervisado:</strong> utiliza ejemplos etiquetados para aprender a predecir o clasificar.</li>
+                            <li><strong>Aprendizaje no supervisado:</strong> busca estructuras o agrupaciones en datos sin etiquetas previas.</li>
+                            <li><strong>Aprendizaje por refuerzo:</strong> aprende a seleccionar acciones mediante interacciones y señales de recompensa.</li>
+                        </ul>
+                        <p>Asistentes de voz, sistemas de recomendación, cámaras inteligentes, herramientas de apoyo clínico y chatbots son ejemplos de aplicaciones. Sus resultados deben revisarse según la tarea: pueden equivocarse, reflejar limitaciones de los datos o requerir intervención profesional. En ámbitos sensibles, la privacidad, la explicabilidad y la responsabilidad son consideraciones centrales.</p>
+                    </section>
+
+                    <section id="big-data">
+                        <h3>Big Data y procesamiento de datos</h3>
+                        <p><strong>Big Data</strong> se refiere a conjuntos de datos cuyo volumen, velocidad o variedad dificultan su tratamiento con métodos tradicionales. Pueden provenir de sensores, redes sociales, registros web, transacciones o sistemas de salud. El procesamiento combina infraestructura, métodos de análisis y algoritmos para transformar datos en información útil; recopilar muchos datos no garantiza por sí solo conclusiones correctas.</p>
+                        <p>Plataformas de contenido pueden analizar interacciones para recomendar materiales; comercios estudian tendencias de compra; equipos de salud investigan patrones en registros; y sistemas de movilidad estiman condiciones de tráfico. Estas aplicaciones necesitan cuidar la calidad de los datos y su uso responsable.</p>
+                        <p>Algoritmos como el conteo de frecuencias, MapReduce y K-Means aparecen en tareas de agregación, procesamiento distribuido y agrupamiento. Un algoritmo sencillo también puede calcular promedios o filtrar registros, siempre que se indiquen claramente sus condiciones y casos límite:</p>
+                        <pre><code>Funcion promedio(numeros):
+    Si longitud(numeros) = 0:
+        Retornar "No hay datos"
+    suma = 0
+    Para cada numero en numeros:
+        suma = suma + numero
+    Retornar suma / longitud(numeros)
+
+Funcion filtrar_mayores(lista, umbral):
+    resultado = []
+    Para cada elemento en lista:
+        Si elemento &gt; umbral:
+            Añadir elemento a resultado
+    Retornar resultado</code></pre>
+                        <p>Para grandes volúmenes, el diseño debe considerar no solo la respuesta lógica, sino también memoria, tiempo, distribución del trabajo, calidad de los datos y protección de la información.</p>
+                    </section>
+
+                    <section id="actividad-capitulo-2">
+                        <h3>Actividad de aplicación</h3>
+                        <p>Escoge un proceso cotidiano o industrial y describe qué datos se podrían recoger, qué decisión ayudaría a tomar un algoritmo y qué riesgos habría que controlar. Distingue qué parte podría automatizarse y qué decisiones deberían seguir bajo supervisión humana.</p>
+                    </section>
+
+                    <section id="sintesis-capitulo-2">
+                        <h3>Síntesis</h3>
+                        <p>En la Revolución 4.0, los algoritmos conectan datos y acciones dentro de procesos digitales y físicos. IoT, automatización, IA y Big Data ofrecen posibilidades de análisis y optimización, pero sus resultados dependen de modelos bien evaluados, datos pertinentes, controles de seguridad y decisiones humanas responsables.</p>
+                    </section>
+                </section>
+
+                <section id="capitulo-3">
+                    <h2>Unidad 3. Diseño e implementación de algoritmos</h2>
+                    <p>El diseño de algoritmos requiere encontrar una solución correcta y razonable para el problema planteado. Elegir un paradigma depende de la estructura del problema, sus restricciones y los recursos disponibles; no existe una estrategia que sea la mejor para todos los casos.</p>
+
+                    <section id="diseno-algoritmos">
+                        <h3>Principios y paradigmas de diseño</h3>
+                        <p>Entre los principios importantes están la <strong>corrección</strong> (producir resultados adecuados para las entradas válidas), la <strong>eficiencia</strong>, la <strong>simplicidad</strong>, la <strong>modularidad</strong> y la <strong>escalabilidad</strong>. Separar una solución en componentes y comprobar cada uno facilita su comprensión y mantenimiento.</p>
+                        <div class="book-concept-grid">
+                            <section class="book-concept">
+                                <h3>Divide y vencerás</h3>
+                                <p>Divide un problema en subproblemas, los resuelve y combina sus resultados. Merge Sort y Quick Sort son ejemplos de algoritmos de ordenamiento basados en esta estrategia.</p>
+                            </section>
+                            <section class="book-concept">
+                                <h3>Programación dinámica</h3>
+                                <p>Almacena resultados de subproblemas que se repiten para evitar cálculos redundantes, cuando el problema tiene subestructura óptima.</p>
+                            </section>
+                            <section class="book-concept">
+                                <h3>Algoritmos voraces</h3>
+                                <p>Eligen una alternativa local en cada paso. Pueden ser eficientes, pero se debe demostrar que las elecciones conducen a una solución global óptima para el problema concreto.</p>
+                            </section>
+                            <section class="book-concept">
+                                <h3>Vuelta atrás</h3>
+                                <p>Explora posibilidades y deshace decisiones cuando una rama no puede producir una solución válida; se usa en problemas como Sudoku y N reinas.</p>
+                            </section>
+                        </div>
+                    </section>
+
+                    <section id="eficiencia">
+                        <h3>Análisis y optimización de eficiencia</h3>
+                        <p>La eficiencia se analiza considerando los recursos que consume un algoritmo. Se pueden medir el tiempo real, el tiempo de CPU, las operaciones básicas y el uso de memoria, incluida la memoria dinámica y la pila de llamadas. La notación asintótica describe cómo crece el costo al aumentar la entrada, sin depender directamente de una máquina o implementación particular.</p>
+                        <p>Entre las técnicas prácticas están eliminar operaciones innecesarias, simplificar pasos, reducir iteraciones cuando sea posible, terminar un ciclo en cuanto se conoce el resultado y trasladar fuera del ciclo cálculos que no cambian. La optimización debe preservar la corrección y evaluarse con entradas representativas; una mejora en un caso pequeño no garantiza mejor rendimiento en todos los tamaños.</p>
+                        <p>Los algoritmos eficientes pueden reducir tiempos, memoria, energía y costos, y facilitar que un sistema escale. Por ejemplo, Bubble Sort y Merge Sort pueden producir una lista ordenada, pero sus comportamientos de crecimiento difieren y Merge Sort suele ser más apropiado para listas grandes, a cambio de utilizar memoria auxiliar.</p>
+                    </section>
+
+                    <section id="python">
+                        <h3>Implementación básica en Python</h3>
+                        <p>Python permite expresar secuencias, condiciones y ciclos con una sintaxis legible. La indentación delimita los bloques de código:</p>
+                        <pre><code># Secuencia
+num1 = 5
+num2 = 15
+suma = num1 + num2
+print("Resultado =", suma)
+
+# Condición, incluidos los valores iguales
+edad = 18
+if edad &gt;= 18:
+    print("Mayor de edad")
+else:
+    print("Menor de edad")
+
+# Ciclo while
+contador = 1
+while contador &lt;= 10:
+    print(contador)
+    contador += 1
+
+# Tabla de multiplicar del 4
+num1 = 4
+for i in range(1, 11):
+    print(num1 * i)</code></pre>
+                        <p><code>range(1, 11)</code> genera valores desde 1 hasta 10, pues el límite superior no se incluye. En un <code>while</code>, la condición debe poder volverse falsa; por eso se actualiza el contador. Al probar un algoritmo, conviene cambiar las entradas y revisar también límites, como cero, números iguales o listas vacías.</p>
+                    </section>
+
+                    <section id="ia-optimizacion">
+                        <h3>IA como apoyo a la optimización</h3>
+                        <p>Las herramientas de IA pueden proponer alternativas, explicar código, sugerir pruebas y ayudar a detectar operaciones redundantes. Sus recomendaciones no garantizan que el programa sea correcto, más rápido o seguro. La persona que desarrolla debe comprender los cambios, comprobarlos con pruebas y medir el rendimiento antes y después.</p>
+                        <p>Un proceso responsable es formular una pregunta concreta, compartir solo el código y los datos que se puedan divulgar, revisar las propuestas, ejecutar pruebas sobre casos normales y límite, y comparar métricas con el mismo entorno. La IA es un apoyo para el análisis, no un sustituto de la validación ni del criterio técnico.</p>
+                    </section>
+
+                    <section id="actividad-capitulo-3">
+                        <h3>Actividad de aplicación</h3>
+                        <p>Escribe en Python una función que filtre los valores superiores a un umbral. Prueba con una lista con resultados, otra vacía y otra cuyos valores sean todos menores o iguales al umbral. Pide a una herramienta de IA una propuesta de mejora y compara su comportamiento y legibilidad con tu versión.</p>
+                    </section>
+
+                    <section id="sintesis-capitulo-3">
+                        <h3>Síntesis</h3>
+                        <p>El diseño algorítmico combina corrección, claridad y uso razonable de recursos. Los paradigmas ofrecen estrategias distintas; Python permite expresar las estructuras fundamentales; y las herramientas de IA pueden apoyar la revisión si sus propuestas se comprueban mediante pruebas y mediciones.</p>
+                    </section>
+                </section>
+
+                <section id="nota-editorial">
+                    <h2>Nota editorial y recursos</h2>
+                    <p>Este libro es una síntesis original organizada a partir del material compartido para las tres unidades. Se corrigieron errores evidentes de ejemplos (incluida la devolución del resultado en el algoritmo de filtrado), se aclararon casos límite y se ajustaron afirmaciones demasiado generales sobre IA y automatización. No se reconstruyeron pasajes incompletos ni se incorporaron los anexos enlazados porque su contenido no fue compartido.</p>
+                    <p>Las referencias y recursos siguientes provienen del material recibido; sus datos bibliográficos, vigencia y disponibilidad deben comprobarse antes de una publicación definitiva.</p>
+                    <h3>Materiales de las unidades</h3>
+                    <ul>
+                        <li><a href="https://campusvirtual.tecnologicadeloriente.edu.co/contenido_digital/BloqueI/Pensamiento_Algoritmico/Pensamiento%20algoritmico/Unidad%201/U1_Pensamiento_Algoritmico-gh-pages/U1_Pensamiento_Algoritmico-gh-pages/downloads/Anexo_Secuencias_condiciones_y_ciclos.pdf">Unidad 1: Anexo sobre secuencias, condiciones y ciclos [PDF].</a></li>
+                        <li><a href="https://campusvirtual.tecnologicadeloriente.edu.co/contenido_digital/BloqueI/Pensamiento_Algoritmico/Pensamiento%20algoritmico/Unidad%202/U2_Pensamiento_Algoritmico-gh-pages/U2_Pensamiento_Algoritmico-gh-pages/downloads/Anexo_1.pdf">Unidad 2: Algoritmos en la automatización de procesos industriales [PDF].</a></li>
+                        <li><a href="https://campusvirtual.tecnologicadeloriente.edu.co/contenido_digital/BloqueI/Pensamiento_Algoritmico/Pensamiento%20algoritmico/Unidad%202/U2_Pensamiento_Algoritmico-gh-pages/U2_Pensamiento_Algoritmico-gh-pages/downloads/Anexo_2.pdf">Unidad 2: Ejemplos de algoritmos usando Big Data [PDF].</a></li>
+                        <li><a href="https://campusvirtual.tecnologicadeloriente.edu.co/contenido_digital/BloqueI/Pensamiento_Algoritmico/Pensamiento%20algoritmico/Unidad%202/U2_Pensamiento_Algoritmico-gh-pages/U2_Pensamiento_Algoritmico-gh-pages/downloads/Anexo_3.pdf">Unidad 2: Ejemplos de aplicación de algoritmos y pseudocódigos [PDF].</a></li>
+                        <li><a href="https://campusvirtual.tecnologicadeloriente.edu.co/contenido_digital/BloqueI/Pensamiento_Algoritmico/Pensamiento%20algoritmico/Unidad%203/U3_Pensamiento_Algoritmico-gh-pages/U3_Pensamiento_Algoritmico-gh-pages/downloads/Anexo_Ejercicios%20combinaci%C3%B3n%20de%20secuencias%20condiciones%20y%20ciclos.pdf">Unidad 3: Ejercicios de combinación de secuencias, condiciones y ciclos [PDF].</a></li>
+                        <li><a href="https://campusvirtual.tecnologicadeloriente.edu.co/contenido_digital/BloqueI/Pensamiento_Algoritmico/Pensamiento%20algoritmico/Unidad%203/U3_Pensamiento_Algoritmico-gh-pages/U3_Pensamiento_Algoritmico-gh-pages/downloads/Anexo_Ejemplo%20pr%C3%A1ctico%20en%20Python.pdf">Unidad 3: Ejemplo práctico de eficiencia en Python [PDF].</a></li>
+                        <li><a href="https://campusvirtual.tecnologicadeloriente.edu.co/contenido_digital/BloqueI/Pensamiento_Algoritmico/Pensamiento%20algoritmico/Unidad%203/U3_Pensamiento_Algoritmico-gh-pages/U3_Pensamiento_Algoritmico-gh-pages/downloads/Anexo_Optimizaci%C3%B3n%20a%20c%C3%B3digos%20sencillos.pdf">Unidad 3: Optimización de códigos sencillos [PDF].</a></li>
+                    </ul>
+                    <h3>Lecturas y videos complementarios</h3>
+                    <ul>
+                        <li><a href="https://elibro.net/es/ereader/tecnologicadeloriente/50327?page=37">Joyanes Aguilar, L. (2005). <em>Programación en C: metodología, algoritmos y estructura de datos</em>.</a></li>
+                        <li><a href="https://elibro.net/es/ereader/tecnologicadeloriente/75935?page=15">Gaxiola Pacheco, C. G. y Flores Gutiérrez, D. L. (2008). <em>Metodología de la programación con pseudocódigo enfocado al lenguaje C</em>.</a></li>
+                        <li><a href="https://elibro.net/es/ereader/tecnologicadeloriente/69931?page=1">Mancilla Herrera, A. (2015). <em>Diseño y construcción de algoritmos</em>.</a></li>
+                        <li><a href="https://elibro.net/es/ereader/tecnologicadeloriente/56561?page=50">Bisbal Riera, J. (2013). <em>Manual de algorítmica: recursividad, complejidad y diseño de algoritmos</em>.</a></li>
+                        <li><a href="https://elibro.net/es/ereader/tecnologicadeloriente/106404?page=1">Cuevas Álvarez, A. (2016). <em>Python 3: curso práctico</em>.</a></li>
+                        <li><a href="https://elibro.net/es/ereader/tecnologicadeloriente/117744?page=23">Casas Roma, J., Nin Guerrero, J. y Julbe López, F. (2019). <em>Big data: análisis de datos en entornos masivos</em>.</a></li>
+                        <li><a href="https://elibro.net/es/ereader/tecnologicadeloriente/42319?page=5">Meseguer González, P. y López de Mántaras Badia, R. (2017). <em>Inteligencia artificial</em>.</a></li>
+                        <li><a href="https://youtu.be/U3CGMyjzlvM">Magic Markers. (2021). ¿Qué son los algoritmos? [Video].</a></li>
+                        <li><a href="https://youtu.be/-OiaE6l8ysg">World Economic Forum. (2016). La Cuarta Revolución Industrial [Video].</a></li>
+                        <li><a href="https://youtu.be/Q1z34G3fTUM">Aprende y Verifica. ¿Qué es un pseudocódigo? [Video].</a></li>
+                    </ul>
+                </section>
+            </article>
+        </div>
+    </main>
+</body>
+</html>

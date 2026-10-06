@@ -13,8 +13,8 @@ Las contribuciones económicas voluntarias pueden transferirse al número Nequi 
 - Páginas de inicio, comunidad, proyectos, servicios (consultoría y tienda) y blog.
 - El Blog está dedicado a noticias y avances del proyecto organizados por fecha.
 - Comunidad incluye información sobre los sistemas operativos oficiales de desarrollo de SXcontrol (Windows IoT y Linux Mint), páginas para consultar repositorios, conocer cómo colaborar y revisar cumplimiento, principios comunitarios y pruebas.
-- SX Library presenta colecciones temáticas y los tres capítulos digitales de *Paz y conflicto*, de Juan D. Henao, como contenido revisable y actualizable.
-- Las áreas disponibles para explorar en SX Library son Derecho, Software, Marketing, Educación, Salud, Agro, Fantasía y Literatura; las ramas sin libros indican que están en preparación.
+- SX Library presenta colecciones temáticas, los tres capítulos digitales de *Paz y conflicto*, de Juan D. Henao, y versiones de trabajo de *Educación digital*, *Fundamentos jurídicos de Colombia* y *Pensamiento algorítmico*.
+- Las áreas disponibles para explorar en SX Library son Derecho, Software, Marketing, Educación, Salud, Agro, Fantasía y Literatura. Educación incluye Idiomas como subárea; las ramas sin libros indican que están en preparación.
 - SX Woodpecker OS, SX Orange Page, SX Recruiter y SX Registros tienen fichas informativas locales con su estado y aspectos de planificación pendientes; esas páginas no significan que los productos estén publicados ni habilitan registros o servicios.
 - SX Documento (nombre provisional), SX Help, SX Místico y SX Gestión Ágil tienen fichas de borrador para documentar sus propósitos y decisiones pendientes. SX Help propone orientación jurídica accesible y orientación sobre denuncias ciudadanas, pero no está disponible como asesoría legal ni canal operativo de denuncias. SX Gestión Ágil propone organizar proyectos, tareas y equipos de negocios mediante prácticas ágiles adaptables; no es una herramienta disponible.
 - SX Nutria incluye secciones desplegables de introducción, documentación, guía alimentaria, recomendaciones generales de salud y calculadora.
@@ -69,9 +69,22 @@ templates/                     Plantillas HTML
       derecho.html               Catálogo del área de Derecho
       Paz_y_conflicto/           Archivos propios del libro Paz y conflicto
         paz_y_conflicto.html     Página con los tres capítulos del libro
+      Fundamentos_juridicos_Colombia/ Archivos propios del libro
+        fundamentos_juridicos_colombia.html Tres capítulos sobre Derecho colombiano
     Software/                    Página y libros del área de Software
       software.html              Catálogo del área de Software
-    area.html                    Página compartida para Marketing, Educación, Salud, Agro, Fantasía y Literatura
+      Pensamiento_algoritmico/   Archivos propios del libro Pensamiento algorítmico
+        pensamiento_algoritmico.html Tres unidades sobre fundamentos, Revolución 4.0 y diseño algorítmico
+    Educacion/                   Libros del área de Educación
+      Educacion_digital/         Archivos propios del libro Educación digital
+        educacion_digital.html   Libro digital organizado en tres capítulos
+      Idiomas/                    Materiales de la subárea de Idiomas
+    Marketing/                   Libros y materiales del área de Marketing
+    Salud/                       Libros y materiales del área de Salud
+    Agro/                        Libros y materiales del área Agro
+    Fantasia/                    Libros y materiales del área de Fantasía
+    Literatura/                  Libros y materiales de Literatura y Filosofía
+    area.html                    Página compartida para las áreas en preparación y sus subáreas
   Proyectos/borrador.html       Ficha compartida para proyectos en preparación
   Servicios/                    Consultoría y productos
 static/css/style.css            Estilos

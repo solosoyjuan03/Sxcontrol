@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fundamentos jurídicos de Colombia: conceptos introductorios del Derecho, la Constitución y la interpretación jurídica en el contexto colombiano.">
+    <title>Fundamentos jurídicos de Colombia - SX Library</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <a class="logo" href="{{ url_for('home') }}" aria-label="SXcontrol, inicio">SX<span>control</span></a>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Inicio</a></li>
+                <li><a href="{{ url_for('comunidad') }}">Comunidad</a></li>
+                <li><a href="{{ url_for('proyectos') }}" class="active" aria-current="page">Proyectos</a></li>
+                <li><a href="{{ url_for('servicios') }}">Servicios</a></li>
+                <li><a href="{{ url_for('blog') }}">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="book-page">
+        <nav class="book-breadcrumb" aria-label="Ruta de navegación">
+            <a href="{{ url_for('sx_library') }}">SX Library</a>
+            <span aria-hidden="true">/</span>
+            <a href="{{ url_for('sx_library_derecho') }}">Derecho</a>
+            <span aria-hidden="true">/</span>
+            <span aria-current="page">Fundamentos jurídicos de Colombia</span>
+        </nav>
+
+        <header class="book-hero">
+            <p class="library-eyebrow">SX Library · Libro digital · Derecho</p>
+            <h1>Fundamentos jurídicos <span>de Colombia</span></h1>
+            <p class="book-author">Autor: Juan D. Henao</p>
+            <p class="book-lead">Una introducción al Derecho en el contexto colombiano: sus fuentes, la Constitución y algunos criterios de interpretación jurídica.</p>
+            <p class="book-status">Versión de trabajo · Tres capítulos · Contenido revisable</p>
+        </header>
+
+        <div class="book-layout">
+            <aside class="book-toc" aria-label="Contenido del libro">
+                <h2>Capítulos</h2>
+                <ol>
+                    <li>
+                        <a href="#capitulo-1">Capítulo 1. Introducción al Derecho y sus fuentes</a>
+                        <ol>
+                            <li><a href="#concepto-derecho">El concepto de Derecho</a></li>
+                            <li><a href="#derecho-vida-social">Derecho y vida social</a></li>
+                            <li><a href="#perspectivas-derecho">Distintas perspectivas</a></li>
+                            <li><a href="#finalidades-derecho">Finalidades del Derecho</a></li>
+                            <li><a href="#caracteristicas-derecho">Características y límites</a></li>
+                            <li><a href="#problemas-definicion">Dificultades al definirlo</a></li>
+                            <li><a href="#fuentes-derecho">Fuentes del Derecho</a></li>
+                            <li><a href="#fuentes-colombia">Fuentes en Colombia</a></li>
+                            <li><a href="#clasificacion-derecho">Clasificación del Derecho</a></li>
+                            <li><a href="#actividad-capitulo-1">Actividad de reflexión</a></li>
+                            <li><a href="#sintesis-capitulo-1">Síntesis</a></li>
+                        </ol>
+                    </li>
+                    <li>
+                        <a href="#capitulo-2">Capítulo 2. Constitución y derechos en Colombia</a>
+                        <ol>
+                            <li><a href="#concepto-constitucion">Qué es una Constitución</a></li>
+                            <li><a href="#constitucion-1991">La Constitución de 1991</a></li>
+                            <li><a href="#principios-constitucionales">Principios y organización estatal</a></li>
+                            <li><a href="#derechos-constitucionales">Derechos y deberes</a></li>
+                            <li><a href="#proteccion-constitucional">Mecanismos de protección</a></li>
+                            <li><a href="#actividad-capitulo-2">Actividad de aplicación</a></li>
+                            <li><a href="#sintesis-capitulo-2">Síntesis</a></li>
+                        </ol>
+                    </li>
+                    <li>
+                        <a href="#capitulo-3">Capítulo 3. Interpretación jurídica</a>
+                        <ol>
+                            <li><a href="#necesidad-interpretar">Por qué interpretar las normas</a></li>
+                            <li><a href="#metodos-clasicos">Métodos clásicos</a></li>
+                            <li><a href="#enfoques-constitucionales">Constitución y derechos humanos</a></li>
+                            <li><a href="#ejemplos-interpretacion">Ejemplos jurisprudenciales</a></li>
+                            <li><a href="#actividad-capitulo-3">Actividad de análisis</a></li>
+                            <li><a href="#sintesis-capitulo-3">Síntesis</a></li>
+                        </ol>
+                    </li>
+                    <li><a href="#fuentes-consulta">Fuentes bibliográficas y jurídicas</a></li>
+                </ol>
+            </aside>
+
+            <article class="book-content">
+                <section id="capitulo-1">
+                    <h2>Capítulo 1. Introducción al Derecho y sus fuentes</h2>
+                    <section id="introduccion">
+                        <h3>Introducción</h3>
+                        <p>Las personas viven en relación con otras y participan en comunidades e instituciones. Para atender desacuerdos, distribuir responsabilidades y proteger derechos, las sociedades crean reglas y procedimientos. El Derecho es uno de los sistemas que organiza esas relaciones: establece normas, determina quién puede aplicarlas y ofrece vías institucionales para resolver controversias.</p>
+                        <p>Estudiarlo supone preguntarse qué significan sus normas, cómo se relacionan con la justicia y de qué manera se crean e interpretan. Este capítulo presenta distintas maneras de comprender el Derecho, sus finalidades, algunas características, las fuentes jurídicas y una clasificación introductoria de sus ramas.</p>
+                        <p>Este capítulo ofrece información educativa general. No determina cómo debe resolverse un caso particular ni sustituye la consulta de normas vigentes o la orientación de un profesional del Derecho.</p>
+                    </section>
+
+                <section id="concepto-derecho">
+                    <h3>1. El concepto de Derecho</h3>
+                    <p>La palabra <em>Derecho</em> puede utilizarse con más de un sentido. Puede nombrar el ordenamiento jurídico de una sociedad, una norma concreta, una facultad reconocida a una persona o una idea de justicia. Por eso, al leer una afirmación jurídica, es útil identificar primero cuál de esos sentidos está en juego.</p>
+                    <div class="book-concept-grid">
+                        <section class="book-concept">
+                            <h3>Derecho como ordenamiento</h3>
+                            <p>Conjunto organizado de normas e instituciones que regulan relaciones sociales y establecen procedimientos para su aplicación.</p>
+                        </section>
+                        <section class="book-concept">
+                            <h3>Derecho como facultad</h3>
+                            <p>Posibilidad o pretensión que el ordenamiento reconoce a una persona, junto con mecanismos para solicitar su respeto.</p>
+                        </section>
+                        <section class="book-concept">
+                            <h3>Derecho como ideal</h3>
+                            <p>La palabra también aparece al hablar de justicia o de aquello que se considera debido, un uso que expresa una valoración y no necesariamente describe una norma específica.</p>
+                        </section>
+                        <section class="book-concept">
+                            <h3>Derecho como práctica social</h3>
+                            <p>Las normas se crean, interpretan y aplican mediante instituciones, procedimientos y decisiones que forman parte de la vida colectiva.</p>
+                        </section>
+                    </div>
+                    <p>La teoría jurídica no ofrece una única definición aceptada por todas las corrientes. Algunos enfoques destacan el sistema de normas y sus mecanismos institucionales; otros examinan los principios que guían la interpretación, la relación del Derecho con la sociedad o los argumentos que justifican las decisiones.</p>
+                </section>
+
+                <section id="derecho-vida-social">
+                    <h3>2. Derecho y vida social</h3>
+                    <p>La convivencia genera acuerdos, responsabilidades y desacuerdos. Las normas jurídicas pueden establecer expectativas comunes, proteger libertades y ofrecer procedimientos para resolver conflictos. En ese sentido, el Derecho se relaciona con la vida social: sus reglas afectan las acciones de las personas y, al mismo tiempo, las instituciones y prácticas sociales influyen en cómo se crea y comprende el ordenamiento.</p>
+                    <p>La reflexión clásica sobre el carácter social y político de las personas ayuda a explicar por qué se necesitan formas compartidas de organización. Sin embargo, la existencia de reglas no garantiza por sí sola una sociedad justa: también importa quién participa en su creación, cómo se interpretan, a quiénes afectan y qué mecanismos existen para cuestionar decisiones arbitrarias.</p>
+                </section>
+
+                <section id="perspectivas-derecho">
+                    <h3>3. Distintas perspectivas para comprender el Derecho</h3>
+                    <p>Las corrientes de pensamiento jurídico analizan aspectos diferentes del fenómeno. El positivismo jurídico estudia las normas y los criterios institucionales que permiten reconocerlas como parte de un sistema. Otras perspectivas prestan atención a los principios y valores utilizados al interpretar las normas, o a la relación entre las instituciones jurídicas y los cambios sociales.</p>
+                    <p>Autores mencionados en el material de base representan debates distintos: Hans Kelsen es asociado con una explicación normativa del orden jurídico; H. L. A. Hart distingue entre reglas primarias y secundarias; Ronald Dworkin resalta el papel de los principios en la interpretación; y Gregorio Peces-Barba aborda el Derecho en relación con la vida social y los derechos. Estas referencias sirven como orientación inicial y requieren datos bibliográficos completos antes de citarlas formalmente.</p>
+                    <p>Comparar enfoques permite reconocer que las preguntas jurídicas no siempre se resuelven leyendo una regla de manera aislada: pueden involucrar su contexto, jerarquía, finalidad y relación con otras normas y principios.</p>
+                </section>
+
+                <section id="finalidades-derecho">
+                    <h3>4. Finalidades del Derecho</h3>
+                    <p>El Derecho cumple varias funciones que suelen relacionarse entre sí. Su alcance y realización dependen de las normas, las instituciones y las prácticas de cada sociedad.</p>
+                    <ul>
+                        <li><strong>Organización de la convivencia:</strong> establece reglas y procedimientos comunes para coordinar conductas y atender desacuerdos.</li>
+                        <li><strong>Justicia:</strong> ofrece criterios y vías institucionales para reconocer derechos, distribuir responsabilidades y revisar decisiones.</li>
+                        <li><strong>Bien común:</strong> puede orientar la acción pública hacia condiciones que permitan a las personas participar y desarrollar sus proyectos, con atención a los intereses colectivos y a los derechos individuales.</li>
+                        <li><strong>Seguridad jurídica:</strong> procura que las normas y decisiones puedan conocerse y anticiparse razonablemente, reduciendo la arbitrariedad y permitiendo exigir responsabilidades.</li>
+                    </ul>
+                    <p>Estas finalidades pueden entrar en tensión. Por ello, al analizar una norma o una decisión, conviene preguntar qué objetivos persigue, qué derechos afecta, cómo se justifica y qué mecanismos existen para revisarla.</p>
+                </section>
+
+                <section id="caracteristicas-derecho">
+                    <h3>5. Características y límites</h3>
+                    <p>Los sistemas jurídicos suelen organizarse mediante normas, instituciones y procedimientos relacionados entre sí. Algunas características útiles para iniciar su estudio son:</p>
+                    <ul>
+                        <li><strong>Institucionalidad:</strong> existen autoridades y procedimientos reconocidos para producir, interpretar y aplicar normas.</li>
+                        <li><strong>Coercibilidad institucional:</strong> el sistema puede prever consecuencias y mecanismos oficiales ante ciertos incumplimientos. Esto no significa que cualquier desacuerdo moral sea una infracción jurídica, ni que toda norma se aplique automáticamente.</li>
+                        <li><strong>Generalidad y alcance:</strong> muchas normas se formulan para categorías de situaciones o personas, aunque también existen reglas y decisiones de alcance particular. Su aplicación depende de su texto y del ordenamiento correspondiente.</li>
+                        <li><strong>Organización y jerarquía:</strong> las normas se relacionan mediante criterios de competencia y jerarquía; una regla debe interpretarse dentro del sistema jurídico aplicable.</li>
+                    </ul>
+                    <p>El Derecho se relaciona con la moral, la ética, la religión y las costumbres, pero no es idéntico a ellas. Una conducta puede considerarse moralmente reprochable sin estar prohibida por una norma jurídica; también puede haber desacuerdo ético sobre el contenido de una ley. Distinguir esos planos ayuda a argumentar con precisión.</p>
+                </section>
+
+                <section id="problemas-definicion">
+                    <h3>6. Dificultades al definirlo</h3>
+                    <p>Definir el Derecho es complejo, entre otras razones, porque el término tiene varios usos y porque sus límites pueden discutirse. En la teoría jurídica se suelen distinguir dificultades como las siguientes:</p>
+                    <ul>
+                        <li><strong>Ambigüedad:</strong> una misma palabra puede referirse al sistema de normas, a una facultad individual o a un ideal de justicia.</li>
+                        <li><strong>Vaguedad:</strong> incluso cuando se conoce el sentido empleado, puede no estar claro dónde termina su alcance o cómo se aplica a un caso nuevo.</li>
+                        <li><strong>Carga valorativa:</strong> hablar de Derecho suele evocar ideas de justicia, legitimidad y autoridad, lo que puede influir en la manera en que se describe o evalúa una norma.</li>
+                    </ul>
+                    <p>Reconocer estas dificultades no impide estudiar el Derecho; permite precisar los términos, explicar los criterios utilizados y diferenciar la descripción de una regla de la valoración de su justicia.</p>
+                </section>
+
+                <section id="fuentes-derecho">
+                    <h3>7. Fuentes del Derecho</h3>
+                    <p>En sentido jurídico, hablar de fuentes es preguntar de dónde surgen las normas, qué procedimientos permiten reconocerlas y qué elementos influyen en su contenido. La expresión puede referirse a procesos, prácticas, documentos y decisiones; por eso, su significado depende de la clasificación teórica y del sistema jurídico que se estudie.</p>
+                    <div class="book-concept-grid">
+                        <section class="book-concept">
+                            <h3>Fuentes históricas</h3>
+                            <p>Documentos y registros de otros periodos que permiten conocer cómo se organizaban las sociedades y sus normas. Sirven para el estudio histórico; no por ser antiguos crean automáticamente obligaciones vigentes.</p>
+                        </section>
+                        <section class="book-concept">
+                            <h3>Fuentes materiales</h3>
+                            <p>Condiciones sociales, económicas, políticas y culturales que impulsan la creación o modificación de normas.</p>
+                        </section>
+                        <section class="book-concept">
+                            <h3>Fuentes formales</h3>
+                            <p>Formas y procedimientos reconocidos por un ordenamiento para producir, identificar o expresar normas jurídicas.</p>
+                        </section>
+                    </div>
+                    <p>Las categorías son herramientas de análisis, no una lista universal que opere de idéntica manera en todos los países o materias. Para determinar si una práctica, decisión o principio tiene efectos jurídicos concretos, hay que consultar las reglas vigentes del sistema aplicable.</p>
+                </section>
+
+                <section id="fuentes-colombia">
+                    <h3>8. Fuentes y criterios jurídicos en Colombia</h3>
+                    <p>La Constitución Política de Colombia ocupa la posición superior del ordenamiento. Su artículo 4 dispone su prevalencia cuando exista incompatibilidad con otra norma. El artículo 230 establece que, al adoptar decisiones, los jueces están sometidos al imperio de la ley y señala la equidad, la jurisprudencia, los principios generales del Derecho y la doctrina como criterios auxiliares de la actividad judicial.</p>
+                    <p>Esta formulación debe leerse junto con el desarrollo constitucional y legal y con las reglas propias de cada materia. No significa que todas las decisiones judiciales tengan idéntico alcance, ni que la jurisprudencia se vuelva obligatoria automáticamente después de un número fijo de casos. El valor de un precedente depende, entre otros aspectos, de la autoridad que decide, el problema jurídico y las reglas aplicables.</p>
+                    <ul>
+                        <li><strong>La ley y las normas:</strong> deben ser expedidas por autoridades competentes y conforme a las reglas de producción normativa. En sentido amplio, el ordenamiento también comprende normas constitucionales y otras disposiciones reconocidas por el sistema.</li>
+                        <li><strong>La jurisprudencia:</strong> reúne decisiones judiciales que interpretan y aplican el Derecho. Los precedentes pueden orientar y, bajo reglas constitucionales y legales, tener fuerza vinculante; su alcance debe analizarse caso por caso.</li>
+                        <li><strong>La costumbre:</strong> práctica reiterada de una comunidad que puede producir efectos jurídicos cuando el ordenamiento la reconoce y se cumplen las condiciones pertinentes. Su papel no es idéntico en todas las áreas.</li>
+                        <li><strong>Los principios y la equidad:</strong> pueden orientar la interpretación o apoyar la solución de asuntos según las reglas aplicables; no autorizan a ignorar sin fundamento una norma vigente.</li>
+                        <li><strong>La doctrina:</strong> estudios y argumentos de especialistas que ayudan a comprender y debatir las normas. Por regla general, no equivale por sí sola a una decisión obligatoria.</li>
+                    </ul>
+                    <p>Al estudiar una fuente conviene preguntar quién la produjo, mediante qué procedimiento, en qué ámbito se aplica y qué jerarquía o efecto le reconoce el ordenamiento. Para Colombia, las referencias constitucionales iniciales son los artículos 4 y 230; su aplicación debe verificarse con el texto vigente y la materia correspondiente.</p>
+                </section>
+
+                <section id="clasificacion-derecho">
+                    <h3>9. Clasificación del Derecho</h3>
+                    <p>Las clasificaciones ordenan el estudio jurídico, pero sus límites pueden variar entre autores y áreas. Una distinción tradicional diferencia el Derecho público del privado: el primero suele ocuparse de la organización y actuación estatal y de relaciones regidas por potestades públicas; el segundo, de diversas relaciones entre particulares. No basta con que una entidad estatal participe para resolver la clasificación: también importa el carácter y el marco jurídico de la relación.</p>
+                    <div class="book-concept-grid">
+                        <section class="book-concept">
+                            <h3>Derecho público</h3>
+                            <p>Incluye áreas como el Derecho constitucional, administrativo y penal, que estudian, entre otros asuntos, la organización del Estado, el ejercicio de funciones públicas y la regulación de conductas mediante normas penales.</p>
+                        </section>
+                        <section class="book-concept">
+                            <h3>Derecho privado</h3>
+                            <p>Comprende áreas como el Derecho civil y comercial, relacionadas con personas, familia, bienes, obligaciones, contratos y actividad mercantil, de acuerdo con el ordenamiento aplicable.</p>
+                        </section>
+                    </div>
+                    <p>También se distingue entre <strong>Derecho objetivo</strong>, entendido como el conjunto de normas de un ordenamiento, y <strong>derecho subjetivo</strong>, como una facultad o posición jurídica reconocida a una persona. Ambos sentidos se relacionan: las facultades individuales se reconocen y delimitan dentro de un sistema normativo.</p>
+                    <p>El Derecho internacional público estudia, en términos generales, normas y relaciones entre Estados y otros sujetos reconocidos por ese ámbito. El Derecho internacional privado aborda problemas jurídicos de relaciones privadas conectadas con más de un país, como determinar la ley aplicable o la autoridad competente. Los derechos humanos, el Derecho internacional humanitario y el Derecho penal internacional son campos especializados relacionados, pero no deben presentarse sin matices como ramas equivalentes de una única clasificación universal.</p>
+                    <p>Estas divisiones son una guía inicial. Las materias pueden superponerse y sus nombres, alcance y organización dependen del sistema jurídico y del enfoque académico.</p>
+                </section>
+
+                <section id="actividad-capitulo-1">
+                    <h3>Actividad de reflexión</h3>
+                    <p>Elige una norma o decisión jurídica que conozcas. Identifica quién la produjo, qué tipo de fuente podría ser y a quiénes o a qué situación se aplica. Luego clasifica el asunto, de forma tentativa, como público, privado o internacional y explica qué información necesitarías para confirmar esa clasificación. Si no conoces la regla exacta, indícalo en vez de suponer su contenido.</p>
+                </section>
+
+                <section id="sintesis-capitulo-1">
+                    <h3>Síntesis</h3>
+                    <p>El Derecho organiza relaciones sociales mediante normas, instituciones y procedimientos, y puede servir a fines como la convivencia, la justicia, el bien común y la seguridad jurídica. Su significado no es único: puede referirse a un ordenamiento, una facultad, una práctica institucional o un ideal valorativo. Estudiar sus fuentes y clasificaciones permite preguntar cómo se producen las normas, qué efecto tienen y en qué contexto se aplican. En Colombia, el análisis debe partir de la supremacía constitucional y atender a la Constitución, la ley y los criterios reconocidos por el ordenamiento.</p>
+                </section>
+                </section>
+
+                <section id="capitulo-2">
+                    <h2>Capítulo 2. Constitución y derechos en Colombia</h2>
+                    <section id="concepto-constitucion">
+                        <h3>1. Qué es una Constitución</h3>
+                        <p>La Constitución puede entenderse como el conjunto de normas fundamentales que organiza el poder público y reconoce derechos, como el documento jurídico que las reúne, y como una decisión política sobre los principios básicos de una comunidad. En los Estados constitucionales, además, funciona como parámetro superior para la validez de las demás normas.</p>
+                        <p>Estas perspectivas no son excluyentes: la Constitución organiza instituciones, limita el poder y sirve de marco para producir e interpretar el Derecho. En Colombia, el artículo 4 de la Constitución Política establece su supremacía y dispone que, ante incompatibilidad con otra norma, prevalecen las disposiciones constitucionales.</p>
+                    </section>
+
+                    <section id="constitucion-1991">
+                        <h3>2. La Constitución Política de 1991</h3>
+                        <p>La Constitución vigente fue promulgada el 4 de julio de 1991, después de un proceso constituyente en un contexto de importantes tensiones sociales y políticas. Reemplazó la Constitución de 1886 y reorganizó distintos aspectos del Estado, incorporando una carta amplia de derechos, mecanismos de participación y herramientas de control constitucional.</p>
+                        <p>La Constitución es un texto vigente que ha sido reformado; por eso, al consultar sus artículos debe usarse una versión actualizada. Una descripción histórica general no reemplaza el análisis del texto constitucional, sus reformas y la jurisprudencia pertinente.</p>
+                    </section>
+
+                    <section id="principios-constitucionales">
+                        <h3>3. Principios y organización del Estado</h3>
+                        <p>El artículo 1 define a Colombia como un Estado social de derecho, organizado como República unitaria, descentralizada, con autonomía de sus entidades territoriales, democrática, participativa y pluralista, fundada, entre otros elementos, en la dignidad humana, el trabajo, la solidaridad y la prevalencia del interés general.</p>
+                        <p>La soberanía reside exclusivamente en el pueblo, del cual emana el poder público (artículo 3). El artículo 2 enuncia fines esenciales del Estado, entre ellos servir a la comunidad, promover la prosperidad general y garantizar la efectividad de los principios, derechos y deberes constitucionales.</p>
+                        <p>La organización estatal contempla ramas Legislativa, Ejecutiva y Judicial. El artículo 113 señala que tienen funciones separadas, pero colaboran armónicamente para realizar los fines del Estado. El Congreso ejerce la función legislativa; el Gobierno nacional encabeza la rama ejecutiva; y la rama judicial administra justicia conforme a la Constitución y la ley. La estructura constitucional también incluye órganos autónomos y otras instituciones, por lo que las tres ramas no agotan toda la organización estatal.</p>
+                        <p>La participación democrática incluye mecanismos previstos por la Constitución y la ley, como el voto, el referendo, el plebiscito, la consulta popular, la iniciativa legislativa y el cabildo abierto. Cada mecanismo tiene requisitos, autoridades y efectos propios; no son intercambiables entre sí.</p>
+                    </section>
+
+                    <section id="derechos-constitucionales">
+                        <h3>4. Derechos y deberes constitucionales</h3>
+                        <p>La Constitución reconoce derechos fundamentales, derechos sociales, económicos y culturales, y derechos colectivos y del ambiente, entre otras categorías útiles para su estudio. Las divisiones ayudan a ordenar el tema, pero no resuelven por sí solas el alcance de un derecho concreto: su protección depende de las disposiciones aplicables y de la interpretación constitucional.</p>
+                        <ul>
+                            <li><strong>Derechos fundamentales:</strong> incluyen garantías como la vida, la igualdad, la libertad, la intimidad, la libertad de expresión y el debido proceso.</li>
+                            <li><strong>Derechos sociales, económicos y culturales:</strong> abarcan, entre otros, la salud, la educación, el trabajo, la vivienda y la seguridad social. Su exigibilidad se analiza de acuerdo con el derecho involucrado y las circunstancias del caso.</li>
+                            <li><strong>Derechos colectivos y del ambiente:</strong> protegen intereses cuya afectación puede trascender a una persona, como el ambiente sano y otros intereses colectivos reconocidos por el ordenamiento.</li>
+                        </ul>
+                        <p>El artículo 93 establece reglas sobre tratados internacionales de derechos humanos ratificados por Colombia y su relación con los derechos constitucionales. La expresión <em>bloque de constitucionalidad</em> se refiere a un conjunto de normas y criterios que la Constitución y la jurisprudencia integran para ciertos análisis; no significa que todo tratado internacional tenga automáticamente idéntica jerarquía constitucional.</p>
+                        <p>El artículo 95 enuncia deberes y responsabilidades de las personas, entre ellos respetar los derechos ajenos, no abusar de los propios, obrar conforme al principio de solidaridad, participar en la vida política y comunitaria, propender por la paz, colaborar con la justicia y contribuir al financiamiento de los gastos e inversiones del Estado dentro de conceptos de justicia y equidad.</p>
+                        <p>Los deberes de convivencia no significan que una persona pierda automáticamente sus derechos por incumplir una obligación. Los derechos y deberes se interpretan dentro del marco constitucional y conforme a las reglas aplicables a cada situación.</p>
+                    </section>
+
+                    <section id="proteccion-constitucional">
+                        <h3>5. Mecanismos de protección constitucional</h3>
+                        <p>La Constitución y la ley prevén acciones y controles con finalidades y requisitos diferentes. Esta descripción es introductoria: antes de utilizar un mecanismo deben verificarse su procedencia, legitimación, autoridad competente, términos y reglas vigentes.</p>
+                        <ul>
+                            <li><strong>Acción de tutela:</strong> mecanismo preferente y sumario para solicitar protección inmediata de derechos fundamentales cuando se cumplen los requisitos constitucionales y legales. Su carácter subsidiario admite excepciones, por ejemplo, para evitar un perjuicio irremediable.</li>
+                            <li><strong>Acción popular:</strong> busca proteger derechos e intereses colectivos frente a una amenaza o vulneración, de acuerdo con sus reglas legales.</li>
+                            <li><strong>Acción de grupo:</strong> permite reclamar la reparación de perjuicios individuales sufridos por un conjunto de personas que reúne las condiciones legales; se distingue de la acción popular.</li>
+                            <li><strong>Acción pública de inconstitucionalidad:</strong> permite solicitar el control de constitucionalidad de determinadas normas ante la autoridad competente, dentro del ámbito y los requisitos establecidos.</li>
+                            <li><strong>Acción de cumplimiento:</strong> busca hacer efectivo el cumplimiento de una norma con fuerza material de ley o un acto administrativo, cuando se satisfacen las condiciones previstas por la ley.</li>
+                        </ul>
+                        <p>El control constitucional también comprende competencias atribuidas a distintas autoridades. No se reduce a una sola acción ni a una única clase de norma.</p>
+                    </section>
+
+                    <section id="actividad-capitulo-2">
+                        <h3>Actividad de aplicación</h3>
+                        <p>Escoge un derecho reconocido en la Constitución y explica, con tus propias palabras, qué protege. Identifica un deber ciudadano relacionado con la convivencia y busca cuál mecanismo podría ser pertinente ante una situación hipotética de afectación. No concluyas que una acción procede automáticamente: enumera qué hechos, requisitos y fuentes oficiales necesitarías revisar.</p>
+                    </section>
+
+                    <section id="sintesis-capitulo-2">
+                        <h3>Síntesis</h3>
+                        <p>La Constitución de 1991 organiza el Estado colombiano, limita el ejercicio del poder y reconoce derechos, principios y deberes. Su supremacía orienta la interpretación del ordenamiento, mientras que los mecanismos constitucionales ofrecen vías distintas para proteger derechos y controlar la actuación estatal. Para comprender un caso concreto es necesario consultar el texto vigente, la legislación que lo desarrolla y las decisiones judiciales pertinentes.</p>
+                    </section>
+                </section>
+
+                <section id="capitulo-3">
+                    <h2>Capítulo 3. Interpretación jurídica</h2>
+                    <section id="necesidad-interpretar">
+                        <h3>1. Por qué se interpretan las normas</h3>
+                        <p>Interpretar jurídicamente consiste en determinar el sentido y alcance de una disposición para analizar cómo se relaciona con un problema. El lenguaje puede ser general, una misma expresión puede admitir más de una lectura y los hechos pueden presentar situaciones que el texto no describe de manera expresa.</p>
+                        <p>La interpretación no consiste en atribuir libremente cualquier significado a una norma. Debe argumentarse con el texto, su contexto normativo, los fines pertinentes, la Constitución y los métodos reconocidos por el ordenamiento. La selección y el peso de esos criterios dependen de la cuestión jurídica y de la autoridad que interpreta.</p>
+                    </section>
+
+                    <section id="metodos-clasicos">
+                        <h3>2. Métodos clásicos de interpretación</h3>
+                        <ul>
+                            <li><strong>Literal o gramatical:</strong> examina las palabras, su sentido jurídico o usual y la estructura del enunciado. En Colombia, los artículos 27 y siguientes del Código Civil contienen reglas de interpretación legal, que deben leerse en su contexto y junto con las normas aplicables.</li>
+                            <li><strong>Sistemático:</strong> interpreta una disposición en relación con otras normas, la materia regulada y la estructura del ordenamiento, procurando coherencia y respetando la jerarquía normativa.</li>
+                            <li><strong>Histórico:</strong> considera antecedentes de formación y circunstancias relevantes de la norma como elementos interpretativos; por sí solo, el propósito histórico no sustituye el texto vigente ni resuelve automáticamente la cuestión.</li>
+                            <li><strong>Teleológico o finalista:</strong> considera los objetivos jurídicamente pertinentes de la disposición y su función dentro del sistema, con apoyo en razones verificables y compatibles con normas superiores.</li>
+                        </ul>
+                        <p>Estos métodos pueden complementarse. No constituyen necesariamente una secuencia fija ni conducen siempre a una única respuesta; quien interpreta debe explicar por qué unos criterios son pertinentes y cómo resuelve posibles tensiones.</p>
+                    </section>
+
+                    <section id="enfoques-constitucionales">
+                        <h3>3. Interpretación conforme a la Constitución y los derechos humanos</h3>
+                        <p>Al interpretar una norma deben considerarse la supremacía constitucional, los derechos y las garantías pertinentes. Si un texto admite varias interpretaciones razonables, el análisis puede examinar si alguna es compatible con la Constitución, sin ignorar las competencias judiciales ni los límites del texto legal.</p>
+                        <p>Los tratados de derechos humanos ratificados por Colombia y las reglas constitucionales aplicables pueden orientar la interpretación de los derechos. Esto exige identificar el instrumento pertinente, su alcance y la jurisprudencia correspondiente, en vez de invocar de manera genérica una perspectiva de derechos humanos.</p>
+                        <p>La equidad y los principios pueden cumplir las funciones que el ordenamiento les reconoce. El artículo 230 de la Constitución señala la ley como criterio al que están sometidos los jueces y enumera la equidad, la jurisprudencia, los principios generales del Derecho y la doctrina como criterios auxiliares de la actividad judicial.</p>
+                    </section>
+
+                    <section id="ejemplos-interpretacion">
+                        <h3>4. Ejemplos jurisprudenciales para estudiar</h3>
+                        <p>El material compartido propone revisar las sentencias T-760 de 2008, T-622 de 2016 y C-551 de 2003. Pueden servir como puntos de partida para estudiar decisiones constitucionales relacionadas, respectivamente, con el derecho a la salud, la protección del río Atrato y comunidades vinculadas con su cuenca, y el control de constitucionalidad de una ley de convocatoria a referendo.</p>
+                        <p>Estos fallos tienen contextos y problemas jurídicos específicos; no conviene reducirlos a ejemplos de un único método interpretativo ni atribuirles una regla general sin revisar el texto de la decisión. Antes de elaborar citas o describir su alcance, verifica la providencia oficial, sus hechos, fundamentos y parte resolutiva.</p>
+                    </section>
+
+                    <section id="actividad-capitulo-3">
+                        <h3>Actividad de análisis</h3>
+                        <p>Elige una disposición cuyo texto conozcas. Formula una pregunta de interpretación y escribe qué información aportarían la lectura literal, el contexto sistemático, los antecedentes disponibles y la finalidad de la norma. Después, identifica cualquier derecho o norma superior relevante y explica qué fuentes oficiales necesitarías consultar para sostener una conclusión.</p>
+                    </section>
+
+                    <section id="sintesis-capitulo-3">
+                        <h3>Síntesis</h3>
+                        <p>La interpretación jurídica requiere justificar el sentido atribuido a una norma. El análisis literal, sistemático, histórico y teleológico puede complementarse con la Constitución y los derechos humanos, de acuerdo con el ordenamiento aplicable. Una argumentación responsable identifica sus fuentes, explica sus criterios y evita convertir una sentencia particular en una regla universal sin sustento.</p>
+                    </section>
+                </section>
+
+                <section id="fuentes-consulta">
+                    <h2>Fuentes bibliográficas y jurídicas</h2>
+                    <h3>Autores y lecturas de teoría jurídica</h3>
+                    <ul>
+                        <li>Kelsen, Hans. <em>Teoría pura del derecho</em>. Obra de referencia para el estudio del positivismo jurídico y la estructura normativa.</li>
+                        <li>Hart, H. L. A. <em>El concepto de derecho</em>. Estudio de las reglas primarias y secundarias y de la estructura de los sistemas jurídicos.</li>
+                        <li>Dworkin, Ronald. <em>Los derechos en serio</em>. Análisis del papel de los principios y los derechos en la argumentación jurídica.</li>
+                        <li>Peces-Barba Martínez, Gregorio; Fernández García, Eusebio; y De Asís Roig, Rafael. <em>Curso de derechos fundamentales: teoría general</em>. Universidad Carlos III de Madrid y Boletín Oficial del Estado.</li>
+                        <li>Atienza, Manuel (2013). <em>Curso de argumentación jurídica</em>. Editorial Trotta.</li>
+                        <li>Buenaga Ceballos, Óscar (2016). <em>Metodología del razonamiento jurídico-práctico</em>. Dykinson.</li>
+                    </ul>
+                    <h3>Normativa y jurisprudencia colombiana</h3>
+                    <ul>
+                        <li><a href="https://www.secretariasenado.gov.co/senado/basedoc/constitucion_politica_1991.html">Constitución Política de Colombia de 1991</a>, en especial los artículos 4, 93, 95 y 230.</li>
+                        <li><a href="https://www.secretariasenado.gov.co/senado/basedoc/codigo_civil.html">Código Civil colombiano</a>, artículos 27 y siguientes sobre interpretación de la ley.</li>
+                        <li><a href="https://www.corteconstitucional.gov.co/relatoria/2008/T-760-08.htm">Corte Constitucional, Sentencia T-760 de 2008</a>.</li>
+                        <li><a href="https://www.corteconstitucional.gov.co/relatoria/2016/T-622-16.htm">Corte Constitucional, Sentencia T-622 de 2016</a>.</li>
+                        <li><a href="https://www.corteconstitucional.gov.co/relatoria/2003/C-551-03.htm">Corte Constitucional, Sentencia C-551 de 2003</a>.</li>
+                    </ul>
+                    <p>Las obras doctrinales pueden consultarse en la edición disponible en bibliotecas o catálogos académicos; los enlaces normativos y jurisprudenciales remiten a repositorios institucionales. Este material es educativo general: para un caso concreto, verifica la vigencia de las normas y consulta asesoría jurídica profesional.</p>
+                </section>
+            </article>
+        </div>
+    </main>
+</body>
+</html>

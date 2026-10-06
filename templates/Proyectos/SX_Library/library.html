@@ -4,7 +4,7 @@
     <!-- Metadatos y estilos comunes de la ficha de SX Library. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="SX Library: un espacio digital en preparación para descubrir libros de distintas temáticas.">
+    <meta name="description" content="SX Library: biblioteca digital con libros y materiales organizados por áreas temáticas.">
     <title>SX Library - Biblioteca digital</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
@@ -16,7 +16,7 @@
             <ul>
                 <li><a href="{{ url_for('home') }}">Inicio</a></li>
                 <li><a href="{{ url_for('comunidad') }}">Comunidad</a></li>
-                <li><a href="{{ url_for('proyectos') }}" class="active">Proyectos</a></li>
+                <li><a href="{{ url_for('proyectos') }}" class="active" aria-current="page">Proyectos</a></li>
                 <li><a href="{{ url_for('servicios') }}">Servicios</a></li>
                 <li><a href="{{ url_for('blog') }}">Blog</a></li>
             </ul>
@@ -41,7 +41,7 @@
 
         <section id="areas" aria-labelledby="areas-title">
             <h2 id="areas-title" class="library-section-heading">Explora por área</h2>
-            <p class="library-section-description">Organizamos los libros en ramas temáticas para que encuentres los contenidos relacionados. Estas son las áreas de SX Library; se incorporarán libros a medida que estén preparados.</p>
+            <p class="library-section-description">Explora las áreas temáticas y consulta los libros disponibles. Cada colección indica su estado y se ampliará gradualmente con nuevos materiales.</p>
             <div class="library-collections">
                 <article class="library-collection">
                     <span class="library-collection-icon" aria-hidden="true">§</span>
@@ -96,10 +96,10 @@
 
         <section class="library-featured" aria-labelledby="featured-title">
             <div>
-                <p class="library-eyebrow">Derecho · Primera obra digital</p>
+                <p class="library-eyebrow">Derecho · Libro destacado</p>
                 <h2 id="featured-title">Paz y conflicto</h2>
                 <p>Una introducción a las ideas de paz, los niveles de conflicto y las condiciones sociales que influyen en su desarrollo.</p>
-                <p class="library-book-byline">Por Juan D. Henao · Contenido en construcción y actualización continua</p>
+                <p class="library-book-byline">Autor: Juan D. Henao · Versión de trabajo en tres capítulos</p>
             </div>
             <a href="{{ url_for('sx_library_paz_y_conflicto') }}" class="btn">Leer el libro</a>
         </section>
@@ -107,7 +107,7 @@
         <!-- Las colecciones agrupan los temas que se incorporarán a la biblioteca. -->
         <section id="colecciones" aria-labelledby="collections-title">
             <h2 id="collections-title" class="library-section-heading">Un lugar para muchos temas</h2>
-            <p class="library-section-description">Estas son algunas de las colecciones que queremos construir para explorar, aprender y compartir.</p>
+            <p class="library-section-description">Además de las áreas del catálogo, estas colecciones transversales están previstas para explorar, aprender y compartir.</p>
 
             <div class="library-collections">
                 <article class="library-collection">
@@ -143,7 +143,7 @@
             <span class="library-collection-icon" aria-hidden="true">i</span>
             <div>
                 <strong>Una biblioteca digital en crecimiento</strong>
-                <p>La primera obra ya cuenta con una página de lectura en desarrollo. Sus contenidos se pueden revisar y actualizar; las fuentes y atribuciones se indicarán para facilitar la consulta. <a href="{{ url_for('comunidad_colaboradores') }}">Conoce cómo colaborar.</a></p>
+                <p>SX Library reúne libros de lectura y versiones de trabajo que pueden revisarse y actualizarse. Las fuentes y atribuciones se presentan para facilitar la consulta; verifica las notas editoriales de cada obra. <a href="{{ url_for('comunidad_colaboradores') }}">Conoce cómo colaborar.</a></p>
             </div>
         </aside>
     </main>

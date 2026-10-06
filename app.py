@@ -76,9 +76,45 @@ def sx_library_derecho():
     return render_template("Proyectos/SX_Library/Derecho/derecho.html")
 
 
+@app.route("/sx-library/derecho/fundamentos-juridicos-colombia")
+def sx_library_fundamentos_juridicos():
+    return render_template(
+        "Proyectos/SX_Library/Derecho/Fundamentos_juridicos_Colombia/fundamentos_juridicos_colombia.html"
+    )
+
+
 @app.route("/sx-library/software")
 def sx_library_software():
     return render_template("Proyectos/SX_Library/Software/software.html")
+
+
+@app.route("/sx-library/software/pensamiento-algoritmico")
+def sx_library_pensamiento_algoritmico():
+    return render_template(
+        "Proyectos/SX_Library/Software/Pensamiento_algoritmico/pensamiento_algoritmico.html"
+    )
+
+
+@app.route("/sx-library/educacion/idiomas")
+def sx_library_idiomas():
+    return render_template(
+        "Proyectos/SX_Library/area.html",
+        area_name="Idiomas",
+        area_description=(
+            "Libros y materiales para aprender y enseñar idiomas, desarrollar "
+            "competencias comunicativas y explorar recursos para el aprendizaje "
+            "de lenguas."
+        ),
+        parent_area_name="Educación",
+        parent_area_url=url_for("sx_library_area", area_slug="educacion"),
+    )
+
+
+@app.route("/sx-library/educacion/educacion-digital")
+def sx_library_educacion_digital():
+    return render_template(
+        "Proyectos/SX_Library/Educacion/Educacion_digital/educacion_digital.html"
+    )
 
 
 @app.route("/sx-library/<area_slug>")
@@ -86,7 +122,11 @@ def sx_library_area(area_slug):
     area = SX_LIBRARY_AREAS.get(area_slug)
     if area is None:
         abort(404)
-    return render_template("Proyectos/SX_Library/area.html", **area)
+    return render_template(
+        "Proyectos/SX_Library/area.html",
+        area_slug=area_slug,
+        **area,
+    )
 
 
 @app.route("/sx-library/paz-y-conflicto")

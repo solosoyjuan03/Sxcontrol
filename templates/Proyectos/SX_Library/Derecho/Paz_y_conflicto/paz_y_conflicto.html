@@ -14,7 +14,7 @@
             <ul>
                 <li><a href="{{ url_for('home') }}">Inicio</a></li>
                 <li><a href="{{ url_for('comunidad') }}">Comunidad</a></li>
-                <li><a href="{{ url_for('proyectos') }}">Proyectos</a></li>
+                <li><a href="{{ url_for('proyectos') }}" class="active" aria-current="page">Proyectos</a></li>
                 <li><a href="{{ url_for('servicios') }}">Servicios</a></li>
                 <li><a href="{{ url_for('blog') }}">Blog</a></li>
             </ul>
@@ -25,13 +25,15 @@
         <nav class="book-breadcrumb" aria-label="Ruta de navegación">
             <a href="{{ url_for('sx_library') }}">SX Library</a>
             <span aria-hidden="true">/</span>
+            <a href="{{ url_for('sx_library_derecho') }}">Derecho</a>
+            <span aria-hidden="true">/</span>
             <span aria-current="page">Paz y conflicto</span>
         </nav>
 
         <header class="book-hero">
             <p class="library-eyebrow">SX Library · Libro digital</p>
             <h1>Paz y <span>conflicto</span></h1>
-            <p class="book-author">Juan D. Henao</p>
+            <p class="book-author">Autor: Juan D. Henao</p>
             <p class="book-lead">Una introducción para observar los conflictos con más claridad, comprender las condiciones que los rodean y explorar formas pacíficas y responsables de abordarlos.</p>
             <p class="book-status">Versión de trabajo · Contenido digital revisable y actualizable</p>
         </header>
@@ -82,15 +84,14 @@
             <article class="book-content">
                 <section id="capitulo-1">
                     <h2>Capítulo 1. Comprender la paz y los conflictos</h2>
-                </section>
                 <section id="introduccion">
-                    <h2>Introducción</h2>
+                    <h3>Introducción</h3>
                     <p>La paz no se comprende únicamente preguntando si hay enfrentamientos. También es necesario observar cómo viven las personas, qué oportunidades tienen y si pueden participar en las decisiones que les afectan. Del mismo modo, un conflicto no es solo un choque visible: puede surgir de necesidades incompatibles, de una comunicación difícil o de condiciones sociales que limitan las opciones de algunos grupos.</p>
                     <p>Este capítulo presenta herramientas iniciales para analizar esos fenómenos. La intención no es ofrecer una fórmula única, sino aprender a hacer mejores preguntas, reconocer diferentes escalas y pensar respuestas que reduzcan el daño y abran posibilidades de cambio.</p>
                 </section>
 
                 <section id="conceptos-de-paz">
-                    <h2>1. Dos dimensiones de la paz</h2>
+                    <h3>1. Dos dimensiones de la paz</h3>
                     <p>En los estudios de paz se suele distinguir entre <strong>paz negativa</strong> y <strong>paz positiva</strong>, conceptos asociados con el trabajo de Johan Galtung (1996). Esta distinción permite examinar tanto la presencia de violencia directa como las condiciones que facilitan una vida digna.</p>
                     <div class="book-concept-grid">
                         <section class="book-concept">
@@ -106,7 +107,7 @@
                 </section>
 
                 <section id="cultura-de-paz">
-                    <h2>2. Cultura de paz</h2>
+                    <h3>2. Cultura de paz</h3>
                     <p>La cultura de paz, promovida por la UNESCO, puede entenderse como un compromiso compartido con valores y prácticas que favorecen el respeto, la cooperación y la solución no violenta de las diferencias. Se construye tanto en acuerdos colectivos como en las decisiones cotidianas: escuchar antes de responder, reconocer la dignidad de otras personas y buscar formas justas de reparar el daño.</p>
                     <p>Una cultura de paz también requiere condiciones que hagan posible la participación y el ejercicio de los derechos. La educación, el diálogo y el respeto a la diversidad pueden ayudar a prevenir algunas formas de violencia, pero no sustituyen la protección efectiva de derechos ni la atención de desigualdades profundas.</p>
                     <ul class="book-practice-list">
@@ -118,7 +119,7 @@
                 </section>
 
                 <section id="niveles-de-conflicto">
-                    <h2>3. Niveles del conflicto</h2>
+                    <h3>3. Niveles del conflicto</h3>
                     <p>Ubicar el nivel de un conflicto ayuda a reconocer quiénes están implicados y qué aspectos habría que comprender. Una misma situación puede abarcar más de un nivel y cambiar de escala con el tiempo.</p>
                     <dl class="book-level-list">
                         <div>
@@ -141,7 +142,7 @@
                 </section>
 
                 <section id="factores-y-poder">
-                    <h2>4. Factores y relaciones de poder</h2>
+                    <h3>4. Factores y relaciones de poder</h3>
                     <p>Los conflictos suelen tener más de una causa. Para comprenderlos, conviene explorar el contexto en vez de atribuirlos de inmediato a una sola persona o decisión. Entre los factores que pueden influir están:</p>
                     <ul>
                         <li><strong>Sociales:</strong> exclusión, discriminación o barreras de acceso a derechos y oportunidades.</li>
@@ -154,7 +155,7 @@
                 </section>
 
                 <section id="actividad">
-                    <h2>Actividad de aplicación</h2>
+                    <h3>Actividad de aplicación</h3>
                     <p>Elige una situación real que puedas describir sin exponer datos privados, o crea un caso ficticio. Usa estas preguntas como guía:</p>
                     <ol>
                         <li>¿Qué ocurrió y quiénes se ven afectados?</li>
@@ -167,13 +168,13 @@
                 </section>
 
                 <section id="sintesis">
-                    <h2>Síntesis</h2>
+                    <h3>Síntesis</h3>
                     <p>La paz incluye tanto la ausencia de violencia directa como las condiciones que sostienen la justicia y el bienestar. Los conflictos pueden aparecer en la experiencia personal, en las relaciones, en las comunidades y en las estructuras sociales. Para analizarlos con cuidado, hace falta observar sus causas, las relaciones de poder y las voces que participan o han sido excluidas.</p>
                     <p>El diálogo, la mediación y la colaboración pueden ser herramientas valiosas cuando se aplican con atención a la seguridad, la equidad y los derechos de las personas. Comprender mejor una situación es un primer paso para imaginar respuestas pacíficas y responsables.</p>
                 </section>
 
                 <section id="referencias">
-                    <h2>Referencias para profundizar</h2>
+                    <h3>Referencias para profundizar</h3>
                     <p>Estas referencias se ofrecen como punto de partida; los datos editoriales completos deben confirmarse en las ediciones consultadas.</p>
                     <ul>
                         <li>Galtung, Johan (1996). Trabajo citado sobre paz negativa, paz positiva y violencia estructural.</li>
@@ -183,15 +184,15 @@
                     </ul>
                     <p>Esta página es un material educativo introductorio, no asesoría jurídica ni sustituto de atención profesional. Su contenido puede revisarse y actualizarse conforme se verifiquen fuentes y se amplíe la obra.</p>
                 </section>
+                </section>
 
                 <section id="capitulo-2">
                     <h2>Capítulo 2. Teorías y enfoques para la resolución pacífica de conflictos</h2>
                     <p>Las diferencias forman parte de la vida en común. Para responder a ellas de manera constructiva, primero conviene comprender cómo se originan, qué relaciones y necesidades involucran y qué opciones existen para abordarlas. Este capítulo presenta algunas perspectivas de análisis y compara tres vías de resolución: negociación, mediación y arbitraje.</p>
                     <p>Ningún método sirve para todas las situaciones. La elección depende, entre otros factores, de la voluntad de las partes, la relación entre ellas, la seguridad, las reglas aplicables y quién debe tomar la decisión final.</p>
-                </section>
 
                 <section id="teorias-conflicto">
-                    <h2>1. Perspectivas para comprender el conflicto</h2>
+                    <h3>1. Perspectivas para comprender el conflicto</h3>
                     <p>Las teorías sociales no son recetas para resolver una disputa: ofrecen lentes distintos para formular preguntas sobre sus causas y efectos. Algunas perspectivas clásicas que pueden orientar el análisis son:</p>
                     <dl class="book-level-list">
                         <div>
@@ -215,7 +216,7 @@
                 </section>
 
                 <section id="negociacion">
-                    <h2>2. Negociación: construir acuerdos directamente</h2>
+                    <h3>2. Negociación: construir acuerdos directamente</h3>
                     <p>En la negociación, las partes conversan para intentar alcanzar un acuerdo y conservan la decisión sobre aceptarlo o no. Puede ser informal o seguir reglas previamente acordadas. Resulta más viable cuando las personas pueden participar libremente, comunicarse con seguridad y considerar opciones realistas.</p>
                     <p>Dos enfoques frecuentes son:</p>
                     <ul>
@@ -227,21 +228,21 @@
                 </section>
 
                 <section id="mediacion">
-                    <h2>3. Mediación: diálogo con apoyo de una tercera persona</h2>
+                    <h3>3. Mediación: diálogo con apoyo de una tercera persona</h3>
                     <p>En la mediación, una persona tercera ayuda a organizar la conversación, clarificar lo que cada parte necesita y explorar posibles acuerdos. En general, quien media no decide el resultado por las partes. La función precisa y las reglas del proceso dependen del contexto y del marco aplicable.</p>
                     <p>La participación informada y voluntaria suele ser central en la mediación comunitaria o interpersonal. La persona facilitadora debe explicar su rol, tratar a las partes con imparcialidad y atender a cualquier desequilibrio que afecte la posibilidad de participar. La mediación no es apropiada en todos los casos: si existe intimidación, violencia, riesgo, incapacidad para negociar libremente o una obligación legal de actuar, se deben priorizar la seguridad y los canales especializados pertinentes.</p>
                     <p>Según el propósito y el modelo empleado, la mediación puede centrarse en facilitar la comunicación, ayudar a evaluar opciones o fortalecer el reconocimiento mutuo. Estas etiquetas se utilizan de distintas maneras en la práctica; es importante acordar con claridad qué hará la persona mediadora y qué decisiones siguen en manos de las partes.</p>
                 </section>
 
                 <section id="arbitraje">
-                    <h2>4. Arbitraje: decisión de una tercera persona</h2>
+                    <h3>4. Arbitraje: decisión de una tercera persona</h3>
                     <p>En el arbitraje, las partes presentan argumentos y antecedentes ante una persona o tribunal arbitral que emite una decisión. A diferencia de la negociación y la mediación, aquí las partes delegan la decisión final dentro de las reglas y el alcance acordados o establecidos por la ley.</p>
                     <p>Puede haber arbitrajes administrados por una institución o conducidos bajo reglas acordadas para un caso específico. La participación obligatoria, el carácter vinculante, la confidencialidad, los costos y la posibilidad de revisar la decisión varían según el convenio y la legislación de cada jurisdicción. Por ello, antes de optar por esta vía es importante entender las condiciones y, cuando corresponda, obtener asesoría jurídica independiente.</p>
                     <p>Una preparación responsable implica presentar la información con orden, conocer el procedimiento y verificar la independencia y competencia de quienes decidirán. La rapidez o privacidad no están garantizadas de forma universal; dependen del proceso concreto.</p>
                 </section>
 
                 <section id="habilidades-resolucion">
-                    <h2>5. Habilidades para un diálogo constructivo</h2>
+                    <h3>5. Habilidades para un diálogo constructivo</h3>
                     <p>Las herramientas de resolución funcionan mejor cuando se apoyan en habilidades que permiten expresar las necesidades, comprender a otras personas y crear opciones de manera conjunta.</p>
                     <h3>Comunicación asertiva</h3>
                     <p>Consiste en expresar pensamientos, necesidades y límites de forma directa y respetuosa, sin imponerlos ni ocultarlos. Hablar desde la propia experiencia —por ejemplo, “Me preocupa que no tengamos claro quién hará cada tarea”— puede comunicar un problema sin convertirlo en una acusación personal. Una respuesta serena puede reconocer parte de lo dicho sin aceptar aquello con lo que no se está de acuerdo; ninguna técnica exige renunciar a límites o derechos.</p>
@@ -252,7 +253,7 @@
                 </section>
 
                 <section id="actividad-capitulo-2">
-                    <h2>Actividad de aplicación y síntesis</h2>
+                    <h3>Actividad de aplicación y síntesis</h3>
                     <p>Piensa en un desacuerdo ficticio o describe uno cotidiano sin incluir datos identificables. Responde:</p>
                     <ol>
                         <li>¿Qué necesitan las partes y qué posiciones expresan?</li>
@@ -265,7 +266,7 @@
                 </section>
 
                 <section id="referencias-capitulo-2">
-                    <h2>Referencias para profundizar</h2>
+                    <h3>Referencias para profundizar</h3>
                     <p>El material de estudio compartido menciona las siguientes fuentes. Se incluyen como pistas de consulta; verifica ediciones, datos editoriales, páginas y pertinencia antes de publicar una bibliografía formal.</p>
                     <ul>
                         <li>La Rosa y Rivas (2017), sobre conflicto y métodos de resolución.</li>
@@ -278,14 +279,14 @@
                     </ul>
                     <p>Los nombres y referencias a Marx, Weber, Sun Tzu y González Rey también requieren completar las ediciones consultadas. Las citas textuales y números de página del material de estudio no se reproducen en esta versión.</p>
                 </section>
+                </section>
 
                 <section id="capitulo-3">
                     <h2>Capítulo 3. Educación para la paz y los derechos humanos</h2>
                     <p>La educación para la paz no se limita a estudiar conceptos: también invita a practicar formas de convivencia basadas en la dignidad, el respeto y la participación. Este capítulo explora cómo los derechos humanos pueden orientar el diálogo y la cooperación, y presenta herramientas para que grupos y comunidades trabajen ante sus diferencias sin perder de vista la seguridad y la inclusión.</p>
-                </section>
 
                 <section id="educacion-paz">
-                    <h2>1. Educar para la paz</h2>
+                    <h3>1. Educar para la paz</h3>
                     <p>Una educación orientada a la paz combina conocimientos con oportunidades para desarrollar empatía, pensamiento crítico, diálogo y respeto por la diversidad. Su alcance puede ir más allá del aula: las mismas capacidades pueden ponerse en práctica en familias, organizaciones, espacios laborales y comunidades.</p>
                     <div class="book-concept-grid">
                         <section class="book-concept">
@@ -305,7 +306,7 @@
                 </section>
 
                 <section id="derechos-humanos">
-                    <h2>2. Derechos humanos y respeto por la diversidad</h2>
+                    <h3>2. Derechos humanos y respeto por la diversidad</h3>
                     <p>Los derechos humanos ofrecen principios comunes para reconocer la dignidad de todas las personas. La Declaración Universal de Derechos Humanos, adoptada por las Naciones Unidas en 1948, comienza afirmando la igualdad en dignidad y derechos. Este marco ayuda a recordar que resolver una diferencia no justifica discriminar, intimidar ni imponer condiciones que vulneren derechos.</p>
                     <p>En la práctica, un enfoque respetuoso de los derechos puede traducirse en:</p>
                     <ul class="book-practice-list">
@@ -318,7 +319,7 @@
                 </section>
 
                 <section id="estrategias-derechos">
-                    <h2>3. Estrategias basadas en derechos</h2>
+                    <h3>3. Estrategias basadas en derechos</h3>
                     <p>Los principios de derechos humanos pueden orientar acciones concretas para abordar desacuerdos y sus causas. Las opciones apropiadas dependen del contexto, de las personas implicadas y de las obligaciones legales aplicables.</p>
                     <dl class="book-level-list">
                         <div>
@@ -341,7 +342,7 @@
                 </section>
 
                 <section id="herramientas-colaborativas">
-                    <h2>4. Herramientas colaborativas para construir paz</h2>
+                    <h3>4. Herramientas colaborativas para construir paz</h3>
                     <p>Las herramientas colaborativas ofrecen maneras distintas de organizar la participación. Su utilidad depende del propósito, de la seguridad y del consentimiento de quienes participan.</p>
                     <h3>Círculos de diálogo</h3>
                     <p>Un grupo puede reunirse con acuerdos de conversación y turnos que eviten interrupciones. Una facilitación cuidadosa puede ayudar a que se expresen distintas perspectivas; nadie debe ser obligado a compartir información personal o a permanecer en un espacio que considere inseguro.</p>
@@ -354,7 +355,7 @@
                 </section>
 
                 <section id="actividad-capitulo-3">
-                    <h2>Actividad y síntesis</h2>
+                    <h3>Actividad y síntesis</h3>
                     <p>Imagina una situación en la escuela, el trabajo o la comunidad donde un desacuerdo afecte a varias personas. Sin incluir datos privados, responde:</p>
                     <ol>
                         <li>¿Qué derechos, necesidades o perspectivas deben considerarse?</li>
@@ -367,7 +368,7 @@
                 </section>
 
                 <section id="referencias-capitulo-3">
-                    <h2>Referencias para profundizar</h2>
+                    <h3>Referencias para profundizar</h3>
                     <p>El material de estudio compartido menciona estas fuentes y recursos como punto de partida. Completa y verifica los datos bibliográficos, las ediciones, los enlaces y las páginas antes de publicar una bibliografía formal.</p>
                     <ul>
                         <li>Sánchez Cardona, Mariela (2016). <em>Educación para la cultura de paz: una aproximación psicopedagógica</em>.</li>
@@ -379,6 +380,7 @@
                         <li>Neuronilla (2008). Recurso sobre solución creativa de problemas.</li>
                     </ul>
                     <p>Los recursos audiovisuales y enlaces mencionados en el material original deben revisarse para confirmar su disponibilidad, autoría y pertinencia. Esta obra es educativa y no sustituye asesoría jurídica, servicios de protección ni atención especializada.</p>
+                </section>
                 </section>
             </article>
         </div>
