@@ -27,6 +27,22 @@
         <h1><span>Noticias</span> SXcontrol</h1>
         <p>Selecciona una fecha para desplegar las novedades y avances registrados ese día.</p>
 
+
+        {% macro novedades_7_octubre() %}
+        <section class="noticias-timeline" aria-label="Avances del 25 de septiembre">
+            <details class="noticias-fecha">
+                <summary><time datetime="2026-09-25">7 de octubre de 2026</time></summary>
+                <div class="noticias-fecha-contenido">
+                    <article class="noticia-avance">
+                        <h3>Definicion de tecnologias</h3>
+                        <p>Se define como sistema operativo nativo oficial del proyecto Linux Mint 22.3; QEMU como software de virtualización para el cumplimiento y aseguramiento de políticas de calidad y seguridad; Kali Linux en su versión 2026.2, como OS para pruebas de aseguramiento de calidad y seguridad; Debian 13.7 para pruebas de elaboración de nuestro entorno de trabajo; y Windows 10 IoT LTSC como sistema operativo de soporte en la migración de datos a sistemas más seguros e independientes. Por último, se establece el explorador Firefox como medio oficial de trabajo.</p>
+                    </article>
+                </div>
+            </details>
+        </section>
+        {% endmacro %}
+
+        
         {% macro novedades_6_octubre() %}
         <section class="noticias-timeline" aria-label="Automatización del repositorio local y remoto">
             <details class="noticias-fecha">
