@@ -1,15 +1,24 @@
 import math
+import os
+import secrets
 import sqlite3
 from datetime import datetime
 from pathlib import Path
 
-from flask import Flask, abort, redirect, render_template, request, url_for
+from flask import Flask, abort, redirect, render_template, request, session, url_for
 
 # La aplicación concentra las rutas públicas y los cálculos usados por las páginas.
 app = Flask(__name__)
 
-# Clave para registrar entradas del blog; se puede cambiar con la variable de entorno BLOG_ADMIN_KEY.
-app.config["BLOG_ADMIN_KEY"] = os_environ = __import__("os").environ.get("BLOG_ADMIN_KEY", "sxcontrol2026")
+# Clave para firmar las cookies de sesión y para validar el acceso al panel.
+app.secret_key = os.environ.get("FLASK_SECRET_KEY", secrets.token_hex(32))
+
+# La sesión del panel dura 7 días sin volver a pedir credenciales.
+app.config["PERMANENT_SESSION_LIFETIME"] = __import__("datetime").timedelta(days=7)
+
+# Credenciales del panel: correo autorizado y clave de acceso (variables de entorno o valores por defecto).
+ADMIN_CORREO = os.environ.get("ADMIN_CORREO", "solosoyjuan03@gmail.com")
+app.config["BLOG_ADMIN_KEY"] = os.environ.get("BLOG_ADMIN_KEY", "sxcontrol2026")
 
 # Ruta de la base de datos SQLite del blog, junto a app.py.
 BASE_DIR = Path(__file__).resolve().parent
@@ -654,20 +663,38 @@ def blog():
 
 
 # Panel único de administración: entradas del blog y textos de las fichas.
+# Requiere iniciar sesión con el correo autorizado y la clave; la sesión
+# persiste en una cookie firmada, así que no vuelve a pedirse en cada acción.
 @app.route("/admin", methods=["GET", "POST"])
 def admin():
+    # Inicio de sesión: valida correo + clave y guarda la sesión.
+    if request.method == "POST" and request.form.get("accion") == "login":
+        correo = request.form.get("correo", "").strip().lower()
+        clave = request.form.get("clave", "")
+        if correo == ADMIN_CORREO.lower() and clave == app.config["BLOG_ADMIN_KEY"]:
+            session["admin"] = correo
+            session.permanent = True
+            return redirect("/admin")
+        return render_template("Admin/login.html", error="Correo o clave incorrectos."), 401
+
+    # Cerrar sesión.
+    if request.method == "POST" and request.form.get("accion") == "salir":
+        session.pop("admin", None)
+        return redirect("/admin")
+
+    # Autoautenticación: si no hay sesión activa, se muestra primero el login.
+    if "admin" not in session:
+        return render_template("Admin/login.html")
+
     mensaje = None
     error = None
 
     # Sección 1: registrar una entrada nueva del blog.
     if request.method == "POST" and request.form.get("accion") == "entrada":
-        clave = request.form.get("clave", "")
         fecha = request.form.get("fecha", "").strip()
         titulo = request.form.get("titulo", "").strip()
         cuerpo = request.form.get("cuerpo", "").strip()
-        if clave != app.config["BLOG_ADMIN_KEY"]:
-            error = "Clave incorrecta."
-        elif not fecha or not titulo or not cuerpo:
+        if not fecha or not titulo or not cuerpo:
             error = "Completa la fecha, el título y el contenido."
         else:
             try:
@@ -687,25 +714,22 @@ def admin():
         clave_ficha = request.form.get("clave", "")
         if clave_ficha not in CAMPOS_TEXTO:
             abort(400)
-        if request.form.get("clave_acceso", "") != app.config["BLOG_ADMIN_KEY"]:
-            error = "Clave incorrecta."
-        else:
-            ahora = datetime.now().isoformat(timespec="seconds")
-            with sqlite3.connect(DB_PATH) as conexion:
-                for campo in CAMPOS_TEXTO[clave_ficha]:
-                    contenido = request.form.get(campo, "").strip()
-                    if campo == "titulo" and not contenido:
-                        continue
-                    conexion.execute(
-                        """
-                        INSERT INTO textos (clave, contenido, actualizada)
-                        VALUES (?, ?, ?)
-                        ON CONFLICT(clave) DO UPDATE SET contenido = excluded.contenido,
-                            actualizada = excluded.actualizada
-                        """,
-                        (f"{clave_ficha}:{campo}", contenido, ahora),
-                    )
-            mensaje = "Textos guardados. Ya aparecen en la página del proyecto."
+        ahora = datetime.now().isoformat(timespec="seconds")
+        with sqlite3.connect(DB_PATH) as conexion:
+            for campo in CAMPOS_TEXTO[clave_ficha]:
+                contenido = request.form.get(campo, "").strip()
+                if campo == "titulo" and not contenido:
+                    continue
+                conexion.execute(
+                    """
+                    INSERT INTO textos (clave, contenido, actualizada)
+                    VALUES (?, ?, ?)
+                    ON CONFLICT(clave) DO UPDATE SET contenido = excluded.contenido,
+                        actualizada = excluded.actualizada
+                    """,
+                    (f"{clave_ficha}:{campo}", contenido, ahora),
+                )
+        mensaje = "Textos guardados. Ya aparecen en la página del proyecto."
 
     # La ficha mostrada en el editor se elige con ?clave=... (GET) o desde el último POST.
     clave_seleccionada = request.values.get("clave", "sx-woodpecker-os")

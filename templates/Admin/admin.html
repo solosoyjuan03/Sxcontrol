@@ -20,7 +20,12 @@
     </header>
     <main class="hero">
         <h1><span>Panel de</span> administración</h1>
-        <p>Desde aquí registras entradas nuevas del Blog y editas los textos de las fichas de proyectos. Todo queda guardado en la base de datos SQLite.</p>
+        <p>Sesión iniciada como <strong>{{ session['admin'] }}</strong>. Desde aquí registras entradas nuevas del Blog y editas los textos de las fichas de proyectos. Todo queda guardado en la base de datos SQLite.</p>
+
+        <form method="post" action="/admin" style="margin-bottom: 20px;">
+            <input type="hidden" name="accion" value="salir">
+            <button type="submit" class="btn btn-secundario">Cerrar sesión</button>
+        </form>
 
         {% if mensaje %}
         <p class="admin-mensaje"><strong>{{ mensaje }}</strong></p>
@@ -33,8 +38,6 @@
             <h2 id="titulo-entradas">Nueva entrada del Blog</h2>
             <form method="post" action="/admin" class="admin-form">
                 <input type="hidden" name="accion" value="entrada">
-                <label for="clave">Clave de acceso</label>
-                <input type="password" id="clave" name="clave" required>
 
                 <label for="fecha">Fecha de la entrada (AAAA-MM-DD)</label>
                 <input type="text" id="fecha" name="fecha" placeholder="2026-10-13" required>
@@ -64,9 +67,6 @@
             <form method="post" action="/admin" class="admin-form">
                 <input type="hidden" name="accion" value="textos">
                 <input type="hidden" name="clave" value="{{ clave_seleccionada }}">
-
-                <label for="clave_acceso">Clave de acceso</label>
-                <input type="password" id="clave_acceso" name="clave_acceso" required>
 
                 {% for campo in campos %}
                 <label for="{{ campo }}">{{ etiquetas[campo] }}</label>

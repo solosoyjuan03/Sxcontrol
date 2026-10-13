@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Inicio de sesión del panel de administración. -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Acceso al panel - SXcontrol</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header>
+        <a class="logo" href="/" aria-label="SXcontrol, inicio">SX<span>control</span></a>
+        <nav>
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/blog/noticias">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="hero">
+        <h1><span>Acceso</span> al panel</h1>
+        <p>Ingresa con el correo autorizado y la clave del panel. La sesión queda abierta en este navegador, así que no volverá a pedirla en cada acción.</p>
+
+        {% if error %}
+        <p class="admin-error"><strong>{{ error }}</strong></p>
+        {% endif %}
+
+        <form method="post" action="/admin" class="admin-form">
+            <input type="hidden" name="accion" value="login">
+            <label for="correo">Correo</label>
+            <input type="email" id="correo" name="correo" autocomplete="username" required>
+
+            <label for="clave">Clave</label>
+            <input type="password" id="clave" name="clave" autocomplete="current-password" required>
+
+            <button type="submit">Ingresar</button>
+        </form>
+    </main>
+</body>
+</html>
