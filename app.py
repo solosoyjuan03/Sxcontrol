@@ -22,7 +22,7 @@ MESES_ES = {
 
 
 def init_db():
-    """Crea la tabla de entradas del blog si aún no existe."""
+    """Crea las tablas del sitio si aún no existen."""
     with sqlite3.connect(DB_PATH) as conexion:
         conexion.execute(
             """
@@ -35,6 +35,165 @@ def init_db():
             )
             """
         )
+        # Textos editables de las páginas: fichas de borrador y cualquier otra sección.
+        # Cada fila guarda un campo de texto identificado por su clave única.
+        conexion.execute(
+            """
+            CREATE TABLE IF NOT EXISTS textos (
+                clave TEXT PRIMARY KEY,
+                contenido TEXT NOT NULL,
+                actualizada TEXT NOT NULL
+            )
+            """
+        )
+
+
+# Textos iniciales de las fichas de borrador. Actúan como respaldo cuando la
+# base de datos no tiene una edición guardada para esa clave.
+TEXTOS_BASE = {
+    "sx-woodpecker-os": {
+        "titulo": "SX Woodpecker OS",
+        "resumen": (
+            "Una propuesta de sistema operativo basado en Debian, orientado al "
+            "aseguramiento de calidad y seguridad en infraestructuras digitales."
+        ),
+        "pendientes": [
+            "Definir los componentes y herramientas que formarán parte del sistema.",
+            "Establecer el alcance de las pruebas y los perfiles de infraestructura compatibles.",
+            "Documentar requisitos, instalación, mantenimiento y ciclo de actualizaciones.",
+        ],
+    },
+    "sx-orange-page": {
+        "titulo": "SX Orange Page",
+        "resumen": (
+            "Una propuesta de directorio local para consultar información general "
+            "y datos de ubicación de comercios."
+        ),
+        "pendientes": [
+            "Definir las zonas y categorías incluidas en el directorio.",
+            "Acordar cómo se verificará y actualizará la información publicada.",
+            "Establecer criterios de privacidad y autorización para los datos.",
+        ],
+    },
+    "sx-recruiter": {
+        "titulo": "SX Recruiter",
+        "resumen": (
+            "Una propuesta para reunir oportunidades laborales de distintos tipos "
+            "dirigidas a personas de Latinoamérica."
+        ),
+        "pendientes": [
+            "Definir las fuentes y el proceso de revisión de cada oportunidad.",
+            "Precisar las categorías, regiones y condiciones que se mostrarán.",
+            "Establecer cómo se reportarán ofertas vencidas o información incorrecta.",
+        ],
+    },
+    "sx-registros": {
+        "titulo": "SX Registros",
+        "resumen": (
+            "Una propuesta de canal oficial para registrar el interés en participar "
+            "en los proyectos de SXcontrol."
+        ),
+        "pendientes": [
+            "Definir qué información sería necesaria y con qué propósito.",
+            "Publicar las condiciones de privacidad y el tiempo de conservación de datos.",
+            "Diseñar el proceso de revisión y respuesta antes de aceptar registros.",
+        ],
+    },
+    "sx-documento": {
+        "titulo": "SX Documento",
+        "resumen": (
+            "Una propuesta de herramienta con campos guiados para organizar y "
+            "dar formato a documentos según el estilo que necesite cada persona, "
+            "por ejemplo APA 7."
+        ),
+        "pendientes": [
+            "Definir los tipos de documento y estilos de formato que se admitirán.",
+            "Precisar los campos guiados, las reglas de formato y las opciones de exportación.",
+            "Verificar las reglas editoriales vigentes antes de anunciar compatibilidad con APA 7.",
+        ],
+    },
+    "sx-help": {
+        "titulo": "SX Help",
+        "eslogan": "Orientación jurídica accesible para personas de escasos recursos.",
+        "resumen": (
+            "Una propuesta de espacio online para acercar información jurídica "
+            "general y recursos de consulta, y servir como canal de orientación "
+            "para denuncias ciudadanas de personas que enfrentan barreras para "
+            "acceder a apoyo."
+        ),
+        "pendientes": [
+            "Definir los países, jurisdicciones y temas que cubriría el servicio.",
+            "Definir el alcance del canal de denuncias, las entidades o mecanismos oficiales a los que podría orientar y cómo evitar prometer recepción o seguimiento de casos.",
+            "Determinar si ofrecerá información general, atención gratuita, contacto con profesionales o una combinación de opciones.",
+            "Establecer revisión por profesionales, privacidad, manejo seguro de datos sensibles y límites claros; la herramienta no debe presentarse como sustituto de asesoría legal individual ni de los canales oficiales de denuncia.",
+        ],
+    },
+    "sx-mistico": {
+        "titulo": "SX Místico",
+        "resumen": (
+            "Una propuesta de página dedicada al esoterismo, sus tradiciones, "
+            "prácticas y contenidos relacionados."
+        ),
+        "pendientes": [
+            "Definir las temáticas, tradiciones y formatos de contenido que incluirá.",
+            "Establecer criterios editoriales para distinguir información cultural de afirmaciones no verificadas.",
+            "Diseñar la estructura de navegación y las secciones de la página.",
+        ],
+    },
+    "sx-gestion-agil": {
+        "titulo": "SX Gestión Ágil",
+        "eslogan": "Organización empresarial con prácticas ágiles adaptables.",
+        "resumen": (
+            "Una propuesta de herramienta para ayudar a pequeñas empresas y "
+            "negocios a organizar proyectos, tareas, prioridades y colaboración "
+            "de equipo mediante prácticas ágiles ajustables a su operación."
+        ),
+        "pendientes": [
+            "Definir los tipos de negocio, tamaños de equipo y sectores a los que se dirigirá.",
+            "Elegir qué prácticas ágiles ofrecerá y cómo adaptarlas a distintos flujos de trabajo sin imponer una metodología única.",
+            "Determinar si incluirá seguimiento de tareas, proyectos, objetivos e indicadores, y qué información será necesaria.",
+            "Establecer requisitos de privacidad, permisos por rol, respaldo de datos y posibles integraciones antes de desarrollar funciones.",
+        ],
+    },
+    "nutria-intro": {
+        "titulo": "SX Nutria — Introducción",
+        "resumen": "Página educativa de alimentación para personas adultas.",
+    },
+}
+
+# Formato: clave -> (nombre visible, lista de campos editables)
+CAMPOS_TEXTO = {
+    "sx-woodpecker-os": ["titulo", "resumen", "pendientes"],
+    "sx-orange-page": ["titulo", "resumen", "pendientes"],
+    "sx-recruiter": ["titulo", "resumen", "pendientes"],
+    "sx-registros": ["titulo", "resumen", "pendientes"],
+    "sx-documento": ["titulo", "resumen", "pendientes"],
+    "sx-help": ["titulo", "eslogan", "resumen", "pendientes"],
+    "sx-mistico": ["titulo", "resumen", "pendientes"],
+    "sx-gestion-agil": ["titulo", "eslogan", "resumen", "pendientes"],
+}
+
+ETIQUETAS_CAMPO = {
+    "titulo": "Título",
+    "eslogan": "Eslogan (opcional)",
+    "resumen": "Resumen",
+    "pendientes": "Puntos pendientes (un punto por línea)",
+}
+
+
+def obtener_textos(clave):
+    """Devuelve los textos de una ficha: los guardados en la base de datos o los iniciales."""
+    datos = {"titulo": "", "eslogan": "", "resumen": "", "pendientes": ""}
+    datos.update(TEXTOS_BASE.get(clave, {}))
+    datos["pendientes"] = "\n".join(datos.get("pendientes", []))
+    with sqlite3.connect(DB_PATH) as conexion:
+        for campo in CAMPOS_TEXTO.get(clave, []):
+            fila = conexion.execute(
+                "SELECT contenido FROM textos WHERE clave = ?", (f"{clave}:{campo}",)
+            ).fetchone()
+            if fila:
+                datos[campo] = fila[0]
+    return datos
 
 
 def formatear_fecha(iso):
@@ -119,8 +278,39 @@ def proyectos():
     return render_template("Proyectos/proyectos.html")
 
 
-# Las fichas informativas comparten una plantilla; cada ruta aporta los datos de
-# un borrador y las decisiones que siguen pendientes para ese proyecto.
+# Las fichas informativas comparten plantilla y textos; cada ruta consulta la
+# base de datos (o los textos iniciales) según la clave del proyecto.
+FICHAS = {
+    "sx-woodpecker-os": "/sx-woodpecker-os",
+    "sx-orange-page": "/sx-orange-page",
+    "sx-recruiter": "/sx-recruiter",
+    "sx-registros": "/sx-registros",
+    "sx-documento": "/sx-documento",
+    "sx-help": "/sx-help",
+    "sx-mistico": "/sx-mistico",
+    "sx-gestion-agil": "/sx-gestion-agil",
+}
+
+
+def render_ficha(clave):
+    textos = obtener_textos(clave)
+    pendientes = [p.strip() for p in textos["pendientes"].split("\n") if p.strip()]
+    return render_template(
+        "Proyectos/borrador.html",
+        project_name=textos["titulo"],
+        tagline=textos["eslogan"] or None,
+        summary=textos["resumen"],
+        pending_details=pendientes,
+    )
+
+
+for _clave, _ruta in FICHAS.items():
+    def _vista(clave=_clave):
+        return render_ficha(clave)
+    # El endpoint conserva el nombre de la función original para no romper url_for existentes.
+    app.add_url_rule(_ruta, _clave.replace("-", "_"), _vista)
+
+
 @app.route("/sx-library")
 def sx_library():
     return render_template("Proyectos/SX_Library/library.html")
@@ -234,150 +424,6 @@ def sx_library_area(area_slug):
 def sx_library_paz_y_conflicto():
     return render_template(
         "Proyectos/SX_Library/Derecho/Paz_y_conflicto/paz_y_conflicto.html"
-    )
-
-
-@app.route("/sx-woodpecker-os")
-def sx_woodpecker_os():
-    return render_template(
-        "Proyectos/borrador.html",
-        project_name="SX Woodpecker OS",
-        summary=(
-            "Una propuesta de sistema operativo basado en Debian, orientado al "
-            "aseguramiento de calidad y seguridad en infraestructuras digitales."
-        ),
-        pending_details=[
-            "Definir los componentes y herramientas que formarán parte del sistema.",
-            "Establecer el alcance de las pruebas y los perfiles de infraestructura compatibles.",
-            "Documentar requisitos, instalación, mantenimiento y ciclo de actualizaciones.",
-        ],
-    )
-
-
-@app.route("/sx-orange-page")
-def sx_orange_page():
-    return render_template(
-        "Proyectos/borrador.html",
-        project_name="SX Orange Page",
-        summary=(
-            "Una propuesta de directorio local para consultar información general "
-            "y datos de ubicación de comercios."
-        ),
-        pending_details=[
-            "Definir las zonas y categorías incluidas en el directorio.",
-            "Acordar cómo se verificará y actualizará la información publicada.",
-            "Establecer criterios de privacidad y autorización para los datos.",
-        ],
-    )
-
-
-@app.route("/sx-recruiter")
-def sx_recruiter():
-    return render_template(
-        "Proyectos/borrador.html",
-        project_name="SX Recruiter",
-        summary=(
-            "Una propuesta para reunir oportunidades laborales de distintos tipos "
-            "dirigidas a personas de Latinoamérica."
-        ),
-        pending_details=[
-            "Definir las fuentes y el proceso de revisión de cada oportunidad.",
-            "Precisar las categorías, regiones y condiciones que se mostrarán.",
-            "Establecer cómo se reportarán ofertas vencidas o información incorrecta.",
-        ],
-    )
-
-
-@app.route("/sx-registros")
-def sx_registros():
-    return render_template(
-        "Proyectos/borrador.html",
-        project_name="SX Registros",
-        summary=(
-            "Una propuesta de canal oficial para registrar el interés en participar "
-            "en los proyectos de SXcontrol."
-        ),
-        pending_details=[
-            "Definir qué información sería necesaria y con qué propósito.",
-            "Publicar las condiciones de privacidad y el tiempo de conservación de datos.",
-            "Diseñar el proceso de revisión y respuesta antes de aceptar registros.",
-        ],
-    )
-
-
-@app.route("/sx-documento")
-def sx_documento():
-    return render_template(
-        "Proyectos/borrador.html",
-        project_name="SX Documento",
-        summary=(
-            "Una propuesta de herramienta con campos guiados para organizar y "
-            "dar formato a documentos según el estilo que necesite cada persona, "
-            "por ejemplo APA 7."
-        ),
-        pending_details=[
-            "Definir los tipos de documento y estilos de formato que se admitirán.",
-            "Precisar los campos guiados, las reglas de formato y las opciones de exportación.",
-            "Verificar las reglas editoriales vigentes antes de anunciar compatibilidad con APA 7.",
-        ],
-    )
-
-
-@app.route("/sx-help")
-def sx_help():
-    return render_template(
-        "Proyectos/borrador.html",
-        project_name="SX Help",
-        tagline="Orientación jurídica accesible para personas de escasos recursos.",
-        summary=(
-            "Una propuesta de espacio online para acercar información jurídica "
-            "general y recursos de consulta, y servir como canal de orientación "
-            "para denuncias ciudadanas de personas que enfrentan barreras para "
-            "acceder a apoyo."
-        ),
-        pending_details=[
-            "Definir los países, jurisdicciones y temas que cubriría el servicio.",
-            "Definir el alcance del canal de denuncias, las entidades o mecanismos oficiales a los que podría orientar y cómo evitar prometer recepción o seguimiento de casos.",
-            "Determinar si ofrecerá información general, atención gratuita, contacto con profesionales o una combinación de opciones.",
-            "Establecer revisión por profesionales, privacidad, manejo seguro de datos sensibles y límites claros; la herramienta no debe presentarse como sustituto de asesoría legal individual ni de los canales oficiales de denuncia.",
-        ],
-    )
-
-
-@app.route("/sx-mistico")
-def sx_mistico():
-    return render_template(
-        "Proyectos/borrador.html",
-        project_name="SX Místico",
-        summary=(
-            "Una propuesta de página dedicada al esoterismo, sus tradiciones, "
-            "prácticas y contenidos relacionados."
-        ),
-        pending_details=[
-            "Definir las temáticas, tradiciones y formatos de contenido que incluirá.",
-            "Establecer criterios editoriales para distinguir información cultural de afirmaciones no verificadas.",
-            "Diseñar la estructura de navegación y las secciones de la página.",
-        ],
-    )
-
-
-@app.route("/sx-gestion-agil")
-def sx_gestion_agil():
-    return render_template(
-        "Proyectos/borrador.html",
-        project_name="SX Gestión Ágil",
-        tagline="Organización empresarial con prácticas ágiles adaptables.",
-        summary=(
-            "Una propuesta de herramienta para ayudar a pequeñas empresas y "
-            "negocios a organizar proyectos, tareas, prioridades y colaboración "
-            "de equipo mediante prácticas ágiles ajustables a su operación."
-        ),
-        pending_details=[
-            "Definir los tipos de negocio, tamaños de equipo y sectores a los que se dirigirá.",
-            "Elegir qué prácticas ágiles ofrecerá y cómo adaptarlas a distintos flujos de trabajo sin imponer una metodología única.",
-            "Determinar si incluirá seguimiento de tareas, proyectos, objetivos e indicadores, y qué información será necesaria.",
-            "Establecer requisitos de privacidad, permisos por rol, respaldo de datos y posibles integraciones antes de desarrollar funciones.",
-        ],
     )
 
 
@@ -607,12 +653,14 @@ def blog():
     return render_template("Blog/blog.html", entradas_bd=entradas_blog())
 
 
-# Formulario protegido por clave para registrar actualizaciones del blog en la base de datos.
-@app.route("/blog/admin", methods=["GET", "POST"])
-def blog_admin():
+# Panel único de administración: entradas del blog y textos de las fichas.
+@app.route("/admin", methods=["GET", "POST"])
+def admin():
     mensaje = None
     error = None
-    if request.method == "POST":
+
+    # Sección 1: registrar una entrada nueva del blog.
+    if request.method == "POST" and request.form.get("accion") == "entrada":
         clave = request.form.get("clave", "")
         fecha = request.form.get("fecha", "").strip()
         titulo = request.form.get("titulo", "").strip()
@@ -633,7 +681,46 @@ def blog_admin():
                     (fecha, titulo, cuerpo, datetime.now().isoformat(timespec="seconds")),
                 )
             mensaje = "Entrada registrada. Ya aparece en el Blog."
-    return render_template("Blog/blog_admin.html", mensaje=mensaje, error=error)
+
+    # Sección 2: guardar los textos editados de una ficha.
+    if request.method == "POST" and request.form.get("accion") == "textos":
+        clave_ficha = request.form.get("clave", "")
+        if clave_ficha not in CAMPOS_TEXTO:
+            abort(400)
+        if request.form.get("clave_acceso", "") != app.config["BLOG_ADMIN_KEY"]:
+            error = "Clave incorrecta."
+        else:
+            ahora = datetime.now().isoformat(timespec="seconds")
+            with sqlite3.connect(DB_PATH) as conexion:
+                for campo in CAMPOS_TEXTO[clave_ficha]:
+                    contenido = request.form.get(campo, "").strip()
+                    if campo == "titulo" and not contenido:
+                        continue
+                    conexion.execute(
+                        """
+                        INSERT INTO textos (clave, contenido, actualizada)
+                        VALUES (?, ?, ?)
+                        ON CONFLICT(clave) DO UPDATE SET contenido = excluded.contenido,
+                            actualizada = excluded.actualizada
+                        """,
+                        (f"{clave_ficha}:{campo}", contenido, ahora),
+                    )
+            mensaje = "Textos guardados. Ya aparecen en la página del proyecto."
+
+    # La ficha mostrada en el editor se elige con ?clave=... (GET) o desde el último POST.
+    clave_seleccionada = request.values.get("clave", "sx-woodpecker-os")
+    if clave_seleccionada not in CAMPOS_TEXTO:
+        clave_seleccionada = "sx-woodpecker-os"
+    return render_template(
+        "Blog/admin.html",
+        clave_seleccionada=clave_seleccionada,
+        fichas=[(c, TEXTOS_BASE[c]["titulo"]) for c in CAMPOS_TEXTO],
+        campos=CAMPOS_TEXTO[clave_seleccionada],
+        etiquetas=ETIQUETAS_CAMPO,
+        textos=obtener_textos(clave_seleccionada),
+        mensaje=mensaje,
+        error=error,
+    )
 
 
 # Permite ejecutar el servidor de desarrollo al iniciar este archivo directamente.
