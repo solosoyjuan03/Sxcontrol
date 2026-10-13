@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Panel único de administración: entradas del blog y textos de las fichas. -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Administración - SXcontrol</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+    <header>
+        <a class="logo" href="/" aria-label="SXcontrol, inicio">SX<span>control</span></a>
+        <nav>
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/blog/noticias" class="active">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="hero">
+        <h1><span>Panel de</span> administración</h1>
+        <p>Desde aquí registras entradas nuevas del Blog y editas los textos de las fichas de proyectos. Todo queda
+            guardado en la base de datos SQLite.</p>
+
+        {% if mensaje %}
+        <p class="admin-mensaje"><strong>{{ mensaje }}</strong></p>
+        {% endif %}
+        {% if error %}
+        <p class="admin-error"><strong>{{ error }}</strong></p>
+        {% endif %}
+
+        <section aria-labelledby="titulo-entradas">
+            <h2 id="titulo-entradas">Nueva entrada del Blog</h2>
+            <form method="post" action="/admin" class="admin-form">
+                <input type="hidden" name="accion" value="entrada">
+                <label for="clave">Clave de acceso</label>
+                <input type="password" id="clave" name="clave" required>
+
+                <label for="fecha">Fecha de la entrada (AAAA-MM-DD)</label>
+                <input type="text" id="fecha" name="fecha" placeholder="2026-10-13" required>
+
+                <label for="titulo">Título</label>
+                <input type="text" id="titulo" name="titulo" maxlength="120" required>
+
+                <label for="cuerpo">Contenido (cada línea en blanco separa un párrafo)</label>
+                <textarea id="cuerpo" name="cuerpo" rows="8" required></textarea>
+
+                <button type="submit">Guardar entrada</button>
+            </form>
+        </section>
+
+        <section aria-labelledby="titulo-textos">
+            <h2 id="titulo-textos">Textos de las fichas</h2>
+            <form method="get" action="/admin" class="admin-form">
+                <label for="selector">Proyecto</label>
+                <select id="selector" name="clave" onchange="this.form.submit()">
+                    {% for codigo, nombre in fichas %}
+                    <option value="{{ codigo }}" {% if codigo==clave_seleccionada %}selected{% endif %}>{{ nombre }}
+                    </option>
+                    {% endfor %}
+                </select>
+                <noscript><button type="submit">Cargar</button></noscript>
+            </form>
+
+            <form method="post" action="/admin" class="admin-form">
+                <input type="hidden" name="accion" value="textos">
+                <input type="hidden" name="clave" value="{{ clave_seleccionada }}">
+
+                <label for="clave_acceso">Clave de acceso</label>
+                <input type="password" id="clave_acceso" name="clave_acceso" required>
+
+                {% for campo in campos %}
+                <label for="{{ campo }}">{{ etiquetas[campo] }}</label>
+                {% if campo == 'resumen' or campo == 'pendientes' %}
+                <textarea id="{{ campo }}" name="{{ campo }}"
+                    rows="{{ 8 if campo == 'pendientes' else 4 }}">{{ textos[campo] }}</textarea>
+                {% else %}
+                <input type="text" id="{{ campo }}" name="{{ campo }}" value="{{ textos[campo] }}">
+                {% endif %}
+                {% endfor %}
+
+                <button type="submit">Guardar textos</button>
+            </form>
+
+            <p><a href="/{{ clave_seleccionada }}">Ver la página pública de esta ficha</a></p>
+        </section>
+    </main>
+</body>
+
+</html>

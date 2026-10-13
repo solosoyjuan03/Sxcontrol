@@ -1159,7 +1159,7 @@ header nav a:hover {
     }
 }
 
-/* Formulario interno para registrar entradas del blog. */
+/* Formularios del panel de administración. */
 .admin-form {
     display: flex;
     flex-direction: column;
@@ -1167,6 +1167,7 @@ header nav a:hover {
     max-width: 640px;
     margin: 0 auto;
     text-align: left;
+    color-scheme: light;
 }
 
 .admin-form label {
@@ -1175,12 +1176,20 @@ header nav a:hover {
 }
 
 .admin-form input,
-.admin-form textarea {
+.admin-form textarea,
+.admin-form select {
     padding: 10px;
     border: 1px solid #b8c4d4;
     border-radius: 8px;
     font: inherit;
     background: #fff;
+    color: #0d0d0d;
+}
+
+.admin-form input::placeholder,
+.admin-form textarea::placeholder {
+    color: #6b7280;
+    opacity: 1;
 }
 
 .admin-form button {
@@ -1206,4 +1215,104 @@ header nav a:hover {
 .admin-error {
     color: #b02a2a;
     font-weight: 600;
+}
+
+/* Navegación por pestañas del panel de administración. */
+.admin-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    max-width: 640px;
+    margin: 32px auto 24px;
+}
+
+.admin-tabs button {
+    padding: 10px 18px;
+    border: 2px solid var(--sx-border);
+    border-radius: 999px;
+    background: var(--sx-black-soft);
+    color: var(--sx-white);
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.admin-tabs button:hover {
+    border-color: var(--sx-orange);
+}
+
+.admin-tabs button[aria-selected="true"] {
+    border-color: var(--sx-orange);
+    background: var(--sx-orange);
+    color: var(--sx-black);
+}
+
+.admin-panel[hidden] {
+    display: none;
+}
+
+.admin-panel h2 {
+    margin: 0 0 8px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--sx-orange);
+    text-align: center;
+}
+
+.admin-panel h3 {
+    margin: 24px 0 8px;
+    color: var(--sx-orange);
+}
+
+.admin-lista {
+    max-width: 640px;
+    margin: 12px auto;
+    padding-left: 20px;
+    text-align: left;
+}
+
+.admin-lista li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 8px 12px;
+    margin-bottom: 6px;
+    border: 1px solid var(--sx-border);
+    border-radius: 8px;
+    background: var(--sx-black-soft);
+}
+
+.admin-lista form {
+    display: inline;
+}
+
+.admin-lista button {
+    padding: 6px 14px;
+    border: 1px solid #b02a2a;
+    border-radius: 6px;
+    background: transparent;
+    color: #ff8f8f;
+    font: inherit;
+    cursor: pointer;
+}
+
+.admin-lista button:hover {
+    background: #b02a2a;
+    color: #fff;
+}
+
+.admin-enlace {
+    display: block;
+    max-width: 640px;
+    margin: 16px auto 0;
+    color: var(--sx-orange);
+    text-align: center;
+}
+
+@media (max-width: 640px) {
+    .admin-tabs {
+        flex-direction: column;
+    }
 }
