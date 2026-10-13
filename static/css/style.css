@@ -1158,3 +1158,52 @@ header nav a:hover {
         animation-iteration-count: 1 !important;
     }
 }
+
+/* Formulario interno para registrar entradas del blog. */
+.admin-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.admin-form label {
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.admin-form input,
+.admin-form textarea {
+    padding: 10px;
+    border: 1px solid #b8c4d4;
+    border-radius: 8px;
+    font: inherit;
+    background: #fff;
+}
+
+.admin-form button {
+    margin-top: 16px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #1c5d99;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.admin-form button:hover {
+    background: #164b7c;
+}
+
+.admin-mensaje {
+    color: #1a7a3a;
+    font-weight: 600;
+}
+
+.admin-error {
+    color: #b02a2a;
+    font-weight: 600;
+}

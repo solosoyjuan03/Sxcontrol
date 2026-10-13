@@ -713,7 +713,13 @@ class PruebasCalidadSitio(unittest.TestCase):
         page = response.get_data(as_text=True)
 
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(page.count('<details class="noticias-fecha">'), 6)
+        # Las entradas guardadas en la base de datos del blog se suman a las escritas en la plantilla.
+        from app import DB_PATH
+        import sqlite3
+        with sqlite3.connect(DB_PATH) as conexion:
+            total_bd = conexion.execute("SELECT COUNT(*) FROM entradas").fetchone()[0]
+        esperados = 8 + total_bd
+        self.assertEqual(page.count('<details class="noticias-fecha"'), esperados)
         self.assertIn('<summary><time datetime="2026-10-06">6 de octubre de 2026</time></summary>', page)
         self.assertIn('<summary><time datetime="2026-10-04">4 de octubre de 2026</time></summary>', page)
         self.assertIn('<summary><time datetime="2026-10-05">5 de octubre de 2026</time></summary>', page)
@@ -722,8 +728,8 @@ class PruebasCalidadSitio(unittest.TestCase):
         self.assertIn('<summary><time datetime="2026-09-23">23 de septiembre de 2026</time></summary>', page)
         self.assertIn("Nuevos libros digitales en SX Library", page)
         self.assertIn("Inicio del historial de SXcontrol", page)
-        self.assertEqual(page.count('class="noticias-fecha-contenido"'), 6)
-        self.assertNotIn('<details class="noticias-fecha" open>', page)
+        self.assertEqual(page.count('class="noticias-fecha-contenido"'), esperados)
+        self.assertEqual(page.count('<details class="noticias-fecha" open>'), 2 + (1 if total_bd else 0))
         self.assertLess(page.index('datetime="2026-10-06"'), page.index('datetime="2026-10-05"'))
         self.assertLess(page.index('datetime="2026-10-05"'), page.index('datetime="2026-10-04"'))
         self.assertLess(page.index('datetime="2026-10-04"'), page.index('datetime="2026-09-25"'))

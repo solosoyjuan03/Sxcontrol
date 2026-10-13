@@ -27,6 +27,24 @@
         <h1><span>Noticias</span> SXcontrol</h1>
         <p>Selecciona una fecha para desplegar las novedades y avances registrados ese día.</p>
 
+        {% if entradas_bd %}
+        {% for entrada in entradas_bd %}
+        <section class="noticias-timeline" aria-label="Entrada del {{ entrada.fecha_texto }}">
+            <details class="noticias-fecha" {% if loop.first %}open{% endif %}>
+                <summary><time datetime="{{ entrada.fecha }}">{{ entrada.fecha_texto }}</time></summary>
+                <div class="noticias-fecha-contenido">
+                    <article class="noticia-avance">
+                        <h3>{{ entrada.titulo }}</h3>
+                        {% for parrafo in entrada.parrafos %}
+                        <p>{{ parrafo }}</p>
+                        {% endfor %}
+                    </article>
+                </div>
+            </details>
+        </section>
+        {% endfor %}
+        {% endif %}
+
         {% macro novedades_8_octubre() %}
         <section class="noticias-timeline" aria-label="Avances del 8 de octubre">
             <details class="noticias-fecha" open>

@@ -1,9 +1,71 @@
 import math
+import sqlite3
+from datetime import datetime
+from pathlib import Path
 
 from flask import Flask, abort, redirect, render_template, request, url_for
 
 # La aplicación concentra las rutas públicas y los cálculos usados por las páginas.
 app = Flask(__name__)
+
+# Clave para registrar entradas del blog; se puede cambiar con la variable de entorno BLOG_ADMIN_KEY.
+app.config["BLOG_ADMIN_KEY"] = os_environ = __import__("os").environ.get("BLOG_ADMIN_KEY", "sxcontrol2026")
+
+# Ruta de la base de datos SQLite del blog, junto a app.py.
+BASE_DIR = Path(__file__).resolve().parent
+DB_PATH = BASE_DIR / "blog.db"
+
+MESES_ES = {
+    1: "enero", 2: "febrero", 3: "marzo", 4: "abril", 5: "mayo", 6: "junio",
+    7: "julio", 8: "agosto", 9: "septiembre", 10: "octubre", 11: "noviembre", 12: "diciembre",
+}
+
+
+def init_db():
+    """Crea la tabla de entradas del blog si aún no existe."""
+    with sqlite3.connect(DB_PATH) as conexion:
+        conexion.execute(
+            """
+            CREATE TABLE IF NOT EXISTS entradas (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                fecha TEXT NOT NULL,
+                titulo TEXT NOT NULL,
+                cuerpo TEXT NOT NULL,
+                creada TEXT NOT NULL
+            )
+            """
+        )
+
+
+def formatear_fecha(iso):
+    """Convierte '2026-10-08' en '8 de octubre de 2026' para mostrar en el blog."""
+    try:
+        fecha = datetime.strptime(iso, "%Y-%m-%d").date()
+    except ValueError:
+        return iso
+    return f"{fecha.day} de {MESES_ES[fecha.month]} de {fecha.year}"
+
+
+def entradas_blog():
+    """Devuelve las entradas guardadas en la base de datos, de la más reciente a la más antigua."""
+    with sqlite3.connect(DB_PATH) as conexion:
+        conexion.row_factory = sqlite3.Row
+        filas = conexion.execute(
+            "SELECT id, fecha, titulo, cuerpo FROM entradas ORDER BY fecha DESC, id DESC"
+        ).fetchall()
+    return [
+        {
+            "id": fila["id"],
+            "fecha": fila["fecha"],
+            "fecha_texto": formatear_fecha(fila["fecha"]),
+            "titulo": fila["titulo"],
+            "parrafos": [p.strip() for p in fila["cuerpo"].split("\n") if p.strip()],
+        }
+        for fila in filas
+    ]
+
+
+init_db()
 
 SX_LIBRARY_AREAS = {
     "marketing": {
@@ -542,7 +604,36 @@ def servicios_anterior():
 @app.route("/blog")
 @app.route("/blog/noticias")
 def blog():
-    return render_template("Blog/blog.html")
+    return render_template("Blog/blog.html", entradas_bd=entradas_blog())
+
+
+# Formulario protegido por clave para registrar actualizaciones del blog en la base de datos.
+@app.route("/blog/admin", methods=["GET", "POST"])
+def blog_admin():
+    mensaje = None
+    error = None
+    if request.method == "POST":
+        clave = request.form.get("clave", "")
+        fecha = request.form.get("fecha", "").strip()
+        titulo = request.form.get("titulo", "").strip()
+        cuerpo = request.form.get("cuerpo", "").strip()
+        if clave != app.config["BLOG_ADMIN_KEY"]:
+            error = "Clave incorrecta."
+        elif not fecha or not titulo or not cuerpo:
+            error = "Completa la fecha, el título y el contenido."
+        else:
+            try:
+                datetime.strptime(fecha, "%Y-%m-%d")
+            except ValueError:
+                error = "La fecha debe tener formato AAAA-MM-DD, por ejemplo 2026-10-13."
+        if not error:
+            with sqlite3.connect(DB_PATH) as conexion:
+                conexion.execute(
+                    "INSERT INTO entradas (fecha, titulo, cuerpo, creada) VALUES (?, ?, ?, ?)",
+                    (fecha, titulo, cuerpo, datetime.now().isoformat(timespec="seconds")),
+                )
+            mensaje = "Entrada registrada. Ya aparece en el Blog."
+    return render_template("Blog/blog_admin.html", mensaje=mensaje, error=error)
 
 
 # Permite ejecutar el servidor de desarrollo al iniciar este archivo directamente.
