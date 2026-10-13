@@ -396,7 +396,6 @@ class PruebasCalidadSitio(unittest.TestCase):
                 self.assertIn(f'href="/sx-library/{area_slug}"', library)
                 self.assertIn(f"<title>{area_name} - SX Library</title>", area_page)
                 if area_slug == "educacion":
-                    self.assertIn("Colección en crecimiento", area_page)
                     self.assertIn("Libros de Educación", area_page)
                     self.assertIn("Educación digital", area_page)
                     self.assertNotIn("Subáreas de Educación", area_page)
@@ -489,7 +488,6 @@ class PruebasCalidadSitio(unittest.TestCase):
             'href="/sx-library/marketing/investigacion-de-mercados"',
             area,
         )
-        self.assertIn("Colección en crecimiento", area)
 
         self.assertEqual(book_response.status_code, 200)
         self.assertIn(

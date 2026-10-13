@@ -55,6 +55,32 @@ def init_db():
             )
             """
         )
+        # Áreas de SX Library (Derecho, Software, Marketing, Educación, etc.).
+        conexion.execute(
+            """
+            CREATE TABLE IF NOT EXISTS library_areas (
+                slug TEXT PRIMARY KEY,
+                nombre TEXT NOT NULL,
+                descripcion TEXT NOT NULL,
+                posicion INTEGER NOT NULL DEFAULT 0
+            )
+            """
+        )
+        # Libros de SX Library, vinculados a un área. Si tiene url, el enlace
+        # apunta a la página propia del libro; si no, se muestra como en preparación.
+        conexion.execute(
+            """
+            CREATE TABLE IF NOT EXISTS library_libros (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                area_slug TEXT NOT NULL REFERENCES library_areas(slug),
+                titulo TEXT NOT NULL,
+                autor TEXT NOT NULL,
+                descripcion TEXT NOT NULL,
+                url TEXT,
+                posicion INTEGER NOT NULL DEFAULT 0
+            )
+            """
+        )
 
 
 # Textos iniciales de las fichas de borrador. Actúan como respaldo cuando la
@@ -190,6 +216,74 @@ ETIQUETAS_CAMPO = {
 }
 
 
+# Áreas iniciales de SX Library, respaldo cuando la base de datos está vacía.
+AREAS_BASE = {
+    "derecho": {"nombre": "Derecho", "descripcion": "Lecturas sobre derechos, convivencia y resolución pacífica de conflictos.", "posicion": 1},
+    "software": {"nombre": "Software", "descripcion": "Libros y materiales sobre programación, ingeniería de software y herramientas digitales.", "posicion": 2},
+    "marketing": {"nombre": "Marketing", "descripcion": "Marketing, comunicación, marcas y estrategias para conectar con distintos públicos.", "posicion": 3},
+    "educacion": {"nombre": "Educación", "descripcion": "Enseñanza, aprendizaje, pedagogía y recursos educativos.", "posicion": 4},
+}
+
+# Libros iniciales con página propia (url) o solo ficha en el área.
+LIBROS_BASE = [
+    ("derecho", "Paz y conflicto", "Juan D. Henao", "Una introducción a las ideas de paz, los niveles de conflicto y las condiciones sociales que influyen en su desarrollo. Versión de trabajo en tres capítulos.", "/sx-library/paz-y-conflicto", 1),
+    ("derecho", "Fundamentos jurídicos de Colombia", "Juan D. Henao", "Tres capítulos sobre la estructura jurídica colombiana: normas, derechos y rutas de consulta institucional.", "/sx-library/derecho/fundamentos-juridicos-colombia", 2),
+    ("software", "Pensamiento algorítmico", "Juan D. Henao", "Tres unidades sobre fundamentos del razonamiento algorítmico, la Revolución 4.0 y el diseño de algoritmos.", "/sx-library/software/pensamiento-algoritmico", 1),
+    ("marketing", "Investigación de mercados", "Juan D. Henao", "Guía introductoria en tres capítulos: definir y diseñar el estudio, recopilar información y analizar los resultados.", "/sx-library/marketing/investigacion-de-mercados", 1),
+    ("marketing", "Plan de marketing", "Juan D. Henao", "Historial de la empresa, mezcla de marketing e implementación con responsables e indicadores.", "/sx-library/marketing/plan-de-marketing", 2),
+    ("marketing", "Plan de ventas", "Juan D. Henao", "Objetivos y pronósticos fundamentados, proceso de ventas e implementación con mejora continua.", "/sx-library/marketing/plan-de-ventas", 3),
+    ("marketing", "Plan de mejora", "Juan D. Henao", "Integra investigación, plan de marketing y ventas para diagnosticar brechas y ejecutar mejoras con seguimiento.", "/sx-library/marketing/plan-de-mejora", 4),
+    ("educacion", "Educación digital", "Juan D. Henao", "Tres capítulos sobre aprendizaje virtual, autogestión y uso responsable de herramientas digitales.", "/sx-library/educacion/educacion-digital", 1),
+    ("educacion", "Educación inclusiva", "Juan D. Henao", "Guía de trabajo sobre barreras para el aprendizaje y la participación, diseño accesible y apoyos que respetan la diversidad.", "/sx-library/educacion/educacion-inclusiva", 2),
+    ("educacion", "Inclusividad legal en educación", "Juan D. Henao", "Guía de consulta sobre deberes, normas colombianas, fechas de aplicación y rutas de actuación institucional.", "/sx-library/educacion/inclusividad-legal", 3),
+]
+
+
+def sembrar_library():
+    """Carga las áreas y libros iniciales solo si las tablas están vacías."""
+    with sqlite3.connect(DB_PATH) as conexion:
+        if conexion.execute("SELECT COUNT(*) FROM library_areas").fetchone()[0] == 0:
+            conexion.executemany(
+                "INSERT INTO library_areas (slug, nombre, descripcion, posicion) VALUES (?, ?, ?, ?)",
+                [(s, d["nombre"], d["descripcion"], d["posicion"]) for s, d in AREAS_BASE.items()],
+            )
+        if conexion.execute("SELECT COUNT(*) FROM library_libros").fetchone()[0] == 0:
+            conexion.executemany(
+                "INSERT INTO library_libros (area_slug, titulo, autor, descripcion, url, posicion) VALUES (?, ?, ?, ?, ?, ?)",
+                LIBROS_BASE,
+            )
+
+
+def areas_library():
+    """Devuelve las áreas de SX Library ordenadas por su posición."""
+    with sqlite3.connect(DB_PATH) as conexion:
+        conexion.row_factory = sqlite3.Row
+        filas = conexion.execute(
+            "SELECT slug, nombre, descripcion FROM library_areas ORDER BY posicion, nombre"
+        ).fetchall()
+    return [dict(fila) for fila in filas]
+
+
+def libros_library(area_slug=None):
+    """Devuelve los libros de un área (o todos), ordenados por posición."""
+    with sqlite3.connect(DB_PATH) as conexion:
+        conexion.row_factory = sqlite3.Row
+        if area_slug:
+            filas = conexion.execute(
+                "SELECT id, area_slug, titulo, autor, descripcion, url FROM library_libros WHERE area_slug = ? ORDER BY posicion, id",
+                (area_slug,),
+            ).fetchall()
+        else:
+            filas = conexion.execute(
+                "SELECT id, area_slug, titulo, autor, descripcion, url FROM library_libros ORDER BY area_slug, posicion, id"
+            ).fetchall()
+    return [dict(fila) for fila in filas]
+
+
+# Áreas con página propia en plantillas fijas; las demás usan la plantilla genérica.
+AREAS_PLANTILLA_FIJA = {"derecho", "software"}
+
+
 def obtener_textos(clave):
     """Devuelve los textos de una ficha: los guardados en la base de datos o los iniciales."""
     datos = {"titulo": "", "eslogan": "", "resumen": "", "pendientes": ""}
@@ -234,6 +328,7 @@ def entradas_blog():
 
 
 init_db()
+sembrar_library()
 
 SX_LIBRARY_AREAS = {
     "marketing": {
@@ -322,7 +417,10 @@ for _clave, _ruta in FICHAS.items():
 
 @app.route("/sx-library")
 def sx_library():
-    return render_template("Proyectos/SX_Library/library.html")
+    return render_template(
+        "Proyectos/SX_Library/library.html",
+        areas_bd=areas_library(),
+    )
 
 
 @app.route("/sx-library/derecho")
@@ -417,15 +515,26 @@ def sx_library_removed_education_category(subarea_slug):
 
 @app.route("/sx-library/<area_slug>")
 def sx_library_area(area_slug):
-    if area_slug in SX_LIBRARY_REMOVED_EDUCATION_CATEGORIES:
+    # Si el slug existe como área registrada (base de datos), se muestra;
+    # solo las categorías eliminadas que ya no existen redirigen a Educación.
+    existe = sqlite3.connect(DB_PATH).execute(
+        "SELECT 1 FROM library_areas WHERE slug = ?", (area_slug,)
+    ).fetchone()
+    if not existe and area_slug in SX_LIBRARY_REMOVED_EDUCATION_CATEGORIES:
         return redirect(url_for("sx_library_area", area_slug="educacion"), code=301)
-    area = SX_LIBRARY_AREAS.get(area_slug)
-    if area is None:
+    # La descripción y el nombre del área pueden venir editados desde /admin.
+    area = SX_LIBRARY_AREAS.get(area_slug) or {}
+    fila = sqlite3.connect(DB_PATH).execute(
+        "SELECT nombre, descripcion FROM library_areas WHERE slug = ?", (area_slug,)
+    ).fetchone()
+    if fila is None and not area:
         abort(404)
     return render_template(
         "Proyectos/SX_Library/area.html",
         area_slug=area_slug,
-        **area,
+        area_name=fila[0] if fila else area["area_name"],
+        area_description=fila[1] if fila else area["area_description"],
+        libros=libros_library(area_slug),
     )
 
 
@@ -731,6 +840,60 @@ def admin():
                 )
         mensaje = "Textos guardados. Ya aparecen en la página del proyecto."
 
+    # Sección 3: crear un área nueva de SX Library.
+    if request.method == "POST" and request.form.get("accion") == "area":
+        slug = request.form.get("slug", "").strip().lower().replace(" ", "-")
+        nombre = request.form.get("nombre_area", "").strip()
+        descripcion = request.form.get("descripcion_area", "").strip()
+        if not slug or not nombre or not descripcion:
+            error = "Completa el identificador, el nombre y la descripción del área."
+        elif not slug.replace("-", "").isalnum():
+            error = "El identificador solo puede tener letras, números y guiones."
+        else:
+            try:
+                with sqlite3.connect(DB_PATH) as conexion:
+                    posicion = conexion.execute(
+                        "SELECT COALESCE(MAX(posicion), 0) + 1 FROM library_areas"
+                    ).fetchone()[0]
+                    conexion.execute(
+                        "INSERT INTO library_areas (slug, nombre, descripcion, posicion) VALUES (?, ?, ?, ?)",
+                        (slug, nombre, descripcion, posicion),
+                    )
+                mensaje = f"Área {nombre} creada. Ya aparece en SX Library."
+            except sqlite3.IntegrityError:
+                error = "Ya existe un área con ese identificador."
+
+    # Sección 4: registrar un libro nuevo en un área.
+    if request.method == "POST" and request.form.get("accion") == "libro":
+        area_slug = request.form.get("area_slug", "")
+        titulo = request.form.get("titulo_libro", "").strip()
+        autor = request.form.get("autor", "").strip()
+        descripcion = request.form.get("descripcion_libro", "").strip()
+        url = request.form.get("url_libro", "").strip()
+        if area_slug not in {a["slug"] for a in areas_library()}:
+            error = "Selecciona un área válida."
+        elif not titulo or not autor or not descripcion:
+            error = "Completa el título, el autor y la descripción del libro."
+        else:
+            with sqlite3.connect(DB_PATH) as conexion:
+                posicion = conexion.execute(
+                    "SELECT COALESCE(MAX(posicion), 0) + 1 FROM library_libros WHERE area_slug = ?",
+                    (area_slug,),
+                ).fetchone()[0]
+                conexion.execute(
+                    "INSERT INTO library_libros (area_slug, titulo, autor, descripcion, url, posicion) VALUES (?, ?, ?, ?, ?, ?)",
+                    (area_slug, titulo, autor, descripcion, url or None, posicion),
+                )
+            mensaje = f"Libro {titulo} registrado en el área."
+
+    # Sección 5: eliminar un libro (pide el id en el formulario).
+    if request.method == "POST" and request.form.get("accion") == "borrar_libro":
+        id_libro = request.form.get("id_libro", "")
+        if id_libro.isdigit():
+            with sqlite3.connect(DB_PATH) as conexion:
+                conexion.execute("DELETE FROM library_libros WHERE id = ?", (int(id_libro),))
+            mensaje = "Libro eliminado."
+
     # La ficha mostrada en el editor se elige con ?clave=... (GET) o desde el último POST.
     clave_seleccionada = request.values.get("clave", "sx-woodpecker-os")
     if clave_seleccionada not in CAMPOS_TEXTO:
@@ -742,6 +905,8 @@ def admin():
         campos=CAMPOS_TEXTO[clave_seleccionada],
         etiquetas=ETIQUETAS_CAMPO,
         textos=obtener_textos(clave_seleccionada),
+        areas_bd=areas_library(),
+        libros_bd=libros_library(),
         mensaje=mensaje,
         error=error,
     )

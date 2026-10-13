@@ -82,6 +82,70 @@
 
             <p><a href="/{{ clave_seleccionada }}">Ver la página pública de esta ficha</a></p>
         </section>
+
+        <section aria-labelledby="titulo-library">
+            <h2 id="titulo-library">SX Library — Áreas</h2>
+            <p>Las áreas nuevas aparecen de inmediato en la página de SX Library y en este formulario para registrar libros.</p>
+            <form method="post" action="/admin" class="admin-form">
+                <input type="hidden" name="accion" value="area">
+                <label for="slug">Identificador (letras, números y guiones; se usa en la URL)</label>
+                <input type="text" id="slug" name="slug" placeholder="salud" required>
+
+                <label for="nombre_area">Nombre del área</label>
+                <input type="text" id="nombre_area" name="nombre_area" required>
+
+                <label for="descripcion_area">Descripción</label>
+                <textarea id="descripcion_area" name="descripcion_area" rows="3" required></textarea>
+
+                <button type="submit">Crear área</button>
+            </form>
+            {% if areas_bd %}
+            <p>Áreas actuales: {% for a in areas_bd %}{{ a.nombre }}{% if not loop.last %}, {% endif %}{% endfor %}.</p>
+            {% endif %}
+        </section>
+
+        <section aria-labelledby="titulo-libros">
+            <h2 id="titulo-libros">SX Library — Libros</h2>
+            <form method="post" action="/admin" class="admin-form">
+                <input type="hidden" name="accion" value="libro">
+                <label for="area_slug">Área</label>
+                <select id="area_slug" name="area_slug" required>
+                    {% for a in areas_bd %}
+                    <option value="{{ a.slug }}">{{ a.nombre }}</option>
+                    {% endfor %}
+                </select>
+
+                <label for="titulo_libro">Título del libro</label>
+                <input type="text" id="titulo_libro" name="titulo_libro" required>
+
+                <label for="autor">Autor</label>
+                <input type="text" id="autor" name="autor" value="Juan D. Henao" required>
+
+                <label for="descripcion_libro">Descripción</label>
+                <textarea id="descripcion_libro" name="descripcion_libro" rows="3" required></textarea>
+
+                <label for="url_libro">URL de la página del libro (opcional; si queda vacía, se muestra como en preparación)</label>
+                <input type="text" id="url_libro" name="url_libro" placeholder="/sx-library/...">
+
+                <button type="submit">Registrar libro</button>
+            </form>
+
+            {% if libros_bd %}
+            <h3>Libros registrados</h3>
+            <ul>
+                {% for l in libros_bd %}
+                <li>
+                    {{ l.titulo }} ({{ l.area_slug }})
+                    <form method="post" action="/admin" style="display:inline">
+                        <input type="hidden" name="accion" value="borrar_libro">
+                        <input type="hidden" name="id_libro" value="{{ l.id }}">
+                        <button type="submit">Eliminar</button>
+                    </form>
+                </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </section>
     </main>
 </body>
 </html>

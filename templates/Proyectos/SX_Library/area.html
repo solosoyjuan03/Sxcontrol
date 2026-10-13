@@ -50,44 +50,32 @@
             </div>
         </section>
 
-        {% if area_slug is defined and area_slug == "educacion" %}
-        <section aria-labelledby="education-books-title">
-            <h2 id="education-books-title" class="library-section-heading">Libros de Educación</h2>
+        {% if libros %}
+        <section aria-labelledby="books-title">
+            <h2 id="books-title" class="library-section-heading">Libros de {{ area_name }}</h2>
             <div class="library-collections">
+                {% for libro in libros %}
                 <article class="library-collection">
-                    <span class="library-collection-icon" aria-hidden="true">&lt;/&gt;</span>
-                    <h3>Educación digital</h3>
-                    <p>Autor: Juan D. Henao · Versión de trabajo en tres capítulos sobre aprendizaje virtual, autogestión y uso responsable de herramientas digitales.</p>
-                    <a href="{{ url_for('sx_library_educacion_digital') }}" class="btn">Leer el libro</a>
+                    <h3>{{ libro.titulo }}</h3>
+                    <p>{{ libro.descripcion }}</p>
+                    {% if libro.url %}
+                    <a href="{{ libro.url }}" class="btn">Leer el libro</a>
+                    {% else %}
+                    <span class="btn btn-secundario" aria-disabled="true">En preparación</span>
+                    {% endif %}
                 </article>
-                <article class="library-collection">
-                    <span class="library-collection-icon" aria-hidden="true">∞</span>
-                    <h3>Educación inclusiva</h3>
-                    <p>Autor: Juan D. Henao · Guía de trabajo sobre barreras para el aprendizaje y la participación, diseño accesible y apoyos que respetan la diversidad.</p>
-                    <a href="{{ url_for('sx_library_educacion_inclusiva') }}" class="btn">Leer el libro</a>
-                </article>
-                <article class="library-collection">
-                    <span class="library-collection-icon" aria-hidden="true">§</span>
-                    <h3>Inclusividad legal en educación</h3>
-                    <p>Autor: Juan D. Henao · Guía de consulta sobre deberes, normas colombianas, fechas de aplicación y rutas de actuación institucional.</p>
-                    <a href="{{ url_for('sx_library_inclusividad_legal') }}" class="btn">Leer el libro</a>
-                </article>
+                {% endfor %}
             </div>
         </section>
-        {% endif %}
-
+        {% else %}
         <aside class="library-status" aria-label="Estado del área de {{ area_name }}">
             <span class="library-collection-icon" aria-hidden="true">i</span>
             <div>
-                {% if area_slug is defined and area_slug == "educacion" %}
-                <strong>Colección en crecimiento</strong>
-                <p>Educación digital, Educación inclusiva e Inclusividad legal en educación están disponibles como versiones de trabajo directamente desde esta área. La colección podrá ampliarse con más libros.</p>
-                {% else %}
                 <strong>Área en preparación</strong>
                 <p>Estamos organizando esta rama de la biblioteca. Los libros y materiales aparecerán aquí cuando estén listos para consulta.</p>
-                {% endif %}
             </div>
         </aside>
+        {% endif %}
     </main>
 </body>
 </html>
