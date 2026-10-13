@@ -712,7 +712,7 @@ def admin():
     if clave_seleccionada not in CAMPOS_TEXTO:
         clave_seleccionada = "sx-woodpecker-os"
     return render_template(
-        "Blog/admin.html",
+        "Admin/index.html",
         clave_seleccionada=clave_seleccionada,
         fichas=[(c, TEXTOS_BASE[c]["titulo"]) for c in CAMPOS_TEXTO],
         campos=CAMPOS_TEXTO[clave_seleccionada],
